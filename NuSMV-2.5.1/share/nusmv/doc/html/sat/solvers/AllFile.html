@@ -1,0 +1,214 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#SatMinisat.c"><CODE>SatMinisat.c</CODE></A>
+ <DD> Routines related to SatMinisat object.
+ <DT> <A HREF="#SatZchaff.c"><CODE>SatZchaff.c</CODE></A>
+ <DD> Routines related to SatZchaff object.
+</DL><HR>
+<A NAME="SatMinisat.c"><H1>SatMinisat.c</H1></A>
+Routines related to SatMinisat object. <P>
+<B>By: Andrei Tchaltsev, Marco Roveri</B><P>
+This file contains the definition of "SatMinisat" class.
+  The solver contains its own coding of varibales, so input variables may
+  by in any range from 1 .. INT_MAX, with possible holes in the range.
+
+  Group Control:
+   To control groups, every group has its ID, which is an usual internal
+   variable. If a formula is added to a permanent group, then literals are just
+   converted into the internal literals and the clauses are permamently
+   added to the solver.
+   If a formula is added to non-permanent group, then after convertion of
+   literals, every clause in the  group will additionally obtain one
+   literal which is just group id, and then the clauses are added permanently
+   to solver.
+   Then if a group is turn on, then just its negated ID is added temporary to
+   the solver. If we want to turn the group off, the just its ID
+   is added temporary to the solver. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#SatMinisat_create" TARGET="MAIN"><CODE>SatMinisat_create()</CODE></A>
+ <DD> Creates a Minisat SAT solver and initializes it.
+
+ <DT> <A HREF="AllDet.html#SatMinisat_destroy" TARGET="MAIN"><CODE>SatMinisat_destroy()</CODE></A>
+ <DD> Destroys an instance of a MiniSat SAT solver
+
+ <DT> <A HREF="AllDet.html#sat_minisat_cnfLiteral2minisatLiteral" TARGET="MAIN"><CODE>sat_minisat_cnfLiteral2minisatLiteral()</CODE></A>
+ <DD> Convert a cnf literal into an internal literal used by minisat
+
+ <DT> <A HREF="AllDet.html#sat_minisat_minisatLiteral2cnfLiteral" TARGET="MAIN"><CODE>sat_minisat_minisatLiteral2cnfLiteral()</CODE></A>
+ <DD> Convert an internal minisat literal into a cnf literal
+
+ <DT> <A HREF="AllDet.html#sat_minisat_add" TARGET="MAIN"><CODE>sat_minisat_add()</CODE></A>
+ <DD> Adds a clause to the solver database.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_set_polarity" TARGET="MAIN"><CODE>sat_minisat_set_polarity()</CODE></A>
+ <DD> Sets the polarity of the formula.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_set_preferred_variables" TARGET="MAIN"><CODE>sat_minisat_set_preferred_variables()</CODE></A>
+ <DD> Sets preferred variables in the solver
+
+ <DT> <A HREF="AllDet.html#sat_minisat_clear_preferred_variables" TARGET="MAIN"><CODE>sat_minisat_clear_preferred_variables()</CODE></A>
+ <DD> Clears preferred variables in the solver
+
+ <DT> <A HREF="AllDet.html#sat_minisat_solve_all_groups" TARGET="MAIN"><CODE>sat_minisat_solve_all_groups()</CODE></A>
+ <DD> Tries to solve all added formulas
+
+ <DT> <A HREF="AllDet.html#sat_minisat_solve_permanent_group_assume" TARGET="MAIN"><CODE>sat_minisat_solve_permanent_group_assume()</CODE></A>
+ <DD> Solves the permanent group under set of assumptions
+
+ <DT> <A HREF="AllDet.html#sat_minisat_get_conflicts" TARGET="MAIN"><CODE>sat_minisat_get_conflicts()</CODE></A>
+ <DD> Returns set of conflicting assumptions
+
+ <DT> <A HREF="AllDet.html#sat_minisat_make_model" TARGET="MAIN"><CODE>sat_minisat_make_model()</CODE></A>
+ <DD> This function creates a model (in the original CNF variables)
+
+ <DT> <A HREF="AllDet.html#sat_minisat_create_group" TARGET="MAIN"><CODE>sat_minisat_create_group()</CODE></A>
+ <DD> Creates a new group and returns its ID
+
+ <DT> <A HREF="AllDet.html#sat_minisat_destroy_group" TARGET="MAIN"><CODE>sat_minisat_destroy_group()</CODE></A>
+ <DD> Destroy an existing group (which has been returned by
+  SatIncSolver_create_group) and all formulas in it.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_move_to_permanent_and_destroy_group" TARGET="MAIN"><CODE>sat_minisat_move_to_permanent_and_destroy_group()</CODE></A>
+ <DD> Moves all formulas from a group into the permanent group of
+  the solver and then destroy the given group.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_solve_groups" TARGET="MAIN"><CODE>sat_minisat_solve_groups()</CODE></A>
+ <DD> Tries to solve formulas from the groups in the list.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_solve_without_groups" TARGET="MAIN"><CODE>sat_minisat_solve_without_groups()</CODE></A>
+ <DD> Tries to solve formulas in groups belonging to the solver
+  except the groups in the list.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_make_conflicts" TARGET="MAIN"><CODE>sat_minisat_make_conflicts()</CODE></A>
+ <DD> Obtains the set of conflicting assumptions from MiniSat
+
+ <DT> <A HREF="AllDet.html#sat_minisat_set_random_mode" TARGET="MAIN"><CODE>sat_minisat_set_random_mode()</CODE></A>
+ <DD> Pure virtual function, sets random polarity mode if seed is
+  not zero, otherwise sets default non-random polarity mode.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_set_polarity_mode" TARGET="MAIN"><CODE>sat_minisat_set_polarity_mode()</CODE></A>
+ <DD> Pure virtual function, sets polarity mode accordingly to the
+  passed value.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_get_polarity_mode" TARGET="MAIN"><CODE>sat_minisat_get_polarity_mode()</CODE></A>
+ <DD> Pure virtual function, returns currently set polarity mode.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_get_minisatClause" TARGET="MAIN"><CODE>sat_minisat_get_minisatClause()</CODE></A>
+ <DD> Getter for minisatClause
+
+ <DT> <A HREF="AllDet.html#sat_minisat_get_minisatClauseSize" TARGET="MAIN"><CODE>sat_minisat_get_minisatClauseSize()</CODE></A>
+ <DD> Getter for minisatClauseSize
+
+ <DT> <A HREF="AllDet.html#sat_minisat_enlarge_minisatClause" TARGET="MAIN"><CODE>sat_minisat_enlarge_minisatClause()</CODE></A>
+ <DD> Enlarge minisatClause, adapt minisatClauseSize
+
+ <DT> <A HREF="AllDet.html#sat_minisat_init" TARGET="MAIN"><CODE>sat_minisat_init()</CODE></A>
+ <DD> Initializes Sat Minisat object.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_deinit" TARGET="MAIN"><CODE>sat_minisat_deinit()</CODE></A>
+ <DD> Deinitializes SatMinisat object.
+
+ <DT> <A HREF="AllDet.html#sat_minisat_finalize" TARGET="MAIN"><CODE>sat_minisat_finalize()</CODE></A>
+ <DD> Finalize method of SatMinisat class.
+
+ <DT> <A HREF="AllDet.html#_get_clause_size" TARGET="MAIN"><CODE>_get_clause_size()</CODE></A>
+ <DD> Computes the size of a clause.
+
+</DL>
+<HR>
+<A NAME="SatZchaff.c"><H1>SatZchaff.c</H1></A>
+Routines related to SatZchaff object. <P>
+<B>By: Andrei Tchaltsev, Marco Roveri</B><P>
+This file contains the definition of "SatZchaff" class.
+  The solver contains its own coding of varibales, so input variables may
+  by in any range from 1 .. INT_MAX, with possible holes in the range.
+
+  Group Control:
+   To control groups, every group has its ID, which is an usual internal
+   variable. If a formula is added to a permanent group, then literals are just
+   converted into the internal literals and the clauses are permamently
+   added to the solver.
+   If a formula is added to non-permanent group, then after convertion of
+   literals, every clause in the  group will additionally obtain one
+   literal which is just group id, and then the clauses are added permanently
+   to solver.
+   Then if a group is turn on, then just its negated ID is added temporary to
+   the solver. If we want to turn the group off, the just its ID
+   is added temporary to the solver. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#SatZchaff_create" TARGET="MAIN"><CODE>SatZchaff_create()</CODE></A>
+ <DD> Creates a Zchaff SAT solver and initializes it.
+
+ <DT> <A HREF="AllDet.html#SatZchaff_destroy" TARGET="MAIN"><CODE>SatZchaff_destroy()</CODE></A>
+ <DD> Destroys a Zchaff SAT solver instence
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_cnfLiteral2zchaffLiteral" TARGET="MAIN"><CODE>sat_zchaff_cnfLiteral2zchaffLiteral()</CODE></A>
+ <DD> Convert a cnf literal into an internal literal used by zchaff
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_zchaffLiteral2cnfLiteral" TARGET="MAIN"><CODE>sat_zchaff_zchaffLiteral2cnfLiteral()</CODE></A>
+ <DD> Convert an internal zchaff literal into a cnf literal
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_add" TARGET="MAIN"><CODE>sat_zchaff_add()</CODE></A>
+ <DD> Adds a clause to the solver database.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_set_polarity" TARGET="MAIN"><CODE>sat_zchaff_set_polarity()</CODE></A>
+ <DD> Sets the polarity of the formula.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_set_preferred_variables" TARGET="MAIN"><CODE>sat_zchaff_set_preferred_variables()</CODE></A>
+ <DD> Sets preferred variables in the solver
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_clear_preferred_variables" TARGET="MAIN"><CODE>sat_zchaff_clear_preferred_variables()</CODE></A>
+ <DD> Clears preferred variables in the solver
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_solve_all_groups" TARGET="MAIN"><CODE>sat_zchaff_solve_all_groups()</CODE></A>
+ <DD> Tries to solve all added formulas
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_solve_permanent_group_assume" TARGET="MAIN"><CODE>sat_zchaff_solve_permanent_group_assume()</CODE></A>
+ <DD> Solves the permanent group under set of assumptions
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_get_conflicts" TARGET="MAIN"><CODE>sat_zchaff_get_conflicts()</CODE></A>
+ <DD> Returns set of conflicting assumptions
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_make_model" TARGET="MAIN"><CODE>sat_zchaff_make_model()</CODE></A>
+ <DD> This function creates a model (in the original cnf variables)
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_create_group" TARGET="MAIN"><CODE>sat_zchaff_create_group()</CODE></A>
+ <DD> Creates a new group and returns its ID
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_destroy_group" TARGET="MAIN"><CODE>sat_zchaff_destroy_group()</CODE></A>
+ <DD> Destroy an existing group (which has been returned by
+  SatIncSolver_create_group) and all formulas in it.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_move_to_permanent_and_destroy_group" TARGET="MAIN"><CODE>sat_zchaff_move_to_permanent_and_destroy_group()</CODE></A>
+ <DD> Moves all formulas from a group into the permanent group of
+  the solver and then destroy the given group.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_solve_groups" TARGET="MAIN"><CODE>sat_zchaff_solve_groups()</CODE></A>
+ <DD> Tries to solve formulas from the groups in the list.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_solve_without_groups" TARGET="MAIN"><CODE>sat_zchaff_solve_without_groups()</CODE></A>
+ <DD> Tries to solve formulas in groups belonging to the solver
+  except the groups in the list.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_make_conflicts" TARGET="MAIN"><CODE>sat_zchaff_make_conflicts()</CODE></A>
+ <DD> Obtains the set of conflicting assumptions from zCahdd
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_init" TARGET="MAIN"><CODE>sat_zchaff_init()</CODE></A>
+ <DD> Initializes Sat Zchaff object.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_deinit" TARGET="MAIN"><CODE>sat_zchaff_deinit()</CODE></A>
+ <DD> Deinitializes SatZchaff object.
+
+ <DT> <A HREF="AllDet.html#sat_zchaff_finalize" TARGET="MAIN"><CODE>sat_zchaff_finalize()</CODE></A>
+ <DD> Finalize method of SatZchaff class.
+
+ <DT> <A HREF="AllDet.html#_get_clause_size" TARGET="MAIN"><CODE>_get_clause_size()</CODE></A>
+ <DD> Computes the size of a clause.
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

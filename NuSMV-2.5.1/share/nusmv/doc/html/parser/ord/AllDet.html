@@ -1,0 +1,192 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="ParserOrd_create"></A>
+ParserOrd_ptr <I></I>
+<B>ParserOrd_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserOrd_destroy"></A>
+void <I></I>
+<B>ParserOrd_destroy</B>(
+  ParserOrd_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserOrd_get_vars_list"></A>
+NodeList_ptr <I></I>
+<B>ParserOrd_get_vars_list</B>(
+  const ParserOrd_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned list is owned by self, and should not be 
+  changed or destroyed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserOrd_parse_from_file"></A>
+void <I></I>
+<B>ParserOrd_parse_from_file</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  FILE* <b>f</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserOrd_parse_from_string"></A>
+void <I></I>
+<B>ParserOrd_parse_from_string</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  const char* <b>str</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserOrd_reset"></A>
+void <I></I>
+<B>ParserOrd_reset</B>(
+  ParserOrd_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_add_var"></A>
+void <I></I>
+<B>parser_ord_add_var</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_deinit"></A>
+void <I></I>
+<B>parser_ord_deinit</B>(
+  ParserOrd_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_init"></A>
+void <I></I>
+<B>parser_ord_init</B>(
+  ParserOrd_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_mk_array"></A>
+node_ptr <I></I>
+<B>parser_ord_mk_array</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_mk_atom"></A>
+node_ptr <I></I>
+<B>parser_ord_mk_atom</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_mk_bit"></A>
+node_ptr <I></I>
+<B>parser_ord_mk_bit</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  int  <b>suffix</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_mk_dot"></A>
+node_ptr <I></I>
+<B>parser_ord_mk_dot</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_ord_mk_num"></A>
+node_ptr <I></I>
+<B>parser_ord_mk_num</B>(
+  ParserOrd_ptr  <b>self</b>, <i></i>
+  const int  <b>num</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserOrd.c"TARGET="ABSTRACT"><CODE>ParserOrd.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

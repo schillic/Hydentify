@@ -1,0 +1,282 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="TraceLoader_get_desc"></A>
+char* <I></I>
+<B>TraceLoader_get_desc</B>(
+  const TraceLoader_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns a short description of the loader.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="TraceLoader_load_trace"></A>
+Trace_ptr <I></I>
+<B>TraceLoader_load_trace</B>(
+  TraceLoader_ptr  <b>self</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Action associated with the Class TraceLoader.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="TraceXmlLoader_create"></A>
+TraceXmlLoader_ptr <I></I>
+<B>TraceXmlLoader_create</B>(
+  const char* <b>xml_filename</b>, <i></i>
+  boolean  <b>halt_on_undefined_symbols</b>, <i></i>
+  boolean  <b>halt_on_wrong_section</b> <i></i>
+)
+</pre>
+<dd> Constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_loader_deinit"></A>
+void <I></I>
+<B>trace_loader_deinit</B>(
+  TraceLoader_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This function de-initializes the loader class.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_loader_finalize"></A>
+static void <I></I>
+<B>trace_loader_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>dummy</b> <i></i>
+)
+</pre>
+<dd> Pure virtual function. This must be refined by derived classes.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_loader_init"></A>
+void <I></I>
+<B>trace_loader_init</B>(
+  TraceLoader_ptr  <b>self</b>, <i></i>
+  char* <b>desc</b> <i></i>
+)
+</pre>
+<dd> This function initializes the loader class.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_loader_load"></A>
+Trace_ptr <I></I>
+<B>trace_loader_load</B>(
+  TraceLoader_ptr  <b>self</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> It is a pure virtual function and TraceLoader is an abstract
+  base class. Every derived class must ovewrwrite this function. It returns 1
+  if operation is successful, 0 otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceLoader.c"TARGET="ABSTRACT"><CODE>TraceLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_char_handler"></A>
+static void <I></I>
+<B>trace_xml_loader_char_handler</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  const char * <b>txt</b>, <i></i>
+  int  <b>txtlen</b> <i></i>
+)
+</pre>
+<dd> Character Handler used by parser.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_deinit"></A>
+void <I></I>
+<B>trace_xml_loader_deinit</B>(
+  TraceXmlLoader_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Deallocates internal structures
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_finalize"></A>
+static void <I></I>
+<B>trace_xml_loader_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>dummy</b> <i></i>
+)
+</pre>
+<dd> Virtual destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_flatten_symbol"></A>
+static inline node_ptr <I></I>
+<B>trace_xml_loader_flatten_symbol</B>(
+  node_ptr  <b>symbol</b> <i></i>
+)
+</pre>
+<dd> Private service of trace_xml_loader_fill_trace
+<p>
+
+<dd> <b>See Also</b> <code><a href="#trace_xml_loader_fill_trace">trace_xml_loader_fill_trace</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_init"></A>
+void <I></I>
+<B>trace_xml_loader_init</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  const char* <b>xml_filename</b>, <i></i>
+  boolean  <b>halt_on_undefined_symbols</b>, <i></i>
+  boolean  <b>halt_on_wrong_section</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_load"></A>
+Trace_ptr <I></I>
+<B>trace_xml_loader_load</B>(
+  TraceLoader_ptr  <b>loader</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Returns a valid trace
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_prepare"></A>
+static void <I></I>
+<B>trace_xml_loader_prepare</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_reset"></A>
+static void <I></I>
+<B>trace_xml_loader_reset</B>(
+  TraceXmlLoader_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Cleans up after reading of xml source
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_store_loopbacks"></A>
+static void <I></I>
+<B>trace_xml_loader_store_loopbacks</B>(
+  TraceXmlLoader_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Store loopback information and freezes loaded trace
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_tag_begin"></A>
+static void <I></I>
+<B>trace_xml_loader_tag_begin</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b>, <i></i>
+  const char** <b>atts</b> <i></i>
+)
+</pre>
+<dd> Function that gets called when parser encounter start of
+                    some tag.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_loader_tag_end"></A>
+static void <I></I>
+<B>trace_xml_loader_tag_end</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  const char * <b>name</b> <i></i>
+)
+</pre>
+<dd> Function that gets called when end of any tag is
+                   encountered by the parser.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_xml_report_invalid_assignment"></A>
+static void <I></I>
+<B>trace_xml_report_invalid_assignment</B>(
+  TraceXmlLoader_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>symbol</b>, <i></i>
+  int  <b>reason</b> <i></i>
+)
+</pre>
+<dd> Here assignment is invalid if LHS is undefined symbol
+               or a symbol which is inconsistent with a given section,
+               e.g. input var cannot be in STATE section.
+
+               'all_wrong_symbols' is a hash to remember already
+               reported symbols and report them only once. 'isError'
+               is a flag to report an error; warning is reported
+               otherwise
+
+               The returned value is isError argument.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#trace_xml_loader_fill_trace">trace_xml_loader_fill_trace</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#TraceXmlLoader.c"TARGET="ABSTRACT"><CODE>TraceXmlLoader.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,12 @@
+  time - Provides a simple CPU elapsed time value
+
+   --------------------------------------------------------------------------
+
+   time [-h]
+
+   Prints the processor time used since the last invocation of the "time"
+   command, and the total processor time used since NuSMV was started.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

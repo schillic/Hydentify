@@ -1,0 +1,16 @@
+  unalias - Removes the definition of an alias.
+
+   --------------------------------------------------------------------------
+
+   unalias [-h] <alias-names>
+
+   Removes the definition of an alias specified via the alias command.
+
+   Command options:
+
+   <alias-names>
+           Aliases to be removed
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

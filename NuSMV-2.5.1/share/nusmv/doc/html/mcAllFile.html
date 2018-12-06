@@ -1,0 +1,408 @@
+<HTML>
+<HEAD><TITLE>The mc package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#mc.h"><CODE>mc.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#mcInt.h"><CODE>mcInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#mcAGonly.c"><CODE>mcAGonly.c</CODE></A>
+ <DD> This file contains the code to deal with AG formulas in a
+  special way.
+ <DT> <A HREF="#mcCmd.c"><CODE>mcCmd.c</CODE></A>
+ <DD> Model checking commands.
+ <DT> <A HREF="#mcEval.c"><CODE>mcEval.c</CODE></A>
+ <DD> CTL to BDD compiler
+ <DT> <A HREF="#mcExplain.c"><CODE>mcExplain.c</CODE></A>
+ <DD> Witness and Debug generator for Fair CTL models.
+ <DT> <A HREF="#mcInvar.c"><CODE>mcInvar.c</CODE></A>
+ <DD> Dedicated algorithms for the verification of
+   invariants on-the-fly wrt reachability analysis.
+ <DT> <A HREF="#mcLE.c"><CODE>mcLE.c</CODE></A>
+ <DD> Language Emptiness
+ <DT> <A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+ <DD> Fair CTL model checking routines.
+ <DT> <A HREF="#mcTrace.c"><CODE>mcTrace.c</CODE></A>
+ <DD> This module contains functions to build traces from bdd lists
+</DL><HR>
+<A NAME="mc.h"><H1>mc.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="mcInt.h"><H1>mcInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<P><B>See Also</B><A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+<A HREF="#mcExplain.c"><CODE>mcExplain.c</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="mcAGonly.c"><H1>mcAGonly.c</H1></A>
+This file contains the code to deal with AG formulas in a
+  special way. <P>
+<B>By: Marco Roveri</B><P>
+This file contains the code to deal with AG formulas
+  only, using special purpose algorithms. This functionality is invoked
+  with the -AG option and works only in conjunction with the -f
+  (forward search) option. <P>
+<P><B>See Also</B><A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+<A HREF="#mcEval.c"><CODE>mcEval.c</CODE></A>
+<A HREF="#mcExplain.c"><CODE>mcExplain.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_CheckAGOnlySpec" TARGET="MAIN"><CODE>Mc_CheckAGOnlySpec()</CODE></A>
+ <DD> This function checks for SPEC of the form AG
+  alpha in "context".
+
+ <DT> <A HREF="mcAllDet.html#check_AG_only" TARGET="MAIN"><CODE>check_AG_only()</CODE></A>
+ <DD> This function checks for SPEC of the form AG alpha in
+               "context".
+
+ <DT> <A HREF="mcAllDet.html#make_AG_counterexample" TARGET="MAIN"><CODE>make_AG_counterexample()</CODE></A>
+ <DD> This function constructs a counterexample
+  starting from state target_state
+
+ <DT> <A HREF="mcAllDet.html#is_AG_only_formula" TARGET="MAIN"><CODE>is_AG_only_formula()</CODE></A>
+ <DD> Checks if the formulas is of type AGOnly.
+
+ <DT> <A HREF="mcAllDet.html#is_AG_only_formula_recur" TARGET="MAIN"><CODE>is_AG_only_formula_recur()</CODE></A>
+ <DD> Recursive function that helps is_AG_only_formula.
+
+</DL>
+<HR>
+<A NAME="mcCmd.c"><H1>mcCmd.c</H1></A>
+Model checking commands. <P>
+<B>By: Marco Roveri</B><P>
+This file contains all the shell command to deal with
+  model checking and for counterexample navigation. <P>
+<P><B>See Also</B><A HREF="#cmdCmd.c"><CODE>cmdCmd.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_Init" TARGET="MAIN"><CODE>Mc_Init()</CODE></A>
+ <DD> Initializes the mc package.
+
+ <DT> <A HREF="mcAllDet.html#Mc_End" TARGET="MAIN"><CODE>Mc_End()</CODE></A>
+ <DD> Quit the mc package
+
+ <DT> <A HREF="mcAllDet.html#Mc_check_psl_property" TARGET="MAIN"><CODE>Mc_check_psl_property()</CODE></A>
+ <DD> Top-level function for mc of PSL properties
+
+ <DT> <A HREF="mcAllDet.html#CommandCheckCtlSpec" TARGET="MAIN"><CODE>CommandCheckCtlSpec()</CODE></A>
+ <DD> Performs fair CTL model checking.
+
+ <DT> <A HREF="mcAllDet.html#CommandCheckInvar" TARGET="MAIN"><CODE>CommandCheckInvar()</CODE></A>
+ <DD> Performs model checking of invariants
+
+ <DT> <A HREF="mcAllDet.html#CommandCheckCompute" TARGET="MAIN"><CODE>CommandCheckCompute()</CODE></A>
+ <DD> Performs computation of quantitative characteristics
+
+ <DT> <A HREF="mcAllDet.html#CommandCheckPslSpec" TARGET="MAIN"><CODE>CommandCheckPslSpec()</CODE></A>
+ <DD> Performs fair PSL model checking.
+
+ <DT> <A HREF="mcAllDet.html#CommandLanguageEmptiness" TARGET="MAIN"><CODE>CommandLanguageEmptiness()</CODE></A>
+ <DD> Checks for language emptiness.
+
+ <DT> <A HREF="mcAllDet.html#CommandCheckSpec" TARGET="MAIN"><CODE>CommandCheckSpec()</CODE></A>
+ <DD> Deprecated version of CommandCheckCtlSpec
+
+</DL>
+<HR>
+<A NAME="mcEval.c"><H1>mcEval.c</H1></A>
+CTL to BDD compiler <P>
+<B>By: Marco Roveri</B><P>
+In this file there is the code to compile CTL formulas
+  into BDD and the code to call the model checking algorithms. <P>
+<P><B>See Also</B><A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+<A HREF="#mcExplain.c"><CODE>mcExplain.c</CODE></A>
+<A HREF="#mcACTL.c"><CODE>mcACTL.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#eval_ctl_spec" TARGET="MAIN"><CODE>eval_ctl_spec()</CODE></A>
+ <DD> Compile a CTL formula into BDD and performs
+  Model Checking.
+
+ <DT> <A HREF="mcAllDet.html#eval_formula_list" TARGET="MAIN"><CODE>eval_formula_list()</CODE></A>
+ <DD> This function takes a list of formulas, and
+  returns the list of their BDDs.
+
+ <DT> <A HREF="mcAllDet.html#eval_compute" TARGET="MAIN"><CODE>eval_compute()</CODE></A>
+ <DD> Computes shortest and longest length of the path
+  between two set of states.
+
+ <DT> <A HREF="mcAllDet.html#free_formula_list" TARGET="MAIN"><CODE>free_formula_list()</CODE></A>
+ <DD> Frees a list of BDD as generated by eval_formula_list
+
+ <DT> <A HREF="mcAllDet.html#eval_ctl_spec_recur" TARGET="MAIN"><CODE>eval_ctl_spec_recur()</CODE></A>
+ <DD> Recursive step of <code>eval_ctl_spec</code>.
+
+ <DT> <A HREF="mcAllDet.html#eval_compute_recur" TARGET="MAIN"><CODE>eval_compute_recur()</CODE></A>
+ <DD> Recursive step of <code>eval_compute</code>.
+
+ <DT> <A HREF="mcAllDet.html#unary_bdd_op" TARGET="MAIN"><CODE>unary_bdd_op()</CODE></A>
+ <DD> Applies unary operation.
+
+ <DT> <A HREF="mcAllDet.html#binary_bdd_op" TARGET="MAIN"><CODE>binary_bdd_op()</CODE></A>
+ <DD> Applies binary operation.
+
+ <DT> <A HREF="mcAllDet.html#unary_mod_bdd_op" TARGET="MAIN"><CODE>unary_mod_bdd_op()</CODE></A>
+ <DD> Applies unary operation.
+
+ <DT> <A HREF="mcAllDet.html#binary_mod_bdd_op" TARGET="MAIN"><CODE>binary_mod_bdd_op()</CODE></A>
+ <DD> Applies binary operation.
+
+ <DT> <A HREF="mcAllDet.html#binary_mod_bdd_op_ns" TARGET="MAIN"><CODE>binary_mod_bdd_op_ns()</CODE></A>
+ <DD> Applies binary operation.
+
+ <DT> <A HREF="mcAllDet.html#ternary_mod_bdd_op" TARGET="MAIN"><CODE>ternary_mod_bdd_op()</CODE></A>
+ <DD> Applies ternary operation.
+
+ <DT> <A HREF="mcAllDet.html#quad_mod_bdd_op" TARGET="MAIN"><CODE>quad_mod_bdd_op()</CODE></A>
+ <DD> Applies quaternary operation.
+
+</DL>
+<HR>
+<A NAME="mcExplain.c"><H1>mcExplain.c</H1></A>
+Witness and Debug generator for Fair CTL models. <P>
+<B>By: Marco Roveri</B><P>
+This file contains the code to find counterexamples
+execution trace that shows a cause of the problem. Here are
+implemented the techniques described in the CMU-CS-94-204 Technical
+Report by E. Clarke, O. Grumberg, K. McMillan and X. Zhao. <P>
+<P><B>See Also</B><A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#explain" TARGET="MAIN"><CODE>explain()</CODE></A>
+ <DD> Counterexamples and witnesses generator.
+
+ <DT> <A HREF="mcAllDet.html#ex_explain" TARGET="MAIN"><CODE>ex_explain()</CODE></A>
+ <DD> This function computes a path that is a witness
+   for <i>EX(f)</i>.
+
+ <DT> <A HREF="mcAllDet.html#eu_si_explain" TARGET="MAIN"><CODE>eu_si_explain()</CODE></A>
+ <DD> This function finds a path that is a witness
+   for <i>E[f U g]</i> when g is a set of  state-inputs
+
+ <DT> <A HREF="mcAllDet.html#eu_explain" TARGET="MAIN"><CODE>eu_explain()</CODE></A>
+ <DD> This function finds a path that is a witness
+   for <i>E[f U g]</i>
+
+ <DT> <A HREF="mcAllDet.html#eg_explain" TARGET="MAIN"><CODE>eg_explain()</CODE></A>
+ <DD> This function finds a path that is an example
+   for <i>EG(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#ebu_explain" TARGET="MAIN"><CODE>ebu_explain()</CODE></A>
+ <DD> This function finds a path that is a witness
+   for <i>E[f U g]^{sup}_{inf}</i>.
+
+ <DT> <A HREF="mcAllDet.html#ebg_explain" TARGET="MAIN"><CODE>ebg_explain()</CODE></A>
+ <DD> This function finds a path of length
+   <tt>(sup-inf)</tt> that is an example for
+   <i>EG(g)^{sup}_{inf}</i>.
+
+ <DT> <A HREF="mcAllDet.html#explain_recur" TARGET="MAIN"><CODE>explain_recur()</CODE></A>
+ <DD> Recursively traverse the formula CTL and rewrite
+   it in order to use the base witnesses generator functions.
+
+ <DT> <A HREF="mcAllDet.html#fairness_explain" TARGET="MAIN"><CODE>fairness_explain()</CODE></A>
+ <DD> Auxiliary function to the computation of a
+   witness of the formula <i>EG f</i>.
+
+ <DT> <A HREF="mcAllDet.html#explain_and" TARGET="MAIN"><CODE>explain_and()</CODE></A>
+ <DD> Generates a witness path for car(formula) AND cdr(formula)
+
+ <DT> <A HREF="mcAllDet.html#explain_eval" TARGET="MAIN"><CODE>explain_eval()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="mcAllDet.html#Extend_trace_with_state_input_pair" TARGET="MAIN"><CODE>Extend_trace_with_state_input_pair()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="mcAllDet.html#Extend_trace_with_states_inputs_pair" TARGET="MAIN"><CODE>Extend_trace_with_states_inputs_pair()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="mcAllDet.html#Check_TraceList_Sanity" TARGET="MAIN"><CODE>Check_TraceList_Sanity()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="mcInvar.c"><H1>mcInvar.c</H1></A>
+Dedicated algorithms for the verification of
+   invariants on-the-fly wrt reachability analysis. <P>
+<B>By: Marco Roveri</B><P>
+Dedicated algorithms for the verification of
+   invariants on-the-fly wrt reachability analysis. <P>
+<P><B>See Also</B><A HREF="#mcMc.c"><CODE>mcMc.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_CheckInvar" TARGET="MAIN"><CODE>Mc_CheckInvar()</CODE></A>
+ <DD> Verifies that M,s0 |= AG alpha
+
+ <DT> <A HREF="mcAllDet.html#Mc_CheckInvarSilently" TARGET="MAIN"><CODE>Mc_CheckInvarSilently()</CODE></A>
+ <DD> Verifies that M,s0 |= AG alpha WITHOUT print results or
+                counterexamples
+
+ <DT> <A HREF="mcAllDet.html#Mc_CheckInvar_With_Strategy" TARGET="MAIN"><CODE>Mc_CheckInvar_With_Strategy()</CODE></A>
+ <DD> Verifies that M,s0 |= AG alpha with the specified strategy
+
+ <DT> <A HREF="mcAllDet.html#Mc_rewrite_invar_get_sexp_fsm" TARGET="MAIN"><CODE>Mc_rewrite_invar_get_sexp_fsm()</CODE></A>
+ <DD> Prepares the rewriting generating a new sexp fsm
+   containing the needed observer variable and its
+   transition relation as well as its initial state.
+
+ <DT> <A HREF="mcAllDet.html#compute_path_fb" TARGET="MAIN"><CODE>compute_path_fb()</CODE></A>
+ <DD> Generates a counterexample from a path forward and a
+   path backward
+
+ <DT> <A HREF="mcAllDet.html#compute_and_complete_path" TARGET="MAIN"><CODE>compute_and_complete_path()</CODE></A>
+ <DD> Generates a counterexample from a path forward and a
+   path backward completing the two parts with the specified middle trace if
+   needed
+
+ <DT> <A HREF="mcAllDet.html#check_invariant_forward_backward_with_break" TARGET="MAIN"><CODE>check_invariant_forward_backward_with_break()</CODE></A>
+ <DD> Performs on the fly verification of the
+   invariant during reachability analysis.
+
+ <DT> <A HREF="mcAllDet.html#print_invar" TARGET="MAIN"><CODE>print_invar()</CODE></A>
+ <DD> Print an invariant specification
+
+ <DT> <A HREF="mcAllDet.html#print_result" TARGET="MAIN"><CODE>print_result()</CODE></A>
+ <DD> Prints the result of the check if the check was performed,
+   does nothing otherwise
+
+ <DT> <A HREF="mcAllDet.html#mc_rewrite_invar" TARGET="MAIN"><CODE>mc_rewrite_invar()</CODE></A>
+ <DD> Rewrites an invariant specification containing input
+   variables or next with an observer state variable
+
+ <DT> <A HREF="mcAllDet.html#mc_rewrite_cleanup" TARGET="MAIN"><CODE>mc_rewrite_cleanup()</CODE></A>
+ <DD> Crean up the memory after the rewritten property check
+
+ <DT> <A HREF="mcAllDet.html#check_invariant" TARGET="MAIN"><CODE>check_invariant()</CODE></A>
+ <DD> Check the given invariant with the specified technology
+
+ <DT> <A HREF="mcAllDet.html#forward_heuristic" TARGET="MAIN"><CODE>forward_heuristic()</CODE></A>
+ <DD> Constant function to perform forward analysis
+
+ <DT> <A HREF="mcAllDet.html#backward_heuristic" TARGET="MAIN"><CODE>backward_heuristic()</CODE></A>
+ <DD> Constant function to perform backward analysis
+
+ <DT> <A HREF="mcAllDet.html#never_stopping_heuristic" TARGET="MAIN"><CODE>never_stopping_heuristic()</CODE></A>
+ <DD> Constant function to perform backward, forward and
+   FB analysis
+
+ <DT> <A HREF="mcAllDet.html#forward_backward_heuristic" TARGET="MAIN"><CODE>forward_backward_heuristic()</CODE></A>
+ <DD> Heuristic function used to decide the sept to perform
+   in forward-backward analysis
+
+ <DT> <A HREF="mcAllDet.html#stopping_heuristic" TARGET="MAIN"><CODE>stopping_heuristic()</CODE></A>
+ <DD> Heuristic function used to decide whether to stop BDD
+   analysis to pass to BMC.
+
+ <DT> <A HREF="mcAllDet.html#complete_bmc_trace_with_bdd" TARGET="MAIN"><CODE>complete_bmc_trace_with_bdd()</CODE></A>
+ <DD> Completes a partial BMC tace in BDD-BMC analysis
+
+</DL>
+<HR>
+<A NAME="mcLE.c"><H1>mcLE.c</H1></A>
+Language Emptiness <P>
+<B>By: Marco Roveri</B><P>
+Check for language emptiness <P>
+<P><B>See Also</B><A HREF="#optional"><CODE>optional</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_CheckLanguageEmptiness" TARGET="MAIN"><CODE>Mc_CheckLanguageEmptiness()</CODE></A>
+ <DD> Checks whether the language is empty
+
+ <DT> <A HREF="mcAllDet.html#mc_check_language_emptiness_el_bwd" TARGET="MAIN"><CODE>mc_check_language_emptiness_el_bwd()</CODE></A>
+ <DD> Checks whether the language is empty using the backward
+  Emerson-Lei algorithm
+
+ <DT> <A HREF="mcAllDet.html#mc_check_language_emptiness_el_fwd" TARGET="MAIN"><CODE>mc_check_language_emptiness_el_fwd()</CODE></A>
+ <DD> Checks whether the language is empty using the forward
+  Emerson-Lei algorithm
+
+</DL>
+<HR>
+<A NAME="mcMc.c"><H1>mcMc.c</H1></A>
+Fair CTL model checking routines. <P>
+<B>By: Marco Roveri</B><P>
+Fair CTL model checking routines. <P>
+<P><B>See Also</B><A HREF="#mcExplain.c"><CODE>mcExplain.c</CODE></A>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_CheckCTLSpec" TARGET="MAIN"><CODE>Mc_CheckCTLSpec()</CODE></A>
+ <DD> Verifies that M,s0 |= alpha
+
+ <DT> <A HREF="mcAllDet.html#Mc_CheckCompute" TARGET="MAIN"><CODE>Mc_CheckCompute()</CODE></A>
+ <DD> Compute quantitative characteristics on the model.
+
+ <DT> <A HREF="mcAllDet.html#ex" TARGET="MAIN"><CODE>ex()</CODE></A>
+ <DD> Set of states satisfying <i>EX(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#eu" TARGET="MAIN"><CODE>eu()</CODE></A>
+ <DD> Set of states satisfying <i>E[ f U g ]</i>.
+
+ <DT> <A HREF="mcAllDet.html#eg" TARGET="MAIN"><CODE>eg()</CODE></A>
+ <DD> Set of states satisfying <i>EF(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#ef" TARGET="MAIN"><CODE>ef()</CODE></A>
+ <DD> Set of states satisfying <i>EF(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#au" TARGET="MAIN"><CODE>au()</CODE></A>
+ <DD> Set of states satisfying <i>A[f U g]</i>.
+
+ <DT> <A HREF="mcAllDet.html#ex_si" TARGET="MAIN"><CODE>ex_si()</CODE></A>
+ <DD> Set of states satisfying <i>EG(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#eu_si" TARGET="MAIN"><CODE>eu_si()</CODE></A>
+ <DD> Computes the set of state-input pairs that satisfy
+  E(f U g), with f and g sets of state-input pairs.
+
+ <DT> <A HREF="mcAllDet.html#eg_si" TARGET="MAIN"><CODE>eg_si()</CODE></A>
+ <DD> Set of states-inputs satisfying <i>EG(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#ebu" TARGET="MAIN"><CODE>ebu()</CODE></A>
+ <DD> Set of states satisfying <i>E[f U^{inf..sup} g]</i>.
+
+ <DT> <A HREF="mcAllDet.html#ebf" TARGET="MAIN"><CODE>ebf()</CODE></A>
+ <DD> Set of states satisfying <i>EF^{inf..sup}(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#ebg" TARGET="MAIN"><CODE>ebg()</CODE></A>
+ <DD> Set of states satisfying <i>EG^{inf..sup}(g)</i>.
+
+ <DT> <A HREF="mcAllDet.html#abu" TARGET="MAIN"><CODE>abu()</CODE></A>
+ <DD> Set of states satisfying <i>A[f U^{inf..sup} g]</i>.
+
+ <DT> <A HREF="mcAllDet.html#minu" TARGET="MAIN"><CODE>minu()</CODE></A>
+ <DD> Computes the minimum length of the shortest path
+  from <i>f</i> to <i>g</i>.
+
+ <DT> <A HREF="mcAllDet.html#maxu" TARGET="MAIN"><CODE>maxu()</CODE></A>
+ <DD> This function computes the maximum length of the
+  shortest path from <i>f</i> to <i>g</i>.
+
+ <DT> <A HREF="mcAllDet.html#print_spec" TARGET="MAIN"><CODE>print_spec()</CODE></A>
+ <DD> Prints out a CTL specification
+
+ <DT> <A HREF="mcAllDet.html#print_compute" TARGET="MAIN"><CODE>print_compute()</CODE></A>
+ <DD> Prints out a COMPUTE specification
+
+ <DT> <A HREF="mcAllDet.html#Mc_fair_si_iteration" TARGET="MAIN"><CODE>Mc_fair_si_iteration()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="mcAllDet.html#Mc_get_fair_si_subset" TARGET="MAIN"><CODE>Mc_get_fair_si_subset()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="mcTrace.c"><H1>mcTrace.c</H1></A>
+This module contains functions to build traces from bdd lists <P>
+<B>By: Marco Pensallorto</B><P>
+<DL>
+ <DT> <A HREF="mcAllDet.html#Mc_create_trace_from_bdd_state_input_list" TARGET="MAIN"><CODE>Mc_create_trace_from_bdd_state_input_list()</CODE></A>
+ <DD> Creates a trace out of a < S (i, S)* >  bdd list
+
+ <DT> <A HREF="mcAllDet.html#Mc_trace_step_put_state_from_bdd" TARGET="MAIN"><CODE>Mc_trace_step_put_state_from_bdd()</CODE></A>
+ <DD> Populates a trace step with state assignments
+
+ <DT> <A HREF="mcAllDet.html#Mc_trace_step_put_input_from_bdd" TARGET="MAIN"><CODE>Mc_trace_step_put_input_from_bdd()</CODE></A>
+ <DD> Populates a trace step with input assignments
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,197 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BeFsm_apply_synchronous_product"></A>
+void <I></I>
+<B>BeFsm_apply_synchronous_product</B>(
+  BeFsm_ptr  <b>self</b>, <i></i>
+  const BeFsm_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Apply the synchronous product between self and other
+                      modifying self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_copy"></A>
+BeFsm_ptr <I></I>
+<B>BeFsm_copy</B>(
+  BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Creates a new independent copy of the given fsm instance.
+  You must destroy the returned class instance by invoking the class 
+  destructor when you no longer need it.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BeFsm_destroy">BeFsm_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_create_from_sexp_fsm"></A>
+BeFsm_ptr <I></I>
+<B>BeFsm_create_from_sexp_fsm</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const BoolSexpFsm_ptr  <b>bfsm</b> <i></i>
+)
+</pre>
+<dd> Creates a new instance of the BeFsm class, getting 
+  information from an instance of a boolean Fsm_Sexp type.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BeFsm_create">BeFsm_create</a>
+<a href="#BeFsm_destroy">BeFsm_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_create"></A>
+BeFsm_ptr <I></I>
+<B>BeFsm_create</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const be_ptr  <b>init</b>, <i></i>
+  const be_ptr  <b>invar</b>, <i></i>
+  const be_ptr  <b>trans</b>, <i></i>
+  const node_ptr  <b>list_of_be_fairness</b> <i></i>
+)
+</pre>
+<dd> It gets init, invar, transition relation and the list
+  of fairness in Boolean Expression format.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BeFsm_destroy">BeFsm_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_destroy"></A>
+void <I></I>
+<B>BeFsm_destroy</B>(
+  BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class BeFsm destructor
+<p>
+
+<dd> <b>Side Effects</b> self will be invalidated
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BeFsm_create">BeFsm_create</a>
+<a href="#BeFsm_create_from_sexp_fsm">BeFsm_create_from_sexp_fsm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_get_be_encoding"></A>
+BeEnc_ptr <I></I>
+<B>BeFsm_get_be_encoding</B>(
+  const BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the be encoding associated with the given fsm
+  instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_get_fairness_list"></A>
+node_ptr <I></I>
+<B>BeFsm_get_fairness_list</B>(
+  const BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the list of fairness stored in BE format 
+  into the given fsm instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_get_init"></A>
+be_ptr <I></I>
+<B>BeFsm_get_init</B>(
+  const BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the initial states stored in BE format into the
+  given fsm instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_get_invar"></A>
+be_ptr <I></I>
+<B>BeFsm_get_invar</B>(
+  const BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the invariants stored in BE format into the
+  given fsm instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BeFsm_get_trans"></A>
+be_ptr <I></I>
+<B>BeFsm_get_trans</B>(
+  const BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the transition relation stored in BE format 
+  into the given fsm instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="be_fsm_deinit"></A>
+static void <I></I>
+<B>be_fsm_deinit</B>(
+  BeFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private service to deinitialize the internal members
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="be_fsm_init"></A>
+static void <I></I>
+<B>be_fsm_init</B>(
+  BeFsm_ptr  <b>self</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const be_ptr  <b>init</b>, <i></i>
+  const be_ptr  <b>invar</b>, <i></i>
+  const be_ptr  <b>trans</b>, <i></i>
+  const node_ptr  <b>list_of_be_fairness</b> <i></i>
+)
+</pre>
+<dd> Private service to initialize the internal members
+<p>
+
+<dd> <b>Side Effects</b> self will change internally
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BeFsm.c"TARGET="ABSTRACT"><CODE>BeFsm.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

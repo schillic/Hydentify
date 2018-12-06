@@ -1,0 +1,55 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Trace_execute_partial_trace"></A>
+int <I></I>
+<B>Trace_execute_partial_trace</B>(
+  const Trace_ptr  <b>trace</b>, <i></i>
+  const PartialTraceExecutor_ptr  <b>executor</b>, <i></i>
+  const NodeList_ptr  <b>language</b> <i></i>
+)
+</pre>
+<dd> Partial trace re-execution and fill-in.
+
+                      Tries to complete the given trace using the
+                      given incomplete trace executor.  If successful,
+                      a complete trace is registered into the Trace
+                      Manager.
+
+                      0 is returned if trace could be succesfully completed.
+                      1 is returned otherwise
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#traceExec.c"TARGET="ABSTRACT"><CODE>traceExec.c</CODE></A>
+
+<dt><pre>
+<A NAME="Trace_execute_trace"></A>
+int <I></I>
+<B>Trace_execute_trace</B>(
+  const Trace_ptr  <b>trace</b>, <i></i>
+  const CompleteTraceExecutor_ptr  <b>executor</b> <i></i>
+)
+</pre>
+<dd> Complete trace re-execution.  In order to be run, the
+  trace must be complete w.r.t. master fsm language. Returns 0 if a
+  trace is executed successfully, and 1 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#traceExec.c"TARGET="ABSTRACT"><CODE>traceExec.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

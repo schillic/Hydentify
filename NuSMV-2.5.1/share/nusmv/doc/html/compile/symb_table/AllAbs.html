@@ -1,0 +1,1045 @@
+<HTML>
+<HEAD><TITLE> package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="AllDet.html#SymbCache_create" TARGET="MAIN"><CODE>SymbCache_create()</CODE></A>
+<DD> Class constructor
+
+<DT> <A HREF="AllDet.html#SymbCache_destroy" TARGET="MAIN"><CODE>SymbCache_destroy()</CODE></A>
+<DD> Class destructor
+
+<DT> <A HREF="AllDet.html#SymbCache_get_actual_parameter_context" TARGET="MAIN"><CODE>SymbCache_get_actual_parameter_context()</CODE></A>
+<DD> Returns the context of the actual parameter associated
+  with the given formal parameter
+
+<DT> <A HREF="AllDet.html#SymbCache_get_actual_parameter" TARGET="MAIN"><CODE>SymbCache_get_actual_parameter()</CODE></A>
+<DD> Returns the actual param of the given formal parameter
+
+<DT> <A HREF="AllDet.html#SymbCache_get_array_define_body" TARGET="MAIN"><CODE>SymbCache_get_array_define_body()</CODE></A>
+<DD> Returns the body of the given define array name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_array_define_context" TARGET="MAIN"><CODE>SymbCache_get_array_define_context()</CODE></A>
+<DD> Returns the context of the given define array name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_array_defines" TARGET="MAIN"><CODE>SymbCache_get_array_defines()</CODE></A>
+<DD> Returns the list of all define arrays
+
+<DT> <A HREF="AllDet.html#SymbCache_get_constants" TARGET="MAIN"><CODE>SymbCache_get_constants()</CODE></A>
+<DD> Returns the list of all declared constants
+
+<DT> <A HREF="AllDet.html#SymbCache_get_define_body" TARGET="MAIN"><CODE>SymbCache_get_define_body()</CODE></A>
+<DD> Returns the body of the given DEFINE name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_define_context" TARGET="MAIN"><CODE>SymbCache_get_define_context()</CODE></A>
+<DD> Returns the context of the given DEFINE name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_define_flatten_body" TARGET="MAIN"><CODE>SymbCache_get_define_flatten_body()</CODE></A>
+<DD> Returns the flattenized body of the given DEFINE name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_defines" TARGET="MAIN"><CODE>SymbCache_get_defines()</CODE></A>
+<DD> Returns the list of all DEFINEs
+
+<DT> <A HREF="AllDet.html#SymbCache_get_flatten_actual_parameter" TARGET="MAIN"><CODE>SymbCache_get_flatten_actual_parameter()</CODE></A>
+<DD> Returns the flattenized actual parameter of the given
+  formal parameter
+
+<DT> <A HREF="AllDet.html#SymbCache_get_frozen_vars" TARGET="MAIN"><CODE>SymbCache_get_frozen_vars()</CODE></A>
+<DD> Returns the list of all declared frozen variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_function_context" TARGET="MAIN"><CODE>SymbCache_get_function_context()</CODE></A>
+<DD> Returns the context of the given NFunction
+
+<DT> <A HREF="AllDet.html#SymbCache_get_functions" TARGET="MAIN"><CODE>SymbCache_get_functions()</CODE></A>
+<DD> Returns the list of all NFunctions
+
+<DT> <A HREF="AllDet.html#SymbCache_get_function" TARGET="MAIN"><CODE>SymbCache_get_function()</CODE></A>
+<DD> Returns the NFunction instance of the given
+                      function name
+
+<DT> <A HREF="AllDet.html#SymbCache_get_i_symbols" TARGET="MAIN"><CODE>SymbCache_get_i_symbols()</CODE></A>
+<DD> Returns the list of all input variables and those DEFINEs
+  whose body refer directly or indirectly to input variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_input_vars" TARGET="MAIN"><CODE>SymbCache_get_input_vars()</CODE></A>
+<DD> Returns the list of all declared input variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_parameters" TARGET="MAIN"><CODE>SymbCache_get_parameters()</CODE></A>
+<DD> Returns the list of all formal parameters
+
+<DT> <A HREF="AllDet.html#SymbCache_get_sf_i_symbols" TARGET="MAIN"><CODE>SymbCache_get_sf_i_symbols()</CODE></A>
+<DD> Returns the list of those DEFINEs whose body refer
+  directly or indirectly to both state(OR frozen) AND input variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_sf_symbols" TARGET="MAIN"><CODE>SymbCache_get_sf_symbols()</CODE></A>
+<DD> Returns the list of all state and frozen variables and those DEFINEs
+  whose body refer directly or indirectly to that variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_state_frozen_vars" TARGET="MAIN"><CODE>SymbCache_get_state_frozen_vars()</CODE></A>
+<DD> Returns the list of all declared frozen and state variables
+
+<DT> <A HREF="AllDet.html#SymbCache_get_state_vars" TARGET="MAIN"><CODE>SymbCache_get_state_vars()</CODE></A>
+<DD> Returns the list of all declared state variables
+  (this does not include the frozen variables)
+
+<DT> <A HREF="AllDet.html#SymbCache_get_var_type" TARGET="MAIN"><CODE>SymbCache_get_var_type()</CODE></A>
+<DD> Returns the type of a given variable
+
+<DT> <A HREF="AllDet.html#SymbCache_get_variable_array_type" TARGET="MAIN"><CODE>SymbCache_get_variable_array_type()</CODE></A>
+<DD> Returns the type of array variable, i.e. of variable_array
+
+<DT> <A HREF="AllDet.html#SymbCache_get_variable_arrays" TARGET="MAIN"><CODE>SymbCache_get_variable_arrays()</CODE></A>
+<DD> Returns the list of all ARRAY vars
+
+<DT> <A HREF="AllDet.html#SymbCache_get_vars" TARGET="MAIN"><CODE>SymbCache_get_vars()</CODE></A>
+<DD> Returns the list of all declared variables
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_array_define" TARGET="MAIN"><CODE>SymbCache_is_symbol_array_define()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  define array
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_constant" TARGET="MAIN"><CODE>SymbCache_is_symbol_constant()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  constant
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_declared" TARGET="MAIN"><CODE>SymbCache_is_symbol_declared()</CODE></A>
+<DD> Returns true if the given symbol is declared
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_define" TARGET="MAIN"><CODE>SymbCache_is_symbol_define()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  DEFINE
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_frozen_var" TARGET="MAIN"><CODE>SymbCache_is_symbol_frozen_var()</CODE></A>
+<DD> Returns true if the variable is frozen
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_function" TARGET="MAIN"><CODE>SymbCache_is_symbol_function()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+                      NFunction
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_input_var" TARGET="MAIN"><CODE>SymbCache_is_symbol_input_var()</CODE></A>
+<DD> Returns true if the given symbol is an input
+  variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_parameter" TARGET="MAIN"><CODE>SymbCache_is_symbol_parameter()</CODE></A>
+<DD> Returns true if the given symbol is a declared formal
+  parameter
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_state_frozen_var" TARGET="MAIN"><CODE>SymbCache_is_symbol_state_frozen_var()</CODE></A>
+<DD> Returns true if the variable is a frozen or a state
+  variable
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_state_var" TARGET="MAIN"><CODE>SymbCache_is_symbol_state_var()</CODE></A>
+<DD> Returns true if the given symbol is a state variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_variable_array" TARGET="MAIN"><CODE>SymbCache_is_symbol_variable_array()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  array variable, i.e symbol type
+
+<DT> <A HREF="AllDet.html#SymbCache_is_symbol_var" TARGET="MAIN"><CODE>SymbCache_is_symbol_var()</CODE></A>
+<DD> Returns true if the given symbol is either a state, a frozen or
+  an input variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_list_contains_input_var" TARGET="MAIN"><CODE>SymbCache_list_contains_input_var()</CODE></A>
+<DD> Returns true if var_list contains at least one input
+  variable
+
+<DT> <A HREF="AllDet.html#SymbCache_list_contains_state_frozen_var" TARGET="MAIN"><CODE>SymbCache_list_contains_state_frozen_var()</CODE></A>
+<DD> Returns true if var_list contains at least one state
+  or frozen variable
+
+<DT> <A HREF="AllDet.html#SymbCache_list_contains_undef_var" TARGET="MAIN"><CODE>SymbCache_list_contains_undef_var()</CODE></A>
+<DD> Returns true if the given symbols list contains
+  one or more undeclared variable names
+
+<DT> <A HREF="AllDet.html#SymbCache_new_array_define" TARGET="MAIN"><CODE>SymbCache_new_array_define()</CODE></A>
+<DD> Declares a new define array.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_constant" TARGET="MAIN"><CODE>SymbCache_new_constant()</CODE></A>
+<DD> Declares a new constant.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_define" TARGET="MAIN"><CODE>SymbCache_new_define()</CODE></A>
+<DD> Declares a new DEFINE.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_frozen_var" TARGET="MAIN"><CODE>SymbCache_new_frozen_var()</CODE></A>
+<DD> Declares a new frozen variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_function" TARGET="MAIN"><CODE>SymbCache_new_function()</CODE></A>
+<DD> Declares a new NFunction.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_input_var" TARGET="MAIN"><CODE>SymbCache_new_input_var()</CODE></A>
+<DD> Declares a new input variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_parameter" TARGET="MAIN"><CODE>SymbCache_new_parameter()</CODE></A>
+<DD> Declares a new module parameter.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_state_var" TARGET="MAIN"><CODE>SymbCache_new_state_var()</CODE></A>
+<DD> Declares a new state variable.
+
+<DT> <A HREF="AllDet.html#SymbCache_new_variable_array" TARGET="MAIN"><CODE>SymbCache_new_variable_array()</CODE></A>
+<DD> Declares a new ARRAY var.
+
+<DT> <A HREF="AllDet.html#SymbCache_redeclare_state_as_frozen_var" TARGET="MAIN"><CODE>SymbCache_redeclare_state_as_frozen_var()</CODE></A>
+<DD> Redeclare a state variable as a frozen variable
+
+<DT> <A HREF="AllDet.html#SymbCache_remove_constant" TARGET="MAIN"><CODE>SymbCache_remove_constant()</CODE></A>
+<DD> Removes a constant from the cache of symbols, and from
+  the flattener module
+
+<DT> <A HREF="AllDet.html#SymbCache_remove_define" TARGET="MAIN"><CODE>SymbCache_remove_define()</CODE></A>
+<DD> Removes a DEFINE from the cache of symbols, and from
+  the flattener define hash
+
+<DT> <A HREF="AllDet.html#SymbCache_remove_function" TARGET="MAIN"><CODE>SymbCache_remove_function()</CODE></A>
+<DD> Removes an NFunction from the cache of symbols
+
+<DT> <A HREF="AllDet.html#SymbCache_remove_parameter" TARGET="MAIN"><CODE>SymbCache_remove_parameter()</CODE></A>
+<DD> Removes a parameter from the cache of symbols
+
+<DT> <A HREF="AllDet.html#SymbCache_remove_var" TARGET="MAIN"><CODE>SymbCache_remove_var()</CODE></A>
+<DD> Removes a variable from the cache of symbols, and from
+  the flattener module
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_array_define" TARGET="MAIN"><CODE>SymbLayer_can_declare_array_define()</CODE></A>
+<DD> Call this method to know if a new define array can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_constant" TARGET="MAIN"><CODE>SymbLayer_can_declare_constant()</CODE></A>
+<DD> Call this method to know if a new constant can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_define" TARGET="MAIN"><CODE>SymbLayer_can_declare_define()</CODE></A>
+<DD> Call this method to know if a new DEFINE can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_function" TARGET="MAIN"><CODE>SymbLayer_can_declare_function()</CODE></A>
+<DD> Call this method to know if a new NFunction can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_parameter" TARGET="MAIN"><CODE>SymbLayer_can_declare_parameter()</CODE></A>
+<DD> Call this method to know if a new parameter can be
+                      declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_variable_array" TARGET="MAIN"><CODE>SymbLayer_can_declare_variable_array()</CODE></A>
+<DD> Call this method to know if a new variable_array can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_can_declare_var" TARGET="MAIN"><CODE>SymbLayer_can_declare_var()</CODE></A>
+<DD> Call this method to know if a new variable can be
+  declared within this layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_committed_to_enc" TARGET="MAIN"><CODE>SymbLayer_committed_to_enc()</CODE></A>
+<DD> Called every time an instance is committed within an
+  encoding.
+
+<DT> <A HREF="AllDet.html#SymbLayer_create" TARGET="MAIN"><CODE>SymbLayer_create()</CODE></A>
+<DD> Class SymbLayer constructor
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_array_define" TARGET="MAIN"><CODE>SymbLayer_declare_array_define()</CODE></A>
+<DD> Insert a new array define array
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_constant" TARGET="MAIN"><CODE>SymbLayer_declare_constant()</CODE></A>
+<DD> Insert a new constant
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_define" TARGET="MAIN"><CODE>SymbLayer_declare_define()</CODE></A>
+<DD> Insert a new DEFINE
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_frozen_var" TARGET="MAIN"><CODE>SymbLayer_declare_frozen_var()</CODE></A>
+<DD> Insert a new frozen variable
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_function" TARGET="MAIN"><CODE>SymbLayer_declare_function()</CODE></A>
+<DD> Insert a new NFunction
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_input_var" TARGET="MAIN"><CODE>SymbLayer_declare_input_var()</CODE></A>
+<DD> Insert a new input variable
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_parameter" TARGET="MAIN"><CODE>SymbLayer_declare_parameter()</CODE></A>
+<DD> Insert a new formal parameters
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_state_var" TARGET="MAIN"><CODE>SymbLayer_declare_state_var()</CODE></A>
+<DD> Insert a new state variable
+
+<DT> <A HREF="AllDet.html#SymbLayer_declare_variable_array" TARGET="MAIN"><CODE>SymbLayer_declare_variable_array()</CODE></A>
+<DD> Insert a new symbol-type association, i.e. array var
+
+<DT> <A HREF="AllDet.html#SymbLayer_destroy" TARGET="MAIN"><CODE>SymbLayer_destroy()</CODE></A>
+<DD> Class SymbLayer destructor
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_all_symbols" TARGET="MAIN"><CODE>SymbLayer_get_all_symbols()</CODE></A>
+<DD> Returns the entire list of symbols (constants, variables,
+  etc.) declared in this layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_all_vars" TARGET="MAIN"><CODE>SymbLayer_get_all_vars()</CODE></A>
+<DD> Returns the entire list of variables declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_array_defines_num" TARGET="MAIN"><CODE>SymbLayer_get_array_defines_num()</CODE></A>
+<DD> Returns the number of define arrays.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_array_defines" TARGET="MAIN"><CODE>SymbLayer_get_array_defines()</CODE></A>
+<DD> Returns the list of define arrays.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_frozen_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_bool_frozen_vars_num()</CODE></A>
+<DD> Returns the number of declared boolean frozen variables
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_frozen_vars" TARGET="MAIN"><CODE>SymbLayer_get_bool_frozen_vars()</CODE></A>
+<DD> Returns the list of declared boolean frozen variables
+  declared in this layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_input_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_bool_input_vars_num()</CODE></A>
+<DD> Returns the number of declared boolean input variables
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_input_vars" TARGET="MAIN"><CODE>SymbLayer_get_bool_input_vars()</CODE></A>
+<DD> Returns the list of declared boolean input variables
+  declared in this layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_state_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_bool_state_vars_num()</CODE></A>
+<DD> Returns the number of declared boolean state variables
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_state_vars" TARGET="MAIN"><CODE>SymbLayer_get_bool_state_vars()</CODE></A>
+<DD> Returns the list of declared boolean state variables
+  declared in this layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_bool_vars" TARGET="MAIN"><CODE>SymbLayer_get_bool_vars()</CODE></A>
+<DD> Returns the list of boolean variables declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_constants_num" TARGET="MAIN"><CODE>SymbLayer_get_constants_num()</CODE></A>
+<DD> Returns the number of declared contants
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_constants" TARGET="MAIN"><CODE>SymbLayer_get_constants()</CODE></A>
+<DD> Returns the list of declared contants
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_defines_num" TARGET="MAIN"><CODE>SymbLayer_get_defines_num()</CODE></A>
+<DD> Returns the number of DEFINEs.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_defines" TARGET="MAIN"><CODE>SymbLayer_get_defines()</CODE></A>
+<DD> Returns the list of DEFINEs.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_frozen_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_frozen_vars_num()</CODE></A>
+<DD> Returns the number of declared frozen variables.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_frozen_vars" TARGET="MAIN"><CODE>SymbLayer_get_frozen_vars()</CODE></A>
+<DD> Returns the list of frozen variables declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_functions_num" TARGET="MAIN"><CODE>SymbLayer_get_functions_num()</CODE></A>
+<DD> Returns the number of NFunctions.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_functions" TARGET="MAIN"><CODE>SymbLayer_get_functions()</CODE></A>
+<DD> Returns the list of NFunctions.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_input_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_input_vars_num()</CODE></A>
+<DD> Returns the number of declared input variables
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_input_vars" TARGET="MAIN"><CODE>SymbLayer_get_input_vars()</CODE></A>
+<DD> Returns the list of input variables declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_insert_policy" TARGET="MAIN"><CODE>SymbLayer_get_insert_policy()</CODE></A>
+<DD> Returns the policy that must be adopted to stack this
+  layer into a layers stack, within a SymbTable instance
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_name" TARGET="MAIN"><CODE>SymbLayer_get_name()</CODE></A>
+<DD> Returns the name self had been registered with.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_parameters_num" TARGET="MAIN"><CODE>SymbLayer_get_parameters_num()</CODE></A>
+<DD> Returns the number of parameters.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_parameters" TARGET="MAIN"><CODE>SymbLayer_get_parameters()</CODE></A>
+<DD> Returns the list of parameters.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_state_frozen_vars" TARGET="MAIN"><CODE>SymbLayer_get_state_frozen_vars()</CODE></A>
+<DD> Returns the list of frozen and state variables declared
+  in this layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_state_vars_num" TARGET="MAIN"><CODE>SymbLayer_get_state_vars_num()</CODE></A>
+<DD> Returns the number of declared state variables.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_state_vars" TARGET="MAIN"><CODE>SymbLayer_get_state_vars()</CODE></A>
+<DD> Returns the list of state variables declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_variable_arrays_num" TARGET="MAIN"><CODE>SymbLayer_get_variable_arrays_num()</CODE></A>
+<DD> Returns the number of Symbol Types.
+
+<DT> <A HREF="AllDet.html#SymbLayer_get_variable_arrays" TARGET="MAIN"><CODE>SymbLayer_get_variable_arrays()</CODE></A>
+<DD> Returns the list of the symbol types declared in this
+  layer
+
+<DT> <A HREF="AllDet.html#SymbLayer_is_symbol_in_layer" TARGET="MAIN"><CODE>SymbLayer_is_symbol_in_layer()</CODE></A>
+<DD> Returns true if the symbol is defined in the layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_is_variable_in_layer" TARGET="MAIN"><CODE>SymbLayer_is_variable_in_layer()</CODE></A>
+<DD> Returns true if the variable is defined in the layer.
+
+<DT> <A HREF="AllDet.html#SymbLayer_must_insert_before" TARGET="MAIN"><CODE>SymbLayer_must_insert_before()</CODE></A>
+<DD> Compares the insertion policies of self and other, and
+ returns true if self must be inserted *before* other
+
+<DT> <A HREF="AllDet.html#SymbLayer_redeclare_state_as_frozen_var" TARGET="MAIN"><CODE>SymbLayer_redeclare_state_as_frozen_var()</CODE></A>
+<DD> Redeclare a state variable as a frozen variable
+
+<DT> <A HREF="AllDet.html#SymbLayer_remove_define" TARGET="MAIN"><CODE>SymbLayer_remove_define()</CODE></A>
+<DD> Removes a previously declared DEFINE
+
+<DT> <A HREF="AllDet.html#SymbLayer_remove_function" TARGET="MAIN"><CODE>SymbLayer_remove_function()</CODE></A>
+<DD> Removes a previously declared NFunction
+
+<DT> <A HREF="AllDet.html#SymbLayer_remove_var" TARGET="MAIN"><CODE>SymbLayer_remove_var()</CODE></A>
+<DD> Removes a variable previously delcared
+
+<DT> <A HREF="AllDet.html#SymbLayer_removed_from_enc" TARGET="MAIN"><CODE>SymbLayer_removed_from_enc()</CODE></A>
+<DD> Called every time an instance is removed from an
+  encoding.
+
+<DT> <A HREF="AllDet.html#SymbLayer_set_name" TARGET="MAIN"><CODE>SymbLayer_set_name()</CODE></A>
+<DD> Sets the layer name.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_array_type" TARGET="MAIN"><CODE>SymbTablePkg_array_type()</CODE></A>
+<DD> returns an array type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_boolean_set_type" TARGET="MAIN"><CODE>SymbTablePkg_boolean_set_type()</CODE></A>
+<DD> returns a boolean-set type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_boolean_type" TARGET="MAIN"><CODE>SymbTablePkg_boolean_type()</CODE></A>
+<DD> returns a boolean enum type
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_error_type" TARGET="MAIN"><CODE>SymbTablePkg_error_type()</CODE></A>
+<DD> returns an Error-type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_init" TARGET="MAIN"><CODE>SymbTablePkg_init()</CODE></A>
+<DD> Initialises the class package.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_int_symbolic_enum_type" TARGET="MAIN"><CODE>SymbTablePkg_int_symbolic_enum_type()</CODE></A>
+<DD> returns a enum type containing integers AND symbolic 
+  constants
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_integer_set_type" TARGET="MAIN"><CODE>SymbTablePkg_integer_set_type()</CODE></A>
+<DD> returns a integer-set type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_integer_symbolic_set_type" TARGET="MAIN"><CODE>SymbTablePkg_integer_symbolic_set_type()</CODE></A>
+<DD> returns a integer-symbolic-set type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_integer_type" TARGET="MAIN"><CODE>SymbTablePkg_integer_type()</CODE></A>
+<DD> returns an Integer type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_no_type" TARGET="MAIN"><CODE>SymbTablePkg_no_type()</CODE></A>
+<DD> returns a no-type
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_pure_int_enum_type" TARGET="MAIN"><CODE>SymbTablePkg_pure_int_enum_type()</CODE></A>
+<DD> returns a pure integer enum type
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_pure_symbolic_enum_type" TARGET="MAIN"><CODE>SymbTablePkg_pure_symbolic_enum_type()</CODE></A>
+<DD> returns a pure symbolic enum type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_quit" TARGET="MAIN"><CODE>SymbTablePkg_quit()</CODE></A>
+<DD> Shut down the package.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_real_type" TARGET="MAIN"><CODE>SymbTablePkg_real_type()</CODE></A>
+<DD> returns a Real type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_signed_word_type" TARGET="MAIN"><CODE>SymbTablePkg_signed_word_type()</CODE></A>
+<DD> returns a signed Word type (with a given width)
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_statement_type" TARGET="MAIN"><CODE>SymbTablePkg_statement_type()</CODE></A>
+<DD> returns a no-type
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_string_type" TARGET="MAIN"><CODE>SymbTablePkg_string_type()</CODE></A>
+<DD> returns a String type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_symbolic_set_type" TARGET="MAIN"><CODE>SymbTablePkg_symbolic_set_type()</CODE></A>
+<DD> returns a symbolic-set type.
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_unsigned_word_type" TARGET="MAIN"><CODE>SymbTablePkg_unsigned_word_type()</CODE></A>
+<DD> returns an unsigned Word type (with a given width)
+
+<DT> <A HREF="AllDet.html#SymbTablePkg_wordarray_type" TARGET="MAIN"><CODE>SymbTablePkg_wordarray_type()</CODE></A>
+<DD> Returns a WordArray type (given array width and value width)
+
+<DT> <A HREF="AllDet.html#SymbTable_copy" TARGET="MAIN"><CODE>SymbTable_copy()</CODE></A>
+<DD> Create a new SymbolTable which contains the same info
+                      as the given one except the specified symbols in blacklist
+
+<DT> <A HREF="AllDet.html#SymbTable_create_layer_class" TARGET="MAIN"><CODE>SymbTable_create_layer_class()</CODE></A>
+<DD> Declares a new class of layers
+
+<DT> <A HREF="AllDet.html#SymbTable_create_layer" TARGET="MAIN"><CODE>SymbTable_create_layer()</CODE></A>
+<DD> Creates and adds a new layer
+
+<DT> <A HREF="AllDet.html#SymbTable_create" TARGET="MAIN"><CODE>SymbTable_create()</CODE></A>
+<DD> Class constructor
+
+<DT> <A HREF="AllDet.html#SymbTable_define_get_layer" TARGET="MAIN"><CODE>SymbTable_define_get_layer()</CODE></A>
+<DD> Returns the layer a DEFINE is defined in.
+
+<DT> <A HREF="AllDet.html#SymbTable_destroy" TARGET="MAIN"><CODE>SymbTable_destroy()</CODE></A>
+<DD> Class destructor
+
+<DT> <A HREF="AllDet.html#SymbTable_function_get_layer" TARGET="MAIN"><CODE>SymbTable_function_get_layer()</CODE></A>
+<DD> Returns the layer a NFunction is defined in.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_actual_parameter_context" TARGET="MAIN"><CODE>SymbTable_get_actual_parameter_context()</CODE></A>
+<DD> Returns the context of the actual parameter associated
+  with the given formal one
+
+<DT> <A HREF="AllDet.html#SymbTable_get_actual_parameter" TARGET="MAIN"><CODE>SymbTable_get_actual_parameter()</CODE></A>
+<DD> Returns the actual param of the given formal parameter
+
+<DT> <A HREF="AllDet.html#SymbTable_get_array_define_body" TARGET="MAIN"><CODE>SymbTable_get_array_define_body()</CODE></A>
+<DD> Returns the body of the given array define name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_array_define_context" TARGET="MAIN"><CODE>SymbTable_get_array_define_context()</CODE></A>
+<DD> Returns the context of the given array define name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_array_define_flatten_body" TARGET="MAIN"><CODE>SymbTable_get_array_define_flatten_body()</CODE></A>
+<DD> Returns the flattened body of the given array define name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_array_defines" TARGET="MAIN"><CODE>SymbTable_get_array_defines()</CODE></A>
+<DD> Returns the list of all array defines
+
+<DT> <A HREF="AllDet.html#SymbTable_get_class_layer_names" TARGET="MAIN"><CODE>SymbTable_get_class_layer_names()</CODE></A>
+<DD> Returns an array of layer names that belong to the
+  given class name. If class_name is NULL, default class name will
+  be taken (must be set before).
+
+<DT> <A HREF="AllDet.html#SymbTable_get_class_of_layer" TARGET="MAIN"><CODE>SymbTable_get_class_of_layer()</CODE></A>
+<DD> Returns the name of the class in which the given layer is
+               declared or NULL if there is no such a class.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_constants_num" TARGET="MAIN"><CODE>SymbTable_get_constants_num()</CODE></A>
+<DD> Returns the number of all declared constants
+
+<DT> <A HREF="AllDet.html#SymbTable_get_constants" TARGET="MAIN"><CODE>SymbTable_get_constants()</CODE></A>
+<DD> Returns the list of all declared constants
+
+<DT> <A HREF="AllDet.html#SymbTable_get_default_layers_class_name" TARGET="MAIN"><CODE>SymbTable_get_default_layers_class_name()</CODE></A>
+<DD> Returns the default layers class name that has been
+  previously set. The default layers class name is the class of
+  layers that is taken when the system needs a default set of
+  layers to work with. Typically the default class is the class of
+  model layers, that is used for example when dumping the
+  hierarchy by command write_bool_model.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_define_body" TARGET="MAIN"><CODE>SymbTable_get_define_body()</CODE></A>
+<DD> Returns the body of the given DEFINE
+
+<DT> <A HREF="AllDet.html#SymbTable_get_define_context" TARGET="MAIN"><CODE>SymbTable_get_define_context()</CODE></A>
+<DD> Returns the context of the given DEFINE name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_define_flatten_body" TARGET="MAIN"><CODE>SymbTable_get_define_flatten_body()</CODE></A>
+<DD> Returns the flattenized body of the given
+  define
+
+<DT> <A HREF="AllDet.html#SymbTable_get_defines" TARGET="MAIN"><CODE>SymbTable_get_defines()</CODE></A>
+<DD> Returns the list of all DEFINEs
+
+<DT> <A HREF="AllDet.html#SymbTable_get_determinization_var_name" TARGET="MAIN"><CODE>SymbTable_get_determinization_var_name()</CODE></A>
+<DD> Returns a valid name for a new determinization variable
+
+<DT> <A HREF="AllDet.html#SymbTable_get_flatten_actual_parameter" TARGET="MAIN"><CODE>SymbTable_get_flatten_actual_parameter()</CODE></A>
+<DD> Returns the flattenized actual parameter of the given
+  formal parameter
+
+<DT> <A HREF="AllDet.html#SymbTable_get_fresh_symbol_name" TARGET="MAIN"><CODE>SymbTable_get_fresh_symbol_name()</CODE></A>
+<DD> Given a tplate, returns a fresh symbol name.  This
+                      function NEVER returns the same symbol twice and
+                      NEVER returns a declared name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_frozen_vars_num" TARGET="MAIN"><CODE>SymbTable_get_frozen_vars_num()</CODE></A>
+<DD> Returns the number of all declared frozen variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_frozen_vars" TARGET="MAIN"><CODE>SymbTable_get_frozen_vars()</CODE></A>
+<DD> Returns the list of all declared frozen variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_function_context" TARGET="MAIN"><CODE>SymbTable_get_function_context()</CODE></A>
+<DD> Returns the context of the NFunction with the given name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_functions_num" TARGET="MAIN"><CODE>SymbTable_get_functions_num()</CODE></A>
+<DD> Returns the number of all NFunctions
+
+<DT> <A HREF="AllDet.html#SymbTable_get_functions" TARGET="MAIN"><CODE>SymbTable_get_functions()</CODE></A>
+<DD> Returns the list of all NFunctions
+
+<DT> <A HREF="AllDet.html#SymbTable_get_function" TARGET="MAIN"><CODE>SymbTable_get_function()</CODE></A>
+<DD> Returns the NFunction with the given name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_i_symbols" TARGET="MAIN"><CODE>SymbTable_get_i_symbols()</CODE></A>
+<DD> Returns the list of all input variables and those DEFINEs
+  whose body refer directly or indirectly to input variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_input_vars_num" TARGET="MAIN"><CODE>SymbTable_get_input_vars_num()</CODE></A>
+<DD> Returns the number of all declared input variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_input_vars" TARGET="MAIN"><CODE>SymbTable_get_input_vars()</CODE></A>
+<DD> Returns the list of all declared input variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_i_symbols" TARGET="MAIN"><CODE>SymbTable_get_layers_i_symbols()</CODE></A>
+<DD> Returns the list of input symbols that belong to the
+  given layers
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_i_vars" TARGET="MAIN"><CODE>SymbTable_get_layers_i_vars()</CODE></A>
+<DD> Returns the list of input variables that belong to the
+  given layers
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_sf_i_symbols" TARGET="MAIN"><CODE>SymbTable_get_layers_sf_i_symbols()</CODE></A>
+<DD> Returns the list of state and input symbols that
+  belong to the given layers, meaning those DEFINES whose body
+  contain both state (or frozen) and input variables. This methods
+  does _NOT_ return the state symbols plus the input symbols.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_sf_i_vars" TARGET="MAIN"><CODE>SymbTable_get_layers_sf_i_vars()</CODE></A>
+<DD> Returns the list of variables that belong to the given layers
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_sf_symbols" TARGET="MAIN"><CODE>SymbTable_get_layers_sf_symbols()</CODE></A>
+<DD> Returns the list of state and frozen symbols
+  that belong to the given layers
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers_sf_vars" TARGET="MAIN"><CODE>SymbTable_get_layers_sf_vars()</CODE></A>
+<DD> Returns the list of state and frozen variables
+  that belong to the given layers
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layers" TARGET="MAIN"><CODE>SymbTable_get_layers()</CODE></A>
+<DD> Returns the list of owned layers.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_layer" TARGET="MAIN"><CODE>SymbTable_get_layer()</CODE></A>
+<DD> Given its name, returns a layer
+
+<DT> <A HREF="AllDet.html#SymbTable_get_parameters_num" TARGET="MAIN"><CODE>SymbTable_get_parameters_num()</CODE></A>
+<DD> Returns the number of all parameters
+
+<DT> <A HREF="AllDet.html#SymbTable_get_parameters" TARGET="MAIN"><CODE>SymbTable_get_parameters()</CODE></A>
+<DD> Returns the list of all parameters
+
+<DT> <A HREF="AllDet.html#SymbTable_get_sf_i_symbols" TARGET="MAIN"><CODE>SymbTable_get_sf_i_symbols()</CODE></A>
+<DD> Returns the list of those DEFINEs whose body refer
+  directly or indirectly to both state (or frozen) and input variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_sf_symbols" TARGET="MAIN"><CODE>SymbTable_get_sf_symbols()</CODE></A>
+<DD> Returns the list of all state and frozen variables and
+  those DEFINEs whose body refer directly or indirectly to state and
+  frozen variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_simplification_hash" TARGET="MAIN"><CODE>SymbTable_get_simplification_hash()</CODE></A>
+<DD> Returns a hash which can be used only in
+  Expr_simplify.
+
+<DT> <A HREF="AllDet.html#SymbTable_get_state_frozen_vars" TARGET="MAIN"><CODE>SymbTable_get_state_frozen_vars()</CODE></A>
+<DD> Returns the list of all declared frozen and state
+  variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_state_vars_num" TARGET="MAIN"><CODE>SymbTable_get_state_vars_num()</CODE></A>
+<DD> Returns the number of all declared state variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_state_vars" TARGET="MAIN"><CODE>SymbTable_get_state_vars()</CODE></A>
+<DD> Returns the list of all declared state variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_symbol_category" TARGET="MAIN"><CODE>SymbTable_get_symbol_category()</CODE></A>
+<DD> This function returns the category of
+  an identifier
+
+<DT> <A HREF="AllDet.html#SymbTable_get_type_checker" TARGET="MAIN"><CODE>SymbTable_get_type_checker()</CODE></A>
+<DD> Returns the internally stored type checker
+
+<DT> <A HREF="AllDet.html#SymbTable_get_var_type" TARGET="MAIN"><CODE>SymbTable_get_var_type()</CODE></A>
+<DD> Returns the type of a given variable
+
+<DT> <A HREF="AllDet.html#SymbTable_get_variable_array_type" TARGET="MAIN"><CODE>SymbTable_get_variable_array_type()</CODE></A>
+<DD> Returns the body of the given array define name
+
+<DT> <A HREF="AllDet.html#SymbTable_get_variable_arrays" TARGET="MAIN"><CODE>SymbTable_get_variable_arrays()</CODE></A>
+<DD> Returns the list of all SymbolTypes
+
+<DT> <A HREF="AllDet.html#SymbTable_get_vars_num" TARGET="MAIN"><CODE>SymbTable_get_vars_num()</CODE></A>
+<DD> Returns the number of all declared variables
+
+<DT> <A HREF="AllDet.html#SymbTable_get_vars" TARGET="MAIN"><CODE>SymbTable_get_vars()</CODE></A>
+<DD> Returns the list of all declared variables
+
+<DT> <A HREF="AllDet.html#SymbTable_is_layer_in_class" TARGET="MAIN"><CODE>SymbTable_is_layer_in_class()</CODE></A>
+<DD> Returns true if given layer name belongs to the given class
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_array_define" TARGET="MAIN"><CODE>SymbTable_is_symbol_array_define()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  array define
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_bool_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_bool_var()</CODE></A>
+<DD> Returns true if the given symbol is a variable of enum type
+  with the values 0 and 1 (boolean)
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_constant" TARGET="MAIN"><CODE>SymbTable_is_symbol_constant()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  constant
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_declared" TARGET="MAIN"><CODE>SymbTable_is_symbol_declared()</CODE></A>
+<DD> Returns true if the given symbol is declared
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_define" TARGET="MAIN"><CODE>SymbTable_is_symbol_define()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  DEFINE
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_frozen_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_frozen_var()</CODE></A>
+<DD> Returns true if the given symbol is a frozen variable.
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_function" TARGET="MAIN"><CODE>SymbTable_is_symbol_function()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+                      NFunction
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_input_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_input_var()</CODE></A>
+<DD> Returns true if the given symbol is an input variable.
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_parameter" TARGET="MAIN"><CODE>SymbTable_is_symbol_parameter()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  parameter
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_state_frozen_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_state_frozen_var()</CODE></A>
+<DD> Returns true if the given symbol is a frozen or a state variable.
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_state_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_state_var()</CODE></A>
+<DD> Returns true if the given symbol is a state variable.
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_variable_array" TARGET="MAIN"><CODE>SymbTable_is_symbol_variable_array()</CODE></A>
+<DD> Returns true if the given symbol is a declared
+  Symbol Type
+
+<DT> <A HREF="AllDet.html#SymbTable_is_symbol_var" TARGET="MAIN"><CODE>SymbTable_is_symbol_var()</CODE></A>
+<DD> Returns true if the given symbol is either a state, frozen or
+  an input variable.
+
+<DT> <A HREF="AllDet.html#SymbTable_is_var_finite" TARGET="MAIN"><CODE>SymbTable_is_var_finite()</CODE></A>
+<DD> Returns true if the given variable has a finite domain
+
+<DT> <A HREF="AllDet.html#SymbTable_layer_add_to_class" TARGET="MAIN"><CODE>SymbTable_layer_add_to_class()</CODE></A>
+<DD> Adds a given layer (that must exist into self already)
+  to a class of layers. Classes are used to group layers into
+  possibly overlapping sets. For example the class of layers
+  containing the set of symbols that belongs to the SMV model.  If
+  class_name is NULL, the default class name will be taken (must
+  be set before)
+
+<DT> <A HREF="AllDet.html#SymbTable_layer_class_exists" TARGET="MAIN"><CODE>SymbTable_layer_class_exists()</CODE></A>
+<DD> Checks if a class of layers exists
+
+<DT> <A HREF="AllDet.html#SymbTable_layer_remove_from_class" TARGET="MAIN"><CODE>SymbTable_layer_remove_from_class()</CODE></A>
+<DD> Removes a given layer (that must exist into self already)
+  from a given class of layers. If class_name is NULL, the default class
+  is taken (must be set before)
+
+<DT> <A HREF="AllDet.html#SymbTable_list_contains_input_var" TARGET="MAIN"><CODE>SymbTable_list_contains_input_var()</CODE></A>
+<DD> Returns true if var_list contains at least one input
+  variable, false otherwise
+
+<DT> <A HREF="AllDet.html#SymbTable_list_contains_state_frozen_var" TARGET="MAIN"><CODE>SymbTable_list_contains_state_frozen_var()</CODE></A>
+<DD> Returns true if var_list contains at least one state
+  or frozen variable, false otherwise
+
+<DT> <A HREF="AllDet.html#SymbTable_list_contains_undef_var" TARGET="MAIN"><CODE>SymbTable_list_contains_undef_var()</CODE></A>
+<DD> Returns true if the given symbols list contains
+  one or more undeclared variable names, false otherwise
+
+<DT> <A HREF="AllDet.html#SymbTable_remove_layer" TARGET="MAIN"><CODE>SymbTable_remove_layer()</CODE></A>
+<DD> Removes and destroys a layer
+
+<DT> <A HREF="AllDet.html#SymbTable_rename_layer" TARGET="MAIN"><CODE>SymbTable_rename_layer()</CODE></A>
+<DD> Renames an existing layer
+
+<DT> <A HREF="AllDet.html#SymbTable_resolve_symbol" TARGET="MAIN"><CODE>SymbTable_resolve_symbol()</CODE></A>
+<DD> Resolves the given symbol in the given context
+
+<DT> <A HREF="AllDet.html#SymbTable_set_default_layers_class_name" TARGET="MAIN"><CODE>SymbTable_set_default_layers_class_name()</CODE></A>
+<DD> Returns the default layers class name that has been
+  previously set. The default layers class name is the class of
+  layers that is taken when the system needs a default set of
+  layers to work with. Typically the default class is the class of
+  model layers, that is used for example when dumping the
+  hierarchy by command write_bool_model.
+
+<DT> <A HREF="AllDet.html#SymbTable_symbol_get_layer" TARGET="MAIN"><CODE>SymbTable_symbol_get_layer()</CODE></A>
+<DD> Returns the layer a symbol is defined in.
+
+<DT> <A HREF="AllDet.html#SymbTable_variable_get_layer" TARGET="MAIN"><CODE>SymbTable_variable_get_layer()</CODE></A>
+<DD> Returns the layer a variable is defined in.
+
+<DT> <A HREF="AllDet.html#SymbType_calculate_type_size" TARGET="MAIN"><CODE>SymbType_calculate_type_size()</CODE></A>
+<DD> The function calculate how many bits is required to
+   store a value of a given type
+
+<DT> <A HREF="AllDet.html#SymbType_convert_right_to_left" TARGET="MAIN"><CODE>SymbType_convert_right_to_left()</CODE></A>
+<DD> Returns the left type, if the right
+   one can be implicitly converted to the left one. NULL - otherwise
+
+<DT> <A HREF="AllDet.html#SymbType_copy" TARGET="MAIN"><CODE>SymbType_copy()</CODE></A>
+<DD> Class SymbType copy-constructor
+
+<DT> <A HREF="AllDet.html#SymbType_create_array" TARGET="MAIN"><CODE>SymbType_create_array()</CODE></A>
+<DD> Class SymbType constructor for array types only
+
+<DT> <A HREF="AllDet.html#SymbType_create_memory_sharing_array_type" TARGET="MAIN"><CODE>SymbType_create_memory_sharing_array_type()</CODE></A>
+<DD> Private class SymbType constructor
+   for memory sharing array type instances
+
+<DT> <A HREF="AllDet.html#SymbType_create_memory_sharing_type" TARGET="MAIN"><CODE>SymbType_create_memory_sharing_type()</CODE></A>
+<DD> Private class SymbType constructor
+   for memory sharing type instances
+
+<DT> <A HREF="AllDet.html#SymbType_create" TARGET="MAIN"><CODE>SymbType_create()</CODE></A>
+<DD> Class SymbType constructor
+
+<DT> <A HREF="AllDet.html#SymbType_destroy_memory_sharing_type" TARGET="MAIN"><CODE>SymbType_destroy_memory_sharing_type()</CODE></A>
+<DD> Private Class SymbType destructor
+   for memory sharing instances of types.
+
+<DT> <A HREF="AllDet.html#SymbType_destroy" TARGET="MAIN"><CODE>SymbType_destroy()</CODE></A>
+<DD> Class SymbType destructor
+
+<DT> <A HREF="AllDet.html#SymbType_equals" TARGET="MAIN"><CODE>SymbType_equals()</CODE></A>
+<DD> True if and only if the given types are equal, the given
+   types can be memory-sharing or not.
+
+<DT> <A HREF="AllDet.html#SymbType_generate_all_word_values" TARGET="MAIN"><CODE>SymbType_generate_all_word_values()</CODE></A>
+<DD> Generates and returns a list of all possible values
+   of a particular Unsigned Word type
+
+<DT> <A HREF="AllDet.html#SymbType_get_array_lower_bound" TARGET="MAIN"><CODE>SymbType_get_array_lower_bound()</CODE></A>
+<DD> Get array lower bound
+
+<DT> <A HREF="AllDet.html#SymbType_get_array_subtype" TARGET="MAIN"><CODE>SymbType_get_array_subtype()</CODE></A>
+<DD> Get inner type of an array
+
+<DT> <A HREF="AllDet.html#SymbType_get_array_upper_bound" TARGET="MAIN"><CODE>SymbType_get_array_upper_bound()</CODE></A>
+<DD> Get array upper bound
+
+<DT> <A HREF="AllDet.html#SymbType_get_enum_type_values" TARGET="MAIN"><CODE>SymbType_get_enum_type_values()</CODE></A>
+<DD> Returns the list of values of an enum type
+
+<DT> <A HREF="AllDet.html#SymbType_get_greater" TARGET="MAIN"><CODE>SymbType_get_greater()</CODE></A>
+<DD> Returns one of the given types, if the other one
+   can be implicitly converted to the former one. Otherwise - Nil.
+
+<DT> <A HREF="AllDet.html#SymbType_get_minimal_common" TARGET="MAIN"><CODE>SymbType_get_minimal_common()</CODE></A>
+<DD> Returns the minimal type to which the both given types
+   can be converted, or Nil if there is none.
+
+<DT> <A HREF="AllDet.html#SymbType_get_tag" TARGET="MAIN"><CODE>SymbType_get_tag()</CODE></A>
+<DD> Returns the tag (the kind) of the type
+
+<DT> <A HREF="AllDet.html#SymbType_get_word_line_number" TARGET="MAIN"><CODE>SymbType_get_word_line_number()</CODE></A>
+<DD> Returns the line number where the type was declared.
+
+<DT> <A HREF="AllDet.html#SymbType_get_word_width" TARGET="MAIN"><CODE>SymbType_get_word_width()</CODE></A>
+<DD> Returns the width of a Word type
+
+<DT> <A HREF="AllDet.html#SymbType_get_wordarray_awidth" TARGET="MAIN"><CODE>SymbType_get_wordarray_awidth()</CODE></A>
+<DD> Returns the width of the address in a WordArray type
+
+<DT> <A HREF="AllDet.html#SymbType_get_wordarray_vwidth" TARGET="MAIN"><CODE>SymbType_get_wordarray_vwidth()</CODE></A>
+<DD> Returns the width of the value in a WordArray type
+
+<DT> <A HREF="AllDet.html#SymbType_is_array" TARGET="MAIN"><CODE>SymbType_is_array()</CODE></A>
+<DD> Returns true if the type is an array-type, or else returns false
+
+<DT> <A HREF="AllDet.html#SymbType_is_back_comp" TARGET="MAIN"><CODE>SymbType_is_back_comp()</CODE></A>
+<DD> returns true if the given type is "backward compatible",
+   i.e. a enum or integer type.
+
+<DT> <A HREF="AllDet.html#SymbType_is_boolean" TARGET="MAIN"><CODE>SymbType_is_boolean()</CODE></A>
+<DD> Returns true, if the type is boolean. Otherwise - returns false.
+
+<DT> <A HREF="AllDet.html#SymbType_is_enum" TARGET="MAIN"><CODE>SymbType_is_enum()</CODE></A>
+<DD> Returns true if the type is a enum-type, or else returns false
+
+<DT> <A HREF="AllDet.html#SymbType_is_error" TARGET="MAIN"><CODE>SymbType_is_error()</CODE></A>
+<DD> Returns true, if the type is a error-type, and false otherwise.
+
+<DT> <A HREF="AllDet.html#SymbType_is_infinite_precision" TARGET="MAIN"><CODE>SymbType_is_infinite_precision()</CODE></A>
+<DD> Returns true, if the type is one of infinite-precision types
+
+<DT> <A HREF="AllDet.html#SymbType_is_int_symbolic_enum" TARGET="MAIN"><CODE>SymbType_is_int_symbolic_enum()</CODE></A>
+<DD> Returns true, if the type is a enum-type and its value
+   are symbolic AND integer constants. Otherwise - returns false.
+
+<DT> <A HREF="AllDet.html#SymbType_is_integer" TARGET="MAIN"><CODE>SymbType_is_integer()</CODE></A>
+<DD> Returns true if the type is a integer-type, or else returns false
+
+<DT> <A HREF="AllDet.html#SymbType_is_memory_shared" TARGET="MAIN"><CODE>SymbType_is_memory_shared()</CODE></A>
+<DD> True if and only if the given type is memory shared
+
+<DT> <A HREF="AllDet.html#SymbType_is_pure_int_enum" TARGET="MAIN"><CODE>SymbType_is_pure_int_enum()</CODE></A>
+<DD> Returns true, if the type is a enum-type and its value
+   are integers only. Otherwise - returns false.
+
+<DT> <A HREF="AllDet.html#SymbType_is_pure_symbolic_enum" TARGET="MAIN"><CODE>SymbType_is_pure_symbolic_enum()</CODE></A>
+<DD> Returns true, if the type is a enum-type and its value
+   are symbolic constants only. Otherwise - returns false.
+
+<DT> <A HREF="AllDet.html#SymbType_is_real" TARGET="MAIN"><CODE>SymbType_is_real()</CODE></A>
+<DD> Returns true if the type is a real-type, or else returns false
+
+<DT> <A HREF="AllDet.html#SymbType_is_set" TARGET="MAIN"><CODE>SymbType_is_set()</CODE></A>
+<DD> Returns true, if the type is one of the set-types, i.e.
+   boolean-set, integer-set, symbolic-set, integer-symbolic-set, and
+   false otherwise.
+
+<DT> <A HREF="AllDet.html#SymbType_is_signed_word" TARGET="MAIN"><CODE>SymbType_is_signed_word()</CODE></A>
+<DD> Returns true, if the type is a signed Word type
+
+<DT> <A HREF="AllDet.html#SymbType_is_statement" TARGET="MAIN"><CODE>SymbType_is_statement()</CODE></A>
+<DD> Returns true, if the type is a statement-type,
+   and false otherwise.
+
+<DT> <A HREF="AllDet.html#SymbType_is_string" TARGET="MAIN"><CODE>SymbType_is_string()</CODE></A>
+<DD> Returns true, if the type is a String type
+
+<DT> <A HREF="AllDet.html#SymbType_is_unsigned_word" TARGET="MAIN"><CODE>SymbType_is_unsigned_word()</CODE></A>
+<DD> Returns true, if the type is an unsigned Word type
+
+<DT> <A HREF="AllDet.html#SymbType_is_word_1" TARGET="MAIN"><CODE>SymbType_is_word_1()</CODE></A>
+<DD> Returns true, if the type is a Unsigned Word type and the width of
+   the word is 1. Otherwise - returns false.
+
+<DT> <A HREF="AllDet.html#SymbType_is_wordarray" TARGET="MAIN"><CODE>SymbType_is_wordarray()</CODE></A>
+<DD> Returns true if the given type is a wordarray
+
+<DT> <A HREF="AllDet.html#SymbType_is_word" TARGET="MAIN"><CODE>SymbType_is_word()</CODE></A>
+<DD> Returns true, if the type is a Word type (signed or unsigned)
+
+<DT> <A HREF="AllDet.html#SymbType_make_from_set_type" TARGET="MAIN"><CODE>SymbType_make_from_set_type()</CODE></A>
+<DD> This function is opposite to
+   SymbType_make_set_type, i.e. if the given type is one of
+   the set-types, then the type without "set" suffix is
+   returned. Otherwise the type is returned without change.
+
+<DT> <A HREF="AllDet.html#SymbType_make_memory_shared" TARGET="MAIN"><CODE>SymbType_make_memory_shared()</CODE></A>
+<DD> This function takes a NOT memory shared type
+   and returns a memory shared one.
+
+<DT> <A HREF="AllDet.html#SymbType_make_set_type" TARGET="MAIN"><CODE>SymbType_make_set_type()</CODE></A>
+<DD> Returns a minimal set-type which the given type
+   can be implicitly converted to, or NULL if this is impossible.
+
+<DT> <A HREF="AllDet.html#SymbType_print" TARGET="MAIN"><CODE>SymbType_print()</CODE></A>
+<DD> Prints the type structure to the output stream.
+
+<DT> <A HREF="AllDet.html#SymbType_sprint" TARGET="MAIN"><CODE>SymbType_sprint()</CODE></A>
+<DD> Return a string representation of the given type.
+
+<DT> <A HREF="AllDet.html#class_layers_hash_free" TARGET="MAIN"><CODE>class_layers_hash_free()</CODE></A>
+<DD> Private destructor used by clas destroyer
+
+<DT> <A HREF="AllDet.html#node_equal" TARGET="MAIN"><CODE>node_equal()</CODE></A>
+<DD> Equality function for node_ptr, used to compare bodies of
+  types in SymbType_equal.
+
+<DT> <A HREF="AllDet.html#resolve_symbol_resolve_name_recur" TARGET="MAIN"><CODE>resolve_symbol_resolve_name_recur()</CODE></A>
+<DD> Performs the name "normalization", i.e.
+   applies find_node and merges context with the identifier.
+
+<DT> <A HREF="AllDet.html#resolve_symbol_resolve_name" TARGET="MAIN"><CODE>resolve_symbol_resolve_name()</CODE></A>
+<DD> Takes an expression representing an identifier
+   and recursively normalizes it.
+
+<DT> <A HREF="AllDet.html#str_print" TARGET="MAIN"><CODE>str_print()</CODE></A>
+<DD> Utility of SymbType_sprint and SymbType_print to print
+                       in an fprintf-like fashion using information in the given
+                       SymbTypePrinterInfo
+
+<DT> <A HREF="AllDet.html#symb_cache_define_to_symbols_lists" TARGET="MAIN"><CODE>symb_cache_define_to_symbols_lists()</CODE></A>
+<DD> Used to update symbols lists when a DEFINE is declared.
+  The given DEFINE will be added to one of state, input or state-input symbols
+  lists.
+
+<DT> <A HREF="AllDet.html#symb_cache_deinit" TARGET="MAIN"><CODE>symb_cache_deinit()</CODE></A>
+<DD> Private deinitializer
+
+<DT> <A HREF="AllDet.html#symb_cache_init" TARGET="MAIN"><CODE>symb_cache_init()</CODE></A>
+<DD> Private initializer
+
+<DT> <A HREF="AllDet.html#symb_cache_lookup_symbol" TARGET="MAIN"><CODE>symb_cache_lookup_symbol()</CODE></A>
+<DD> Returns the definition of the given symbol
+
+<DT> <A HREF="AllDet.html#symb_cache_new_symbol" TARGET="MAIN"><CODE>symb_cache_new_symbol()</CODE></A>
+<DD> Insert a new value in the symbol hash
+
+<DT> <A HREF="AllDet.html#symb_cache_remove_symbol" TARGET="MAIN"><CODE>symb_cache_remove_symbol()</CODE></A>
+<DD> Removes any reference of the given symbol from the
+  cache, and from the flattener internal hashes as well
+
+<DT> <A HREF="AllDet.html#symb_cache_resolve_pending_defines" TARGET="MAIN"><CODE>symb_cache_resolve_pending_defines()</CODE></A>
+<DD> If there are pending DEFINEs that wait for an assignment
+  within the lists of state, input and state-input symbols list, they are
+  resolved and assigned.
+
+<DT> <A HREF="AllDet.html#symb_layer_deinit" TARGET="MAIN"><CODE>symb_layer_deinit()</CODE></A>
+<DD> Private method called by the destructor
+
+<DT> <A HREF="AllDet.html#symb_layer_init" TARGET="MAIN"><CODE>symb_layer_init()</CODE></A>
+<DD> Private method called by the constructor
+
+<DT> <A HREF="AllDet.html#symb_table_create_layers_class" TARGET="MAIN"><CODE>symb_table_create_layers_class()</CODE></A>
+<DD> Internal service used by methods that handle layer classes
+
+<DT> <A HREF="AllDet.html#symb_table_deinit" TARGET="MAIN"><CODE>symb_table_deinit()</CODE></A>
+<DD> Private deinitializer
+
+<DT> <A HREF="AllDet.html#symb_table_detect_expr_category" TARGET="MAIN"><CODE>symb_table_detect_expr_category()</CODE></A>
+<DD> Returns the type of a define.
+
+<DT> <A HREF="AllDet.html#symb_table_filter_layer_symbols" TARGET="MAIN"><CODE>symb_table_filter_layer_symbols()</CODE></A>
+<DD> Given a list of symbols, returns a new list that
+  contains only those symbols that have been declared within the model
+  layer
+
+<DT> <A HREF="AllDet.html#symb_table_filter_layers_symbols" TARGET="MAIN"><CODE>symb_table_filter_layers_symbols()</CODE></A>
+<DD> Given a list of symbols and a list of layers names,
+  returns a new list that contains only those symbols that have been
+  declared within the given layers
+
+<DT> <A HREF="AllDet.html#symb_table_get_layers_class" TARGET="MAIN"><CODE>symb_table_get_layers_class()</CODE></A>
+<DD> Internal service used by methods that handle layer classes
+
+<DT> <A HREF="AllDet.html#symb_table_get_layers_from_class" TARGET="MAIN"><CODE>symb_table_get_layers_from_class()</CODE></A>
+<DD> Internal service used by methods that handle layer classes
+
+<DT> <A HREF="AllDet.html#symb_table_init" TARGET="MAIN"><CODE>symb_table_init()</CODE></A>
+<DD> Private initializer
+
+<DT> <A HREF="AllDet.html#symb_table_layer_exists" TARGET="MAIN"><CODE>symb_table_layer_exists()</CODE></A>
+<DD> Returns true if the given name corresponds to an already
+  registered layer.
+
+<DT> <A HREF="AllDet.html#symb_table_layer_rename_in_class" TARGET="MAIN"><CODE>symb_table_layer_rename_in_class()</CODE></A>
+<DD> Removes or rename a given layer inside the given
+  layers class. If class_name is NULL, then default class is taken
+  (must be set before)
+
+<DT> <A HREF="AllDet.html#symb_table_types_hash_cleaner" TARGET="MAIN"><CODE>symb_table_types_hash_cleaner()</CODE></A>
+<DD> The function is used to free the memory from
+  memory-sharing Word/WordArray/Array types stored in the hash table
+  symb_table_..._type_hash. Used in the SymbTablePkg_quit only
+
+<DT> <A HREF="AllDet.html#symb_type_sprint_aux" TARGET="MAIN"><CODE>symb_type_sprint_aux()</CODE></A>
+<DD> Utility of SymbType_sprint and SymbType_print to
+                       actually print the type
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Clear the given SymbTypePrinterInfo
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Initialize the given SymbTypePrinterInfo to print on a
+                  file
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Internal service used by
+                      SymbTable_get_array_define_flatten_body
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> The initial buffer size used when printing on a string
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

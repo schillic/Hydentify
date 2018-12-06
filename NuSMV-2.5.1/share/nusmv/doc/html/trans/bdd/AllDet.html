@@ -1,0 +1,1359 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BddTrans_apply_synchronous_product"></A>
+void <I></I>
+<B>BddTrans_apply_synchronous_product</B>(
+  BddTrans_ptr  <b>self</b>, <i></i>
+  const BddTrans_ptr  <b>other</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_state_vars_cube</b> <i></i>
+)
+</pre>
+<dd> The result goes into self and contained forward and backward
+  cluster lists would be rescheduled. Other will remain unchanged.
+<p>
+
+<dd> <b>Side Effects</b> self will change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_create"></A>
+BddTrans_ptr <I></I>
+<B>BddTrans_create</B>(
+  DdManager* <b>dd_manager</b>, <i></i>
+  const ClusterList_ptr  <b>clusters_bdd</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_state_vars_cube</b>, <i></i>
+  const TransType  <b>trans_type</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b> <i></i>
+)
+</pre>
+<dd> None of given arguments will become owned by self. 
+  You should destroy cl_options by yourself.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_backward_image_state_input"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_backward_image_state_input</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_backward_image_state"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_backward_image_state</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_backward"></A>
+ClusterList_ptr <I></I>
+<B>BddTrans_get_backward</B>(
+  const BddTrans_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> self keeps the ownership of the returned instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_forward_image_state_input"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_forward_image_state_input</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_forward_image_state"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_forward_image_state</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<dd> <b>Side Effects</b> self keeps the ownership of the returned instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_forward"></A>
+ClusterList_ptr <I></I>
+<B>BddTrans_get_forward</B>(
+  const BddTrans_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> self keeps the ownership of the returned instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_k_backward_image_state_input"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_k_backward_image_state_input</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_k_backward_image_state"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_k_backward_image_state</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_k_forward_image_state_input"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_k_forward_image_state_input</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_get_k_forward_image_state"></A>
+bdd_ptr <I></I>
+<B>BddTrans_get_k_forward_image_state</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<dd> <b>Side Effects</b> self keeps the ownership of the returned instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddTrans_print_short_info"></A>
+void <I></I>
+<B>BddTrans_print_short_info</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints info about the size of each cluster in
+  forward/backward transition relations
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterIwls95_create"></A>
+ClusterIwls95_ptr <I></I>
+<B>ClusterIwls95_create</B>(
+  DdManager* <b>dd</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b>, <i></i>
+  const double  <b>v_c</b>, <i></i>
+  const double  <b>w_c</b>, <i></i>
+  const double  <b>x_c</b>, <i></i>
+  const double  <b>y_c</b>, <i></i>
+  const double  <b>z_c</b>, <i></i>
+  const double  <b>min_c</b>, <i></i>
+  const double  <b>max_c</b> <i></i>
+)
+</pre>
+<dd> Allocates and initializes a cluster for IWLS95 alg.
+  Please note that returned object can be casted to a cluster class instance.
+  Use Cluster_destroy to destroy returned instance. The parameters passed to
+  the constructor correspond to cluster options and 7 different factors (v_c,
+  w_c, x_c, y_c, z_c, min_c and max_c) as explained in IWLS95 paper.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cluster_destroy">Cluster_destroy</a>
+<a href="#Cluster_create">Cluster_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterIwls95_get_benefit"></A>
+double <I></I>
+<B>ClusterIwls95_get_benefit</B>(
+  const ClusterIwls95_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the value of the "benifit" variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterListIterator_is_end"></A>
+boolean <I></I>
+<B>ClusterListIterator_is_end</B>(
+  const ClusterListIterator_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Use to check if iterator is at the end of list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterListIterator_next"></A>
+ClusterListIterator_ptr <I></I>
+<B>ClusterListIterator_next</B>(
+  const ClusterListIterator_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Advances the iterator by one.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_append_cluster"></A>
+void <I></I>
+<B>ClusterList_append_cluster</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  Cluster_ptr  <b>cluster</b> <i></i>
+)
+</pre>
+<dd> List becomes the owner of the given cluster, if the user
+  is going to call standard destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_apply_iwls95_partition"></A>
+ClusterList_ptr <I></I>
+<B>ClusterList_apply_iwls95_partition</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_state_vars_cube</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b> <i></i>
+)
+</pre>
+<dd> This function builds the
+  data structures to perform image computation. <br>
+  This process consists of the following steps:<br>
+  <ol>
+  <li> Ordering of the clusters given as input accordingly with the
+       heuristic described in IWLS95.</li>
+  <li> Clustering of the result of previous step accordingly the
+       threshold value stored in the option "image_cluster_size".</li>
+  <li> Ordering of the result of previous step accordingly with the
+       heuristic described in IWLS95.</li>
+  </ol>
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_apply_monolithic"></A>
+ClusterList_ptr <I></I>
+<B>ClusterList_apply_monolithic</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> "self" remains unchanged.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_apply_synchronous_product"></A>
+void <I></I>
+<B>ClusterList_apply_synchronous_product</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterList_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> All clusters into other are simply appended to "self".
+  The result goes into "self", no changes on other. The scheduling
+  is not performed at this step
+<p>
+
+<dd> <b>Side Effects</b> self will change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_apply_threshold"></A>
+ClusterList_ptr <I></I>
+<B>ClusterList_apply_threshold</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b> <i></i>
+)
+</pre>
+<dd> "self" remains unchanged.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_begin"></A>
+ClusterListIterator_ptr <I></I>
+<B>ClusterList_begin</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns an Iterator to iterate the self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_build_schedule"></A>
+void <I></I>
+<B>ClusterList_build_schedule</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b> <i></i>
+)
+</pre>
+<dd> It builds the quantification schedule of the variables
+  inside the clusters of the "self".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_check_equality"></A>
+boolean <I></I>
+<B>ClusterList_check_equality</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterList_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> It compares BDDs not Clusters.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_check_schedule"></A>
+boolean <I></I>
+<B>ClusterList_check_schedule</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Let Ci and Ti be the ith cube and relation in the list.
+  The schedule is correct iff<br>
+  <ol>
+  <li> For all Tj: j > i, S(Tj) and S(Ci) do not intersect, i.e., the
+  variables which are quantified in Ci should not appear in the
+  Tj for j>i.</li>
+  </ol><br>
+
+  where S(T) is the set of support of the BDD T.
+  Returns true if the schedule is correct, false otherwise.
+  This function is implemented for checking the correctness of the
+  clustering algorithm only.<br>
+  This function returns true if schedule is correct, false otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_copy"></A>
+ClusterList_ptr <I></I>
+<B>ClusterList_copy</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Duplicates self and each cluster inside it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_create"></A>
+ClusterList_ptr <I></I>
+<B>ClusterList_create</B>(
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> The reference to DdManager passed here is internally
+  stored but self does not become owner of it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_destroy"></A>
+void <I></I>
+<B>ClusterList_destroy</B>(
+  ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destroys the cluster list and all cluster instances
+  inside it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_clusters_cube"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_clusters_cube</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Given a list of clusters, it computes their set of support.
+  Returned bdd is referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_cluster"></A>
+Cluster_ptr <I></I>
+<B>ClusterList_get_cluster</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterListIterator_ptr  <b>iter</b> <i></i>
+)
+</pre>
+<dd> self keeps the ownership of the returned cluster
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_image_state_input"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_image_state_input</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_image_state"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_image_state</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_k_image_state_input"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_k_image_state_input</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_k_image_state"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_k_image_state</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>s</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_get_monolithic_bdd"></A>
+bdd_ptr <I></I>
+<B>ClusterList_get_monolithic_bdd</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_length"></A>
+int <I></I>
+<B>ClusterList_length</B>(
+  const ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of the clusters stored in "self".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_prepend_cluster"></A>
+void <I></I>
+<B>ClusterList_prepend_cluster</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  Cluster_ptr  <b>cluster</b> <i></i>
+)
+</pre>
+<dd> List becomes the owner of the given cluster
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_print_short_info"></A>
+void <I></I>
+<B>ClusterList_print_short_info</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints size of each cluster of the "self"
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_remove_cluster"></A>
+int <I></I>
+<B>ClusterList_remove_cluster</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  Cluster_ptr  <b>cluster</b> <i></i>
+)
+</pre>
+<dd> Returns the number of removed occurrences. Clusters found
+  won't be destroyed, simply their references will be removed from the list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_reverse"></A>
+void <I></I>
+<B>ClusterList_reverse</B>(
+  ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Reverses the list of clusters.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterList_set_cluster"></A>
+void <I></I>
+<B>ClusterList_set_cluster</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterListIterator_ptr  <b>iter</b>, <i></i>
+  Cluster_ptr  <b>cluster</b> <i></i>
+)
+</pre>
+<dd> Sets the cluster of the "self" at the position given by
+  iterator "iter" to cluster "cluster".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_clusters_appended"></A>
+boolean <I></I>
+<B>ClusterOptions_clusters_appended</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true if clusters must be appended, false if 
+  clusters must be prepended
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_create"></A>
+ClusterOptions_ptr <I></I>
+<B>ClusterOptions_create</B>(
+  OptsHandler_ptr  <b>options</b> <i></i>
+)
+</pre>
+<dd> Creates a ClusterOptions instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_destroy"></A>
+void <I></I>
+<B>ClusterOptions_destroy</B>(
+  ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> ClusterOption class destructor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_cluster_size"></A>
+int <I></I>
+<B>ClusterOptions_get_cluster_size</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the cluster_size field.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_threshold"></A>
+int <I></I>
+<B>ClusterOptions_get_threshold</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the threshold field.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_w1"></A>
+int <I></I>
+<B>ClusterOptions_get_w1</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> According to the IWLS95 paper parameter w1 represents the
+  weight attached to the R^1_c( =v_c/w_c) factor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_w2"></A>
+int <I></I>
+<B>ClusterOptions_get_w2</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> According to the IWLS95 paper parameter w2 represents the
+    weight attached to the R^2_c( =w_c/x_c) factor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_w3"></A>
+int <I></I>
+<B>ClusterOptions_get_w3</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> According to the IWLS95 paper parameter w3 represents the
+    weight attached to the R^3_c( =y_c/z_c) factor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_get_w4"></A>
+int <I></I>
+<B>ClusterOptions_get_w4</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> According to the IWLS95 paper parameter w4 represents the
+    weight attached to the R^4_c( =min_c/max_c) factor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_is_affinity"></A>
+boolean <I></I>
+<B>ClusterOptions_is_affinity</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks whether Affinity is enabled.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_is_iwls95_preorder"></A>
+boolean <I></I>
+<B>ClusterOptions_is_iwls95_preorder</B>(
+  const ClusterOptions_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks whether preordering is enabled.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="ClusterOptions_print"></A>
+void <I></I>
+<B>ClusterOptions_print</B>(
+  const ClusterOptions_ptr  <b>self</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints all the cluster options inside the specified file.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterOptions.c"TARGET="ABSTRACT"><CODE>ClusterOptions.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_create"></A>
+Cluster_ptr <I></I>
+<B>Cluster_create</B>(
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Allocates and initializes a cluster.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Object_destroy">Object_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_get_quantification_state_input"></A>
+bdd_ptr <I></I>
+<B>Cluster_get_quantification_state_input</B>(
+  const Cluster_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns a pointer to the list of variables to be
+  quantified respect to the transition relation inside the cluster. Returned
+  bdd is referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_get_quantification_state"></A>
+bdd_ptr <I></I>
+<B>Cluster_get_quantification_state</B>(
+  const Cluster_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned value is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_get_trans"></A>
+bdd_ptr <I></I>
+<B>Cluster_get_trans</B>(
+  const Cluster_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned bdd will be referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_is_equal"></A>
+boolean <I></I>
+<B>Cluster_is_equal</B>(
+  const Cluster_ptr  <b>self</b>, <i></i>
+  const Cluster_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Notice that the check is performed only using the
+  "curr_cluster" field of the Cluster class.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_set_quantification_state_input"></A>
+void <I></I>
+<B>Cluster_set_quantification_state_input</B>(
+  Cluster_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>new</b> <i></i>
+)
+</pre>
+<dd> Given value will be referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_set_quantification_state"></A>
+void <I></I>
+<B>Cluster_set_quantification_state</B>(
+  Cluster_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>new</b> <i></i>
+)
+</pre>
+<dd> Given value will be referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cluster_set_trans"></A>
+void <I></I>
+<B>Cluster_set_trans</B>(
+  Cluster_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>current</b> <i></i>
+)
+</pre>
+<dd> The given bdd will be referenced. Previously stored bdd 
+  will be released
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="af_support_pair_create"></A>
+static af_support_pair* <I></I>
+<B>af_support_pair_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates a pair
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_trans_copy"></A>
+static Object_ptr <I></I>
+<B>bdd_trans_copy</B>(
+  const Object_ptr  <b>object</b> <i></i>
+)
+</pre>
+<dd> Return a copy of the self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_trans_debug_partitioned"></A>
+static boolean <I></I>
+<B>bdd_trans_debug_partitioned</B>(
+  const BddTrans_ptr  <b>self</b>, <i></i>
+  const ClusterList_ptr  <b>basic_clusters</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> It checks the equality in terms of transition relation
+  and quantification schedule.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddTrans.c"TARGET="ABSTRACT"><CODE>BddTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_copy_aux"></A>
+static void <I></I>
+<B>cluster_copy_aux</B>(
+  const Cluster_ptr  <b>self</b>, <i></i>
+  Cluster_ptr  <b>copy</b> <i></i>
+)
+</pre>
+<dd> It helps to copy the given cluster.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cluster_copy">cluster_copy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_copy"></A>
+static Object_ptr <I></I>
+<B>cluster_copy</B>(
+  const Object_ptr  <b>object</b> <i></i>
+)
+</pre>
+<dd> It is the callback function that the copy constructor
+  virtually calls.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cluster_copy_aux">cluster_copy_aux</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_deinit"></A>
+static void <I></I>
+<B>cluster_deinit</B>(
+  Cluster_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Releases the contained bdds.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_finalize"></A>
+static void <I></I>
+<B>cluster_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Finalize a cluster.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_init"></A>
+static void <I></I>
+<B>cluster_init</B>(
+  Cluster_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Initializes the cluster with default values.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_iwls95_copy_aux"></A>
+static void <I></I>
+<B>cluster_iwls95_copy_aux</B>(
+  const ClusterIwls95_ptr  <b>self</b>, <i></i>
+  ClusterIwls95_ptr  <b>copy</b> <i></i>
+)
+</pre>
+<dd> It helps to copy iwls95 cluster.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cluster_iwls95_copy">cluster_iwls95_copy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_iwls95_copy"></A>
+static Object_ptr <I></I>
+<B>cluster_iwls95_copy</B>(
+  const Object_ptr  <b>object</b> <i></i>
+)
+</pre>
+<dd> Callback function that copy constructor virtually calls
+  to copy an instance of iwls95 cluster.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cluster_iwls95_copy_aux">cluster_iwls95_copy_aux</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_iwls95_deinit"></A>
+static void <I></I>
+<B>cluster_iwls95_deinit</B>(
+  ClusterIwls95_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Deinitialized Iwls95 cluster.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_iwls95_finalize"></A>
+static void <I></I>
+<B>cluster_iwls95_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>arg</b> <i></i>
+)
+</pre>
+<dd> The virtual destructor calls this method to destroy the
+  instance self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_iwls95_init"></A>
+static void <I></I>
+<B>cluster_iwls95_init</B>(
+  ClusterIwls95_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b>, <i></i>
+  const double  <b>v_c</b>, <i></i>
+  const double  <b>w_c</b>, <i></i>
+  const double  <b>x_c</b>, <i></i>
+  const double  <b>y_c</b>, <i></i>
+  const double  <b>z_c</b>, <i></i>
+  const double  <b>min_c</b>, <i></i>
+  const double  <b>max_c</b> <i></i>
+)
+</pre>
+<dd> The parameters passed to this private function correspond
+  to cluster options and different factors (v_c, w_c, x_c, y_c, z_c, min_c and
+  max_c) as explained in IWLS95 paper.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Cluster.c"TARGET="ABSTRACT"><CODE>Cluster.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_apply_iwls95_info"></A>
+static ClusterList_ptr <I></I>
+<B>cluster_list_apply_iwls95_info</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_state_vars_cube</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b> <i></i>
+)
+</pre>
+<dd> "self" remains unchanged.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_apply_threshold_affinity"></A>
+static ClusterList_ptr <I></I>
+<B>cluster_list_apply_threshold_affinity</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const int  <b>threshold</b>, <i></i>
+  const boolean  <b>append</b> <i></i>
+)
+</pre>
+<dd> This function aggregate clusters conjoining
+  clusters that have highest affinity measure until they exceeds the
+  specified threshold. <br>
+
+  <b>Remark:</b> The number of clusters in self whose BDD size is
+  below the threshold has a drammatic impact on the performance of
+  this function. Indeed, the size of the heap used to order pair of
+  clusters w.r.t. their affinity measure is proportional to the
+  combination of N elements of class 2: C(N,K) = N!*(K!*(N-K)!).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_apply_threshold"></A>
+static ClusterList_ptr <I></I>
+<B>cluster_list_apply_threshold</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const int  <b>threshold</b>, <i></i>
+  const boolean  <b>append</b> <i></i>
+)
+</pre>
+<dd> The clusters are formed by taking the product in order.
+  Once the BDD size of the current cluster reaches a threshold, a new cluster
+  is created. It takes the value of "threshold" as parameter and returns the
+  cluster of relation based on BDD size heuristic.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_copy"></A>
+static ClusterList_ptr <I></I>
+<B>cluster_list_copy</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const boolean  <b>weak_copy</b> <i></i>
+)
+</pre>
+<dd> If weak_copy is true (internal use only) copied list must
+  be destroyed by calling the weak private destructor
+  cluster_list_destroy_weak
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cluster_list_destroy_weak">cluster_list_destroy_weak</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_destroy_weak"></A>
+static void <I></I>
+<B>cluster_list_destroy_weak</B>(
+  ClusterList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> private function to weakly destroy the "self"
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_get_supp_Q_Ci"></A>
+static bdd_ptr <I></I>
+<B>cluster_list_get_supp_Q_Ci</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  const Cluster_ptr  <b>Ci</b> <i></i>
+)
+</pre>
+<dd> Computes the set of present an primary input variables
+  that belong to the set of support of cluster Ci, and do not belong to the
+  set of support of each cluster Cj, for j != i and Cj belonging to the set
+  of the not yet ordered clusters. The set Supp_Q_Ci is formally defined as:
+  Supp_Q_Ci = {v in (PS U PI) / v notin S(T_Cj), Cj != Ci, Cj in Q}
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="cluster_list_iwls95_order"></A>
+static ClusterList_ptr <I></I>
+<B>cluster_list_iwls95_order</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_state_vars_cube</b>, <i></i>
+  const ClusterOptions_ptr  <b>cl_options</b> <i></i>
+)
+</pre>
+<dd> "self" remains unchanged.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="clusterlist_affinity_move_clusters"></A>
+static int <I></I>
+<B>clusterlist_affinity_move_clusters</B>(
+  const ClusterList_ptr  <b>self</b>, <i></i>
+  ClusterList_ptr  <b>new_list</b>, <i></i>
+  const int  <b>threshold</b>, <i></i>
+  const boolean  <b>append</b>, <i></i>
+  node_ptr* <b>list_ref</b>, <i></i>
+  heap  <b>_heap</b> <i></i>
+)
+</pre>
+<dd> It doesn't modify the input list.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="clusterlist_build_schedule_recur"></A>
+static void <I></I>
+<B>clusterlist_build_schedule_recur</B>(
+  ClusterList_ptr  <b>self</b>, <i></i>
+  const ClusterListIterator_ptr  <b>iter</b>, <i></i>
+  const bdd_ptr  <b>s_cube</b>, <i></i>
+  const bdd_ptr  <b>si_cube</b>, <i></i>
+  bdd_ptr* <b>acc_s</b>, <i></i>
+  bdd_ptr* <b>acc_si</b> <i></i>
+)
+</pre>
+<dd> Auxiliary recursive private function that computes the
+  quantification schedule. The <tt>acc_s</tt> and <tt>acc_si</tt> must be freed
+  by the caller.
+<p>
+
+<dd> <b>Side Effects</b> <tt>acc_s</tt> and <tt>acc_si</tt> are modified
+  and must be freed by the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="compute_bdd_affinity"></A>
+static double <I></I>
+<B>compute_bdd_affinity</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Compute the Affinity between two BDD clusters as
+  suggested by Moon, Hachtel, Somenzi in BBT paper. Affinity is the ratio
+  between the number of shared variables and the number of the union of
+  all variables (intersection/union)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="compute_bdd_affinity"></A>
+static double <I></I>
+<B>compute_bdd_affinity</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Compute the Affinity between two BDDs. This is
+  an alternative definition to the one suggested by by Moon, Hachtel,
+  Somenzi in BBT paper.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="support_list_del"></A>
+static void <I></I>
+<B>support_list_del</B>(
+  af_support_list_entry* <b>asle</b> <i></i>
+)
+</pre>
+<dd> Delete a cluster in support list.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="support_list_entry_create"></A>
+static af_support_list_entry* <I></I>
+<B>support_list_entry_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates an af_support_list_entry
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME="support_list_heap_add"></A>
+static node_ptr <I></I>
+<B>support_list_heap_add</B>(
+  node_ptr  <b>list</b>, <i></i>
+  heap  <b>_heap</b>, <i></i>
+  DdManager* <b>dd</b>, <i></i>
+  Cluster_ptr  <b>cluster</b> <i></i>
+)
+</pre>
+<dd> Pairs with a dead cluster are skipped
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The parameters passed to this function includes pointer
+  to "self", set of states "s", and a function pointer that retrives from any
+  cluster in "self" a cube of variables for existential quantification.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This number specifies the number of clusters whose BDD
+               size is below the partitioning threshold. If the number
+               of clusters whose size is below the partitioning
+               threshold exceeds this limit, then clustering via
+               affinity is not performed (too expensive) and "simple"
+               clustering is performed. With this value the initial
+               size of the heap used by the clustering via affinity is
+               100!/(2*(100-2)!) = 4950, i.e. the combination of N=100
+               elements in pair: C(N,2). Allowing larger numbers is
+               possible, but can lead to enourmous consumption of
+               memory.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ClusterList_apply_threshold">ClusterList_apply_threshold</a>
+<a href="#cluster_list_apply_threshold_affinity">cluster_list_apply_threshold_affinity</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The parameters passed to this function includes pointer
+  to "self", set of states "s", value "k", and a function pointer that retrives
+  from any cluster in "self" a cube of variables for existential quantification.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ClusterList.c"TARGET="ABSTRACT"><CODE>ClusterList.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

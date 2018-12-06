@@ -1,0 +1,271 @@
+<HTML>
+<HEAD><TITLE>The node package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="node_alloc"></A>
+node_ptr <I></I>
+<B>node_alloc</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates NODE_MEM_CHUNK records and stores them
+  in the free list of the <tt>node</tt> manager.
+<p>
+
+<dd> <b>Side Effects</b> The free list of the <tt>node</tt> manager is
+  updated by appending the new allocated nodes.
+<p>
+
+<dt><pre>
+<A NAME="node_cmp_fun"></A>
+int <I></I>
+<B>node_cmp_fun</B>(
+  node_ptr  <b>node1</b>, <i></i>
+  node_ptr  <b>node2</b> <i></i>
+)
+</pre>
+<dd> Comparison function for <tt>node</tt> sorted insertion.
+  Returns is < 0 if node1 < node2, 0 if node1 == node2, and > 0 if
+  node1 > node2
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_hash_fun">node_hash_fun</a>
+</code>
+
+<dt><pre>
+<A NAME="node_eq_fun"></A>
+unsigned <I></I>
+<B>node_eq_fun</B>(
+  node_ptr  <b>node1</b>, <i></i>
+  node_ptr  <b>node2</b> <i></i>
+)
+</pre>
+<dd> Equality function for <tt>node</tt> hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_hash_fun">node_hash_fun</a>
+</code>
+
+<dt><pre>
+<A NAME="node_hash_fun"></A>
+unsigned int <I></I>
+<B>node_hash_fun</B>(
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Hash function for <tt>node</tt>s.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_eq_fun">node_eq_fun</a>
+</code>
+
+<dt><pre>
+<A NAME="node_init"></A>
+void <I></I>
+<B>node_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The <tt>node</tt> manager is initialized.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="node_is_constant"></A>
+int <I></I>
+<B>node_is_constant</B>(
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if the given node is not a numeric/boolean/failure
+   constant.  This is done a purely syntactic manner. To know if a
+   *symbol* is constant declared within a symbol tablea, use method
+   SymbTable_is_symbol_constant instead.
+<p>
+
+<dt><pre>
+<A NAME="node_is_failure"></A>
+int <I></I>
+<B>node_is_failure</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if given node is not a FAILURE node
+<p>
+
+<dt><pre>
+<A NAME="node_normalize_list"></A>
+node_ptr <I></I>
+<B>node_normalize_list</B>(
+  node_ptr  <b>sexp</b> <i></i>
+)
+</pre>
+<dd> node_normalize is 100% recursive.
+  This function instead expects the input to be a list (right
+  directional and of AND or CONS) which will be processed in a loop
+  instead of recursively.  For some examples this allowed to avoid
+  stack overflow.
+<p>
+
+<dt><pre>
+<A NAME="node_normalize"></A>
+node_ptr <I></I>
+<B>node_normalize</B>(
+  node_ptr  <b>sexp</b> <i></i>
+)
+</pre>
+<dd> Traverses the tree, and returns a possibly new tree that
+  is a normalized copy of the first. Use for constant-time comparison
+  of two trees
+<p>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_normalizer"></A>
+MasterNormalizer_ptr <I></I>
+<B>node_pkg_get_global_master_normalizer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master normalizer
+<p>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_sexp_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_global_master_sexp_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master wff printer.
+<p>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_wff_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_global_master_wff_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master wff printer.
+<p>
+
+<dt><pre>
+<A NAME="node_pkg_get_indenting_master_wff_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_indenting_master_wff_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the indenting master wff printer.
+<p>
+
+<dt><pre>
+<A NAME="node_pkg_init"></A>
+void <I></I>
+<B>node_pkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates master and printers, and initializes the node 
+  structures
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_pkg_quit">node_pkg_quit</a>
+</code>
+
+<dt><pre>
+<A NAME="node_pkg_quit"></A>
+void <I></I>
+<B>node_pkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Deinitializes the packages, finalizing all internal
+  structures
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_pkg_init">node_pkg_init</a>
+</code>
+
+<dt><pre>
+<A NAME="node_quit"></A>
+void <I></I>
+<B>node_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The <tt>node</tt> manager is de-initialized.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="node_set_type"></A>
+void <I></I>
+<B>node_set_type</B>(
+  node_ptr  <b>x</b>, <i></i>
+  int  <b>type</b> <i></i>
+)
+</pre>
+<dd> Replaces the type of the node
+<p>
+
+<dd> <b>Side Effects</b> Replaces the type of the node
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cdr">cdr</a>
+<a href="#cons">cons</a>
+<a href="#setcar">setcar</a>
+<a href="#node_get_type">node_get_type</a>
+</code>
+
+<dt><pre>
+<A NAME="node_show_profile_stats"></A>
+void <I></I>
+<B>node_show_profile_stats</B>(
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Quits the <tt>node</tt> manager. All the
+  memory allocated it's freed.
+<p>
+
+<dd> <b>Side Effects</b> All the memory allocated by the <tt>node</tt>
+  manager are left to the operating system.
+<p>
+
+<dt><pre>
+<A NAME="node_subtract"></A>
+node_ptr <I></I>
+<B>node_subtract</B>(
+  node_ptr  <b>set1</b>, <i></i>
+  node_ptr  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Deletes elements of list set1 from list set2
+  without doing side effect. The resulting list is returned.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

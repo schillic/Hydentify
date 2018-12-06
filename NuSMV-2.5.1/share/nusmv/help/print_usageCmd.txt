@@ -1,0 +1,18 @@
+  print_usage - Prints processor and BDD statistics.
+
+   --------------------------------------------------------------------------
+
+   print_usage [-h]
+
+   Prints a formatted dump of processor-specific usage statistics, and BDD
+   usage statistics. For Berkeley Unix, this includes all of the information
+   in the getrusage() structure.
+
+   Command options:
+
+   -h
+           Prints the command usage.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

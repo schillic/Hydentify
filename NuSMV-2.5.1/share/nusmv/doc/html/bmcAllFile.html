@@ -1,0 +1,920 @@
+<HTML>
+<HEAD><TITLE>The bmc package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#bmc.h"><CODE>bmc.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#bmcInt.h"><CODE>bmcInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#bmcBmcInc.c"><CODE>bmcBmcInc.c</CODE></A>
+ <DD> High level functionalities layer for BMC (incremental) algorithms
+ <DT> <A HREF="#bmcBmcNonInc.c"><CODE>bmcBmcNonInc.c</CODE></A>
+ <DD> High level functionalities layer for non incremental sat
+   solving
+ <DT> <A HREF="#bmcCheck.c"><CODE>bmcCheck.c</CODE></A>
+ <DD> Some useful functions to check propositional formulae.
+  Temporary located into the <tt>bmc</tt> package
+ <DT> <A HREF="#bmcCmd.c"><CODE>bmcCmd.c</CODE></A>
+ <DD> Bmc.Cmd module
+ <DT> <A HREF="#bmcConv.c"><CODE>bmcConv.c</CODE></A>
+ <DD> Convertion function of BE to corresponding BDD boolean 
+  expression, and viceversa
+ <DT> <A HREF="#bmcDump.c"><CODE>bmcDump.c</CODE></A>
+ <DD> Dumping functionalities, like dimacs and others
+ <DT> <A HREF="#bmcGen.c"><CODE>bmcGen.c</CODE></A>
+ <DD> Bmc.Gen module
+ <DT> <A HREF="#bmcInt.c"><CODE>bmcInt.c</CODE></A>
+ <DD> Private interfaces implementation of package bmc
+ <DT> <A HREF="#bmcModel.c"><CODE>bmcModel.c</CODE></A>
+ <DD> Bmc.Model module
+ <DT> <A HREF="#bmcOpt.c"><CODE>bmcOpt.c</CODE></A>
+ <DD> bmc Opt module
+ <DT> <A HREF="#bmcPkg.c"><CODE>bmcPkg.c</CODE></A>
+ <DD> Bmc.Pkg module
+ <DT> <A HREF="#bmcSimulate.c"><CODE>bmcSimulate.c</CODE></A>
+ <DD> Incremental SAT Based simulation
+ <DT> <A HREF="#bmcTableau.c"><CODE>bmcTableau.c</CODE></A>
+ <DD> Bmc.Tableau module
+ <DT> <A HREF="#bmcTableauLTLformula.c"><CODE>bmcTableauLTLformula.c</CODE></A>
+ <DD> Bmc.Tableau module
+ <DT> <A HREF="#bmcTableauPLTLformula.c"><CODE>bmcTableauPLTLformula.c</CODE></A>
+ <DD> Bmc.TableauPLTL module
+ <DT> <A HREF="#bmcTest.c"><CODE>bmcTest.c</CODE></A>
+ <DD> Test routines for <tt>bmc</tt> package
+ <DT> <A HREF="#bmcTrace.c"><CODE>bmcTrace.c</CODE></A>
+ <DD> This module contains functions to build traces from BE models
+ <DT> <A HREF="#bmcUtils.c"><CODE>bmcUtils.c</CODE></A>
+ <DD> Utilities for the bmc package
+ <DT> <A HREF="#bmcWff.c"><CODE>bmcWff.c</CODE></A>
+ <DD> Well Formed Formula manipulation routines
+</DL><HR>
+<A NAME="bmc.h"><H1>bmc.h</H1></A>
+External header file <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="bmcInt.h"><H1>bmcInt.h</H1></A>
+Internal header file <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="bmcBmcInc.c"><H1>bmcBmcInc.c</H1></A>
+High level functionalities layer for BMC (incremental) algorithms <P>
+<B>By: Andrei Tchaltsev</B><P>
+User-commands directly use function defined in this module. <P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_GenSolveLtlInc" TARGET="MAIN"><CODE>Bmc_GenSolveLtlInc()</CODE></A>
+ <DD> Solves LTL problem the same way as the original
+  Bmc_GenSolveLtl but just adds BE representing the path incrementaly.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_GenSolveInvarZigzag" TARGET="MAIN"><CODE>Bmc_GenSolveInvarZigzag()</CODE></A>
+ <DD> Solve an INVARSPEC problems with algorithm
+  ZigZag
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_GenSolveInvarDual" TARGET="MAIN"><CODE>Bmc_GenSolveInvarDual()</CODE></A>
+ <DD> Solve an INVARSPEC problems wiht algorithm Dual
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_GenSolveInvarFalsification" TARGET="MAIN"><CODE>Bmc_GenSolveInvarFalsification()</CODE></A>
+ <DD> Solve an INVARSPEC problems wiht algorithm Fasification
+
+ <DT> <A HREF="bmcAllDet.html#bmc_add_be_into_solver" TARGET="MAIN"><CODE>bmc_add_be_into_solver()</CODE></A>
+ <DD> Converts Be into CNF, and adds it into a group of a solver.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_add_be_into_solver_positively" TARGET="MAIN"><CODE>bmc_add_be_into_solver_positively()</CODE></A>
+ <DD> Converts Be into CNF, and adds it into a group of a solver,
+  sets polarity to 1, and then destroys the CNF.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_build_uniqueness" TARGET="MAIN"><CODE>bmc_build_uniqueness()</CODE></A>
+ <DD> Builds the uniqueness contraint for dual and zigzag
+                      algorithms
+
+</DL>
+<HR>
+<A NAME="bmcBmcNonInc.c"><H1>bmcBmcNonInc.c</H1></A>
+High level functionalities layer for non incremental sat
+   solving <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="bmcCheck.c"><H1>bmcCheck.c</H1></A>
+Some useful functions to check propositional formulae.
+  Temporary located into the <tt>bmc</tt> package <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_CheckFairnessListForPropositionalFormulae" TARGET="MAIN"><CODE>Bmc_CheckFairnessListForPropositionalFormulae()</CODE></A>
+ <DD> Helper function to simplify calling to 
+  'bmc_check_wff_list' for searching of propositional wff only.  
+  Returns a new list of wffs which contains legal wffs only
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_WffListMatchProperty" TARGET="MAIN"><CODE>Bmc_WffListMatchProperty()</CODE></A>
+ <DD> For each element belonging to a given list of wffs,
+  calls the given matching function. If function matches, calls given
+  answering function
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_IsPropositionalFormula" TARGET="MAIN"><CODE>Bmc_IsPropositionalFormula()</CODE></A>
+ <DD> Given a wff returns 1 if wff is a propositional formula,
+  zero (0) otherwise.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_is_propositional_formula_aux" TARGET="MAIN"><CODE>bmc_is_propositional_formula_aux()</CODE></A>
+ <DD> Useful wrapper for
+  Bmc_CheckFairnessListForPropositionalFormulae
+
+ <DT> <A HREF="bmcAllDet.html#bmc_check_if_wff_is_valid" TARGET="MAIN"><CODE>bmc_check_if_wff_is_valid()</CODE></A>
+ <DD> private service for
+  Bmc_CheckFairnessListForPropositionalFormulae
+
+ <DT> <A HREF="bmcAllDet.html#bmc_add_valid_wff_to_list" TARGET="MAIN"><CODE>bmc_add_valid_wff_to_list()</CODE></A>
+ <DD> private service for
+  Bmc_CheckFairnessListForPropositionalFormulae
+
+</DL>
+<HR>
+<A NAME="bmcCmd.c"><H1>bmcCmd.c</H1></A>
+Bmc.Cmd module <P>
+<B>By: Roberto Cavada</B><P>
+This module contains all the bmc commands implementation.
+  Options parsing and checking is performed here, than the high-level Bmc
+  layer is called <P>
+<P><B>See Also</B><A HREF="#bmcPkg.c,"><CODE>bmcPkg.c,</CODE></A>
+<A HREF="#bmcBmc.c"><CODE>bmcBmc.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandBmcSetup" TARGET="MAIN"><CODE>Bmc_CommandBmcSetup()</CODE></A>
+ <DD> Initializes the bmc sub-system, and builds the model in
+  a Boolean Expression format
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcSetup" TARGET="MAIN"><CODE>UsageBmcSetup()</CODE></A>
+ <DD> Usage string for Bmc_CommandBmcSetup
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandBmcSimulate" TARGET="MAIN"><CODE>Bmc_CommandBmcSimulate()</CODE></A>
+ <DD> Bmc_CommandBmcSimulate generates a trace of the problem
+  represented from the simple path from 0 (zero) to k
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcSimulate" TARGET="MAIN"><CODE>UsageBmcSimulate()</CODE></A>
+ <DD> Usage string for UsageBmcSimulate
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandBmcIncSimulate" TARGET="MAIN"><CODE>Bmc_CommandBmcIncSimulate()</CODE></A>
+ <DD> Bmc_CommandBmcIncSimulate does incremental
+  simulation of the model starting from an initial state.
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcIncSimulate" TARGET="MAIN"><CODE>UsageBmcIncSimulate()</CODE></A>
+ <DD> Usage string for UsageBmcIncSimulate
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandBmcPickState" TARGET="MAIN"><CODE>Bmc_CommandBmcPickState()</CODE></A>
+ <DD> Picks a state from the set of initial states
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcPickState" TARGET="MAIN"><CODE>UsageBmcPickState()</CODE></A>
+ <DD> Usage string for UsageBmcPickState
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandBmcSimulateCheckFeasibleConstraints" TARGET="MAIN"><CODE>Bmc_CommandBmcSimulateCheckFeasibleConstraints()</CODE></A>
+ <DD> Checks feasibility of a list of constraints for the
+  simulation
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcSimulateCheckFeasibleConstraints" TARGET="MAIN"><CODE>UsageBmcSimulateCheckFeasibleConstraints()</CODE></A>
+ <DD> Usage string for
+                      UsageBmcSimulateCheckFeasibleConstraints
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandGenLtlSpecBmc" TARGET="MAIN"><CODE>Bmc_CommandGenLtlSpecBmc()</CODE></A>
+ <DD> Generates length_max+1 problems iterating the problem
+  bound from zero to length_max, and dumps each problem to a dimacs file
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcGenLtlSpec" TARGET="MAIN"><CODE>UsageBmcGenLtlSpec()</CODE></A>
+ <DD> Usage string for command gen_ltlspec_bmc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandGenLtlSpecBmcOnePb" TARGET="MAIN"><CODE>Bmc_CommandGenLtlSpecBmcOnePb()</CODE></A>
+ <DD> Generates only one problem with fixed bound and
+  loopback, and dumps the problem to a dimacs file. The single problem
+  is dumped for the given LTL specification, or for all LTL
+  specifications if no formula is given
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcGenLtlSpecOnePb" TARGET="MAIN"><CODE>UsageBmcGenLtlSpecOnePb()</CODE></A>
+ <DD> Usage string for command gen_ltlspec_bmc_onepb
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandCheckLtlSpecBmc" TARGET="MAIN"><CODE>Bmc_CommandCheckLtlSpecBmc()</CODE></A>
+ <DD> Checks the given LTL specification, or all LTL
+  specifications in the properties database if no formula is given
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcCheckLtlSpec" TARGET="MAIN"><CODE>UsageBmcCheckLtlSpec()</CODE></A>
+ <DD> Usage string for command check_ltlspec_bmc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandCheckLtlSpecBmcOnePb" TARGET="MAIN"><CODE>Bmc_CommandCheckLtlSpecBmcOnePb()</CODE></A>
+ <DD> Checks the given LTL specification, or all LTL
+  specifications if no formula is given. Checking parameters are the problem
+  bound and the loopback values
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcCheckLtlSpecOnePb" TARGET="MAIN"><CODE>UsageBmcCheckLtlSpecOnePb()</CODE></A>
+ <DD> Usage string for command check_ltlspec_bmc_onepb
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandCheckLtlSpecBmcInc" TARGET="MAIN"><CODE>Bmc_CommandCheckLtlSpecBmcInc()</CODE></A>
+ <DD> Checks the given LTL specification, or all LTL
+  specifications in the properties database if no formula is given,
+  using incremental algorithms
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcCheckLtlSpecInc" TARGET="MAIN"><CODE>UsageBmcCheckLtlSpecInc()</CODE></A>
+ <DD> Usage string for command check_ltlspec_bmc_inc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandGenInvarBmc" TARGET="MAIN"><CODE>Bmc_CommandGenInvarBmc()</CODE></A>
+ <DD> Generates and dumps the problem for the given
+  invariant or for all invariants if no formula is given. SAT solver is not
+  invoked.
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcGenInvar" TARGET="MAIN"><CODE>UsageBmcGenInvar()</CODE></A>
+ <DD> Usage string for command gen_invar_bmc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandCheckInvarBmc" TARGET="MAIN"><CODE>Bmc_CommandCheckInvarBmc()</CODE></A>
+ <DD> Generates and solve the given invariant, or all
+  invariants if no formula is given
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcCheckInvar" TARGET="MAIN"><CODE>UsageBmcCheckInvar()</CODE></A>
+ <DD> Usage string for command check_invar_bmc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_CommandCheckInvarBmcInc" TARGET="MAIN"><CODE>Bmc_CommandCheckInvarBmcInc()</CODE></A>
+ <DD> Solve the given invariant, or all
+  invariants if no formula is given, using incremental algorithms.
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcCheckInvarInc" TARGET="MAIN"><CODE>UsageBmcCheckInvarInc()</CODE></A>
+ <DD> Usage string for command check_invar_bmc_inc
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_check_psl_property" TARGET="MAIN"><CODE>Bmc_check_psl_property()</CODE></A>
+ <DD> Top-level function for bmc of PSL properties
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_cmd_options_handling" TARGET="MAIN"><CODE>Bmc_cmd_options_handling()</CODE></A>
+ <DD> Bmc commands options handling for commands (optionally)
+  acceping options -k -l -o -a -n -p -P
+
+ <DT> <A HREF="bmcAllDet.html#bmc_build_master_be_fsm" TARGET="MAIN"><CODE>bmc_build_master_be_fsm()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_check_if_model_was_built" TARGET="MAIN"><CODE>Bmc_check_if_model_was_built()</CODE></A>
+ <DD> A service for commands, to check if bmc
+  has been built
+
+</DL>
+<HR>
+<A NAME="bmcConv.c"><H1>bmcConv.c</H1></A>
+Convertion function of BE to corresponding BDD boolean 
+  expression, and viceversa <P>
+<B>By: Alessandro Cimatti and Lorenzo Delana</B><P>
+This implementation is still depedent on the rbc package <P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_Be2Bexp" TARGET="MAIN"><CODE>Bmc_Conv_Be2Bexp()</CODE></A>
+ <DD> Given a be, constructs the corresponding boolean
+  expression
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_Bexp2Be" TARGET="MAIN"><CODE>Bmc_Conv_Bexp2Be()</CODE></A>
+ <DD> <b>Converts</b> given <b>boolean expression</b> into
+  correspondent <b>reduced boolean circuit</b>
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_BexpList2BeList" TARGET="MAIN"><CODE>Bmc_Conv_BexpList2BeList()</CODE></A>
+ <DD> <b>Converts</b> given <b>boolean expressions list </b> 
+  into correspondent <b>reduced boolean circuits list</b>
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_cleanup_cached_entries_about" TARGET="MAIN"><CODE>Bmc_Conv_cleanup_cached_entries_about()</CODE></A>
+ <DD> Removes from the cache those entries that depend on 
+  the given symbol
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_get_BeModel2SymbModel" TARGET="MAIN"><CODE>Bmc_Conv_get_BeModel2SymbModel()</CODE></A>
+ <DD> This function converts a BE model (i.e. a list of BE
+  literals) to symbolic expressions.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_init_cache" TARGET="MAIN"><CODE>Bmc_Conv_init_cache()</CODE></A>
+ <DD> Initializes module Conv
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Conv_quit_cache" TARGET="MAIN"><CODE>Bmc_Conv_quit_cache()</CODE></A>
+ <DD> De-initializes module Conv
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexpDfsData_push" TARGET="MAIN"><CODE>Be2bexpDfsData_push()</CODE></A>
+ <DD> Sets a node into the stack
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexpDfsData_head" TARGET="MAIN"><CODE>Be2bexpDfsData_head()</CODE></A>
+ <DD> Be2bexpDfsData_head
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexpDfsData_pop" TARGET="MAIN"><CODE>Be2bexpDfsData_pop()</CODE></A>
+ <DD> Be2bexpDfsData_pop
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexp_Set" TARGET="MAIN"><CODE>Be2bexp_Set()</CODE></A>
+ <DD> Be2bexpSet
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexp_First" TARGET="MAIN"><CODE>Be2bexp_First()</CODE></A>
+ <DD> Be2bexpFirst
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexp_Back" TARGET="MAIN"><CODE>Be2bexp_Back()</CODE></A>
+ <DD> Be2bexp_Back
+
+ <DT> <A HREF="bmcAllDet.html#Be2bexp_Last" TARGET="MAIN"><CODE>Be2bexp_Last()</CODE></A>
+ <DD> Be2bexp_Last
+
+ <DT> <A HREF="bmcAllDet.html#bmc_conv_set_cache" TARGET="MAIN"><CODE>bmc_conv_set_cache()</CODE></A>
+ <DD> Update the bexpr -> be cache
+
+ <DT> <A HREF="bmcAllDet.html#bmc_conv_query_cache" TARGET="MAIN"><CODE>bmc_conv_query_cache()</CODE></A>
+ <DD> Queries the bexpr->be cache
+
+ <DT> <A HREF="bmcAllDet.html#bmc_conv_bexp2be_recur" TARGET="MAIN"><CODE>bmc_conv_bexp2be_recur()</CODE></A>
+ <DD> Private service for Bmc_Conv_Bexp2Be
+
+</DL>
+<HR>
+<A NAME="bmcDump.c"><H1>bmcDump.c</H1></A>
+Dumping functionalities, like dimacs and others <P>
+<B>By: Roberto Cavada, Marco Roveri</B><P>
+This module supplies services that dump a Bmc problem
+  into a file, in DIMACS format and others <P>
+<DL>
+</DL>
+<HR>
+<A NAME="bmcGen.c"><H1>bmcGen.c</H1></A>
+Bmc.Gen module <P>
+<B>By: Roberto Cavada</B><P>
+This module contains all the problems generation functions <P>
+<P><B>See Also</B><A HREF="#bmcBmc.c,"><CODE>bmcBmc.c,</CODE></A>
+<A HREF="#bmcTableau.c,"><CODE>bmcTableau.c,</CODE></A>
+<A HREF="#bmcModel.c"><CODE>bmcModel.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Gen_InvarProblem" TARGET="MAIN"><CODE>Bmc_Gen_InvarProblem()</CODE></A>
+ <DD> Builds and returns the invariant problem of the
+  given propositional formula
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Gen_LtlProblem" TARGET="MAIN"><CODE>Bmc_Gen_LtlProblem()</CODE></A>
+ <DD> Returns the LTL problem at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Gen_InvarBaseStep" TARGET="MAIN"><CODE>Bmc_Gen_InvarBaseStep()</CODE></A>
+ <DD> Returns the base step of the invariant construction
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Gen_InvarInductStep" TARGET="MAIN"><CODE>Bmc_Gen_InvarInductStep()</CODE></A>
+ <DD> Returns the induction step of the invariant construction
+
+</DL>
+<HR>
+<A NAME="bmcInt.c"><H1>bmcInt.c</H1></A>
+Private interfaces implementation of package bmc <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_GetTestTableau" TARGET="MAIN"><CODE>Bmc_GetTestTableau()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_rewrite_invar" TARGET="MAIN"><CODE>Bmc_rewrite_invar()</CODE></A>
+ <DD> Rewrites an invariant specification containing input 
+   variables or next with an observer state variable
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_rewrite_cleanup" TARGET="MAIN"><CODE>Bmc_rewrite_cleanup()</CODE></A>
+ <DD> Crean up the memory after the rewritten property check
+
+</DL>
+<HR>
+<A NAME="bmcModel.c"><H1>bmcModel.c</H1></A>
+Bmc.Model module <P>
+<B>By: Roberto Cavada</B><P>
+This module contains all the model-related operations <P>
+<P><B>See Also</B><A HREF="#bmcGen.c,"><CODE>bmcGen.c,</CODE></A>
+<A HREF="#bmcTableau.c,"><CODE>bmcTableau.c,</CODE></A>
+<A HREF="#bmcConv.c,"><CODE>bmcConv.c,</CODE></A>
+<A HREF="#bmcVarMgr.c"><CODE>bmcVarMgr.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetInit0" TARGET="MAIN"><CODE>Bmc_Model_GetInit0()</CODE></A>
+ <DD> Retrieves the init states from the given fsm, and
+  compiles them into a BE at time 0
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetInitI" TARGET="MAIN"><CODE>Bmc_Model_GetInitI()</CODE></A>
+ <DD> Retrieves the init states from the given fsm, and
+  compiles them into a BE at time i
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetInvarAtTime" TARGET="MAIN"><CODE>Bmc_Model_GetInvarAtTime()</CODE></A>
+ <DD> Retrieves the invars from the given fsm, and
+  compiles them into a BE at the given time
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetTransAtTime" TARGET="MAIN"><CODE>Bmc_Model_GetTransAtTime()</CODE></A>
+ <DD> Retrieves the trans from the given fsm, and compiles
+                      it into a MSatEnc at the given time
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetUnrolling" TARGET="MAIN"><CODE>Bmc_Model_GetUnrolling()</CODE></A>
+ <DD> Unrolls the transition relation from j to k, taking
+  into account of invars
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_Invar_Dual_forward_unrolling" TARGET="MAIN"><CODE>Bmc_Model_Invar_Dual_forward_unrolling()</CODE></A>
+ <DD> Unrolls the transition relation from j to k, taking
+                      into account of invars
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetPathNoInit" TARGET="MAIN"><CODE>Bmc_Model_GetPathNoInit()</CODE></A>
+ <DD> Returns the path for the model from 0 to k,
+  taking into account the invariants (and no init)
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetPathWithInit" TARGET="MAIN"><CODE>Bmc_Model_GetPathWithInit()</CODE></A>
+ <DD> Returns the path for the model from 0 to k,
+  taking into account initial conditions and invariants
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Model_GetFairness" TARGET="MAIN"><CODE>Bmc_Model_GetFairness()</CODE></A>
+ <DD> Generates and returns an expression representing
+  all fairnesses in a conjunctioned form
+
+</DL>
+<HR>
+<A NAME="bmcOpt.c"><H1>bmcOpt.c</H1></A>
+bmc Opt module <P>
+<B>By: Alessandro Mariotti</B><P>
+This module contains all the bmc options handling functions <P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#opt_check_bmc_pb_length" TARGET="MAIN"><CODE>opt_check_bmc_pb_length()</CODE></A>
+ <DD> Check function for the bmc_pb_lenght option
+
+ <DT> <A HREF="bmcAllDet.html#opt_check_bmc_pb_loop" TARGET="MAIN"><CODE>opt_check_bmc_pb_loop()</CODE></A>
+ <DD> Check function for the bmc_pb_loop option
+
+ <DT> <A HREF="bmcAllDet.html#opt_check_bmc_invar_alg" TARGET="MAIN"><CODE>opt_check_bmc_invar_alg()</CODE></A>
+ <DD> Check function for the bmc_invar_alg option
+
+ <DT> <A HREF="bmcAllDet.html#opt_get_bmc_invar_alg" TARGET="MAIN"><CODE>opt_get_bmc_invar_alg()</CODE></A>
+ <DD> Get function for the bmc_invar_alg function
+
+ <DT> <A HREF="bmcAllDet.html#opt_check_bmc_inc_invar_alg" TARGET="MAIN"><CODE>opt_check_bmc_inc_invar_alg()</CODE></A>
+ <DD> Check function for the bmc_inc_invar_alg function
+
+ <DT> <A HREF="bmcAllDet.html#opt_get_bmc_inc_invar_alg" TARGET="MAIN"><CODE>opt_get_bmc_inc_invar_alg()</CODE></A>
+ <DD> Get function for the bmc_inc_invar_alg function
+
+ <DT> <A HREF="bmcAllDet.html#opt_get_integer" TARGET="MAIN"><CODE>opt_get_integer()</CODE></A>
+ <DD> Get the integer representation of the given string
+
+ <DT> <A HREF="bmcAllDet.html#opt_get_string" TARGET="MAIN"><CODE>opt_get_string()</CODE></A>
+ <DD> Get function for simple strings
+
+</DL>
+<HR>
+<A NAME="bmcPkg.c"><H1>bmcPkg.c</H1></A>
+Bmc.Pkg module <P>
+<B>By: Roberto Cavada</B><P>
+This module contains all the bmc package handling functions <P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Init" TARGET="MAIN"><CODE>Bmc_Init()</CODE></A>
+ <DD> Initializes the BMC structure
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Quit" TARGET="MAIN"><CODE>Bmc_Quit()</CODE></A>
+ <DD> Frees all resources allocated for the BMC model manager
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_AddCmd" TARGET="MAIN"><CODE>Bmc_AddCmd()</CODE></A>
+ <DD> Adds all bmc-related commands to the interactive shell
+
+</DL>
+<HR>
+<A NAME="bmcSimulate.c"><H1>bmcSimulate.c</H1></A>
+Incremental SAT Based simulation <P>
+<B>By: Marco Roveri</B><P>
+Incremental SAT Based simulation <P>
+<P><B>See Also</B><A HREF="#optional"><CODE>optional</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Simulate" TARGET="MAIN"><CODE>Bmc_Simulate()</CODE></A>
+ <DD> Performs simulation
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_StepWiseSimulation" TARGET="MAIN"><CODE>Bmc_StepWiseSimulation()</CODE></A>
+ <DD> SAT Based Incremental simulation
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_simulate_check_feasible_constraints" TARGET="MAIN"><CODE>Bmc_simulate_check_feasible_constraints()</CODE></A>
+ <DD> Checks the truth value of a list of constraints on the
+                      current state, transitions and next states,
+                      from given starting state. This can be used
+                      in guided interactive simulation to propose
+                      the set of transitions which are allowed to
+                      occur in the interactive simulation.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_pick_state_from_constr" TARGET="MAIN"><CODE>Bmc_pick_state_from_constr()</CODE></A>
+ <DD> Picks a state from the initial state, creates a trace
+                     from it.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_simulate_set_curr_sim_trace" TARGET="MAIN"><CODE>bmc_simulate_set_curr_sim_trace()</CODE></A>
+ <DD> Internal function used during the simulation to set the
+  current simulation trace
+
+ <DT> <A HREF="bmcAllDet.html#bmc_simulate_add_be_into_inc_solver_positively" TARGET="MAIN"><CODE>bmc_simulate_add_be_into_inc_solver_positively()</CODE></A>
+ <DD> Converts Be into CNF, and adds it into a group of a
+                 incremental solver, sets polarity to 1, and then destroys
+                 the CNF.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_simulate_add_be_into_non_inc_solver_positively" TARGET="MAIN"><CODE>bmc_simulate_add_be_into_non_inc_solver_positively()</CODE></A>
+ <DD> Converts Be into CNF, and adds it into a group of a
+                 non-incremental solver, sets polarity to 1, and
+                 then destroys the CNF.
+
+</DL>
+<HR>
+<A NAME="bmcTableau.c"><H1>bmcTableau.c</H1></A>
+Bmc.Tableau module <P>
+<B>By: Marco Benedetti, Roberto Cavada</B><P>
+This module contains all the tableau-related operations <P>
+<P><B>See Also</B><A HREF="#bmcModel.c,"><CODE>bmcModel.c,</CODE></A>
+<A HREF="#bmcConv.c,"><CODE>bmcConv.c,</CODE></A>
+<A HREF="#bmcVarMgr.c"><CODE>bmcVarMgr.c</CODE></A>
+<A HREF="#bmcTableau.c,"><CODE>bmcTableau.c,</CODE></A>
+<A HREF="#bmcTableauLTLformula.c,"><CODE>bmcTableauLTLformula.c,</CODE></A>
+<A HREF="#bmcTableauPLTLformula.c,"><CODE>bmcTableauPLTLformula.c,</CODE></A>
+<A HREF="#bmcGen.c"><CODE>bmcGen.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetNoLoop" TARGET="MAIN"><CODE>Bmc_Tableau_GetNoLoop()</CODE></A>
+ <DD> Builds tableau without loop at time zero, taking into
+  account of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetSingleLoop" TARGET="MAIN"><CODE>Bmc_Tableau_GetSingleLoop()</CODE></A>
+ <DD> Builds tableau for all possible loops in [l, k], in
+  the particular case in which depth is 1. This function takes into account
+  of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetAllLoops" TARGET="MAIN"><CODE>Bmc_Tableau_GetAllLoops()</CODE></A>
+ <DD> Builds tableau for all possible loops in [l, k[,
+  taking into account of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetAllLoopsDepth1" TARGET="MAIN"><CODE>Bmc_Tableau_GetAllLoopsDepth1()</CODE></A>
+ <DD> Builds tableau for all possible loops in [l, k], in
+  the particular case in which depth is 1. This function takes into account
+  of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetLtlTableau" TARGET="MAIN"><CODE>Bmc_Tableau_GetLtlTableau()</CODE></A>
+ <DD> Builds a tableau for the LTL at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauLTL_GetSingleLoopWithFairness" TARGET="MAIN"><CODE>Bmc_TableauLTL_GetSingleLoopWithFairness()</CODE></A>
+ <DD> Builds the tableau at time zero. Loop is allowed,
+  fairness are taken into account
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauLTL_GetSingleLoop" TARGET="MAIN"><CODE>Bmc_TableauLTL_GetSingleLoop()</CODE></A>
+ <DD> Builds the tableau at time zero. Loop is allowed,
+  fairness are taken into account
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauLTL_GetNoLoop" TARGET="MAIN"><CODE>Bmc_TableauLTL_GetNoLoop()</CODE></A>
+ <DD> Builds tableau without loop at time zero, taking into
+  account of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauLTL_GetAllLoops" TARGET="MAIN"><CODE>Bmc_TableauLTL_GetAllLoops()</CODE></A>
+ <DD> Builds tableau for all possible loops in [l, k[,
+  taking into account of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauLTL_GetAllLoopsDepth1" TARGET="MAIN"><CODE>Bmc_TableauLTL_GetAllLoopsDepth1()</CODE></A>
+ <DD> Builds tableau for all possible loops in [l, k], in
+  the particular case in which depth is 1. This function takes into account
+  of fairness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetNoLoop" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetNoLoop()</CODE></A>
+ <DD> Returns the tableau for a PLTL formula on a bounded path
+                      of length k, reasoning on fairness conditions as well.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetSingleLoop" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetSingleLoop()</CODE></A>
+ <DD> Returns the tableau for a PLTL formula on a (k,l)-loop,
+                      conjuncted with both fairness conditions and the loop
+                      condition on time steps k and l.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetAllLoops" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetAllLoops()</CODE></A>
+ <DD> Returns the conjunction of the single-loop tableaux for
+                      all possible (k,l)-loops for a fixed k. Each single-loop
+                      tableau takes into account of both fairness constraints
+                      and loop condition.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetAllLoopsDepth1" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetAllLoopsDepth1()</CODE></A>
+ <DD> Builds tableau for all possible (k,l)-loops for a
+                      fixed k, in the particular case depth==1.
+                      This function takes into account of fairness.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetLoopCondition" TARGET="MAIN"><CODE>Bmc_Tableau_GetLoopCondition()</CODE></A>
+ <DD> Builds a tableau that constraints state k to be equal to
+                      state l. This is the condition for a path of length (k+1)
+                      to represent a (k-l)loop (new semantics).
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Tableau_GetAllLoopsDisjunction" TARGET="MAIN"><CODE>Bmc_Tableau_GetAllLoopsDisjunction()</CODE></A>
+ <DD> Builds the disjunction of all the loops conditions
+                      for (k-l)-loops with l in [0, k[
+
+ <DT> <A HREF="bmcAllDet.html#isPureFuture" TARGET="MAIN"><CODE>isPureFuture()</CODE></A>
+ <DD> Checks wether a formula contains only future operators
+
+ <DT> <A HREF="bmcAllDet.html#isPureFuture_aux" TARGET="MAIN"><CODE>isPureFuture_aux()</CODE></A>
+ <DD> Memoized private service of isPureFuture
+
+</DL>
+<HR>
+<A NAME="bmcTableauLTLformula.c"><H1>bmcTableauLTLformula.c</H1></A>
+Bmc.Tableau module <P>
+<B>By: Roberto Cavada</B><P>
+This module contains all the operations related to the
+               construction of tableaux for LTL formulas <P>
+<P><B>See Also</B><A HREF="#bmcGen.c,"><CODE>bmcGen.c,</CODE></A>
+<A HREF="#bmcModel.c,"><CODE>bmcModel.c,</CODE></A>
+<A HREF="#bmcConv.c,"><CODE>bmcConv.c,</CODE></A>
+<A HREF="#bmcVarMgr.c"><CODE>bmcVarMgr.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#BmcInt_Tableau_GetAtTime" TARGET="MAIN"><CODE>BmcInt_Tableau_GetAtTime()</CODE></A>
+ <DD> Given a wff expressed in ltl builds the model-independent
+  tableau at 'time' of a path formula bounded by [k, l]
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetNextAtTime" TARGET="MAIN"><CODE>bmc_tableauGetNextAtTime()</CODE></A>
+ <DD> Resolves the NEXT operator, building the tableau for
+  its argument
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetEventuallyAtTime" TARGET="MAIN"><CODE>bmc_tableauGetEventuallyAtTime()</CODE></A>
+ <DD> Resolves the future operator, and builds a conjunctive
+  expression of tableaus, by iterating intime up to k in a different manner
+  depending on the [l, k] interval form
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetGloballyAtTime" TARGET="MAIN"><CODE>bmc_tableauGetGloballyAtTime()</CODE></A>
+ <DD> As bmc_tableauGetEventuallyAtTime, but builds a
+  conjunctioned expression in order to be able to assure a global constraint
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetUntilAtTime" TARGET="MAIN"><CODE>bmc_tableauGetUntilAtTime()</CODE></A>
+ <DD> Builds an expression which evaluates the until operator
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetReleasesAtTime" TARGET="MAIN"><CODE>bmc_tableauGetReleasesAtTime()</CODE></A>
+ <DD> Builds an expression which evaluates the release
+  operator
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetUntilAtTime_aux" TARGET="MAIN"><CODE>bmc_tableauGetUntilAtTime_aux()</CODE></A>
+ <DD> auxiliary part of bmc_tableauGetUntilAtTime
+
+ <DT> <A HREF="bmcAllDet.html#bmc_tableauGetReleasesAtTime_aux" TARGET="MAIN"><CODE>bmc_tableauGetReleasesAtTime_aux()</CODE></A>
+ <DD> auxiliary part of bmc_tableauGetReleasesAtTime
+
+</DL>
+<HR>
+<A NAME="bmcTableauPLTLformula.c"><H1>bmcTableauPLTLformula.c</H1></A>
+Bmc.TableauPLTL module <P>
+<B>By: Marco Benedetti</B><P>
+Implements all the functions needed to build tableaux for
+               PLTL formulas. <P>
+<P><B>See Also</B><A HREF="#bmcTableau.c,"><CODE>bmcTableau.c,</CODE></A>
+<A HREF="#bmcGen.c"><CODE>bmcGen.c</CODE></A>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="bmcAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetTableau" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetTableau()</CODE></A>
+ <DD> Builds the tableau for a PLTL formula.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TableauPLTL_GetAllTimeTableau" TARGET="MAIN"><CODE>Bmc_TableauPLTL_GetAllTimeTableau()</CODE></A>
+ <DD> Builds the conjunction of the tableaux for a PLTL formula
+                computed on every time instant along a (k,l)-loop.
+
+ <DT> <A HREF="bmcAllDet.html#getTableauAtTime" TARGET="MAIN"><CODE>getTableauAtTime()</CODE></A>
+ <DD> Builds the tableau for a PLTL formula "pltl_wff" at time
+                 "time".
+
+ <DT> <A HREF="bmcAllDet.html#evaluateOn" TARGET="MAIN"><CODE>evaluateOn()</CODE></A>
+ <DD> Evaluates (either disjunctively or conjunctively) a PLTL
+                 formula over an interval of time.
+
+ <DT> <A HREF="bmcAllDet.html#projectOntoMainDomain" TARGET="MAIN"><CODE>projectOntoMainDomain()</CODE></A>
+ <DD> Projects a (possibly open) interval [a,b
+
+ <DT> <A HREF="bmcAllDet.html#tau" TARGET="MAIN"><CODE>tau()</CODE></A>
+ <DD> Gives an upper bound on the past temporal horizon of a
+                PLTL formula.
+
+</DL>
+<HR>
+<A NAME="bmcTest.c"><H1>bmcTest.c</H1></A>
+Test routines for <tt>bmc</tt> package <P>
+<B>By: Roberto Cavada, Marco Benedetti</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_TestReset" TARGET="MAIN"><CODE>Bmc_TestReset()</CODE></A>
+ <DD> Call this function to reset the test sub-package (into
+  the reset command for example)
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_TestTableau" TARGET="MAIN"><CODE>Bmc_TestTableau()</CODE></A>
+ <DD> The first time Bmc_TestTableau is called in the current
+  session this function creates a smv file with a model and generates a random
+  ltl spec to test tableau. The following times it is called it appends a new
+  formula to the file.
+
+ <DT> <A HREF="bmcAllDet.html#UsageBmcTestTableau" TARGET="MAIN"><CODE>UsageBmcTestTableau()</CODE></A>
+ <DD> Usage string for Bmc_TestTableau
+
+ <DT> <A HREF="bmcAllDet.html#bmc_test_mk_loopback_ltl" TARGET="MAIN"><CODE>bmc_test_mk_loopback_ltl()</CODE></A>
+ <DD> For each variable p in the set of state variables,
+  generates the global equivalence of p and X^(loop length), starting from
+  the loop start
+
+ <DT> <A HREF="bmcAllDet.html#bmc_test_gen_tableau" TARGET="MAIN"><CODE>bmc_test_gen_tableau()</CODE></A>
+ <DD> Given a WFF in NNF, converts it into a tableau
+  formula, then back to WFF_(k,l) and returns WFF -> WFF_(k,l)
+
+ <DT> <A HREF="bmcAllDet.html#bmc_test_gen_wff" TARGET="MAIN"><CODE>bmc_test_gen_wff()</CODE></A>
+ <DD> Builds a <b>random LTL WFF</b> with specified
+  <tt>max</tt> depth and <tt>max</tt> connectives.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_test_bexpr_output" TARGET="MAIN"><CODE>bmc_test_bexpr_output()</CODE></A>
+ <DD> <b>Write</b> to specified FILE stream given node_ptr
+  <b>formula</b> with specified <tt>output_type</tt> format. There are
+  follow formats: <tt>BMC_BEXP_OUTPUT_SMV, BMC_BEXP_OUTPUT_LB</tt>
+
+</DL>
+<HR>
+<A NAME="bmcTrace.c"><H1>bmcTrace.c</H1></A>
+This module contains functions to build traces from BE models <P>
+<B>By: Marco Pensallorto</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_create_trace_from_cnf_model" TARGET="MAIN"><CODE>Bmc_create_trace_from_cnf_model()</CODE></A>
+ <DD> Creates a trace out of a cnf model
+
+ <DT> <A HREF="bmcAllDet.html#bmc_trace_utils_complete_trace" TARGET="MAIN"><CODE>bmc_trace_utils_complete_trace()</CODE></A>
+ <DD> Populates trace with valid defaults assignments
+
+ <DT> <A HREF="bmcAllDet.html#bmc_trace_utils_append_input_state" TARGET="MAIN"><CODE>bmc_trace_utils_append_input_state()</CODE></A>
+ <DD> Appends a _complete_ (i,S') pair to existing trace
+
+</DL>
+<HR>
+<A NAME="bmcUtils.c"><H1>bmcUtils.c</H1></A>
+Utilities for the bmc package <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_ConvertLoopFromString" TARGET="MAIN"><CODE>Bmc_Utils_ConvertLoopFromString()</CODE></A>
+ <DD> Given a string representing a loopback possible value,
+               returns the corresponding integer.  The (optional)
+               parameter result will be assigned to SUCCESS if the
+               conversion has been successfully performed, otherwise
+               to GENERIC_ERROR is the conversion failed. If result is
+               NULL, SUCCESS is the aspected value, and an assertion
+               is implicitly performed to check the conversion
+               outcome.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_ConvertLoopFromInteger" TARGET="MAIN"><CODE>Bmc_Utils_ConvertLoopFromInteger()</CODE></A>
+ <DD> Given an integer containing the inner representation of
+               the loopback value, returns as parameter the
+               corresponding user-side value as string
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_IsNoLoopback" TARGET="MAIN"><CODE>Bmc_Utils_IsNoLoopback()</CODE></A>
+ <DD> Returns true if l has the internally encoded "no loop"
+               value
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_IsNoLoopbackString" TARGET="MAIN"><CODE>Bmc_Utils_IsNoLoopbackString()</CODE></A>
+ <DD> Returns true if the given string represents the no
+               loopback value
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_IsSingleLoopback" TARGET="MAIN"><CODE>Bmc_Utils_IsSingleLoopback()</CODE></A>
+ <DD> Returns true if the given loop value represents a single
+               (relative or absolute) loopback
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_IsAllLoopbacks" TARGET="MAIN"><CODE>Bmc_Utils_IsAllLoopbacks()</CODE></A>
+ <DD> Returns true if the given loop value represents the "all
+               possible loopbacks" semantic
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_IsAllLoopbacksString" TARGET="MAIN"><CODE>Bmc_Utils_IsAllLoopbacksString()</CODE></A>
+ <DD> Returns true if the given string represents the "all
+               possible loops" value.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_GetNoLoopback" TARGET="MAIN"><CODE>Bmc_Utils_GetNoLoopback()</CODE></A>
+ <DD> Returns the integer value which represents the "no loop"
+               semantic
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_GetAllLoopbacks" TARGET="MAIN"><CODE>Bmc_Utils_GetAllLoopbacks()</CODE></A>
+ <DD> Returns the integer value which represents the "all loops"
+               semantic
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_GetAllLoopbacksString" TARGET="MAIN"><CODE>Bmc_Utils_GetAllLoopbacksString()</CODE></A>
+ <DD> Returns a constant string which represents the "all loops"
+               semantic.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_RelLoop2AbsLoop" TARGET="MAIN"><CODE>Bmc_Utils_RelLoop2AbsLoop()</CODE></A>
+ <DD> Converts a relative loop value (wich can also be an
+               absolute loop value) to an absolute loop value
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_Check_k_l" TARGET="MAIN"><CODE>Bmc_Utils_Check_k_l()</CODE></A>
+ <DD> Checks the (k,l) couple. l must be absolute.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_GetSuccTime" TARGET="MAIN"><CODE>Bmc_Utils_GetSuccTime()</CODE></A>
+ <DD> Given time<=k and a [l, k] interval, returns next time,
+               or BMC_NO_LOOP if time is equal to k and there is no
+               loop
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_ExpandMacrosInFilename" TARGET="MAIN"><CODE>Bmc_Utils_ExpandMacrosInFilename()</CODE></A>
+ <DD> Search into a given string any symbol which belongs to a
+               determined set of symbols, and expand each found
+               symbol, finally returning the resulting string
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_generate_and_print_cntexample" TARGET="MAIN"><CODE>Bmc_Utils_generate_and_print_cntexample()</CODE></A>
+ <DD> Given a problem, and a solver containing a model for that
+               problem, generates and prints a counter-example
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_generate_cntexample" TARGET="MAIN"><CODE>Bmc_Utils_generate_cntexample()</CODE></A>
+ <DD> Given a problem, and a solver containing a model for that
+              problem, generates a counter-example
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_get_vars_list_for_uniqueness" TARGET="MAIN"><CODE>Bmc_Utils_get_vars_list_for_uniqueness()</CODE></A>
+ <DD> Creates a list of BE variables that are intended to be
+               used by the routine that makes the state unique in
+               invariant checking.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_get_vars_list_for_uniqueness_fsm" TARGET="MAIN"><CODE>Bmc_Utils_get_vars_list_for_uniqueness_fsm()</CODE></A>
+ <DD> Creates a list of BE variables that are intended to be
+               used by the routine that makes the state unique in
+               invariant checking.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_apply_inlining" TARGET="MAIN"><CODE>Bmc_Utils_apply_inlining()</CODE></A>
+ <DD> Applies inlining taking into account of current user
+               settings
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_apply_inlining4inc" TARGET="MAIN"><CODE>Bmc_Utils_apply_inlining4inc()</CODE></A>
+ <DD> Applies inlining forcing inclusion of the conjunct
+               set. Useful in the incremental SAT applications to
+               guarantee soundness
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_simple_costraint_from_string" TARGET="MAIN"><CODE>Bmc_Utils_simple_costraint_from_string()</CODE></A>
+ <DD> Reads a simple expression and builds the corresponding BE
+               formula.
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Utils_next_costraint_from_string" TARGET="MAIN"><CODE>Bmc_Utils_next_costraint_from_string()</CODE></A>
+ <DD> Reads a next expression and builds the corresponding BE
+               formula.
+
+ <DT> <A HREF="bmcAllDet.html#bmc_utils_costraint_from_string" TARGET="MAIN"><CODE>bmc_utils_costraint_from_string()</CODE></A>
+ <DD> Reads an expression and builds the corresponding BE
+               formula. If accept_next_expr is true, then a next
+               expression is parsed, otherwise a simple expression is
+               parsed.
+
+</DL>
+<HR>
+<A NAME="bmcWff.c"><H1>bmcWff.c</H1></A>
+Well Formed Formula manipulation routines <P>
+<B>By: Alessandro Cimatti and Lorenzo Delana</B><P>
+<DL>
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkTruth" TARGET="MAIN"><CODE>Bmc_Wff_MkTruth()</CODE></A>
+ <DD> Makes a <i>truth</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkFalsity" TARGET="MAIN"><CODE>Bmc_Wff_MkFalsity()</CODE></A>
+ <DD> Makes a <i>false</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkNot" TARGET="MAIN"><CODE>Bmc_Wff_MkNot()</CODE></A>
+ <DD> Makes a <i>not</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkAnd" TARGET="MAIN"><CODE>Bmc_Wff_MkAnd()</CODE></A>
+ <DD> Makes an <i>and</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkOr" TARGET="MAIN"><CODE>Bmc_Wff_MkOr()</CODE></A>
+ <DD> Makes an <i>or</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkImplies" TARGET="MAIN"><CODE>Bmc_Wff_MkImplies()</CODE></A>
+ <DD> Makes an <i>implies</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkIff" TARGET="MAIN"><CODE>Bmc_Wff_MkIff()</CODE></A>
+ <DD> Makes an <i>iff</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkNext" TARGET="MAIN"><CODE>Bmc_Wff_MkNext()</CODE></A>
+ <DD> Makes a <i>next</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkXopNext" TARGET="MAIN"><CODE>Bmc_Wff_MkXopNext()</CODE></A>
+ <DD> Applies <i>op_next</i> x times
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkOpNext" TARGET="MAIN"><CODE>Bmc_Wff_MkOpNext()</CODE></A>
+ <DD> Makes an <i>op_next</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkOpPrec" TARGET="MAIN"><CODE>Bmc_Wff_MkOpPrec()</CODE></A>
+ <DD> Makes an <i>op_next</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkOpNotPrecNot" TARGET="MAIN"><CODE>Bmc_Wff_MkOpNotPrecNot()</CODE></A>
+ <DD> Makes an <i>op_next</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkGlobally" TARGET="MAIN"><CODE>Bmc_Wff_MkGlobally()</CODE></A>
+ <DD> Makes a <i>globally</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkHistorically" TARGET="MAIN"><CODE>Bmc_Wff_MkHistorically()</CODE></A>
+ <DD> Makes a <i>historically</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkEventually" TARGET="MAIN"><CODE>Bmc_Wff_MkEventually()</CODE></A>
+ <DD> Makes an <i>eventually</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkOnce" TARGET="MAIN"><CODE>Bmc_Wff_MkOnce()</CODE></A>
+ <DD> Makes an <i>once</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkUntil" TARGET="MAIN"><CODE>Bmc_Wff_MkUntil()</CODE></A>
+ <DD> Makes an <i>until</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkSince" TARGET="MAIN"><CODE>Bmc_Wff_MkSince()</CODE></A>
+ <DD> Makes an <i>since</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkReleases" TARGET="MAIN"><CODE>Bmc_Wff_MkReleases()</CODE></A>
+ <DD> Makes a <i>releases</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkTriggered" TARGET="MAIN"><CODE>Bmc_Wff_MkTriggered()</CODE></A>
+ <DD> Makes a <i>triggered</i> WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_MkNnf" TARGET="MAIN"><CODE>Bmc_Wff_MkNnf()</CODE></A>
+ <DD> Makes the <b>negative normal form</b> of given WFF
+
+ <DT> <A HREF="bmcAllDet.html#Bmc_Wff_GetDepth" TARGET="MAIN"><CODE>Bmc_Wff_GetDepth()</CODE></A>
+ <DD> Returns the modal depth of the given formula
+
+ <DT> <A HREF="bmcAllDet.html#bmc_wff_mkBinary" TARGET="MAIN"><CODE>bmc_wff_mkBinary()</CODE></A>
+ <DD> Makes a <b>binary</b> WFF
+
+ <DT> <A HREF="bmcAllDet.html#bmc_wff_mkUnary" TARGET="MAIN"><CODE>bmc_wff_mkUnary()</CODE></A>
+ <DD> Makes a <b>unary</b> WFF
+
+ <DT> <A HREF="bmcAllDet.html#bmc_wff_mkConst" TARGET="MAIN"><CODE>bmc_wff_mkConst()</CODE></A>
+ <DD> Makes a <b>constant</b> WFF
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

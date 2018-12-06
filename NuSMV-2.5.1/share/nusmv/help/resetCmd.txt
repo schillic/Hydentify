@@ -1,0 +1,17 @@
+  reset - Resets the whole system.
+
+   --------------------------------------------------------------------------
+
+   reset [-h]
+
+   Resets the whole system, in order to read in another model and to perform
+   verification on it.
+
+   Command options:
+
+   -h
+           Prints the command usage.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

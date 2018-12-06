@@ -1,0 +1,192 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="ParserIdList_create"></A>
+ParserIdList_ptr <I></I>
+<B>ParserIdList_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserIdList_destroy"></A>
+void <I></I>
+<B>ParserIdList_destroy</B>(
+  ParserIdList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserIdList_get_id_list"></A>
+NodeList_ptr <I></I>
+<B>ParserIdList_get_id_list</B>(
+  const ParserIdList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned list is owned by self, and should not be 
+  changed or destroyed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserIdList_parse_from_file"></A>
+void <I></I>
+<B>ParserIdList_parse_from_file</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  FILE* <b>f</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserIdList_parse_from_string"></A>
+void <I></I>
+<B>ParserIdList_parse_from_string</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  const char* <b>str</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="ParserIdList_reset"></A>
+void <I></I>
+<B>ParserIdList_reset</B>(
+  ParserIdList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_add_id"></A>
+void <I></I>
+<B>parser_id_list_add_id</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_deinit"></A>
+static void <I></I>
+<B>parser_id_list_deinit</B>(
+  ParserIdList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_init"></A>
+static void <I></I>
+<B>parser_id_list_init</B>(
+  ParserIdList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_mk_array"></A>
+node_ptr <I></I>
+<B>parser_id_list_mk_array</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_mk_atom"></A>
+node_ptr <I></I>
+<B>parser_id_list_mk_atom</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_mk_bit"></A>
+node_ptr <I></I>
+<B>parser_id_list_mk_bit</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  int  <b>suffix</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_mk_dot"></A>
+node_ptr <I></I>
+<B>parser_id_list_mk_dot</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_id_list_mk_num"></A>
+node_ptr <I></I>
+<B>parser_id_list_mk_num</B>(
+  ParserIdList_ptr  <b>self</b>, <i></i>
+  const int  <b>num</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ParserIdList.c"TARGET="ABSTRACT"><CODE>ParserIdList.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

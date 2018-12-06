@@ -1,0 +1,2741 @@
+<HTML>
+<HEAD><TITLE>The compile package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Compile_CheckAssigns"></A>
+void <I></I>
+<B>Compile_CheckAssigns</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>procs</b> <i></i>
+)
+</pre>
+<dd> The function checks that there are no multiple assignments and
+  circular definitions.<br> Then the functions tries to detect
+  multiple assignments between different modules.
+<p>
+
+<dt><pre>
+<A NAME="Compile_ConstructHierarchy"></A>
+void <I></I>
+<B>Compile_ConstructHierarchy</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>module_name</b>, <i>the <code>ATOM</code> representing the name of the
+module being instantiated</i>
+  node_ptr  <b>instance_name</b>, <i>the name of the module instance to be instantiated</i>
+  node_ptr  <b>actual</b>, <i>the actual module arguments</i>
+  FlatHierarchy_ptr  <b>result</b>, <i></i>
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  hash_ptr  <b>instances</b> <i></i>
+)
+</pre>
+<dd> This function is a subfunction of Compile_FlattenHierarchy.
+
+   This function traverses the module hierarchy and extracts the
+   information needed to compile the automaton. The hierarchy of modules
+   is flattened, the variables are added to the symbol table, all the
+   necessary parts of the model are collected (i.e. the formulae to be
+   verified, the initial expressions, etc).
+
+   The returned value is a structure constraining all the collected parts
+   which are:
+   the list of TRANS, INIT, INVAR, ASSIGN, SPEC, COMPUTE, LTLSPEC,
+   PSLSPEC, INVARSPEC, JUSTICE, COMPASSION,
+   a full list of variables declared in the hierarchy,
+   a hash table associating variables to their assignments and constrains.
+   See FlatHierarchy class for more info.
+<p>
+
+<dt><pre>
+<A NAME="Compile_DeclareVariable"></A>
+boolean <I></I>
+<B>Compile_DeclareVariable</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  SymbType_ptr  <b>type</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  Instantiation_Variables_Mode_Type  <b>mode</b> <i></i>
+)
+</pre>
+<dd> It takes as input a variable name, its type and a
+   context, and depending on the type of the variable some operation
+   are performed in order to instantiate it in the given context:
+
+   Depending on the kind of variable instantiation mode the variables
+   are appended to <tt>input_variables</tt>, <tt>frozen_variables</tt> or
+   <tt>state_variables</tt>, respectively.
+
+   Note that if type is ARRAY then the "name" is declared
+   with SymbLayer_declare_variable_array and then subvariables are
+   created.
+
+   Returns true iff a variable (input,state or frozen) or array was
+   created.
+
+   PRECONDITION: type has to be not memory-shared, and its ownership
+   is passed to this function.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_instantiate_var">compile_instantiate_var</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_FlattenHierarchy"></A>
+FlatHierarchy_ptr <I></I>
+<B>Compile_FlattenHierarchy</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>module_name</b>, <i></i>
+  node_ptr  <b>inst_name</b>, <i></i>
+  node_ptr  <b>actual</b>, <i></i>
+  boolean  <b>create_process_variables</b>, <i>enables creation of process variables</i>
+  boolean  <b>calc_vars_constr</b>, <i>triggers calc of vars constr, or delays it</i>
+  HrcNode_ptr  <b>hrc_result</b> <i>hrc node to be populated</i>
+)
+</pre>
+<dd> Traverses the module hierarchy and extracts the
+   information needed to compile the automaton. The hierarchy of modules
+   is flattened, the variables are added to the symbol table, all the
+   necessary parts of the model are collected (i.e. the formulae to be
+   verified, the initial expressions, etc). Most of the collected
+   expressions are flattened.
+
+
+   The returned value is a structure containing all the collected
+   parts. See FlatHierarchy_create function for more info about, and
+   constrains on content of the class FlatHierarchy.
+
+   It is the invoker's responsibility to destroy the returned value.
+
+   Parameter `create_process_variables` enables the creation of
+   process variable (i.e. declaration of 'running's ). So, this
+   parameter can be set up only for users 'main' modules. For auxiliary
+   modules created during execution (for example, during LTL tablaue
+   generation) this parameter should be set to false (as is done in ltl.c).
+
+   Parameter calc_vars_constr controls the time association between
+   constraints and variables is calculated. If true, the association is
+   calculated before existing the function, otherwise it is possibly
+   calculated later when needed, i.e. when
+   FlatHierarchy_lookup_constrains is called. Postponing this calculation
+   can be effective when vars constraints are not used in later phases.
+   Any value of calc_vars_constr is safe, but having this parameter set
+   to false possibly postpones calculations from the model construction
+   phase to the model checking phase, when LTL MC is carried out, or when
+   COI is involved.
+
+   Parameter hrc_result contains the hrc node to be constructed from the
+   model. If hrc_result is NULL then the structure is not populated.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Compile_FlattenSexpExpandDefine"></A>
+node_ptr <I></I>
+<B>Compile_FlattenSexpExpandDefine</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>sexp</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Flattens an expression and expands defined symbols.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Flatten_GetDefinition">Flatten_GetDefinition</a>
+<a href="#Compile_FlattenSexp">Compile_FlattenSexp</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_FlattenSexp"></A>
+node_ptr <I></I>
+<B>Compile_FlattenSexp</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>sexp</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Builds the flattened version of an
+   expression. It does not expand defined symbols with the
+   corresponding body.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Flatten_GetDefinition">Flatten_GetDefinition</a>
+<a href="#Compile_FlattenSexpExpandDefine">Compile_FlattenSexpExpandDefine</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_InstantiateType"></A>
+SymbType_ptr <I></I>
+<B>Compile_InstantiateType</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>type</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> All normal simple and complex types can be processed.
+
+   Note that PROCESS and MOD_TYPE are not types and cannot be processed here.
+   Parameter:
+   st -- is symbol table where constants met in type can be evaluated.
+   layer -- is layer where constants will be declared (for enum types).
+   type -- is the type to be converted.
+   name -- is the name of variable a given type is processed for.
+       It is used only in error messaged and also additional checks
+       are done wrt special var _process_selector_.
+
+   If type is constructed incorrectly then error is raise. I.e. NULL
+   is never returned.
+
+   NOTE: An invoker has to free the returned type.
+<p>
+
+<dt><pre>
+<A NAME="Compile_ProcessHierarchy"></A>
+void <I></I>
+<B>Compile_ProcessHierarchy</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  boolean  <b>create_process_variables</b>, <i></i>
+  boolean  <b>calc_vars_constr</b> <i></i>
+)
+</pre>
+<dd> This processing means:
+   1. process_selector variable and running defines are declared (only if
+   create_process_variables is on)
+   2. All the required lists of expressions are reversed.
+   All the constrains (not specifications) are flattened.
+   3. An association between vars and constrains are created (for ASSIGN,
+   INIT, INVAR, TRANS).
+   4. Type checking of the variable and define declarations and of all the
+   expressions.
+   5. Also a correct use of input variables and lack of circular dependences
+   are checked.
+
+   The parameters:
+   layer is a layer with module variables.
+   hierachy is a hierarchy to be process.
+   name is a name of the module instance, i.e. a context of all expressions.
+   create_process_variables enables creation of process variables.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolFsm_udg"></A>
+void <I></I>
+<B>Compile_WriteBoolFsm_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the boolean FSM of an
+   SMV model.
+   bool_sexp_fsm should be a boolean Sexp FSM.
+   layer_names is an array of layers whose variables will be printed,
+   usually this parameter is a list of all layers committed to enc. The array
+   should be ended by a NULL element.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolFsm"></A>
+void <I></I>
+<B>Compile_WriteBoolFsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the boolean FSM of an
+   SMV model.
+   bool_sexp_fsm should be a boolean Sexp FSM.
+   layer_names is an array of layers whose variables will be printed,
+   usually this parameter is a list of all layers committed to enc. The array
+   should be ended by a NULL element.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolModel_udg"></A>
+void <I></I>
+<B>Compile_WriteBoolModel_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b> <i></i>
+)
+</pre>
+<dd> Prints the given boolean model
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolModel"></A>
+void <I></I>
+<B>Compile_WriteBoolModel</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Prints the given boolean model
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolSpecs_udg"></A>
+void <I></I>
+<B>Compile_WriteBoolSpecs_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the booleanized
+   specifications of an SMV model.
+
+   NOTE: a temporary layer will be created during the dumping for
+   determinization variables that derived from the booleanization of
+   the specifications. These variable declarations will be printed
+   after the specs.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteBoolSpecs"></A>
+void <I></I>
+<B>Compile_WriteBoolSpecs</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the booleanized
+   specifications of an SMV model.
+
+   NOTE: a temporary layer will be created during the dumping for
+   determinization variables that derived from the booleanization of
+   the specifications. These variable declarations will be printed
+   after the specs.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenFsm_udg"></A>
+void <I></I>
+<B>Compile_WriteFlattenFsm_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> Prints on the specified file the flatten
+   FSM of an SMV model, i.e. a list of all variable, defines, and all
+   constrains (INIT, TRANS, INVAR, ASSIGNS, JUSTICE, COMPASSION).
+   Specifications are NOT printed.
+
+   layer_names is an array of names of layers that is typically
+   obtained from the symbol table. fsm_name is a name of the output
+   structure, usually it is "MODULE main".
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenFsm"></A>
+void <I></I>
+<B>Compile_WriteFlattenFsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Prints on the specified file the flatten
+   FSM of an SMV model, i.e. a list of all variable, defines, and all
+   constrains (INIT, TRANS, INVAR, ASSIGNS, JUSTICE, COMPASSION).
+   Specifications are NOT printed.
+
+   layer_names is an array of names of layers that is typically
+   obtained from the symbol table. fsm_name is a name of the output
+   structure, usually it is "MODULE main".
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenModel_udg"></A>
+void <I></I>
+<B>Compile_WriteFlattenModel_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenModel"></A>
+void <I></I>
+<B>Compile_WriteFlattenModel</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenSpecs_udg"></A>
+void <I></I>
+<B>Compile_WriteFlattenSpecs_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the flatten
+   specifications.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteFlattenSpecs"></A>
+void <I></I>
+<B>Compile_WriteFlattenSpecs</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the flatten
+   specifications.
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteObfuscatedFlattenModel"></A>
+void <I></I>
+<B>Compile_WriteObfuscatedFlattenModel</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  boolean  <b>print_map</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Compile_WriteRestrictedFlattenModel"></A>
+void <I></I>
+<B>Compile_WriteRestrictedFlattenModel</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Dumps the flatten model on the given FILE.
+                       The dumped model is restricted to the set of variables
+                       defined in the given FlatHierarchy
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_if_bool_model_was_built"></A>
+int <I></I>
+<B>Compile_check_if_bool_model_was_built</B>(
+  FILE* <b>err</b>, <i></i>
+  boolean  <b>forced</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if constructed, 1 otherwise. If given file is
+  not NULL, an error message is also printed out to it (typically, you
+  will use nusmv_stderr). If forced is true, thatn the model is
+  requested to be built even when COI is enabled.
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_if_encoding_was_built"></A>
+int <I></I>
+<B>Compile_check_if_encoding_was_built</B>(
+  FILE* <b>err</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if constructed, 1 otherwise. If given file is
+  not NULL, an error message is also printed out to it (typically, you
+  will use nusmv_stderr)
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_if_flat_model_was_built"></A>
+int <I></I>
+<B>Compile_check_if_flat_model_was_built</B>(
+  FILE* <b>err</b>, <i></i>
+  boolean  <b>forced</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if constructed, 1 otherwise. If given file is
+  not NULL, an error message is also printed out to it (typically, you
+  will use nusmv_stderr). If forced is true, than the model is
+  requested to be built even when COI is enabled.
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_if_flattening_was_built"></A>
+int <I></I>
+<B>Compile_check_if_flattening_was_built</B>(
+  FILE* <b>err</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if constructed, 1 otherwise. If given file is
+  not NULL, an error message is also printed out to it (typically, you
+  will use nusmv_stderr)
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_if_model_was_built"></A>
+int <I></I>
+<B>Compile_check_if_model_was_built</B>(
+  FILE* <b>err</b>, <i></i>
+  boolean  <b>forced</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if constructed, 1 otherwise. If given file is
+  not NULL, an error message is also printed out to it (typically, you
+  will use nusmv_stderr). Use this function from commands that require 
+  the model to be constructed for being executed.
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_input_next"></A>
+void <I></I>
+<B>Compile_check_input_next</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> It outputs an error message (and rises an exception)
+  iff the expression contains a next statement which itself has an
+  input variable in it.
+<p>
+
+<dt><pre>
+<A NAME="Compile_check_next"></A>
+void <I></I>
+<B>Compile_check_next</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  boolean  <b>is_one_next_allowed</b> <i></i>
+)
+</pre>
+<dd> Checks that given expression contains either no nested
+  next, or no next operator at all.
+<p>
+
+<dt><pre>
+<A NAME="Compile_cleanup_booleanizer_cache_about"></A>
+void <I></I>
+<B>Compile_cleanup_booleanizer_cache_about</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  NodeList_ptr  <b>symbs</b> <i></i>
+)
+</pre>
+<dd> Called by BoolEnc class when removing a layer
+<p>
+
+<dt><pre>
+<A NAME="Compile_convert_to_dag_udg"></A>
+node_ptr <I></I>
+<B>Compile_convert_to_dag_udg</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>dag_hash</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Top level function to create dags from expressions
+<p>
+
+<dt><pre>
+<A NAME="Compile_convert_to_dag"></A>
+node_ptr <I></I>
+<B>Compile_convert_to_dag</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>dag_hash</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Top level function to create dags from expressions
+<p>
+
+<dt><pre>
+<A NAME="Compile_destroy_dag_info_udg"></A>
+void <I></I>
+<B>Compile_destroy_dag_info_udg</B>(
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Warning: the hashes are not freed, only the content
+<p>
+
+<dt><pre>
+<A NAME="Compile_destroy_dag_info"></A>
+void <I></I>
+<B>Compile_destroy_dag_info</B>(
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Warning: the hashes are not freed, only the content
+<p>
+
+<dt><pre>
+<A NAME="Compile_detexpr2bexpr_list"></A>
+Expr_ptr <I></I>
+<B>Compile_detexpr2bexpr_list</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> This function is exactly like Compile_detexpr2bexpr
+  except that the input expressions is expected to be a list of expressions.
+  The only purpose of this function wrt Compile_detexpr2bexpr is efficiency.
+  For big model list of expressions may be huge and stack overflow may happen
+  in Compile_detexpr2bexpr because the expressions are processed recursively
+  whereas here top-level expressions are processed in loop.
+
+  expr has to be a RIGHT-connected list of elements (i.e. car is head
+  and cdr is tail). The connecting nodes have to be of type AND or
+  CONS with the semantics of AND.  The returned expression is a list
+  of the same order but with the booleanized expressions and AND used
+  as connector.
+
+  NOTE: some simplifications are done, e.g. if FALSE is met among
+  elements then FALSE is returned.
+
+  NOTE: when the function see on the right a node of a type other than
+  AND and CONS then right child is considered as the last element in the
+  list.
+
+  NOTE: special case: if NEXT is met at the top then its sub-expression
+  is processed as a list.
+
+  TODO: if in future is will be necessary to process lists of
+  different connector kind, e.g. OR, it will be necessary to provided
+  the kind as parameter. Still AND and CONS have to dealt the same way
+  because in traces it is unspecified if AND or CONS is used in
+  var=value lists.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Compile_detexpr2bexpr">Compile_detexpr2bexpr</a>
+<a href="#Compile_expr2bexpr">Compile_expr2bexpr</a>
+<a href="#expr2bexpr_recur">expr2bexpr_recur</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_detexpr2bexpr"></A>
+Expr_ptr <I></I>
+<B>Compile_detexpr2bexpr</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Takes an scalar expression intended to evaluate
+  to boolean, maps through booleans down to the atomic scalar
+  propositions, builds the corresponding boolean function, and returns
+  the resulting boolean expression.
+
+  The conversion of atomic scalar proposition is currently performed
+  by generating the corresponding ADD, and then printing it in terms
+  of binary variables.
+
+  An error is returned if determinization variables are introduced in
+  the booleanization process.
+
+  The input expression will be processed with Nil context (for
+  flattened expr this does not matter).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Compile_expr2bexpr">Compile_expr2bexpr</a>
+<a href="#expr2bexpr_recur">expr2bexpr_recur</a>
+<a href="#Compile_detexpr2bexpr_list">Compile_detexpr2bexpr_list</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_expr2bexpr"></A>
+Expr_ptr <I></I>
+<B>Compile_expr2bexpr</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Takes an scalar expression intended to evaluate
+  to boolean, maps through booleans down to the atomic scalar
+  propositions, builds the corresponding boolean function, and returns
+  the resulting boolean expression.
+
+  The conversion of atomic scalar proposition is currently performed
+  by generating the corresponding ADD, and then printing it in terms
+  of binary variables.
+
+  If one or more determinization variable must be created
+  (i.e. non-determinism must be allowed) then det_layer is the
+  SymbLayer instance to be filled with the newly created
+  determinization variables. If non-determinism is not allowed, specify
+  NULL as det_layer value. In this case you can use detexpr2bexpr as well.
+
+  The input expression will be processed with Nil context (for
+  flattened expr this does not matter).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Compile_detexpr2bexpr">Compile_detexpr2bexpr</a>
+<a href="#expr2bexpr_recur">expr2bexpr_recur</a>
+</code>
+
+<dt><pre>
+<A NAME="Compile_get_global_fsm_builder"></A>
+FsmBuilder_ptr <I></I>
+<B>Compile_get_global_fsm_builder</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> See fsm/FsmBuilder.h for more info
+<p>
+
+<dt><pre>
+<A NAME="Compile_get_global_predicate_normaliser"></A>
+PredicateNormaliser_ptr <I></I>
+<B>Compile_get_global_predicate_normaliser</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> See PredicateNormaliser.h for more info 
+  on predication normaliser.
+<p>
+
+<dt><pre>
+<A NAME="Compile_get_obfuscation_map"></A>
+hash_ptr <I></I>
+<B>Compile_get_obfuscation_map</B>(
+  const SymbTable_ptr  <b>symb_table</b> <i></i>
+)
+</pre>
+<dd> Generates the obfuscation map
+<p>
+
+<dt><pre>
+<A NAME="Compile_init_cmd"></A>
+void <I></I>
+<B>Compile_init_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the commands provided by this package
+<p>
+
+<dt><pre>
+<A NAME="Compile_init"></A>
+void <I></I>
+<B>Compile_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the compile package. The set of commands must
+  be explicitly initialized later by calling Compile_InitCmd.
+<p>
+
+<dt><pre>
+<A NAME="Compile_is_expr_booleanizable"></A>
+boolean <I></I>
+<B>Compile_is_expr_booleanizable</B>(
+  Expr_ptr  <b>expr</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  boolean  <b>word_unbooleanizable</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Check if an expr is of a finite range type.
+
+                       REMARK: Words are considered finite only if
+                       word_unbooleanizable is set to false
+
+                       If cache is not null whenever we encounter a formula in
+                       the cache we simply return the previously computed value,
+                       otherwise an internal and temporary map is used.
+
+                       NOTE: the internal representation of cache is private so
+                             the user should provide only caches generated by
+                             this function!
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Compile_make_dag_info_udg"></A>
+node_ptr <I></I>
+<B>Compile_make_dag_info_udg</B>(
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Returns a node COLON(NUMBER count, NUMBER depth)
+<p>
+
+<dt><pre>
+<A NAME="Compile_make_dag_info"></A>
+node_ptr <I></I>
+<B>Compile_make_dag_info</B>(
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Returns a node COLON(NUMBER count, NUMBER depth)
+<p>
+
+<dt><pre>
+<A NAME="Compile_make_sorted_vars_list_from_order"></A>
+Set_t <I></I>
+<B>Compile_make_sorted_vars_list_from_order</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const NodeList_ptr  <b>vars</b>, <i></i>
+  const NodeList_ptr  <b>vars_order</b> <i></i>
+)
+</pre>
+<dd> This function can be used to construct an ordered list
+  of symbols. The set of symbols is provided by the input list 'vars',
+  whereas the ordering is provided by the 'vars_order' list, that can
+  be an intersecting set over 'vars'. The resulting list will
+  contain those symbols that occur in vars_order (respecting their
+  order), plus all the symbols in vars that do not occur in vars_order,
+  pushed at the end of the list. All duplicates (if any) will not occur
+  into the resulting list. The returned set must be destroyed by the
+  caller.
+<p>
+
+<dt><pre>
+<A NAME="Compile_obfuscate_expression"></A>
+node_ptr <I></I>
+<B>Compile_obfuscate_expression</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  const hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> Apply the obfuscation over an expression
+<p>
+
+<dt><pre>
+<A NAME="Compile_pop_distrib_ops"></A>
+node_ptr <I></I>
+<B>Compile_pop_distrib_ops</B>(
+  node_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Transformation rules are:
+   1) <OP> <OP> a           :-> <OP> a
+   2) (<OP> a) * (<OP> b)   :-> <OP> (a * b);
+   3) (<OP> (a * <OP> b))   :-> <OP> (a * b);
+   4) (<OP> (<OP> a * b))   :-> <OP> (a * b);
+   5) (<OP> (<OP> a * <OP> b)) :-> <OP> (a * b); 
+
+   Where <OP> can be either:
+     G|AG|H for * := &
+     F|AF|O for * := |
+
+   Given property can be both flattened or unflattened.
+<p>
+
+<dt><pre>
+<A NAME="Compile_print_array_define_udg"></A>
+void <I></I>
+<B>Compile_print_array_define_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  const node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Prints a array define node to out file.
+   This function is exported so the hrc package can use it.
+<p>
+
+<dt><pre>
+<A NAME="Compile_print_array_define"></A>
+void <I></I>
+<B>Compile_print_array_define</B>(
+  FILE* <b>out</b>, <i></i>
+  const node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Prints a array define node to out file.
+   This function is exported so the hrc package can use it.
+<p>
+
+<dt><pre>
+<A NAME="Compile_quit"></A>
+void <I></I>
+<B>Compile_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Shut down the compile package
+<p>
+
+<dt><pre>
+<A NAME="Compile_write_dag_defines_udg"></A>
+void <I></I>
+<B>Compile_write_dag_defines_udg</B>(
+  FILE* <b>out</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Compile_write_dag_defines"></A>
+void <I></I>
+<B>Compile_write_dag_defines</B>(
+  FILE* <b>out</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="compile_add_vars_to_hierarhcy"></A>
+void <I></I>
+<B>compile_add_vars_to_hierarhcy</B>(
+  node_ptr  <b>name</b>, <i></i>
+  SymbType_ptr  <b>type</b>, <i></i>
+  FlatHierarchy_ptr  <b>fh</b> <i></i>
+)
+</pre>
+<dd> Given a fully resolved array name and its type the function
+   adds all the variables in the array to the hierarchy
+<p>
+
+<dt><pre>
+<A NAME="compile_build_model"></A>
+void <I></I>
+<B>compile_build_model</B>(
+  boolean  <b>force_build</b> <i></i>
+)
+</pre>
+<dd> Builds the BDD fsm.
+<p>
+
+<dt><pre>
+<A NAME="compile_check_print_io_atom_stack_assign"></A>
+void <I></I>
+<B>compile_check_print_io_atom_stack_assign</B>(
+  FILE * <b>fd</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_get_var_type"></A>
+node_ptr <I></I>
+<B>compile_cmd_get_var_type</B>(
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> Creates an internal representaion of the symbol type.
+                      The representation of the type returned is
+                      intended to be used only with the
+                      compile_cmd_print_type procedure. If 2 types are
+                      the same, the same node is returned
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_print_type"></A>
+void <I></I>
+<B>compile_cmd_print_type</B>(
+  FILE * <b>file</b>, <i></i>
+  node_ptr  <b>ntype</b>, <i></i>
+  int  <b>threshold</b> <i></i>
+)
+</pre>
+<dd> Prints the given type to the given stream.
+
+                      The type must be created with the
+                      compile_cmd_get_var_type function. If the type
+                      is scalar, then values are printed until
+                      "threshold" number of characters are reached. If
+                      some values are missing because of the
+                      threshold, then "other # values" is added in
+                      output
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_remove_assignments"></A>
+Expr_ptr <I></I>
+<B>compile_cmd_remove_assignments</B>(
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Removes expression in the form "a := b" from the given
+                      expression. The new expression is returned
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_write_coi_prop_fsm"></A>
+void <I></I>
+<B>compile_cmd_write_coi_prop_fsm</B>(
+  FlatHierarchy_ptr  <b>fh</b>, <i></i>
+  Set_t  <b>cone</b>, <i></i>
+  Set_t  <b>props</b>, <i></i>
+  FILE* <b>output_file</b> <i></i>
+)
+</pre>
+<dd> Dumps the model applied to COI for the given property
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_write_coi_prop"></A>
+void <I></I>
+<B>compile_cmd_write_coi_prop</B>(
+  Set_t  <b>cone</b>, <i></i>
+  Set_t  <b>props</b>, <i></i>
+  FILE* <b>output_file</b> <i></i>
+)
+</pre>
+<dd> Dumps the COI for the given property
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_write_global_coi_fsm"></A>
+void <I></I>
+<B>compile_cmd_write_global_coi_fsm</B>(
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  Prop_Type  <b>prop_type</b>, <i></i>
+  FILE* <b>output_file</b> <i></i>
+)
+</pre>
+<dd> Dumps on output_file the FSM built using the union of all
+                      properties cone of influence. Properties can be filtered
+                      by type using prop_type: if prop_type == Prop_NoType,
+                      all properties are used
+<p>
+
+<dt><pre>
+<A NAME="compile_cmd_write_properties_coi"></A>
+int <I></I>
+<B>compile_cmd_write_properties_coi</B>(
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  Prop_Type  <b>prop_type</b>, <i></i>
+  boolean  <b>only_dump_coi</b>, <i></i>
+  const char* <b>file_name</b> <i></i>
+)
+</pre>
+<dd> Dumps properties shared COI informations.
+                      If only_dump_coi is true, only the set of
+                      variables in the cone of each property is
+                      dumped. Otherwise, an FSM is created and
+                      dumped. Properties with the same COI will appear
+                      in the same FSM. Properties can be filtered by
+                      type using prop_type: if prop_type ==
+                      Prop_NoType, all properties are used
+<p>
+
+<dt><pre>
+<A NAME="compile_concat_contexts"></A>
+node_ptr <I></I>
+<B>compile_concat_contexts</B>(
+  node_ptr  <b>ctx1</b>, <i></i>
+  node_ptr  <b>ctx2</b> <i></i>
+)
+</pre>
+<dd> Since contexts are organized bottom-up
+   ("a.b.c" becomes
+
+   DOT
+   /  \
+   DOT   c
+   / \
+   a   b
+   )
+
+   ctx2 is appended to ctx1 by concatenating ctx1 to ctx2. For example
+   if ctx1="c.d.e" and ctx2="a.b.c", node 'a' is searched in ctx2, and
+   then substituted by
+
+   / ...
+   DOT
+   /   \
+   ->>  DOT   b
+   /  \
+   (ctx1)  a
+
+   Important: nodes in ctx2 are traversed and possibly recreated with find_node
+<p>
+
+<dt><pre>
+<A NAME="compile_convert_to_dag_aux_udg"></A>
+node_ptr <I></I>
+<B>compile_convert_to_dag_aux_udg</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b>, <i></i>
+  unsigned int  <b>num_thres</b>, <i></i>
+  unsigned int  <b>dep_thres</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  const char* <b>defines_prefix</b> <i></i>
+)
+</pre>
+<dd> Private service of function Compile_convert_to_dag_udg
+<p>
+
+<dt><pre>
+<A NAME="compile_convert_to_dag_aux"></A>
+node_ptr <I></I>
+<B>compile_convert_to_dag_aux</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b>, <i></i>
+  unsigned int  <b>num_thres</b>, <i></i>
+  unsigned int  <b>dep_thres</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  const char* <b>defines_prefix</b> <i></i>
+)
+</pre>
+<dd> Private service of function Compile_convert_to_dag
+<p>
+
+<dt><pre>
+<A NAME="compile_create_boolean_model"></A>
+void <I></I>
+<B>compile_create_boolean_model</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The newly created layer will be committed to both the
+  boolean and bdd encodings. Warning: it is assumed here that the flat model
+  has been already created
+<p>
+
+<dt><pre>
+<A NAME="compile_create_dag_info_from_hierarchy_udg"></A>
+hash_ptr <I></I>
+<B>compile_create_dag_info_from_hierarchy_udg</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  BddEnc_ptr  <b>enc</b> <i></i>
+)
+</pre>
+<dd> If det_layer is not NULL, then hierarchy is
+   to be considered boolean, and specifications will be booleanized,
+   If det_layer is null, then also enc can be null
+<p>
+
+<dt><pre>
+<A NAME="compile_create_dag_info_from_hierarchy"></A>
+hash_ptr <I></I>
+<B>compile_create_dag_info_from_hierarchy</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> If det_layer is not NULL, then hierarchy is
+   to be considered boolean, and specifications will be booleanized,
+   If det_layer is null, then also enc can be null
+<p>
+
+<dt><pre>
+<A NAME="compile_create_flat_model"></A>
+void <I></I>
+<B>compile_create_flat_model</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> creates the  master scalar fsm if needed
+<p>
+
+<dt><pre>
+<A NAME="compile_encode_variables"></A>
+int <I></I>
+<B>compile_encode_variables</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Encodes variables in the model (BDD only).
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_build_word_toint_ith_bit_case"></A>
+node_ptr <I></I>
+<B>compile_flatten_build_word_toint_ith_bit_case</B>(
+  node_ptr  <b>wexpr</b>, <i></i>
+  int  <b>bit</b>, <i></i>
+  boolean  <b>is_neg</b> <i></i>
+)
+</pre>
+<dd> Creates the following expression:
+                       wexpr[bit:bit
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_eval_number"></A>
+node_ptr <I></I>
+<B>compile_flatten_eval_number</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> This is a private service of function
+   CompileFlatten_resolve_number
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_get_int"></A>
+int <I></I>
+<B>compile_flatten_get_int</B>(
+  node_ptr  <b>value</b> <i></i>
+)
+</pre>
+<dd> It is an error if overflow/underflow happens
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_normalise_value_list"></A>
+node_ptr <I></I>
+<B>compile_flatten_normalise_value_list</B>(
+  node_ptr  <b>old_value_list</b> <i></i>
+)
+</pre>
+<dd> The normalisation includes: all TRUE and FALSE
+   constants are substituted by 1 and 0 numbers
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_rewrite_word_toint_cast"></A>
+node_ptr <I></I>
+<B>compile_flatten_rewrite_word_toint_cast</B>(
+  node_ptr  <b>body</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> This functions takes a word expression and rewrites it
+                       as a circuit in order to convert the word
+                       expression into an integer expression.
+
+                       For unsigned word[N
+<p>
+
+<dt><pre>
+<A NAME="compile_flatten_smv"></A>
+int <I></I>
+<B>compile_flatten_smv</B>(
+  boolean  <b>calc_vars_constrains</b> <i></i>
+)
+</pre>
+<dd> Traverses the parse tree coming from the smv parser and
+                flattens the smv file.
+<p>
+
+<dt><pre>
+<A NAME="compile_free_define_udg"></A>
+assoc_retval <I></I>
+<B>compile_free_define_udg</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Internal service of Compile_destroy_dag_info_udg
+<p>
+
+<dt><pre>
+<A NAME="compile_free_define"></A>
+assoc_retval <I></I>
+<B>compile_free_define</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Internal service of Compile_destroy_dag_info
+<p>
+
+<dt><pre>
+<A NAME="compile_free_node_udg"></A>
+assoc_retval <I></I>
+<B>compile_free_node_udg</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Internal service of Compile_destroy_dag_info_udg
+<p>
+
+<dt><pre>
+<A NAME="compile_free_node"></A>
+assoc_retval <I></I>
+<B>compile_free_node</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Internal service of Compile_destroy_dag_info
+<p>
+
+<dt><pre>
+<A NAME="compile_get_rid_of_define_chain"></A>
+node_ptr <I></I>
+<B>compile_get_rid_of_define_chain</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Get rids of chain of defines until it reaches a
+   DEFINE whose body is not atomic (i.e. a variable, a constant, or a
+   complex expression). It assumes the expression being flattened.
+<p>
+
+<dt><pre>
+<A NAME="compile_insert_assign_hrc"></A>
+void <I></I>
+<B>compile_insert_assign_hrc</B>(
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  node_ptr  <b>cur_decl</b> <i></i>
+)
+</pre>
+<dd> Add an assign declaration in hrc_result. The
+  type of assign is inferred by the node type found.
+<p>
+
+<dd> <b>Side Effects</b> Contents of hrc_result is changed adding an
+  assign constraint.
+<p>
+
+<dt><pre>
+<A NAME="compile_instantiate_by_name"></A>
+void <I></I>
+<B>compile_instantiate_by_name</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>module_name</b>, <i></i>
+  node_ptr  <b>instance_name</b>, <i></i>
+  node_ptr  <b>actual</b>, <i></i>
+  node_ptr * <b>assign</b>, <i></i>
+  FlatHierarchy_ptr  <b>result</b>, <i></i>
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  hash_ptr  <b>instances</b> <i></i>
+)
+</pre>
+<dd> <tt>module_name</tt> is the name of the module being
+   instantiated. The name of the module instance
+   is <tt>instance_name</tt>. First checks if the module exists. Then it checks
+   if the module is recursively defined, and if the case an error is
+   printed out. If these checks are passed, then it proceeds in the
+   instantiation of the body of the module.
+<p>
+
+<dt><pre>
+<A NAME="compile_instantiate_vars"></A>
+void <I></I>
+<B>compile_instantiate_vars</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>var_list</b>, <i></i>
+  node_ptr  <b>mod_name</b>, <i></i>
+  node_ptr * <b>assign</b>, <i></i>
+  FlatHierarchy_ptr  <b>result</b>, <i></i>
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  hash_ptr  <b>instances</b> <i></i>
+)
+</pre>
+<dd> Recursively applies <tt>compile_instantiate_var</tt> to
+   a given list of variables declaration, and performs some check for
+   multiple variable definitions.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_instantiate_var">compile_instantiate_var</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_instantiate_var"></A>
+void <I></I>
+<B>compile_instantiate_var</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>type</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  node_ptr * <b>assign</b>, <i></i>
+  FlatHierarchy_ptr  <b>result</b>, <i></i>
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  hash_ptr  <b>instances</b> <i></i>
+)
+</pre>
+<dd> It takes as input a variable and a context, and
+   depending on the type of the variable some operation are performed in order to
+   instantiate it in the given context:
+   <br><br>
+   <ul>
+   <li><b>BOOLEAN</b><br>
+   if the variable is of type boolean, then we add an entry in
+   <code>symbol_hash</code> saying that the variable values are <code>{0,1}</code>.</li>
+   <li><b>RANGE</b><br>
+   if the variable is a range of the form <code>M..N</code>, then
+   we add an entry in the <code>symbol_hash</code> saying that the
+   variable values are <code>{M, M+1, ..., N-1, N}</code>. If
+   <code>M</code> is less or equal to <code>N</code>, than an error occurs.</li>
+   <li><b>ENUMERATION</b><br>
+   if the variable is a scalar variable whose possible values are
+   <code>{a1, a2, ..., aN}</code>, then we add an entry in the
+   <code>symbol_hash</code> saying that the variable values are
+   <code>{a1, ..., aN}</code>. </li>
+   <li><b>ARRAY</b><br>
+   for each element of the array it is created the corresponding
+   symbol. Suppose you have the following definition "<code>VAR
+   x : array 1..4 of boolean;</code>". We call this function
+   for 4 times, asking at each call <code>i</code> (<code>i</code> from 1
+   to 4) to declare the boolean variable <code>x[i]</code>.</li>
+   <li><b>MODULE</b><br>
+   If the variable is an instantiation of a module, than their
+   arguments (if any) are contextualized, and passed as actual
+   parameter to <code>instantiate_by_name<code> with the name of the
+   instantiated module as root name (to extract its definition)
+   and as variable name as the name of the module (to perform
+   flattening).</li>
+   <li><b>PROCESS</b><br>
+   If the variable is of type process, than we extract the
+   module name and args, we perform the contextualization of the
+   process arguments and we perform a call to
+   <tt>Compile_ConstructHierarchy</tt> using the variable name as process
+   name (to perform flattening), the module name as root name (to
+   extract its definition) and the computed actual parameters.</li>
+   </ul><br>
+
+   Depending on the kind of variable instantiation mode the variables of
+   type boolean, scalar, and array are appended to <tt>input_variables</tt>,
+   <tt>frozen_variables</tt> or <tt>state_variables</tt>, respectively.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_instantiate_vars">compile_instantiate_vars</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_instantiate"></A>
+void <I></I>
+<B>compile_instantiate</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>mod_def</b>, <i></i>
+  node_ptr  <b>mod_name</b>, <i></i>
+  node_ptr  <b>actual</b>, <i></i>
+  node_ptr * <b>assign</b>, <i></i>
+  FlatHierarchy_ptr  <b>result</b>, <i></i>
+  HrcNode_ptr  <b>hrc_result</b>, <i></i>
+  hash_ptr  <b>instances</b> <i></i>
+)
+</pre>
+<dd> This function is responsible of the
+   instantiation of the body of a module. The module definition
+   (parameter and body) is <tt>mod_def</tt> and the module instance name
+   <tt>mod_name</tt> are passed as arguments. First we instantiate the
+   arguments of the given module. Then it loops over the module
+   definition searching for defined symbols (i.e. those introduced by
+   the keyword <tt>DEFINE</tt>) and inserts their definition in the
+   <tt>symbol_hash</tt>. After this preliminary phase it loops again
+   over module body in order to performs the other instantiation, and
+   to extract all the information needed to compile the automaton,
+   i.e. the list of processes, the TRANS statements, the INIT
+   statements, ... and so on.
+
+   NB: After parsing and creating the module hash table, the order of
+   declarations is correct (not reversed). This function reverse the order
+   of SPEC, LTLSPEC, PSLSPEC, INVARSPEC, COMPUTE, JUSTICE AND COMPATION
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_instantiate_var">compile_instantiate_var</a>
+<a href="#compile_instantiate_vars">compile_instantiate_vars</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_is_booleanizable_aux"></A>
+boolean <I></I>
+<B>compile_is_booleanizable_aux</B>(
+  Expr_ptr  <b>expr</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  boolean  <b>word_unbooleanizable</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Private service of compile_is_booleanizable.
+                       To represent 'true' in cache we use the constant 2 for
+                       'false' we use 1 to avoid representation problems wrt Nil
+<p>
+
+<dd> <b>Side Effects</b> cache can be updated
+<p>
+
+<dt><pre>
+<A NAME="compile_make_dag_info_aux_udg"></A>
+node_ptr <I></I>
+<B>compile_make_dag_info_aux_udg</B>(
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Returns a node COLON(NUMBER count, NUMBER depth)
+<p>
+
+<dt><pre>
+<A NAME="compile_make_dag_info_aux"></A>
+node_ptr <I></I>
+<B>compile_make_dag_info_aux</B>(
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Returns a node COLON(NUMBER count, NUMBER depth)
+<p>
+
+<dt><pre>
+<A NAME="compile_pack_dag_info_udg"></A>
+node_ptr <I></I>
+<B>compile_pack_dag_info_udg</B>(
+  unsigned int  <b>count</b>, <i></i>
+  unsigned int  <b>depth</b> <i></i>
+)
+</pre>
+<dd> Packs given count and depth into a node
+<p>
+
+<dt><pre>
+<A NAME="compile_pack_dag_info"></A>
+node_ptr <I></I>
+<B>compile_pack_dag_info</B>(
+  unsigned int  <b>count</b>, <i></i>
+  unsigned int  <b>depth</b>, <i></i>
+  boolean  <b>admissible</b> <i></i>
+)
+</pre>
+<dd> Packs given count and depth into a node
+<p>
+
+<dt><pre>
+<A NAME="compile_print_assign_udg"></A>
+void <I></I>
+<B>compile_print_assign_udg</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>lhs</b>, <i></i>
+  node_ptr  <b>rhs</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints an assignement statement
+<p>
+
+<dt><pre>
+<A NAME="compile_print_assign"></A>
+void <I></I>
+<B>compile_print_assign</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>lhs</b>, <i></i>
+  node_ptr  <b>rhs</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints an assignement statement
+<p>
+
+<dt><pre>
+<A NAME="compile_set_dag_info_udg"></A>
+void <I></I>
+<B>compile_set_dag_info_udg</B>(
+  node_ptr  <b>info</b>, <i></i>
+  unsigned int  <b>count</b>, <i></i>
+  unsigned int  <b>depth</b> <i></i>
+)
+</pre>
+<dd> Sets count and depth
+<p>
+
+<dt><pre>
+<A NAME="compile_set_dag_info"></A>
+void <I></I>
+<B>compile_set_dag_info</B>(
+  node_ptr  <b>info</b>, <i></i>
+  unsigned int  <b>count</b>, <i></i>
+  unsigned int  <b>depth</b>, <i></i>
+  boolean  <b>admissible</b> <i></i>
+)
+</pre>
+<dd> Sets count and depth
+<p>
+
+<dt><pre>
+<A NAME="compile_symbtype_obfuscated_print"></A>
+void <I></I>
+<B>compile_symbtype_obfuscated_print</B>(
+  SymbType_ptr  <b>type</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> Prints the obfuscation of the given type
+<p>
+
+<dt><pre>
+<A NAME="compile_unpack_dag_info_udg"></A>
+void <I></I>
+<B>compile_unpack_dag_info_udg</B>(
+  node_ptr  <b>info</b>, <i></i>
+  unsigned int* <b>count</b>, <i></i>
+  unsigned int* <b>depth</b> <i></i>
+)
+</pre>
+<dd> Unpacks given node to count and deptch
+<p>
+
+<dt><pre>
+<A NAME="compile_unpack_dag_info"></A>
+void <I></I>
+<B>compile_unpack_dag_info</B>(
+  node_ptr  <b>info</b>, <i></i>
+  unsigned int* <b>count</b>, <i></i>
+  unsigned int* <b>depth</b>, <i></i>
+  boolean* <b>admissible</b> <i></i>
+)
+</pre>
+<dd> Unpacks given node to count and deptch
+<p>
+
+<dt><pre>
+<A NAME="compile_write_bool_fsm"></A>
+void <I></I>
+<B>compile_write_bool_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the boolean FSM of an
+   SMV model.
+   bool_sexp_fsm should be a boolean Sexp FSM.
+   layer_names is an array of layers whose variables will be printed,
+   usually this parameter is a list of all layers committed to enc. The array
+   should be ended by a NULL element.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_bool_specs"></A>
+void <I></I>
+<B>compile_write_bool_specs</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the booleanized
+   specifications of an SMV model.
+
+   NOTE: a temporary layer will be created during the dumping for
+   determinization variables that derived from the booleanization of
+   the specifications. These variable declarations will be printed
+   after the specs.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_bool_spec"></A>
+void <I></I>
+<B>compile_write_bool_spec</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>spec</b>, <i></i>
+  const char* <b>msg</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Private service to print a boolean specification
+<p>
+
+<dt><pre>
+<A NAME="compile_write_constants"></A>
+int <I></I>
+<B>compile_write_constants</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if at least one char have been written, 0
+   otherwise
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_array_define_udg"></A>
+int <I></I>
+<B>compile_write_flat_array_define_udg</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>names</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes ARRAY DEFINE declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_asgn"></A>
+int <I></I>
+<B>compile_write_flat_asgn</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>vars</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_define_aux"></A>
+int <I></I>
+<B>compile_write_flat_define_aux</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>printed_arrays</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> If a define happens to be an array define's element
+   then array is output (and remembered in printed_arrays)
+   instead of the original identifiers.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_define"></A>
+int <I></I>
+<B>compile_write_flat_define</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>names</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> Writes DEFINE declarations in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_fsm"></A>
+void <I></I>
+<B>compile_write_flat_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints on the specified file the flatten
+   FSM of an SMV model, i.e. a list of all variable, defines, and all
+   constrains (INIT, TRANS, INVAR, ASSIGNS, JUSTICE, COMPASSION).
+   Specifications are NOT printed.
+
+   layer_names is an array of names of layers that is typically
+   obtained from the symbol table. fsm_name is a name of the output
+   structure, usually it is "MODULE main".
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_specs"></A>
+void <I></I>
+<B>compile_write_flat_specs</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the
+   specifications of an SMV model.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flat_spec"></A>
+void <I></I>
+<B>compile_write_flat_spec</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>spec</b>, <i></i>
+  const char* <b>msg</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the flatten
+   specifications.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_bfexpr"></A>
+int <I></I>
+<B>compile_write_flatten_bfexpr</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file. The given layer is intended to hold the
+   determization variables that are created by the booleanization process of
+   the properties, that are kept not booleanized within the system.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_bool_vars"></A>
+int <I></I>
+<B>compile_write_flatten_bool_vars</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const BoolEnc_ptr  <b>bool_enc</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i></i>
+)
+</pre>
+<dd> Writes boolean VAR, FROZENVAR and IVAR declarations in
+   SMV format on a file. Non boolean vars are dumped as defines for the sake of
+   readability of conterexamples.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_expr_pair"></A>
+int <I></I>
+<B>compile_write_flatten_expr_pair</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>l</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a list of flattened expression pairs prefixed by
+   a given string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_expr_split"></A>
+int <I></I>
+<B>compile_write_flatten_expr_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_expr"></A>
+int <I></I>
+<B>compile_write_flatten_expr</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_psl"></A>
+int <I></I>
+<B>compile_write_flatten_psl</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes PSL properties as they are.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_spec_split"></A>
+int <I></I>
+<B>compile_write_flatten_spec_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_spec"></A>
+int <I></I>
+<B>compile_write_flatten_spec</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_vars_aux"></A>
+int <I></I>
+<B>compile_write_flatten_vars_aux</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const node_ptr  <b>name</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  hash_ptr  <b>printed</b> <i></i>
+)
+</pre>
+<dd> If the identifier contains an index subscript in its
+   name then at first the identifier check for being a part of an array.
+   In this case array is output (and remembered in "printed") instead of
+   the var. Otherwise, the identifier is output.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_flatten_vars"></A>
+int <I></I>
+<B>compile_write_flatten_vars</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i></i>
+)
+</pre>
+<dd> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_get_restricted_vars"></A>
+NodeList_ptr <I></I>
+<B>compile_write_get_restricted_vars</B>(
+  Set_t  <b>keep_vars</b>, <i></i>
+  NodeList_ptr  <b>all_vars</b> <i></i>
+)
+</pre>
+<dd> Processes the intersection between the given set
+                       and the given list
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_constants"></A>
+int <I></I>
+<B>compile_write_obfuscated_constants</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if at least one char have been written, 0
+   otherwise
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_dag_defines"></A>
+void <I></I>
+<B>compile_write_obfuscated_dag_defines</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_asgn"></A>
+int <I></I>
+<B>compile_write_obfuscated_flat_asgn</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>vars</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_define_aux"></A>
+int <I></I>
+<B>compile_write_obfuscated_flat_define_aux</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>printed_arrays</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> This function behaves example like
+   compile_write_flat_define_aux
+   except that identifiers are obfuscated before being printed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_write_flat_define_aux">compile_write_flat_define_aux</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_define"></A>
+int <I></I>
+<B>compile_write_obfuscated_flat_define</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>names</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b> <i></i>
+)
+</pre>
+<dd> This function behaves exactly like compile_write_flat_define
+   except that identifiers a re obfuscated before.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_fsm"></A>
+void <I></I>
+<B>compile_write_obfuscated_flat_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints the obfuscated flatten version of FSM of an
+   SMV model.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_write_flat_fsm">compile_write_flat_fsm</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_specs"></A>
+void <I></I>
+<B>compile_write_obfuscated_flat_specs</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints the obfuscated flatten specifications of an
+   SMV model.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_write_flat_specs">compile_write_flat_specs</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flat_spec"></A>
+void <I></I>
+<B>compile_write_obfuscated_flat_spec</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>spec</b>, <i></i>
+  const char* <b>msg</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the flatten
+   specifications.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_expr_pair"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_expr_pair</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>l</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a list of flattened expression pairs prefixed by
+   a given string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_expr_split"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_expr_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_expr"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_expr</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_spec_split"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_spec_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_spec"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_spec</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_vars_aux"></A>
+boolean <I></I>
+<B>compile_write_obfuscated_flatten_vars_aux</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const node_ptr  <b>name</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  hash_ptr  <b>printed</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> The function works exactly like
+   compile_write_flatten_vars_aux but all identifiers
+   are obfuscated before being printed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compile_write_flatten_vars_aux">compile_write_flatten_vars_aux</a>
+</code>
+
+<dt><pre>
+<A NAME="compile_write_obfuscated_flatten_vars"></A>
+int <I></I>
+<B>compile_write_obfuscated_flatten_vars</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  NodeList_ptr  <b>vars</b>, <i></i>
+  hash_ptr  <b>obfuscation_map</b> <i></i>
+)
+</pre>
+<dd> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_restricted_flat_fsm"></A>
+void <I></I>
+<B>compile_write_restricted_flat_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b>, <i></i>
+  boolean  <b>force_flattening</b>, <i></i>
+  hash_ptr  <b>cdh</b> <i></i>
+)
+</pre>
+<dd> Prints on the specified file the flatten
+   FSM of an SMV model, i.e. a list of restricted variables, defines, and all
+   constrains (INIT, TRANS, INVAR, ASSIGNS, JUSTICE, COMPASSION) restricted to
+   the set of variables in the FlatHierarchy.
+   Specifications are NOT printed.
+
+   layer_names is an array of names of layers that is typically
+   obtained from the symbol table. fsm_name is a name of the output
+   structure, usually it is "MODULE main".
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_bool_fsm"></A>
+void <I></I>
+<B>compile_write_udg_bool_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  NodeList_ptr  <b>layers</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  BoolSexpFsm_ptr  <b>bool_sexp_fsm</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the boolean FSM of an
+   SMV model.
+   bool_sexp_fsm should be a boolean Sexp FSM.
+   layer_names is an array of layers whose variables will be printed,
+   usually this parameter is a list of all layers committed to enc. The array
+   should be ended by a NULL element.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_bool_specs"></A>
+void <I></I>
+<B>compile_write_udg_bool_specs</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the booleanized
+   specifications of an SMV model.
+
+   NOTE: a temporary layer will be created during the dumping for
+   determinization variables that derived from the booleanization of
+   the specifications. These variable declarations will be printed
+   after the specs.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_bool_spec"></A>
+void <I></I>
+<B>compile_write_udg_bool_spec</B>(
+  FILE* <b>out</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>spec</b>, <i></i>
+  const char* <b>msg</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Private service to print a boolean specification
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_constants"></A>
+int <I></I>
+<B>compile_write_udg_constants</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if at least one char have been written, 0
+   otherwise
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flat_asgn"></A>
+int <I></I>
+<B>compile_write_udg_flat_asgn</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>vars</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flat_define"></A>
+int <I></I>
+<B>compile_write_udg_flat_define</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  const NodeList_ptr  <b>names</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes DEFINE declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flat_fsm"></A>
+void <I></I>
+<B>compile_write_udg_flat_fsm</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  const char* <b>fsm_name</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints on the specified file the flatten
+   FSM of an SMV model, i.e. a list of all variable, defines, and all
+   constrains (INIT, TRANS, INVAR, ASSIGNS, JUSTICE, COMPASSION).
+   Specifications are NOT printed.
+
+   layer_names is an array of names of layers that is typically
+   obtained from the symbol table. fsm_name is a name of the output
+   structure, usually it is "MODULE main".
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flat_specs"></A>
+void <I></I>
+<B>compile_write_udg_flat_specs</B>(
+  FILE* <b>out</b>, <i></i>
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Prints into the specified file the
+   specifications of an SMV model.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_array_define"></A>
+node_ptr <I></I>
+<B>compile_write_udg_flatten_array_define</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>body</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Writes DEFINE declarations in SMV format on a
+   file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_bfexpr"></A>
+int <I></I>
+<B>compile_write_udg_flatten_bfexpr</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  SymbLayer_ptr  <b>det_layer</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file. The given layer is intended to hold the
+   determization variables that are created by the booleanization process of
+   the properties, that are kept not booleanized within the system.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_bool_vars"></A>
+int <I></I>
+<B>compile_write_udg_flatten_bool_vars</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  const BoolEnc_ptr  <b>bool_enc</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i></i>
+)
+</pre>
+<dd> Writes boolean VAR, FROZENVAR and IVAR declarations in
+   SMV format on a file. Non boolean vars are dumped as defines for the sake of
+   readability of conterexamples.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_expr_pair"></A>
+int <I></I>
+<B>compile_write_udg_flatten_expr_pair</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>l</b>, <i></i>
+  ModelSectionTag  <b>mst</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a list of flattened expression pairs prefixed by
+   a given string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_expr_split"></A>
+int <I></I>
+<B>compile_write_udg_flatten_expr_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  ModelSectionTag  <b>mst</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_expr"></A>
+int <I></I>
+<B>compile_write_udg_flatten_expr</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  ModelSectionTag  <b>mst</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_psl"></A>
+int <I></I>
+<B>compile_write_udg_flatten_psl</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes PSL properties as they are.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_spec_split"></A>
+int <I></I>
+<B>compile_write_udg_flatten_spec_split</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  ModelSectionTag  <b>mst</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_spec"></A>
+int <I></I>
+<B>compile_write_udg_flatten_spec</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  ModelSectionTag  <b>mst</b>, <i></i>
+  hash_ptr  <b>dag_info</b>, <i></i>
+  hash_ptr  <b>defines</b> <i></i>
+)
+</pre>
+<dd> Writes a generic spec prefixed by a given
+   string in SMV format on a file.
+   Returns true if at least one character was printed, and false otherwise.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_flatten_vars"></A>
+int <I></I>
+<B>compile_write_udg_flatten_vars</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  FILE* <b>out</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i></i>
+)
+</pre>
+<dd> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_1_ary"></A>
+inline int <I></I>
+<B>compile_write_udg_print_1_ary</B>(
+  FILE* <b>buffer</b>, <i></i>
+  node_ptr  <b>code</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b>, <i></i>
+  const char* <b>color1</b> <i></i>
+)
+</pre>
+<dd> Printer in udg format for a node with a child
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_2_arya"></A>
+inline int <I></I>
+<B>compile_write_udg_print_2_arya</B>(
+  FILE* <b>buffer</b>, <i></i>
+  node_ptr  <b>code</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b> <i></i>
+)
+</pre>
+<dd> Printer in udg format for a node with children arity equal to 2
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_2_ary"></A>
+inline int <I></I>
+<B>compile_write_udg_print_2_ary</B>(
+  FILE* <b>buffer</b>, <i></i>
+  node_ptr  <b>code</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b>, <i></i>
+  const char* <b>color1</b>, <i></i>
+  const char* <b>color2</b> <i></i>
+)
+</pre>
+<dd> Printer in udg format for a node with children arity equal to 2
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_3_aryc_color"></A>
+inline int <I></I>
+<B>compile_write_udg_print_3_aryc_color</B>(
+  FILE* <b>buffer</b>, <i></i>
+  node_ptr  <b>code</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  node_ptr  <b>fst</b>, <i></i>
+  node_ptr  <b>snd</b>, <i></i>
+  node_ptr  <b>trd</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b>, <i></i>
+  const char* <b>color1</b>, <i></i>
+  const char* <b>color2</b>, <i></i>
+  const char* <b>color3</b> <i></i>
+)
+</pre>
+<dd> The children are provided explicitly
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_3_aryc"></A>
+inline int <I></I>
+<B>compile_write_udg_print_3_aryc</B>(
+  FILE* <b>buffer</b>, <i></i>
+  node_ptr  <b>code</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  node_ptr  <b>fst</b>, <i></i>
+  node_ptr  <b>snd</b>, <i></i>
+  node_ptr  <b>trd</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b> <i></i>
+)
+</pre>
+<dd> The children are provided explicitly
+<p>
+
+<dt><pre>
+<A NAME="compile_write_udg_print_node"></A>
+int <I></I>
+<B>compile_write_udg_print_node</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  boolean  <b>close</b>, <i></i>
+  boolean  <b>shared</b>, <i></i>
+  const char* <b>style</b> <i></i>
+)
+</pre>
+<dd> Menthod that prints the given node in udg format
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

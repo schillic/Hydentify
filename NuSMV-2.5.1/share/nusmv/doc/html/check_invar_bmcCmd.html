@@ -1,0 +1,45 @@
+<html>
+<head><title>check_invar_bmc</title></head>
+<body>
+
+<h3>check_invar_bmc - Generates and solve the given invariant, or all invariants if no formula is given</h3>
+<hr>
+<code>check_invar_bmc [-h | -n idx | -p "formula" [IN context] | -P "name"] [-k max_length] [-a algorithm] [-o filename]</code><p>
+<p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-n <i>index</i></tt>
+       <dd> <i>index</i> is the numeric index of a valid INVAR specification
+       formula actually located in the properties database. <BR>
+       The validity of <i>index</i> value is checked out by the system.
+    <dt> <tt>-p "formula [IN context]"</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+    <dt> <tt>-P name</tt>
+       <dd> Checks the INVARSPEC property with name <tt>name</tt> in the property
+            database.
+    <dt> <tt>-k <i>max_length</i></tt>
+       <dd> (Use only when selected algorithm is een-sorensson).
+            Use to specify the maximal deepth to be reached by the een-sorensson
+            invariant checking algorithm. If not specified, the value assigned
+            to the system variable <i>bmc_length</i> is taken.
+    <dt> <tt>-a <i>algorithm</i></tt>
+       <dd> Uses the specified algorithm to solve the invariant. If used, this
+            option will override system variable <i>bmc_invar_alg</i>.
+            At the moment, possible values are: "classic", "een-sorensson".
+    <dt> <tt>-o <i>filename</i></tt>
+       <dd> <i>filename</i> is the name of the dumped dimacs file, without
+       extension. <BR>
+       It may contain special symbols which will be macro-expanded to form
+       the real file name. Possible symbols are: <BR>
+       - @F: model name with path part <BR>
+       - @f: model name without path part <BR>
+       - @n: index of the currently processed formula in the properties
+       database <BR>
+       - @@: the '@' character
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

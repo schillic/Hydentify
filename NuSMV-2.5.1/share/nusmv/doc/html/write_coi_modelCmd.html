@@ -1,0 +1,49 @@
+<html>
+<head><title>write_coi_model</title></head>
+<body>
+
+<h3>write_coi_model - Writes a flat model of SMV file, restricted to the COI of the model properties</h3>
+<hr>
+<code>write_coi_model [-h] [-o filename] [-n <prop> | -p <expr> | -P <name>] | [-c] | [-l] | [-i] | [-s] | [-q] | [-p expr] | [-C] | [-g]</code><p>
+Writes the currently loaded SMV model in the
+  specified file, after having flattened it. If a property is
+  specified, the dumped model is the result of applying the COI over
+  that property. otherwise, a restricted SMV model is dumped for each
+  property in the property database.
+
+  Processes are eliminated and a corresponding equivalent model is
+  printed out.
+
+  If no file is specified, stderr is used for output
+  <p>
+  Command options:<p>
+  <dl>
+     <dt><tt>-o filename</tt>
+       <dd> Attempts to write the flat and boolean SMV model in
+       <tt>filename</tt>.
+    <dt> <tt>-c</tt>
+       <dd> Dumps COI model for all CTL properties
+    <dt> <tt>-l</tt>
+       <dd> Dumps COI model for all LTL properties
+    <dt> <tt>-i</tt>
+       <dd> Dumps COI model for all INVAR properties
+    <dt> <tt>-s</tt>
+       <dd> Dumps COI model for all PSL properties
+    <dt> <tt>-q</tt>
+       <dd> Dumps COI model for all COMPUTE properties
+     <dt><tt>-p expr</tt>
+       <dd> Applies COI for the given expression "expr"
+     <dt><tt>-n idx</tt>
+       <dd> Applies COI for property stored at index "idx"
+     <dt><tt>-P name</tt>
+       <dd> Applies COI for property named "name" idx
+     <dt><tt>-C</tt>
+       <dd> Only prints the list of variables that are in
+           the COI of properties
+     <dt><tt>-g</tt>
+       <dd> Dumps the COI model that represents the union of all COI properties
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

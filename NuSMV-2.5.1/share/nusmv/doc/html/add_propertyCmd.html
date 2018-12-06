@@ -1,0 +1,33 @@
+<html>
+<head><title>add_property</title></head>
+<body>
+
+<h3>add_property - Adds a property to the list of properties</h3>
+<hr>
+<code>add_property [-h] [(-c | -l | -i | -q | -s) -p "formula [IN context]"]</code><p>
+Adds a property in the list of properties. It is possible to insert
+  LTL, CTL, INVAR, PSL and quantitative (COMPUTE) properties. Every
+  newly inserted property is initialized to unchecked. A type option
+  must be given to properly execute the command.
+  <p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-c</tt>
+       <dd> Adds a CTL property.
+    <dt> <tt>-l</tt>
+       <dd> Adds an LTL property.
+    <dt> <tt>-i</tt>
+       <dd> Adds an INVAR property.
+    <dt> <tt>-s</tt>
+       <dd> Adds a PSL property.
+    <dt> <tt>-q</tt>
+       <dd> Adds a quantitative (COMPUTE) property.
+    <dt> <tt>-p "formula [IN context]"</tt>
+       <dd> Adds the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

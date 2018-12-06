@@ -1,0 +1,17 @@
+  goto_state - Goes to a given state of a trace
+
+   --------------------------------------------------------------------------
+
+   goto_state [-h] state
+
+   Makes state the current state. This command is used to navigate alongs
+   traces produced by NuSMV. During the navigation, there is a current state,
+   and the current trace is the trace the current state belongs to. Command
+   options:
+
+   state:
+           The state of a trace (trace.state) to be picked.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

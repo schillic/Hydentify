@@ -1,0 +1,13 @@
+  print_iwls95options - Prints the Iwls95 Options.
+
+   --------------------------------------------------------------------------
+
+   print_iwls95options [-h]
+
+   This command prints out the configuration parameters of the IWLS95
+   clustering algorithm, i.e. image_verbosity, image_cluster_size and
+   image_W{1,2,3,4}.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

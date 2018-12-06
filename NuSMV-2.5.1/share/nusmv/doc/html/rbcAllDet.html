@@ -1,0 +1,1703 @@
+<html>
+<head><title>The rbc package: all functions </title></head>
+<body>
+
+Internal functions and data structures of the rbc package.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CnfBack"></A>
+static void <I></I>
+<B>CnfBack</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactBack"></A>
+static void <I></I>
+<B>CnfCompactBack</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactCleanFirst"></A>
+static void <I></I>
+<B>CnfCompactCleanFirst</B>(
+  Dag_Vertex_t* <b>f</b>, <i></i>
+  char* <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactCleanSet"></A>
+static int <I></I>
+<B>CnfCompactCleanSet</B>(
+  Dag_Vertex_t* <b>f</b>, <i></i>
+  char* <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactCommit"></A>
+static void <I></I>
+<B>CnfCompactCommit</B>(
+  void* <b>data</b>, <i></i>
+  int* <b>cl</b>, <i></i>
+  int  <b>size</b> <i></i>
+)
+</pre>
+<dd> Extracts the cnf from the CLG
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactFirst"></A>
+static void <I></I>
+<B>CnfCompactFirst</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactLast"></A>
+static void <I></I>
+<B>CnfCompactLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactPolFirstBack"></A>
+static void <I></I>
+<B>CnfCompactPolFirstBack</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit and BackVisit for CNF conversion polarity
+               computation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactPolSet"></A>
+static int <I></I>
+<B>CnfCompactPolSet</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for CNF conversion polarity computation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfCompactSet"></A>
+static int <I></I>
+<B>CnfCompactSet</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfEmpty"></A>
+static void <I></I>
+<B>CnfEmpty</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Empty function as null operation during DFS
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfFirst"></A>
+static void <I></I>
+<B>CnfFirst</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfLast"></A>
+static void <I></I>
+<B>CnfLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="CnfSet"></A>
+static int <I></I>
+<B>CnfSet</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>cnfData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for CNF conversion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="DaVinciBack"></A>
+static void <I></I>
+<B>DaVinciBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>daVinciData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for DaVinci output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="DaVinciFirst"></A>
+static void <I></I>
+<B>DaVinciFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>DaVinciData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for DaVinci output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="DaVinciLast"></A>
+static void <I></I>
+<B>DaVinciLast</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>daVinciData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for DaVinci outputon.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="DaVinciSet"></A>
+static int <I></I>
+<B>DaVinciSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>daVinciData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for DaVinci output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="GdlBack"></A>
+static void <I></I>
+<B>GdlBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>GdlData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for Gdl output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="GdlFirst"></A>
+static void <I></I>
+<B>GdlFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>GdlData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for Gdl output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="GdlLast"></A>
+static void <I></I>
+<B>GdlLast</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>GdlData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for Gdl outputon.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="GdlSet"></A>
+static int <I></I>
+<B>GdlSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>GdlData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for Gdl output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="LogicalShiftLast"></A>
+static void <I></I>
+<B>LogicalShiftLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>shiftData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for logical shifting.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="LogicalSubstLast"></A>
+static void <I></I>
+<B>LogicalSubstLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>SubstData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for logical Substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="LogicalSubstRbcLast"></A>
+static void <I></I>
+<B>LogicalSubstRbcLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>SubstRbcData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for logical Rbc Substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="RbcInline_apply_inlining"></A>
+InlineResult_ptr <I></I>
+<B>RbcInline_apply_inlining</B>(
+  Rbc_Manager_t* <b>rbcm</b>, <i></i>
+  Rbc_t* <b>f</b> <i></i>
+)
+</pre>
+<dd> Returned InlineResult instance is cached and must be _NOT_ 
+	destroyed by the caller
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#InlineResult">InlineResult</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInline.c"TARGET="ABSTRACT"><CODE>rbcInline.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_CnfConversionAlgorithm2Str"></A>
+const char * <I></I>
+<B>Rbc_CnfConversionAlgorithm2Str</B>(
+  Rbc_2CnfAlgorithm  <b>algo</b> <i></i>
+)
+</pre>
+<dd> Conversion from CNF conversion algorithm enumerative to string
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_CnfConversionAlgorithmFromStr"></A>
+Rbc_2CnfAlgorithm <I></I>
+<B>Rbc_CnfConversionAlgorithmFromStr</B>(
+  const char * <b>str</b> <i></i>
+)
+</pre>
+<dd> Conversion from string to CNF conversion algorithm enumerative
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_CnfGetValidRbc2CnfAlgorithms"></A>
+const char * <I></I>
+<B>Rbc_CnfGetValidRbc2CnfAlgorithms</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> String of valid conversion algorithms
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_CnfVar2RbcIndex"></A>
+int <I></I>
+<B>Rbc_CnfVar2RbcIndex</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  int  <b>cnfVar</b> <i></i>
+)
+</pre>
+<dd> Returns -1, if there is no original RBC variable
+  corresponding to CNF variable, this may be the case if CNF variable
+  corresponds to an internal node (not leaf) of RBC tree. Input CNF
+  variable should be a correct variable generated by RBC manager.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Convert2CnfCompact"></A>
+int <I></I>
+<B>Rbc_Convert2CnfCompact</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int  <b>polarity</b>, <i></i>
+  Slist_ptr  <b>clauses</b>, <i></i>
+  Slist_ptr  <b>vars</b>, <i></i>
+  int* <b>literalAssignedToWholeFormula</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager' and `f', `clauses' is filled with the
+               disjunctions corresponding to the rbc nodes according to
+               the 'compact' algorithm by Dan Sheridan.
+               `vars' is filled with the variables that occurred in `f'
+               (original or model variables). It is user's responsibility
+               to create `clauses' and `vars' *before* calling the function.
+               New variables are added by the conversion: the maximum
+               index (the last added variable) is returned by the function.
+               The function returns 0 when `f' is true or false. 'polarity'
+               defines whether 'f' has to be true, false, or either (1, -1
+               or 0 respectively). If 'polarity' is 1/-1 then only the
+               clauses representing the true/false RBC are returned. Otherwise,
+               both sets are returned.
+<p>
+
+<dd> <b>Side Effects</b> `clauses' and `vars' are filled up. `clauses' is the empty
+               list if `f' was true, and contains a single empty clause if
+               `f' was false.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Convert2CnfSimple"></A>
+int <I></I>
+<B>Rbc_Convert2CnfSimple</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  Slist_ptr  <b>clauses</b>, <i></i>
+  Slist_ptr  <b>vars</b>, <i></i>
+  int* <b>literalAssignedToWholeFormula</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager' and `f', `clauses' is filled with the
+               disjunctions corresponding to the rbc nodes according to
+               the rules:
+
+               f = A & B => -f A              f = A <-> B =>  f  A  B
+                            -f B                              f -A -B
+                             f -A -B                         -f -A  B
+                                                             -f  A -B
+
+               f = if A then B else C =>  f  A -C
+                                          f -A -B
+                                         -f  A  C
+                                         -f -A  B
+
+               `vars' is filled with the variables that occurred in `f'
+               (original or model variables converted into corresponding CNF
+               variables). It is user's responsibility
+               to create `clauses' and `vars' *before* calling the function.
+               New variables are added by the conversion: the maximum
+               index is returned by the function.
+               The literal associated to 'f' is assigned to parameter
+               *literalAssignedToWholeFormula (it may be negative).
+               Special case - A CONSTANT (this is consistent with description
+                 of Be_Cnf_ptr): if the formula is a constant
+                 then *literalAssignedToWholeFormula will be INT_MAX
+                 and the return value will 0.
+                 if formula is true, `clauses' is the empty list,
+                 if formula is false, `clauses' contains a single empty clause.
+<p>
+
+<dd> <b>Side Effects</b> `clauses', `vars' and '*literalAssignedToWholeFormula'
+              are filled up. Fields inside rbcManager might change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Convert2Cnf"></A>
+int <I></I>
+<B>Rbc_Convert2Cnf</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int  <b>polarity</b>, <i></i>
+  Slist_ptr  <b>clauses</b>, <i></i>
+  Slist_ptr  <b>vars</b>, <i></i>
+  int* <b>literalAssignedToWholeFormula</b> <i></i>
+)
+</pre>
+<dd> This calls the user's choice of translation procedure
+<p>
+
+<dd> <b>Side Effects</b> `clauses' and `vars' are filled up. `clauses' is the empty
+               list if `f' was true, and contains a single empty clause if
+               `f' was false. 'polarity' is used to determine if the clauses
+               generated should represent the RBC positively, negatively, or
+               both (1, -1 or 0 respectively). For an RBC that is known to be
+               true, the clauses that represent it being false are not needed
+               (they would be removed anyway by propogating the unit literal
+               which states that the RBC is true). Similarly for when the RBC
+               is known to be false. This parameter is only used with the
+               compact cnf conversion algorithm, and is ignored if the simple
+               algorithm is used.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetIthVar"></A>
+Rbc_t * <I></I>
+<B>Rbc_GetIthVar</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  int  <b>varIndex</b> <i></i>
+)
+</pre>
+<dd> Returns a pointer to an rbc node containing the requested 
+               variable. Works in three steps:
+               <ul>
+               <li> the requested variable index exceeds the current capacity:
+                    allocated more room up to the requested index;
+               <li> the variable node does not exists: inserts it in the dag
+                    and makes it permanent;
+               <li> returns the variable node.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetLeftOpnd"></A>
+Rbc_t * <I></I>
+<B>Rbc_GetLeftOpnd</B>(
+  Rbc_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Gets the left operand.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetOne"></A>
+Rbc_t * <I></I>
+<B>Rbc_GetOne</B>(
+  Rbc_Manager_t * <b>rbcManager</b> <i></i>
+)
+</pre>
+<dd> Returns the rbc that stands for logical truth.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetRightOpnd"></A>
+Rbc_t * <I></I>
+<B>Rbc_GetRightOpnd</B>(
+  Rbc_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Gets the right operand.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetVarIndex"></A>
+int <I></I>
+<B>Rbc_GetVarIndex</B>(
+  Rbc_t* <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the variable index, 
+               -1 if the rbc is not a variable.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_GetZero"></A>
+Rbc_t * <I></I>
+<B>Rbc_GetZero</B>(
+  Rbc_Manager_t * <b>rbcManager</b> <i></i>
+)
+</pre>
+<dd> Returns the rbc that stands for logical falsity.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_IsConstant"></A>
+boolean <I></I>
+<B>Rbc_IsConstant</B>(
+  Rbc_Manager_t* <b>manager</b>, <i></i>
+  Rbc_t* <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given rbc is a constant value,
+  such as either False or True
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_LogicalShift"></A>
+Rbc_t* <I></I>
+<B>Rbc_LogicalShift</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int  <b>shift</b>, <i></i>
+  const int* <b>log2phy</b>, <i></i>
+  const int* <b>phy2log</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the integer `shift',
+               replaces every occurence of the variable x_i in in `f' with 
+         the variable x_(i + shift).
+
+         Notice that in this context, 'i' is a LOGICAL
+         index, not physical, i.e. the substitution array is
+         provided in terms of logical indices, and is related
+         only to the logical level.
+
+         For a substitution at physical level, see Rbc_SubstRbc.
+         
+         The two indices arrays log2phy and phy2log map
+         respectively the logical level to the physical level,
+         and the physical level to the logical levels. They
+         allow the be encoder to freely organize the variables
+         into a logical and a physical level. This feature has
+         been introduced with NuSMV-2.4 that ships dynamic
+         encodings.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_LogicalSubstRbc"></A>
+Rbc_t* <I></I>
+<B>Rbc_LogicalSubstRbc</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  Rbc_t** <b>substRbc</b>, <i></i>
+  int* <b>phy2log</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the array of rbcs
+               `substRbc', replaces every occurence of the variable
+         x_i in in `f' with the rbc r_i provided that 
+         substRbc[i
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_LogicalSubst"></A>
+Rbc_t* <I></I>
+<B>Rbc_LogicalSubst</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int* <b>subst</b>, <i></i>
+  const int* <b>log2phy</b>, <i></i>
+  const int* <b>phy2log</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the array of integers
+               `subst', replaces every occurence of the variable
+         x_i in in `f' with the variable x_j provided that 
+         subst[i
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Rbc_Subst">Rbc_Subst</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeAnd"></A>
+Rbc_t * <I></I>
+<B>Rbc_MakeAnd</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>left</b>, <i></i>
+  Rbc_t * <b>right</b>, <i></i>
+  Rbc_Bool_c  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Makes the conjunction of two rbcs.
+               Works in three steps:
+               <ul>
+               <li> performs boolean simplification: if successfull, returns
+                    the result of the simplification;
+               <li> orders left and right son pointers;
+               <li> looks up the formula in the dag and returns it.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeIff"></A>
+Rbc_t * <I></I>
+<B>Rbc_MakeIff</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>left</b>, <i></i>
+  Rbc_t * <b>right</b>, <i></i>
+  Rbc_Bool_c  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Makes the coimplication of two rbcs.
+               Works in four steps:
+               <ul>
+               <li> performs boolean simplification: if successfull, returns
+                    the result of the simplification;
+               <li> orders left and right son pointers;
+               <li> re-encodes the negation 
+               <li> looks up the formula in the dag and returns it.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeIte"></A>
+Rbc_t * <I></I>
+<B>Rbc_MakeIte</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>i</b>, <i></i>
+  Rbc_t * <b>t</b>, <i></i>
+  Rbc_t * <b>e</b>, <i></i>
+  Rbc_Bool_c  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Makes the if-then-else of three rbcs: expands the connective
+              into the corresponding product-of-sums.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeNot"></A>
+Rbc_t* <I></I>
+<B>Rbc_MakeNot</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>left</b> <i></i>
+)
+</pre>
+<dd> Returns the complement of an rbc.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeOr"></A>
+Rbc_t * <I></I>
+<B>Rbc_MakeOr</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>left</b>, <i></i>
+  Rbc_t * <b>right</b>, <i></i>
+  Rbc_Bool_c  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Makes the disjunction of two rbcs: casts the connective to
+               the negation of a conjunction using De Morgan's law.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_MakeXor"></A>
+Rbc_t * <I></I>
+<B>Rbc_MakeXor</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>left</b>, <i></i>
+  Rbc_t * <b>right</b>, <i></i>
+  Rbc_Bool_c  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Makes the exclusive disjunction of two rbcs: casts the
+               connective as the negation of a coimplication.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_ManagerAlloc"></A>
+Rbc_Manager_t * <I></I>
+<B>Rbc_ManagerAlloc</B>(
+  int  <b>varCapacity</b> <i></i>
+)
+</pre>
+<dd> Creates a new RBC manager:
+               <ul>
+               <li> <i>varCapacity</i> how big is the variable index
+                    (this number must be strictly greater than 0) 
+               </ul>
+               Returns the allocated manager if varCapacity is greater than 0,
+               and NIL(Rbc_Manager_t) otherwise.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Rbc_ManagerFree">Rbc_ManagerFree</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcManager.c"TARGET="ABSTRACT"><CODE>rbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_ManagerCapacity"></A>
+int <I></I>
+<B>Rbc_ManagerCapacity</B>(
+  Rbc_Manager_t * <b>rbcManager</b> <i></i>
+)
+</pre>
+<dd> This number is the maximum number of variables (starting from 0)
+               that can be requested without causing any memory allocation.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcManager.c"TARGET="ABSTRACT"><CODE>rbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_ManagerFree"></A>
+void <I></I>
+<B>Rbc_ManagerFree</B>(
+  Rbc_Manager_t * <b>rbcManager</b> <i></i>
+)
+</pre>
+<dd> Frees the variable index and the internal dag manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcManager.c"TARGET="ABSTRACT"><CODE>rbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_ManagerGC"></A>
+void <I></I>
+<B>Rbc_ManagerGC</B>(
+  Rbc_Manager_t * <b>rbcManager</b> <i></i>
+)
+</pre>
+<dd> Relies on the internal DAG garbage collector.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcManager.c"TARGET="ABSTRACT"><CODE>rbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_ManagerReserve"></A>
+void <I></I>
+<B>Rbc_ManagerReserve</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  int  <b>newVarCapacity</b> <i></i>
+)
+</pre>
+<dd> If the requested space is bigger than the current one
+               makes room for more variables in the varTable.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcManager.c"TARGET="ABSTRACT"><CODE>rbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Mark"></A>
+void <I></I>
+<B>Rbc_Mark</B>(
+  Rbc_Manager_t * <b>rbc</b>, <i></i>
+  Rbc_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Marks the vertex in the internal dag. This saves the rbc
+               from being wiped out during garbage collection.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_OutputDaVinci"></A>
+void <I></I>
+<B>Rbc_OutputDaVinci</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>f</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Print out an rbc using DaVinci graph format.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_OutputGdl"></A>
+void <I></I>
+<B>Rbc_OutputGdl</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>f</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Print out an rbc using Gdl graph format.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_OutputSexpr"></A>
+void <I></I>
+<B>Rbc_OutputSexpr</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>f</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Print out an rbc using LISP S-exrpressions.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_PrintStats"></A>
+void <I></I>
+<B>Rbc_PrintStats</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  int  <b>clustSz</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Prints various statistics.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcStat.c"TARGET="ABSTRACT"><CODE>rbcStat.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_RbcIndex2CnfVar"></A>
+int <I></I>
+<B>Rbc_RbcIndex2CnfVar</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  int  <b>rbcIndex</b> <i></i>
+)
+</pre>
+<dd> Returns 0, if there is no original RBC variable
+  corresponding to CNF variable. This may be the case if particular RBC
+  node (of the given variable) has never been converted into CNF
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Shift"></A>
+Rbc_t* <I></I>
+<B>Rbc_Shift</B>(
+  Rbc_Manager_t* <b>rbcManager</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int  <b>shift</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the integer `shift',
+               replaces every occurence of the variable x_i in in `f' with 
+         the variable x_(i + shift).
+
+  !!!!!! WARNING   WARNING   WARNING   WARNING   WARNING   WARNING !!!!!
+  !!                                                                  !!
+  !!  This function cannot be used with the new encoding BeEnc,       !!
+  !!  with NuSMV-2.4. As shifting involves the traversal of the       !!
+  !!  logical layer within the                                        !!
+  !!  BeEnc, simple shifting is no longer usable, and will produce    !!
+  !!  unpredictable results if used on variables handled by a BeEnc   !!
+  !!  instance.                                                       !!
+  !!                                                                  !!
+  !!  Use Rbc_LogicalShiftVar instead.                                !!
+  !!                                                                  !!
+  !!!!!! WARNING   WARNING   WARNING   WARNING   WARNING   WARNING !!!!!
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_SubstRbc"></A>
+Rbc_t * <I></I>
+<B>Rbc_SubstRbc</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>f</b>, <i></i>
+  Rbc_t ** <b>substRbc</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the array of rbcs
+               `substRbc', replaces every occurence of the variable
+         x_i in in `f' with the rbc r_i provided that 
+         substRbc[i
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Subst"></A>
+Rbc_t * <I></I>
+<B>Rbc_Subst</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  Rbc_t * <b>f</b>, <i></i>
+  int * <b>subst</b> <i></i>
+)
+</pre>
+<dd> Given `rbcManager', the rbc `f', and the array of integers
+               `subst', replaces every occurence of the variable
+         x_i in in `f' with the variable x_j provided that 
+         subst[i
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Rbc_LogicalSubst">Rbc_LogicalSubst</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_Unmark"></A>
+void <I></I>
+<B>Rbc_Unmark</B>(
+  Rbc_Manager_t * <b>rbc</b>, <i></i>
+  Rbc_t * <b>f</b> <i></i>
+)
+</pre>
+<dd> Unmarks the vertex in the internal dag. This exposes the rbc
+               to garbage collection.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Rbc_get_node_cnf"></A>
+int <I></I>
+<B>Rbc_get_node_cnf</B>(
+  Rbc_Manager_t* <b>rbcm</b>, <i></i>
+  Rbc_t* <b>f</b>, <i></i>
+  int* <b>maxvar</b> <i></i>
+)
+</pre>
+<dd> Given a rbc node, this function returns the corrensponding
+  CNF var it had been already allocated one. Otherwise it will allocate a
+  new CNF var and will increment given maxvar value. If f is RBCDUMMY,
+  a new variable will be always allocated (intended to be a non-terminal var,
+  but a corresponding RBC var will be not allocated)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnf.c"TARGET="ABSTRACT"><CODE>rbcCnf.c</CODE></A>
+
+<dt><pre>
+<A NAME="Reduce"></A>
+static Rbc_t * <I></I>
+<B>Reduce</B>(
+  Rbc_Manager_t * <b>rbcManager</b>, <i></i>
+  int  <b>op</b>, <i></i>
+  Rbc_t * <b>left</b>, <i></i>
+  Rbc_t * <b>right</b> <i></i>
+)
+</pre>
+<dd> Reduction (simplification) of rbcs.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcFormula.c"TARGET="ABSTRACT"><CODE>rbcFormula.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexprBack"></A>
+static void <I></I>
+<B>SexprBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SexprData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for Sexpr output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexprFirst"></A>
+static void <I></I>
+<B>SexprFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SexprData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for Sexpr output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexprLast"></A>
+static void <I></I>
+<B>SexprLast</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SexprData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for Sexpr outputon.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexprSet"></A>
+static int <I></I>
+<B>SexprSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SexprData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for Sexpr output.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcOutput.c"TARGET="ABSTRACT"><CODE>rbcOutput.c</CODE></A>
+
+<dt><pre>
+<A NAME="ShiftBack"></A>
+static void <I></I>
+<B>ShiftBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>shiftData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for shifting.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="ShiftFirst"></A>
+static void <I></I>
+<B>ShiftFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>shiftData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for shifting.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="ShiftLast"></A>
+static void <I></I>
+<B>ShiftLast</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>shiftData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for shifting.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="ShiftSet"></A>
+static int <I></I>
+<B>ShiftSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>shiftData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for shifting.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstBack"></A>
+static void <I></I>
+<B>SubstBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstFirst"></A>
+static void <I></I>
+<B>SubstFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstLast"></A>
+static void <I></I>
+<B>SubstLast</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  char* <b>SubstData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for Substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstRbcBack"></A>
+static void <I></I>
+<B>SubstRbcBack</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstRbcData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for substRbcitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstRbcFirst"></A>
+static void <I></I>
+<B>SubstRbcFirst</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstRbcData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for substitution (variables to formulas).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstRbcLast"></A>
+static void <I></I>
+<B>SubstRbcLast</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstRbcData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for SubstRbcitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstRbcSet"></A>
+static int <I></I>
+<B>SubstRbcSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstRbcData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for substitution (variables to formulas).
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SubstSet"></A>
+static int <I></I>
+<B>SubstSet</B>(
+  Rbc_t * <b>f</b>, <i></i>
+  char * <b>SubstData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for substitution.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcSubst.c"TARGET="ABSTRACT"><CODE>rbcSubst.c</CODE></A>
+
+<dt><pre>
+<A NAME="SwapSign"></A>
+static lsGeneric <I></I>
+<B>SwapSign</B>(
+  lsGeneric  <b>data</b> <i></i>
+)
+</pre>
+<dd> Swaps the sign of the argument.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfSimple.c"TARGET="ABSTRACT"><CODE>rbcCnfSimple.c</CODE></A>
+
+<dt><pre>
+<A NAME="disjunction2"></A>
+static inline void <I></I>
+<B>disjunction2</B>(
+  clause_graph* <b>Left1</b>, <i></i>
+  clause_graph* <b>Right1</b>, <i></i>
+  clause_graph* <b>Left2</b>, <i></i>
+  clause_graph* <b>Right2</b>, <i></i>
+  int* <b>maxVar</b>, <i></i>
+  clause_graph* <b>clauses</b>, <i></i>
+  Rbc_Manager_t* <b>rbcm</b> <i></i>
+)
+</pre>
+<dd> Compute the disjunction of two clause sets
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="disjunction"></A>
+static inline void <I></I>
+<B>disjunction</B>(
+  clause_graph* <b>Left</b>, <i></i>
+  clause_graph* <b>Right</b>, <i></i>
+  int* <b>maxVar</b>, <i></i>
+  clause_graph* <b>clauses</b>, <i></i>
+  Rbc_Manager_t* <b>rbcm</b> <i></i>
+)
+</pre>
+<dd> Compute the disjunction of two clause sets
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="rbc_inlining_cache_add_result"></A>
+void <I></I>
+<B>rbc_inlining_cache_add_result</B>(
+  Rbc_t* <b>f</b>, <i></i>
+  InlineResult_ptr  <b>res</b> <i></i>
+)
+</pre>
+<dd> Inline caching private service
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInline.c"TARGET="ABSTRACT"><CODE>rbcInline.c</CODE></A>
+
+<dt><pre>
+<A NAME="rbc_inlining_cache_init"></A>
+void <I></I>
+<B>rbc_inlining_cache_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Inline caching private service
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInline.c"TARGET="ABSTRACT"><CODE>rbcInline.c</CODE></A>
+
+<dt><pre>
+<A NAME="rbc_inlining_cache_lookup_result"></A>
+InlineResult_ptr <I></I>
+<B>rbc_inlining_cache_lookup_result</B>(
+  Rbc_t* <b>f</b> <i></i>
+)
+</pre>
+<dd> Inline caching private service
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInline.c"TARGET="ABSTRACT"><CODE>rbcInline.c</CODE></A>
+
+<dt><pre>
+<A NAME="rbc_inlining_cache_quit"></A>
+void <I></I>
+<B>rbc_inlining_cache_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Inline caching private service
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInline.c"TARGET="ABSTRACT"><CODE>rbcInline.c</CODE></A>
+
+<dt><pre>
+<A NAME="rename_clauses"></A>
+static void <I></I>
+<B>rename_clauses</B>(
+  clause_graph* <b>clauses</b>, <i></i>
+  int  <b>var</b>, <i></i>
+  clause_graph* <b>saved</b> <i></i>
+)
+</pre>
+<dd> Renames a set of clauses by adding -var to each clause
+  and adding each clause to the list of saved clauses. Allocates a new variable
+  if var==0. Returns var or the new variable. Refuses to rename a single
+  clause; returns 0 in this case
+<p>
+
+<dd> <b>Side Effects</b> clauses refers to the singleton clause set referring to the
+  renamed clauses
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME="testSizes"></A>
+static inline int <I></I>
+<B>testSizes</B>(
+  clause_graph  <b>left</b>, <i></i>
+  clause_graph  <b>right</b> <i></i>
+)
+</pre>
+<dd> Check whether two clause sets are big enough to require renaming
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcCnfCompact.c"TARGET="ABSTRACT"><CODE>rbcCnfCompact.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Control the way compact CNF conversion is performed
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInt.h"TARGET="ABSTRACT"><CODE>rbcInt.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The pointer is filtered by a bitwise-xor with either RBC_FALSE
+              or RBC_TRUE. The pointer is not altered, but the leftmost bit
+              is complemented when s==RBC_FALSE and goes unchanged when
+              s == RBC_TRUE.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="rbcAllFile.html#rbcInt.h"TARGET="ABSTRACT"><CODE>rbcInt.h</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

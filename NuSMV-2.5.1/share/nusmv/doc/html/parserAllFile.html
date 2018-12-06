@@ -1,0 +1,89 @@
+<HTML>
+<HEAD><TITLE>The parser package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#parser.h"><CODE>parser.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#parserInt.h"><CODE>parserInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#parserCmd.c"><CODE>parserCmd.c</CODE></A>
+ <DD> Interface of the parser package with the shell.
+ <DT> <A HREF="#parserUtil.c"><CODE>parserUtil.c</CODE></A>
+ <DD> Parser utilities
+</DL><HR>
+<A NAME="parser.h"><H1>parser.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="parserInt.h"><H1>parserInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="parserCmd.c"><H1>parserCmd.c</H1></A>
+Interface of the parser package with the shell. <P>
+<B>By: Marco Roveri</B><P>
+Provides command for reading the NuSMV input file and
+  build an internal representation of it. <P>
+<DL>
+ <DT> <A HREF="parserAllDet.html#Parser_Init" TARGET="MAIN"><CODE>Parser_Init()</CODE></A>
+ <DD> Initializes the parser
+
+ <DT> <A HREF="parserAllDet.html#CommandReadModel" TARGET="MAIN"><CODE>CommandReadModel()</CODE></A>
+ <DD> Reads a NuSMV file into NuSMV.
+
+</DL>
+<HR>
+<A NAME="parserUtil.c"><H1>parserUtil.c</H1></A>
+Parser utilities <P>
+<B>By: Marco Roveri</B><P>
+This file contains some parser utilities that allows
+  for example to parse from a string, instead that from a file. <P>
+<DL>
+ <DT> <A HREF="parserAllDet.html#Parser_OpenInput" TARGET="MAIN"><CODE>Parser_OpenInput()</CODE></A>
+ <DD> Open a file and inform the parser to read from it
+
+ <DT> <A HREF="parserAllDet.html#Parser_CloseInput" TARGET="MAIN"><CODE>Parser_CloseInput()</CODE></A>
+ <DD> Close the input file
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadSMVFromFile" TARGET="MAIN"><CODE>Parser_ReadSMVFromFile()</CODE></A>
+ <DD> Parse SMV code from a given file.
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadCmdFromString" TARGET="MAIN"><CODE>Parser_ReadCmdFromString()</CODE></A>
+ <DD> Parse a comand from a given string.
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadCmdFromFile" TARGET="MAIN"><CODE>Parser_ReadCmdFromFile()</CODE></A>
+ <DD> Parse a command expression from file
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadNextExprFromFile" TARGET="MAIN"><CODE>Parser_ReadNextExprFromFile()</CODE></A>
+ <DD> Parse a next expression from file
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadSimpExprFromString" TARGET="MAIN"><CODE>Parser_ReadSimpExprFromString()</CODE></A>
+ <DD> Parse a simple expression from string
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadNextExprFromString" TARGET="MAIN"><CODE>Parser_ReadNextExprFromString()</CODE></A>
+ <DD> Parse a next expression from string
+
+ <DT> <A HREF="parserAllDet.html#Parser_ReadLtlExprFromFile" TARGET="MAIN"><CODE>Parser_ReadLtlExprFromFile()</CODE></A>
+ <DD> Parse LTL expression from a given file.
+
+ <DT> <A HREF="parserAllDet.html#Parser_read_psl_from_string" TARGET="MAIN"><CODE>Parser_read_psl_from_string()</CODE></A>
+ <DD> Parses a PSL expression from the given string.
+
+ <DT> <A HREF="parserAllDet.html#Parser_read_psl_from_file" TARGET="MAIN"><CODE>Parser_read_psl_from_file()</CODE></A>
+ <DD> Parses a PSL expression from the given file.
+
+ <DT> <A HREF="parserAllDet.html#parser_open_input_pp" TARGET="MAIN"><CODE>parser_open_input_pp()</CODE></A>
+ <DD> Open a file and inform the parser to read from it
+
+ <DT> <A HREF="parserAllDet.html#parser_close_input_pp" TARGET="MAIN"><CODE>parser_close_input_pp()</CODE></A>
+ <DD> Close the input file
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

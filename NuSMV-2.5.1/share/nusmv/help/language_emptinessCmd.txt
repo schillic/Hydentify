@@ -1,0 +1,19 @@
+  language_emptiness - Checks for language emptiness.
+
+   --------------------------------------------------------------------------
+
+   language_emptiness [-h] [-v] [-a]
+
+   Checks for the language emptiness.
+   If -a is given the check is performed by verifying whether all initial
+   states are included in the set of fair states. If it is the case from all
+   initial states there exists a fair path and thus the language is not
+   empty. On the other hand, if no -a is specified, the check is performed by
+   verifying whether there exists at least one inital state that is also a
+   fair state. In this case there is an initial state from which it starts a
+   fair path and thus the lnaguage is not empty. if -v is specified, then
+   some information on the set of initial states is printed out too.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

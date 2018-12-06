@@ -1,0 +1,80 @@
+<html>
+<head><title>source</title></head>
+<body>
+
+<h3>source - Executes a sequence of commands from a file</h3>
+<hr>
+<code>source [-h] [-p] [-s] [-x] &lt;file&gt; [&lt;args&gt;]</code><p>
+Reads and executes commands from a file.<p>
+  Command options:<p>
+  <dl>
+    <dt> -p
+       <dd> Prints a prompt before reading each command.
+    <dt> -s
+       <dd> Silently ignores an attempt to execute commands from a nonexistent file.
+    <dt> -x
+       <dd> Echoes each command before it is executed.
+    <dt> &lt;file&gt;
+       <dd> File name
+  </dl>
+
+  Arguments on the command line after the filename are remembered but not
+  evaluated.  Commands in the script file can then refer to these arguments
+  using the history substitution mechanism.<p>
+
+  EXAMPLE:<p>
+
+  Contents of test.scr:<p>
+
+  <br><code>
+  read_model -i %:2<br>
+  flatten_hierarchy<br>
+  build_variables<br>
+  build_model<br>
+  </code><br>
+
+  Typing "source test.scr short.smv" on the command line will execute the
+  sequence<p>
+
+  <br><code>
+  read_model -i short.smv<br>
+  flatten_hierarchy<br>
+  build_variables<br>
+  build_model<br>
+  </code><br>
+
+  (In this case <code>%:0</code> gets "source", <code>%:1</code> gets
+  "test.scr", and <code>%:2</code> gets "short.smv".)
+  If you type "alias st source test.scr" and then type "st short.smv bozo",
+  you will execute<p>
+
+  <br><code>
+  read_model -i bozo<br>
+  flatten_hierarchy<br>
+  build_variables<br>
+  build_model<br>
+  </code><br>
+
+  because "bozo" was the second argument on the last command line typed.  In
+  other words, command substitution in a script file depends on how the script
+  file was invoked. Switches passed to a command are also counted as
+  positional parameters. Therefore, if you type "st -x short.smv bozo",
+  you will execute
+
+  <br><code>
+  read_model -i short.smv<br>
+  flatten_hierarchy<br>
+  build_variables<br>
+  build_model<br>
+  </code><br>
+
+  To pass the "-x" switch (or any other switch) to "source" when the
+  script uses positional parameters, you may define an alias. For
+  instance, "alias srcx source -x".<p>
+
+  returns -3 if an error occurs and the flag 'on_failure_script_quits'
+  is set.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

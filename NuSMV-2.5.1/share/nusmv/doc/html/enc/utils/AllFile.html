@@ -1,0 +1,335 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#AddArray.c"><CODE>AddArray.c</CODE></A>
+ <DD> 
+ <DT> <A HREF="#OrdGroups.c"><CODE>OrdGroups.c</CODE></A>
+ <DD> Represents a list of groups of variables. Each group 
+  is expected to be kept grouped at encoder level
+ <DT> <A HREF="#utils.c"><CODE>utils.c</CODE></A>
+ <DD> Utilities for encodings stuff
+</DL><HR>
+<A NAME="AddArray.c"><H1>AddArray.c</H1></A>
+ <P>
+<B>By: Andrei Tchaltsev</B><P>
+<P><B>See Also</B><A HREF="#AddArray.h"><CODE>AddArray.h</CODE></A>
+<DL>
+ <DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> converts a type from (actually used) array_t* to our
+  artificial AddArray_ptr
+
+ <DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> converts a type from our
+  artificial AddArray_ptr to (actually used) array_t*
+
+ <DT> <A HREF="AllDet.html#AddArray_create" TARGET="MAIN"><CODE>AddArray_create()</CODE></A>
+ <DD> constructor. Create an array of "number" ADDs
+
+ <DT> <A HREF="AllDet.html#AddArray_from_word_number" TARGET="MAIN"><CODE>AddArray_from_word_number()</CODE></A>
+ <DD> Creates a new AddArray from given WordNumber
+
+ <DT> <A HREF="AllDet.html#AddArray_from_add" TARGET="MAIN"><CODE>AddArray_from_add()</CODE></A>
+ <DD> given an ADD create an AddArray consisting of 
+  one element
+
+ <DT> <A HREF="AllDet.html#AddArray_duplicate" TARGET="MAIN"><CODE>AddArray_duplicate()</CODE></A>
+ <DD> create a new AddArray, a copy of a given one
+
+ <DT> <A HREF="AllDet.html#AddArray_destroy" TARGET="MAIN"><CODE>AddArray_destroy()</CODE></A>
+ <DD> destructor of the class
+
+ <DT> <A HREF="AllDet.html#AddArray_get_size" TARGET="MAIN"><CODE>AddArray_get_size()</CODE></A>
+ <DD> returns the size (number of elements) of the array
+
+ <DT> <A HREF="AllDet.html#AddArray_get_add" TARGET="MAIN"><CODE>AddArray_get_add()</CODE></A>
+ <DD> This function returns the first element of 
+  the array
+
+ <DT> <A HREF="AllDet.html#AddArray_get_n" TARGET="MAIN"><CODE>AddArray_get_n()</CODE></A>
+ <DD> Returns the element number "n" from
+  the array.
+
+ <DT> <A HREF="AllDet.html#AddArray_get_add_size" TARGET="MAIN"><CODE>AddArray_get_add_size()</CODE></A>
+ <DD> Returns the sum of the sizes of the ADDs within self
+
+ <DT> <A HREF="AllDet.html#AddArray_set_n" TARGET="MAIN"><CODE>AddArray_set_n()</CODE></A>
+ <DD> Sets the element number "number" to "add".
+
+ <DT> <A HREF="AllDet.html#AddArray_word_apply_unary" TARGET="MAIN"><CODE>AddArray_word_apply_unary()</CODE></A>
+ <DD> Applies unary operator to each bit of given argument, and
+  returns resulting add array
+
+ <DT> <A HREF="AllDet.html#AddArray_word_apply_binary" TARGET="MAIN"><CODE>AddArray_word_apply_binary()</CODE></A>
+ <DD> Applies binary operator to each bits pair of given
+  arguments, and returns resulting add array
+
+ <DT> <A HREF="AllDet.html#AddArray_make_disjunction" TARGET="MAIN"><CODE>AddArray_make_disjunction()</CODE></A>
+ <DD> Returns an ADD that is the disjunction of all bits of arg
+
+ <DT> <A HREF="AllDet.html#AddArray_make_conjunction" TARGET="MAIN"><CODE>AddArray_make_conjunction()</CODE></A>
+ <DD> Returns an ADD that is the conjunction of all bits of arg
+
+ <DT> <A HREF="AllDet.html#AddArray_word_plus" TARGET="MAIN"><CODE>AddArray_word_plus()</CODE></A>
+ <DD> Perform the addition operations
+  on two Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_minus" TARGET="MAIN"><CODE>AddArray_word_minus()</CODE></A>
+ <DD> Perform the subtraction operations
+  on two Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unary_minus" TARGET="MAIN"><CODE>AddArray_word_unary_minus()</CODE></A>
+ <DD> Changes the sign of the given word.
+
+ <DT> <A HREF="AllDet.html#AddArray_word_times" TARGET="MAIN"><CODE>AddArray_word_times()</CODE></A>
+ <DD> Perform the multiplication operations
+  on two Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_divide" TARGET="MAIN"><CODE>AddArray_word_unsigned_divide()</CODE></A>
+ <DD> Perform the division operations
+  on two unsigned Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_mod" TARGET="MAIN"><CODE>AddArray_word_unsigned_mod()</CODE></A>
+ <DD> Perform the remainder operations
+  on two unsigned Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_divide" TARGET="MAIN"><CODE>AddArray_word_signed_divide()</CODE></A>
+ <DD> Perform the division operations
+  on two singed Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_mod" TARGET="MAIN"><CODE>AddArray_word_signed_mod()</CODE></A>
+ <DD> Perform the remainder operations
+  on two signed Word expressions represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_left_shift" TARGET="MAIN"><CODE>AddArray_word_left_shift()</CODE></A>
+ <DD> Performs left shift operations
+  on a Word expression represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_right_shift" TARGET="MAIN"><CODE>AddArray_word_unsigned_right_shift()</CODE></A>
+ <DD> Invokes add_array_word_right_shift with isSigned set to 
+  false
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_right_shift" TARGET="MAIN"><CODE>AddArray_word_signed_right_shift()</CODE></A>
+ <DD> Invokes add_array_word_right_shift with isSigned set to 
+  true
+
+ <DT> <A HREF="AllDet.html#AddArray_word_left_rotate" TARGET="MAIN"><CODE>AddArray_word_left_rotate()</CODE></A>
+ <DD> Performs left rotate operations
+  on a Word expression represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_right_rotate" TARGET="MAIN"><CODE>AddArray_word_right_rotate()</CODE></A>
+ <DD> Performs right rotate operations
+  on a Word expression represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_less" TARGET="MAIN"><CODE>AddArray_word_unsigned_less()</CODE></A>
+ <DD> Performs less-then operation
+  on two unsigned Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_less_equal" TARGET="MAIN"><CODE>AddArray_word_unsigned_less_equal()</CODE></A>
+ <DD> Performs less-or-equal operation
+  on two unsigned Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_greater" TARGET="MAIN"><CODE>AddArray_word_unsigned_greater()</CODE></A>
+ <DD> Performs greater-then operation
+  on two unsigned Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_greater_equal" TARGET="MAIN"><CODE>AddArray_word_unsigned_greater_equal()</CODE></A>
+ <DD> Performs greater-or-equal operation
+  on two unsigned Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_less" TARGET="MAIN"><CODE>AddArray_word_signed_less()</CODE></A>
+ <DD> Performs _signed_ less-then operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_less_equal" TARGET="MAIN"><CODE>AddArray_word_signed_less_equal()</CODE></A>
+ <DD> Performs _signed_ less-equal-then operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_greater" TARGET="MAIN"><CODE>AddArray_word_signed_greater()</CODE></A>
+ <DD> Performs _signed_ greater-then operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_greater_equal" TARGET="MAIN"><CODE>AddArray_word_signed_greater_equal()</CODE></A>
+ <DD> Performs _signed_ greater-equal-then operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_extend" TARGET="MAIN"><CODE>AddArray_word_signed_extend()</CODE></A>
+ <DD> Extends the width of a signed Word expression keeping 
+  the value of the expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_extend" TARGET="MAIN"><CODE>AddArray_word_unsigned_extend()</CODE></A>
+ <DD> Extends the width of an unsigned Word expression keeping 
+  the value of the expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_equal" TARGET="MAIN"><CODE>AddArray_word_equal()</CODE></A>
+ <DD> Performs equal-operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_not_equal" TARGET="MAIN"><CODE>AddArray_word_not_equal()</CODE></A>
+ <DD> Performs not-equal-operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_ite" TARGET="MAIN"><CODE>AddArray_word_ite()</CODE></A>
+ <DD> Creates a ITE word array:
+  {ITE(_if, _then[N-1
+
+ <DT> <A HREF="AllDet.html#AddArray_word_bit_selection" TARGET="MAIN"><CODE>AddArray_word_bit_selection()</CODE></A>
+ <DD> Performs bit-selection operation
+  on a Word expression represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_signed_resize" TARGET="MAIN"><CODE>AddArray_word_signed_resize()</CODE></A>
+ <DD> Performs signed resize operation on a Word expression
+  represented as arrays of ADD.  Every ADD corresponds to a bit of a
+  Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_unsigned_resize" TARGET="MAIN"><CODE>AddArray_word_unsigned_resize()</CODE></A>
+ <DD> Performs signed resize operation on a Word expression
+  represented as arrays of ADD.  Every ADD corresponds to a bit of a
+  Word expression
+
+ <DT> <A HREF="AllDet.html#AddArray_word_concatenation" TARGET="MAIN"><CODE>AddArray_word_concatenation()</CODE></A>
+ <DD> Performs concatenation operation
+  on two Word expressions represented as arrays of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#add_array_full_adder" TARGET="MAIN"><CODE>add_array_full_adder()</CODE></A>
+ <DD> Performes the full-adder operation on the arguments arg1, arg2
+  and carry_in. The returned sum-bit and carry-bit are returned in
+  sum and carry_out.
+
+ <DT> <A HREF="AllDet.html#add_array_adder" TARGET="MAIN"><CODE>add_array_adder()</CODE></A>
+ <DD> Performes the addition of two Word expressions and 
+  a carry-in bit.
+
+ <DT> <A HREF="AllDet.html#add_array_word_plus_negated_and_one" TARGET="MAIN"><CODE>add_array_word_plus_negated_and_one()</CODE></A>
+ <DD> Perform "arg1 + (not arg2) + 1"
+  of two Word expressions represented as an array of ADD.
+  This operation correspond to the subtraction operations.
+
+ <DT> <A HREF="AllDet.html#add_array_unsigned_division_remainder" TARGET="MAIN"><CODE>add_array_unsigned_division_remainder()</CODE></A>
+ <DD> Performs division operations on two unsigned Word expressions
+  (which are encoded as arrays of bits)
+
+ <DT> <A HREF="AllDet.html#add_array_signed_division_remainder_simple" TARGET="MAIN"><CODE>add_array_signed_division_remainder_simple()</CODE></A>
+ <DD> Performs division operations on two unsigned Word expressions
+  (which are encoded as arrays of bits)
+
+ <DT> <A HREF="AllDet.html#add_array_signed_division_remainder_hardware" TARGET="MAIN"><CODE>add_array_signed_division_remainder_hardware()</CODE></A>
+ <DD> Performs division operations on two unsigned Word expressions
+  (which are encoded as arrays of bits)
+
+ <DT> <A HREF="AllDet.html#add_array_create_default_value_of_shift_operation" TARGET="MAIN"><CODE>add_array_create_default_value_of_shift_operation()</CODE></A>
+ <DD> Create an ADD of the default case in shift operations, i.e. ADD of
+  ITE(nubmer >=0 && number <= width, zero, FAILURE).
+
+ <DT> <A HREF="AllDet.html#add_array_negate_bits" TARGET="MAIN"><CODE>add_array_negate_bits()</CODE></A>
+ <DD> A function takes an array and negates every bit of it
+
+ <DT> <A HREF="AllDet.html#add_array_word_extend" TARGET="MAIN"><CODE>add_array_word_extend()</CODE></A>
+ <DD> Extends the width of a Word expression by padding the
+  expression with a padding bit on the left (i.e. highest bits)
+
+ <DT> <A HREF="AllDet.html#add_array_word_right_shift" TARGET="MAIN"><CODE>add_array_word_right_shift()</CODE></A>
+ <DD> Performs right shift operations
+  on a Word expression represented as an array of ADD.
+  Every ADD corresponds to a bit of a Word expression
+
+ <DT> <A HREF="AllDet.html#add_array_word_signed_comparison" TARGET="MAIN"><CODE>add_array_word_signed_comparison()</CODE></A>
+ <DD> Private service
+
+</DL>
+<HR>
+<A NAME="OrdGroups.c"><H1>OrdGroups.c</H1></A>
+Represents a list of groups of variables. Each group 
+  is expected to be kept grouped at encoder level <P>
+<B>By: Roberto Cavada</B><P>
+When the order of bool vars is important, a list of 
+  of groups of vars is returned. All vars appearing into a group should be 
+  grouped by the specific encoding <P>
+<DL>
+ <DT> <A HREF="AllDet.html#OrdGroups_create" TARGET="MAIN"><CODE>OrdGroups_create()</CODE></A>
+ <DD> Class constructor
+
+ <DT> <A HREF="AllDet.html#OrdGroups_copy" TARGET="MAIN"><CODE>OrdGroups_copy()</CODE></A>
+ <DD> Class copy constructor
+
+ <DT> <A HREF="AllDet.html#OrdGroups_destroy" TARGET="MAIN"><CODE>OrdGroups_destroy()</CODE></A>
+ <DD> Class destructor
+
+ <DT> <A HREF="AllDet.html#OrdGroups_create_group" TARGET="MAIN"><CODE>OrdGroups_create_group()</CODE></A>
+ <DD> Creates a new group, and returns the group ID for 
+  future reference
+
+ <DT> <A HREF="AllDet.html#OrdGroups_add_variable" TARGET="MAIN"><CODE>OrdGroups_add_variable()</CODE></A>
+ <DD> Adds a new variable to the groups set.
+
+ <DT> <A HREF="AllDet.html#OrdGroups_add_variables" TARGET="MAIN"><CODE>OrdGroups_add_variables()</CODE></A>
+ <DD> Adds a list of variable to the groups set.
+
+ <DT> <A HREF="AllDet.html#OrdGroups_get_vars_in_group" TARGET="MAIN"><CODE>OrdGroups_get_vars_in_group()</CODE></A>
+ <DD> Returns the set of variables that belong to a given group
+
+ <DT> <A HREF="AllDet.html#OrdGroups_get_var_group" TARGET="MAIN"><CODE>OrdGroups_get_var_group()</CODE></A>
+ <DD> Given a var name, it returns the group that variable
+  belongs to.
+
+ <DT> <A HREF="AllDet.html#OrdGroups_get_size" TARGET="MAIN"><CODE>OrdGroups_get_size()</CODE></A>
+ <DD> Returns the number of available groups
+
+ <DT> <A HREF="AllDet.html#ord_groups_init" TARGET="MAIN"><CODE>ord_groups_init()</CODE></A>
+ <DD> Private class initializer
+
+ <DT> <A HREF="AllDet.html#ord_groups_copy" TARGET="MAIN"><CODE>ord_groups_copy()</CODE></A>
+ <DD> Private class copier
+
+ <DT> <A HREF="AllDet.html#ord_groups_deinit" TARGET="MAIN"><CODE>ord_groups_deinit()</CODE></A>
+ <DD> Private deinitializer
+
+ <DT> <A HREF="AllDet.html#ord_groups_allocate_new_group" TARGET="MAIN"><CODE>ord_groups_allocate_new_group()</CODE></A>
+ <DD> Creates a new group, and returns its ID
+
+ <DT> <A HREF="AllDet.html#ord_groups_name_to_group" TARGET="MAIN"><CODE>ord_groups_name_to_group()</CODE></A>
+ <DD> Given a variable name, it returns the group that variable 
+  belongs to, or -1 if the variable has not been added.
+
+ <DT> <A HREF="AllDet.html#ord_groups_associate_name_to_group" TARGET="MAIN"><CODE>ord_groups_associate_name_to_group()</CODE></A>
+ <DD> Associates a var name to an existing group, but only if
+  not already associated. An error occurs if the given name is already
+  associated to a different group
+
+</DL>
+<HR>
+<A NAME="utils.c"><H1>utils.c</H1></A>
+Utilities for encodings stuff <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="AllDet.html#enc_utils_parse_ordering_file" TARGET="MAIN"><CODE>enc_utils_parse_ordering_file()</CODE></A>
+ <DD> Parses the given ordering file, and produces an OrdGroups 
+  instance.
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

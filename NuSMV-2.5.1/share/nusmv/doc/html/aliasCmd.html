@@ -1,0 +1,64 @@
+<html>
+<head><title>alias</title></head>
+<body>
+
+<h3>alias - Provides an alias for a command</h3>
+<hr>
+<code>alias [-h] [&lt;name&gt; [&lt;string&gt;]]</code><p>
+The "alias" command, if given no arguments, will print
+  the definition of all current aliases.  <p>
+
+  Given a single argument, it will print the definition of that alias (if any).
+
+  Given two arguments, the keyword <tt>&lt;name&gt;</tt> becomes an alias for
+  the command string <tt>&lt;string&gt;</tt>, replacing any other alias with
+  the same name.<p>
+
+  Command options:
+  <dl>
+     <dt> &lt;name&gt;
+        <dd> Alias
+     <dt> &lt;string&gt;
+        <dd> Command string
+  </dl>
+
+  It is possible to create aliases that take arguments by using the history
+  substitution mechanism. To protect the history substitution
+  character `<tt>%</tt>' from immediate expansion, it must be preceded
+  by a `<tt>\</tt>' when entering the alias.<p>
+
+  For example:<p>
+  <code>
+   NuSMV> alias read "read_model -i \%:1.smv ; set input_order_file \%:1.ord"
+   NuSMV> read short
+  </code><p>
+  will create an alias `read', execute "read_model -i short.smv;
+    set input_order_file short.ord".<p>
+
+  And again:<p>
+  <code>
+  NuSMV> alias echo2 "echo Hi ; echo \%* !" <br>
+  NuSMV> echo2 happy birthday
+  </code><p>
+
+  will print:<p>
+
+  <code>
+  Hi<br>
+  happy birthday !
+  </code><br>
+
+  CAVEAT: Currently there is no check to see if there is a circular
+  dependency in the alias definition. e.g.<p>
+
+  <code>
+  NuSMV> alias foo "echo print_bdd_stats; foo"
+  </code><br>
+
+  creates an alias which refers to itself. Executing the command <tt>foo</tt>
+  will result an infinite loop during which the command
+  <tt>print_bdd_stats</tt> will be executed.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

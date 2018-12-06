@@ -1,0 +1,241 @@
+<html>
+<head><title>The parser package: all functions </title></head>
+<body>
+
+Internal header of the parser package.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandReadModel"></A>
+int <I></I>
+<B>CommandReadModel</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Reads a NuSMV file into NuSMV.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserCmd.c"TARGET="ABSTRACT"><CODE>parserCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_CloseInput"></A>
+void <I></I>
+<B>Parser_CloseInput</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Closes the input file and corresponding buffer used
+  by the parser to read tokens.
+  NB: This function should be invoked only after successive invocation
+  of parser_open_input_pp.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Parser_OpenInput">Parser_OpenInput</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_Init"></A>
+void <I></I>
+<B>Parser_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the parser
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserCmd.c"TARGET="ABSTRACT"><CODE>parserCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_OpenInput"></A>
+void <I></I>
+<B>Parser_OpenInput</B>(
+  const char * <b>filename</b> <i></i>
+)
+</pre>
+<dd> Open a file and inform the parser to start
+  reading tokens from this file. If no input file is provided, then it
+  inform the parser to start reading tokens from the standard input.
+  Invoke Parser_CloseInput to close the file and associated buffer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Parser_CloseInput">Parser_CloseInput</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadCmdFromFile"></A>
+int <I></I>
+<B>Parser_ReadCmdFromFile</B>(
+  const char * <b>filename</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The resulting parse tree is returned through res. If a
+  parsing error occurs then return 1, else return 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadCmdFromString"></A>
+int <I></I>
+<B>Parser_ReadCmdFromString</B>(
+  int  <b>argc</b>, <i></i>
+  const char** <b>argv</b>, <i></i>
+  const char* <b>head</b>, <i></i>
+  const char* <b>tail</b>, <i></i>
+  node_ptr* <b>pc</b> <i></i>
+)
+</pre>
+<dd> Create a string for a command, and then call
+  <tt>yyparse</tt> to read from the created string.
+  If a parsing error occurs than return 1, else return 0.
+  The result of parsing is stored in <tt>pc</tt> to be used from the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadLtlExprFromFile"></A>
+int <I></I>
+<B>Parser_ReadLtlExprFromFile</B>(
+  const char * <b>filename</b> <i></i>
+)
+</pre>
+<dd> Parse SMV code from a given file. If
+  no file is provided, parse from stdin. If a parsing error occurs then
+  return 1, else return 0. The result of parsing is stored in
+  the global variable <tt>parsed_tree</tt> to be used from the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadNextExprFromFile"></A>
+int <I></I>
+<B>Parser_ReadNextExprFromFile</B>(
+  const char * <b>filename</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The resulting parse tree is returned through res. If a
+  parsing error occurs then return 1, else return 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadNextExprFromString"></A>
+int <I></I>
+<B>Parser_ReadNextExprFromString</B>(
+  const char* <b>str_expr</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The resulting parse tree is returned through res. If a
+  parsing error occurs then return 1, else return 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadSMVFromFile"></A>
+int <I></I>
+<B>Parser_ReadSMVFromFile</B>(
+  const char * <b>filename</b> <i></i>
+)
+</pre>
+<dd> Parse SMV code from a given file. If
+  no file is provided, parse from stdin. If a parsing error occurs then
+  return 1, else return 0. The result of parsing is stored in
+  the global variable <tt>parsed_tree</tt> to be used from the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_ReadSimpExprFromString"></A>
+int <I></I>
+<B>Parser_ReadSimpExprFromString</B>(
+  const char* <b>str_expr</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The resulting parse tree is returned through res. If a
+  parsing error occurs then return 1, else return 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_read_psl_from_file"></A>
+int <I></I>
+<B>Parser_read_psl_from_file</B>(
+  const char* <b>filename</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The PSL parser is directly called. The resulting
+  parse tree is returned through res. 1 is returned if an error occurred.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="Parser_read_psl_from_string"></A>
+int <I></I>
+<B>Parser_read_psl_from_string</B>(
+  int  <b>argc</b>, <i></i>
+  const char** <b>argv</b>, <i></i>
+  node_ptr* <b>res</b> <i></i>
+)
+</pre>
+<dd> The PSL parser is directly called. The resulting
+  parse tree is returned through res. 1 is returned if an error occurred.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_close_input_pp"></A>
+void <I></I>
+<B>parser_close_input_pp</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Closes the input file used from parser to read tokens.
+<p>
+
+<dd> <b>Side Effects</b> Deletes any temporary files created by
+  parser_open_input_pp.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+<dt><pre>
+<A NAME="parser_open_input_pp"></A>
+void <I></I>
+<B>parser_open_input_pp</B>(
+  const char* <b>filename</b> <i></i>
+)
+</pre>
+<dd> Open a file, pre-process it, and inform the parser to
+  start reading tokens from this file. The directory in which the original file
+  resides is used to store the temporary files. This is so that any #includes
+  statements used by the second or later pre-processor work properly.
+<p>
+
+<dd> <b>Side Effects</b> Creates temporary files which are subsequently deleted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="parserAllFile.html#parserUtil.c"TARGET="ABSTRACT"><CODE>parserUtil.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

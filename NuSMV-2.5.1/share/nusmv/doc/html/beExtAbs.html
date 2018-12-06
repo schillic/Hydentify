@@ -1,0 +1,178 @@
+<html>
+<head><title>be package abstract</title></head>
+<body>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<dt> <a href="beAllDet.html#Be_And" TARGET="MAIN"><code>Be_And()</code></a>
+<dd> Builds a new be which is the conjunction between
+  its two arguments
+
+<dt> <a href="beAllDet.html#Be_BeIndex2BeLiteral" TARGET="MAIN"><code>Be_BeIndex2BeLiteral()</code></a>
+<dd> Converts a BE index into a BE literal (always positive)
+
+<dt> <a href="beAllDet.html#Be_BeIndex2CnfLiteral" TARGET="MAIN"><code>Be_BeIndex2CnfLiteral()</code></a>
+<dd> Returns a CNF literal (always positive) associated with a
+  given BE index
+
+<dt> <a href="beAllDet.html#Be_BeLiteral2BeIndex" TARGET="MAIN"><code>Be_BeLiteral2BeIndex()</code></a>
+<dd> Converts a BE literal into a CNF literal
+
+<dt> <a href="beAllDet.html#Be_BeLiteral2CnfLiteral" TARGET="MAIN"><code>Be_BeLiteral2CnfLiteral()</code></a>
+<dd> Converts a BE literal into a CNF literal (sign is taken into
+  account)
+
+<dt> <a href="beAllDet.html#Be_BeLiteral_IsSignPositive" TARGET="MAIN"><code>Be_BeLiteral_IsSignPositive()</code></a>
+<dd> Returns true iff sign of literal is positive.
+
+<dt> <a href="beAllDet.html#Be_BeLiteral_Negate" TARGET="MAIN"><code>Be_BeLiteral_Negate()</code></a>
+<dd> Returns negated literal.
+
+<dt> <a href="beAllDet.html#Be_CnfLiteral2BeLiteral" TARGET="MAIN"><code>Be_CnfLiteral2BeLiteral()</code></a>
+<dd> Converts a CNF literal into a BE literal
+
+<dt> <a href="beAllDet.html#Be_CnfLiteral_IsSignPositive" TARGET="MAIN"><code>Be_CnfLiteral_IsSignPositive()</code></a>
+<dd> Returns true iff sign of literal is positive.
+
+<dt> <a href="beAllDet.html#Be_CnfLiteral_Negate" TARGET="MAIN"><code>Be_CnfLiteral_Negate()</code></a>
+<dd> Returns negated literal.
+
+<dt> <a href="beAllDet.html#Be_CnfModelToBeModel" TARGET="MAIN"><code>Be_CnfModelToBeModel()</code></a>
+<dd> Converts the given CNF model into BE model
+
+<dt> <a href="beAllDet.html#Be_ConvertToCnf" TARGET="MAIN"><code>Be_ConvertToCnf()</code></a>
+<dd> Converts the given be into the corresponding CNF-ed be
+
+<dt> <a href="beAllDet.html#Be_DumpDavinci" TARGET="MAIN"><code>Be_DumpDavinci()</code></a>
+<dd> Dumps the given be into a file with Davinci format
+
+<dt> <a href="beAllDet.html#Be_DumpGdl" TARGET="MAIN"><code>Be_DumpGdl()</code></a>
+<dd> Dumps the given be into a file with Davinci format
+
+<dt> <a href="beAllDet.html#Be_DumpSexpr" TARGET="MAIN"><code>Be_DumpSexpr()</code></a>
+<dd> Dumps the given be into a file
+
+<dt> <a href="beAllDet.html#Be_Falsity" TARGET="MAIN"><code>Be_Falsity()</code></a>
+<dd> Builds a 'false' constant value
+
+<dt> <a href="beAllDet.html#Be_Iff" TARGET="MAIN"><code>Be_Iff()</code></a>
+<dd> Builds a new be which is the logical equivalence
+  between its two arguments
+
+<dt> <a href="beAllDet.html#Be_Implies" TARGET="MAIN"><code>Be_Implies()</code></a>
+<dd> Builds a new be which is the implication between
+  its two arguments
+
+<dt> <a href="beAllDet.html#Be_Index2Var" TARGET="MAIN"><code>Be_Index2Var()</code></a>
+<dd> Converts the given variable index into the corresponding be
+
+<dt> <a href="beAllDet.html#Be_Init" TARGET="MAIN"><code>Be_Init()</code></a>
+<dd> Initializes the module
+
+<dt> <a href="beAllDet.html#Be_IsConstant" TARGET="MAIN"><code>Be_IsConstant()</code></a>
+<dd> Returns true if the given be is a constant value,
+  such as either False or True
+
+<dt> <a href="beAllDet.html#Be_IsFalse" TARGET="MAIN"><code>Be_IsFalse()</code></a>
+<dd> Returns true if the given be is the false value,
+  otherwise returns false
+
+<dt> <a href="beAllDet.html#Be_IsTrue" TARGET="MAIN"><code>Be_IsTrue()</code></a>
+<dd> Returns true if the given be is the true value,
+  otherwise returns false
+
+<dt> <a href="beAllDet.html#Be_Ite" TARGET="MAIN"><code>Be_Ite()</code></a>
+<dd> Builds an if-then-else operation be
+
+<dt> <a href="beAllDet.html#Be_LogicalShiftVar" TARGET="MAIN"><code>Be_LogicalShiftVar()</code></a>
+<dd> Creates a fresh copy G(X') of the be F(X) by shifting
+  each variable index of a given amount
+
+<dt> <a href="beAllDet.html#Be_LogicalVarSubst" TARGET="MAIN"><code>Be_LogicalVarSubst()</code></a>
+<dd> Replaces all variables in f with other variables, taking
+               them at logical level
+
+<dt> <a href="beAllDet.html#Be_Manager_Be2Spec" TARGET="MAIN"><code>Be_Manager_Be2Spec()</code></a>
+<dd> Converts a generic BE into a specific-format boolean expression 
+  (for example in rbc format)
+
+<dt> <a href="beAllDet.html#Be_Manager_Create" TARGET="MAIN"><code>Be_Manager_Create()</code></a>
+<dd> Creates a generic Be_Manager
+
+<dt> <a href="beAllDet.html#Be_Manager_Delete" TARGET="MAIN"><code>Be_Manager_Delete()</code></a>
+<dd> Be_Manager destroyer
+
+<dt> <a href="beAllDet.html#Be_Manager_GetData" TARGET="MAIN"><code>Be_Manager_GetData()</code></a>
+<dd> Derived classes data can be retrieved by this method
+
+<dt> <a href="beAllDet.html#Be_Manager_SetData" TARGET="MAIN"><code>Be_Manager_SetData()</code></a>
+<dd> Sets specific structure manager data into the generic 
+  manager
+
+<dt> <a href="beAllDet.html#Be_Manager_Spec2Be" TARGET="MAIN"><code>Be_Manager_Spec2Be()</code></a>
+<dd> Converts a specific-format boolean expression 
+  (for example in rbc format) into a generic BE
+
+<dt> <a href="beAllDet.html#Be_Not" TARGET="MAIN"><code>Be_Not()</code></a>
+<dd> Negates its argument
+
+<dt> <a href="beAllDet.html#Be_Or" TARGET="MAIN"><code>Be_Or()</code></a>
+<dd> Builds a new be which is the disjunction of
+  its two arguments
+
+<dt> <a href="beAllDet.html#Be_PrintStats" TARGET="MAIN"><code>Be_PrintStats()</code></a>
+<dd> Prints out some statistical data about the underlying
+  rbc structure
+
+<dt> <a href="beAllDet.html#Be_Quit" TARGET="MAIN"><code>Be_Quit()</code></a>
+<dd> De-initializes the module
+
+<dt> <a href="beAllDet.html#Be_RbcManager_Create" TARGET="MAIN"><code>Be_RbcManager_Create()</code></a>
+<dd> Creates a rbc-specific Be_Manager
+
+<dt> <a href="beAllDet.html#Be_RbcManager_Delete" TARGET="MAIN"><code>Be_RbcManager_Delete()</code></a>
+<dd> Destroys the given Be_MAnager instance you previously
+  created by using Be_RbcManager_Create
+
+<dt> <a href="beAllDet.html#Be_RbcManager_Reserve" TARGET="MAIN"><code>Be_RbcManager_Reserve()</code></a>
+<dd> Changes the maximum number of variables the rbc manager can
+  handle
+
+<dt> <a href="beAllDet.html#Be_ShiftVar" TARGET="MAIN"><code>Be_ShiftVar()</code></a>
+<dd> Creates a fresh copy G(X') of the be F(X) by shifting
+  each variable index of a given amount
+
+<dt> <a href="beAllDet.html#Be_Truth" TARGET="MAIN"><code>Be_Truth()</code></a>
+<dd> Builds a 'true' constant value
+
+<dt> <a href="beAllDet.html#Be_Var2Index" TARGET="MAIN"><code>Be_Var2Index()</code></a>
+<dd> Converts the given variable (as boolean expression) into
+  the corresponding index
+
+<dt> <a href="beAllDet.html#Be_VarSubst" TARGET="MAIN"><code>Be_VarSubst()</code></a>
+<dd> Replaces all variables in f with other variables
+
+<dt> <a href="beAllDet.html#Be_Xor" TARGET="MAIN"><code>Be_Xor()</code></a>
+<dd> Builds a new be which is the exclusive-disjunction
+  of its two arguments
+
+<dt> <a href="beAllDet.html#Be_apply_inlining" TARGET="MAIN"><code>Be_apply_inlining()</code></a>
+<dd> Performs the inlining of f, either including or not
+  the conjuction set.
+
+<dt> <a href="beAllDet.html#be_shiftHashInit" TARGET="MAIN"><code>be_shiftHashInit()</code></a>
+<dd> Initializes private hast table member for shifting
+  operations
+
+<dt> <a href="beAllDet.html#be_shiftHash_Quit" TARGET="MAIN"><code>be_shiftHash_Quit()</code></a>
+<dd> Deletes private hast table member for shifting
+  operations
+
+</dl>
+
+<hr>
+
+Last updated on 2010/10/01 19h:57
+</body></html>

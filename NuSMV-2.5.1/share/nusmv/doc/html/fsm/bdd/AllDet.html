@@ -1,0 +1,1953 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BddFsmCache_copy_reachables"></A>
+void <I></I>
+<B>BddFsmCache_copy_reachables</B>(
+  BddFsmCache_ptr  <b>self</b>, <i></i>
+  const BddFsmCache_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> This method is used when copying reachable states
+  information between to FSMs
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_create"></A>
+BddFsmCache_ptr <I></I>
+<B>BddFsmCache_create</B>(
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Class contructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_destroy"></A>
+void <I></I>
+<B>BddFsmCache_destroy</B>(
+  BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_hard_copy"></A>
+BddFsmCache_ptr <I></I>
+<B>BddFsmCache_hard_copy</B>(
+  const BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Hardly copy the instance, by creating a new, separate family
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsmCache_soft_copy">BddFsmCache_soft_copy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_reset_not_reusable_fields_after_product"></A>
+void <I></I>
+<B>BddFsmCache_reset_not_reusable_fields_after_product</B>(
+  BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This is called when syncronous product is carried out.
+  In particular LTL BDD-based model checking, after having applied the
+  product between the original fsm and the fsm coming from the tableau
+  contruction, needs to disable the cache sharing and to recalculate
+  fair states and other fields, since the fsm changed.
+  All fsm's fields that need to be recalculated after the syncronous
+  product must be reset by this method.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_apply_synchronous_product">BddFsm_apply_synchronous_product</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_set_reachable_states"></A>
+void <I></I>
+<B>BddFsmCache_set_reachable_states</B>(
+  BddFsmCache_ptr  <b>self</b>, <i></i>
+  BddStates  <b>reachable</b> <i></i>
+)
+</pre>
+<dd> Fills cache structure with reachable states
+                information.  The given BDD is supposed to represent
+                the whole set of reachable states of the Bdd FSM. It
+                should NOT contain other informations (such as onion
+                rings ecc)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_set_reachables"></A>
+void <I></I>
+<B>BddFsmCache_set_reachables</B>(
+  BddFsmCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>layers_list</b>, <i></i>
+  const int  <b>diameter</b>, <i></i>
+  boolean  <b>completed</b> <i></i>
+)
+</pre>
+<dd> Given list layers_list must be reversed, from last
+  layer to the layer corresponding to initial state.  Given list
+  layers_list will be destroyed.
+<p>
+
+<dd> <b>Side Effects</b> given list layers_list will be destroyed, cache
+  changes
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsmCache_soft_copy"></A>
+BddFsmCache_ptr <I></I>
+<B>BddFsmCache_soft_copy</B>(
+  const BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the same instance, but the family counter is increased,
+  in order to handle sharing of the instance. The destructor will actually
+  destroy this instance only when the last family member will be destroyed
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsmCache_hard_copy">BddFsmCache_hard_copy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_apply_synchronous_product_custom_varsets"></A>
+void <I></I>
+<B>BddFsm_apply_synchronous_product_custom_varsets</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  const BddFsm_ptr  <b>other</b>, <i></i>
+  bdd_ptr  <b>state_vars_cube</b>, <i></i>
+  bdd_ptr  <b>input_vars_cube</b>, <i></i>
+  bdd_ptr  <b>next_vars_cube</b> <i></i>
+)
+</pre>
+<dd> Original description for BddFsm_apply_synchronous_product:
+
+                The result goes into self, no changes on other.  Both
+                the two FSMs must be based on the same dd manager.
+                The cache will change, since a new separated family
+                will be created for the internal cache, and it will
+                not be shared anymore with previous family.  From the
+                old cache will be reused as much as possible.
+
+                Modified part:
+
+                Takes cubes of state, input, and next state variables
+                as arguments (rather than obtaining the cubes of all
+                these variables from the bdd encoding). This is
+                supposed to avoid problems when only subsets of
+                variables need to be considered (as is the case for
+                games).
+<p>
+
+<dd> <b>Side Effects</b> self will change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_apply_synchronous_product">BddFsm_apply_synchronous_product</a>
+<a href="#BddFsmCache_reset_not_reusable_fields_after_product">BddFsmCache_reset_not_reusable_fields_after_product</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_apply_synchronous_product"></A>
+void <I></I>
+<B>BddFsm_apply_synchronous_product</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  const BddFsm_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> The result goes into self, no changes on other. Both
+                the two FSMs must be based on the same dd manager.
+                The cache will change, since a new separated family
+                will be created for the internal cache, and it will
+                not be shared anymore with previous family.  From the
+                old cache will be reused as much as possible
+<p>
+
+<dd> <b>Side Effects</b> self will change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_apply_synchronous_product_custom_varsets">BddFsm_apply_synchronous_product_custom_varsets</a>
+<a href="#BddFsmCache_reset_not_reusable_fields_after_product">BddFsmCache_reset_not_reusable_fields_after_product</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_check_machine"></A>
+void <I></I>
+<B>BddFsm_check_machine</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Check that the transition relation is total. If not the
+   case than a deadlock state is printed out. May trigger the
+   computation of reachable states and states without successors.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_copy_cache"></A>
+void <I></I>
+<B>BddFsm_copy_cache</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  const BddFsm_ptr  <b>other</b>, <i></i>
+  boolean  <b>keep_family</b> <i></i>
+)
+</pre>
+<dd> Copies cached information (reachable states, levels,
+   fair states, etc.) possibly previoulsy calculated by 'other' into
+   self.  Call this method when self is qualitatively identical to
+   'other', but for some reason the trans is organized
+   differently. Call to reuse still valid information calculated by
+   'other' into self. If keep_family is true, the cache will be reused
+   and not copied, meaning that self will belong to the same family as
+   'other'. In this case a change in 'other' will have effects also on
+   self (and viceversa). Notice that previoulsy calculated information
+   into 'self' will be lost after the copy.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_copy_reachable_states"></A>
+void <I></I>
+<B>BddFsm_copy_reachable_states</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  BddFsm_ptr  <b>other</b>, <i></i>
+  boolean  <b>keep_family</b>, <i></i>
+  boolean  <b>force_calculation</b> <i></i>
+)
+</pre>
+<dd> This method can be called when reachable states among
+   FSMs can be reused, for example when other's reachable states are an
+   over-extimation of self's. Parameter force_calculation forces the
+   calculation of the reachable states of 'other' if needed (i.e. not
+   previoulsy calculated).
+
+   The two FSMs are allowed to belong to the same family. If parameter
+   keep_family is true, than the original FSM's family will not change,
+   and all the family's members (all the FSMs that have a common
+   relative) will have their reachable states changed
+   accordingly. Otherwise, self will be detached by its own original
+   family (originating a new one), and all relatives will be not
+   changed.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change of both self and other
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_copy"></A>
+BddFsm_ptr <I></I>
+<B>BddFsm_copy</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Copy constructor for BddFsm
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_create"></A>
+BddFsm_ptr <I></I>
+<B>BddFsm_create</B>(
+  BddEnc_ptr  <b>encoding</b>, <i></i>
+  BddStates  <b>init</b>, <i></i>
+  BddInvarStates  <b>invar_states</b>, <i></i>
+  BddInvarInputs  <b>invar_inputs</b>, <i></i>
+  BddTrans_ptr  <b>trans</b>, <i></i>
+  JusticeList_ptr  <b>justice</b>, <i></i>
+  CompassionList_ptr  <b>compassion</b> <i></i>
+)
+</pre>
+<dd> All given bdd are referenced.
+   self becomes the owner of given trans, justice and compassion objects,
+   whereas the encoding is owned by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_destroy"></A>
+void <I></I>
+<B>BddFsm_destroy</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destructor of class BddFsm
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_expand_cached_reachable_states"></A>
+boolean <I></I>
+<B>BddFsm_expand_cached_reachable_states</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  int  <b>k</b>, <i></i>
+  int  <b>max_seconds</b> <i></i>
+)
+</pre>
+<dd> If k<0 the set is expanded until fixpoint, if max_seconds<0 no
+   time limit is considered
+<p>
+
+<dd> <b>Side Effects</b> Changes the internal cache
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_backward_image"></A>
+BddStates <I></I>
+<B>BddFsm_get_backward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> This method computes the backward image of a set S of
+   states, i.e. the set of INVAR states from which some
+   of the INVAR states in S is reachable by means of one
+   single machine transition among those consistent with
+   both the input constraints and the state/input
+   constraints.
+
+   The backward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F)     := S(X,F) and Invar(X,F)
+   b. S2(X',F)    := S1(X,F)[x'/x
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_bdd_encoding"></A>
+BddEnc_ptr <I></I>
+<B>BddFsm_get_bdd_encoding</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the be encoding associated with the given fsm
+   instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_cached_reachable_states"></A>
+boolean <I></I>
+<B>BddFsm_get_cached_reachable_states</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates** <b>layers</b>, <i></i>
+  int* <b>size</b> <i></i>
+)
+</pre>
+<dd> Returns the cached reachable states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_compassion"></A>
+CompassionList_ptr <I></I>
+<B>BddFsm_get_compassion</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> self keeps the ownership of the returned object
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_constrained_backward_image"></A>
+BddStates <I></I>
+<B>BddFsm_get_constrained_backward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b>, <i></i>
+  BddStatesInputsNexts  <b>constraints</b> <i></i>
+)
+</pre>
+<dd> This method computes the backward image of a set of
+   states S, given a set C(X,F,I) of contraints on STATE, FROZEN
+   and INPUT vars which are meant to represent a
+   restriction on allowed transitions and inputs.
+
+   The constrained image is the set of INVAR states from
+   which some of the INVAR states in S is reachable by
+   means of one single machine transition among those
+   consistent with both the machine constraints and the
+   given additional constraint C(X,F,I).
+
+   The backward image of S(X,F,I) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F)     := S(X,F) and Invar(X,F)
+   b. S2(X',F)    := S1(X,F)[x'/x
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_constrained_forward_image_states_inputs"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_constrained_forward_image_states_inputs</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>si</b>, <i></i>
+  BddStatesInputsNexts  <b>constraints</b> <i></i>
+)
+</pre>
+<dd> This method computes the forward image of a set of
+   state-input pairs SI constrained by constraints (from
+   now on C). This is the set of state-input pairs that
+   fulfills INVAR and INPUT constraints and can be
+   reached via a legal transition from at least one
+   member of SI that itself must fulfill INVAR, INPUT,
+   and C.
+
+   The forward image of SI(X,F,I) is computed as follows.
+   X - state variables, F - frozen variables, I - input
+   variables.
+
+   a. S1(X,F,I)     := SI(X,F,I) and Invar(X,F) and Input(I)
+   and C(X,F,I)
+   b. S2(X',F)      := { <x',f> | <x,f,i,x'> in Tr(X,F,I,X')
+   for some <x,i> in S1(X,F,I) }
+   c. S3(X,F)       := S2(X',F)[x/x'
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_forward_image_states_inputs">BddFsm_get_forward_image_states_inputs</a>
+<a href="#BddFsm_get_constrained_forward_image">BddFsm_get_constrained_forward_image</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_constrained_forward_image"></A>
+BddStates <I></I>
+<B>BddFsm_get_constrained_forward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b>, <i></i>
+  BddStatesInputsNexts  <b>constraints</b> <i></i>
+)
+</pre>
+<dd> This method computes the forward image of a set of
+   states S, given a set C of contraints on STATE, FROZEN
+   and INPUT vars which are meant to represent a
+   restriction on allowed transitions and inputs.
+
+   The constrained image is the set of INVAR states which
+   are reachable from one of the INVAR states in S by
+   means of one single machine transition among those
+   consistent with both the constraints defined within
+   the machine and the additional constraint C(X,F,I).
+
+   The forward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F,I) := S(X,F) and Invar(X,F) and InputConst(I) and C(X,F,I)
+   b. S2(X',F)    := { <x',f> | <x,f,i,x'> in Tr(X,F,I,X') for
+   some <x,f,i> in S1(X,F,I) }
+   c. S3(X,F)     := S2(X',F)[x/x'
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_deadlock_states"></A>
+BddStates <I></I>
+<B>BddFsm_get_deadlock_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method returns the set of deadlock states.  A
+   state ds is said to be a deadlock state when all the
+   following conditions hold:
+
+   1) ds is a state satisfying stateConstr;
+   2) no transition from ds exists which is consistent
+   with input and state/input constraint and leads to
+   a state satisfying stateConstr;
+   3) s is rechable.
+
+   Could update the cache. May trigger the computation of
+   reachable states and states without successors.
+   Returned bdd is referenced.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Cache can change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_diameter"></A>
+int <I></I>
+<B>BddFsm_get_diameter</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method returns an integer which represents the
+   diameter of the machine with respect to the set of
+   initial states, i.e.  the distance of the fatherst
+   state in the machine (starting from the initial
+   states), i.e. the maximal value among the lengths of
+   shortest paths to each reachable state.  The initial
+   diameter is computed as the number of iteration the
+   fixpoint procedure described above (see
+   "BddFsm_get_reachable_states") does before reaching
+   the fixpoint.  It can also be seen as the maximal
+   value the "BddFsm_get_distance_of_states" can return
+   (which is returned when the argument "states" is set
+   to "all the states").
+
+   Could update the cache.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_distance_of_states"></A>
+int <I></I>
+<B>BddFsm_get_distance_of_states</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> Computes the set of reachable states if not previously cached.
+   Returns -1 if given states set is not reachable.
+
+   This method returns an integer which represents the
+   distance of the farthest state in "states". The
+   distance of one single state "s" is the number of
+   applications of the "BddFsm_get_forward_image"
+   method (starting from the initial set of states)
+   which is necessary and sufficient to end up with a set
+   of states containing "s". The distance of a *set* of
+   states "set" is the maximal distance of states in
+   "set", i.e. the number of applications of the
+   "BddFsm_get_forward_image" method (starting from the
+   initial set of states) which is necessary and
+   sufficient to reach at least once (not necessarily
+   during the last application, but somewhere along the
+   way) each state in "set".
+
+   So, the distance of a set of states is a max-min
+   function.
+   Could update the cache.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_fair_states_inputs"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_fair_states_inputs</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> A state-input pair is fair iff it can reach a cycle that
+   visits all fairness constraints.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_fair_states"></A>
+BddStates <I></I>
+<B>BddFsm_get_fair_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> A state is fair iff it can reach a cycle that visits all
+   fairness constraints.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_forward_image_states_inputs"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_forward_image_states_inputs</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> This method computes the forward image of a set of
+   state-input pairs SI. This is the set of state-input
+   pairs that fulfills INVAR and INPUT constraints and
+   can be reached via a legal transition from at least
+   one member of si that itself must fulfill INVAR and
+   INPUT.
+
+   The forward image of SI(X,F,I) is computed as follows.
+   X - state variables, F - frozen variables, I - input
+   variables.
+
+   a. S1(X,F,I)     := SI(X,F,I) and Invar(X,F) and Input(I)
+   b. S2(X',F)      := { <x',f> | <x,f,i,x'> in Tr(X,F,I,X')
+   for some <x,i> in S1(X,F,I) }
+   c. S3(X,F)       := S2(X',F)[x/x'
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_constrained_forward_image_states_inputs">BddFsm_get_constrained_forward_image_states_inputs</a>
+<a href="#BddFsm_get_forward_image">BddFsm_get_forward_image</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_forward_image"></A>
+BddStates <I></I>
+<B>BddFsm_get_forward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> This method computes the forward image of a set of
+   states S, i.e. the set of INVAR states which are
+   reachable from one of the INVAR states in S by means
+   of one single machine transition among those
+   consistent with both the input constraints and the
+   state/input constraints.
+
+   The forward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F,I)   := S(X,F) and Invar(X,F) and InputConst(I)
+   b. S2(X',F)    := { <x',f> | <x,f,i,x'> in Tr(X,F,I,X') for
+   some <x,i> in S1(X,F,I) }
+   c. S3(X,F)     := S2(X',F)[x/x'
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_init"></A>
+BddStates <I></I>
+<B>BddFsm_get_init</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_input_constraints"></A>
+BddInvarInputs <I></I>
+<B>BddFsm_get_input_constraints</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_justice"></A>
+JusticeList_ptr <I></I>
+<B>BddFsm_get_justice</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> self keeps the ownership of the returned object
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_k_backward_image"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_k_backward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> This method computes the set of <state,frozen,input> tuples
+   that lead into at least k distinct states of the set
+   of states given as input. The returned couples
+   and the states in the set given in input are restricted
+
+   The k-backward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F)   := S(X,F) and Invar(X,F)
+   b. S2(X',F)    := S1(X,F)[X'/X
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_minimum_distance_of_states"></A>
+int <I></I>
+<B>BddFsm_get_minimum_distance_of_states</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> Computes the set of reachable states if not previously cached.
+   Returns -1 if given states set is not reachable.
+
+   This method returns an integer which represents the
+   distance of the nearest state in "states". The
+   distance of one single state "s" is the number of
+   applications of the "BddFsm_get_forward_image"
+   method (starting from the initial set of states)
+   which is necessary and sufficient to end up with a set
+   of states containing "s".
+   Could update the cache.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_monolithic_trans_bdd"></A>
+bdd_ptr <I></I>
+<B>BddFsm_get_monolithic_trans_bdd</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method returns a monolithic representation of
+   the transition relation, which is computed on the
+   basis of the internal partitioned representation by
+   composing all the element of the partition.
+
+   Returned bdd is referenced.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_not_successor_states"></A>
+BddStates <I></I>
+<B>BddFsm_get_not_successor_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method returns the set of states with no
+   successor.  A state "ds" has no successor when all the
+   following conditions hold:
+
+   1) ds is a state satisfying stateConstr.
+   2) no transition from ds exists which is consistent
+   with input and state/input constraint and leads to
+   a state satisfying stateConstr.
+
+   Could update the cache.
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_reachable_states_at_distance"></A>
+BddStates <I></I>
+<B>BddFsm_get_reachable_states_at_distance</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  int  <b>distance</b> <i></i>
+)
+</pre>
+<dd> Computes the set of reachable states if not previously,
+   cached. Returned bdd is referenced.
+
+   If distance is greater than the diameter, an assertion
+   is fired.
+
+   This method returns the set R of states of this
+   machine which can be reached in exactly "distance"
+   steps by applying the "BddFsm_get_forward_image"
+   method ("distance" times) starting from one of
+   the initial states (and cannot be reached with less
+   than "distance" steps).
+
+   In the case that the distance is less than 0, the
+   empty-set is returned.
+
+   These states are computed as intermediate steps of the
+   fixpoint characterization given in the
+   "BddFsm_get_reachable_states" method.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_reachable_states"></A>
+BddStates <I></I>
+<B>BddFsm_get_reachable_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced.
+
+   This method returns the set R of reachable states,
+   i.e.  those states that can be actually reached
+   starting from one of the initial state.
+
+   R is the set of states such that "i TRC s" holds for
+   some state i in the set of initial states, where TRC
+   is the transitive closure of the conjunction of the
+   transition relation of the machine with the set of
+   invar states, the set of constraints on inputs and the
+   set of state/input constraints.
+
+   R is computed by this method in a forward manner by
+   exploiting the "BddFsm_get_forward_image" method
+   during a fixpoint calculation. In particular, R is
+   computed by reaching the fixpoint on the functional
+   that maps S onto the forward image
+   BddFsm_get_forward_image(S) of S, where the
+   computation is started from the set of initial states.
+   Notice that the set of invar states, the set of
+   constraints on inputs and the set of state/input
+   constrains are implicitly taken into account by
+   BddFsm_get_forward_image(S).
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_revfair_states_inputs"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_revfair_states_inputs</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> A state-input pair is reverse fair iff it can be reached from
+   a cycle that visits all fairness constraints.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_revfair_states"></A>
+BddStates <I></I>
+<B>BddFsm_get_revfair_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> A state is reverse fair iff it can be reached from a cycle
+   that visits all fairness constraints.
+
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<dd> <b>Side Effects</b> Internal cache could change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_sins_constrained_forward_image"></A>
+BddStates <I></I>
+<B>BddFsm_get_sins_constrained_forward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b>, <i></i>
+  BddStatesInputsNexts  <b>constraints</b> <i></i>
+)
+</pre>
+<dd> This method computes the forward image of a set of
+   states S, given a set C of contraints on STATE, FROZEN
+   and INPUT and NEXT vars which are meant to represent a
+   restriction on allowed transitions and inputs.
+
+   The constrained image is the set of INVAR states which
+   are reachable from one of the INVAR states in S by
+   means of one single machine transition among those
+   consistent with both the constraints defined within
+   the machine and the additional constraint C(X,F,I).
+
+   The forward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F,I) := S(X,F) and Invar(X,F) and InputConst(I) and C(X,F,I)
+   b. S2(X',F)    := { <x',f> | <x,f,i,x'> in Tr(X,F,I,X') for
+   some <x,f,i> in S1(X,F,I) }
+   c. S3(X,F)     := S2(X',F)[x/x'
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_state_constraints"></A>
+BddInvarStates <I></I>
+<B>BddFsm_get_state_constraints</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_states_inputs_constraints"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_states_inputs_constraints</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Returns a state-input pair for which at least one
+   legal successor (if dir  = BDD_FSM_DIR_BWD) or
+   predecessor (otherwise) exists
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_strong_backward_image"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_strong_backward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> This method computes the set of <state,frozem,input>
+   transitions that have at least one successor and are
+   such that all the successors lay inside the INVAR
+   subset of the set of states given as input.
+
+   The strong backward image of S(X, F, I) is computed as
+   follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F,I) := WeakBwdImg(not S(X,F))
+   b. S2(X,F,I) := (not S1(X,F,I)) and StateConstr(X,F) and
+   InputConst(I)
+   c. Tr(X,F,I) := {<x,d,i> | <x,d,i,x'> in Tr(X,F,I,X') for some x'}
+   d. StrongBwdImg(X,F,I) := S2(X,F,I) and Tr(X,F,I)
+
+   Note: a state is represented by state and frozen variables,
+   but frozen variable are never abstracted away.
+
+   Returned bdd is referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_trans"></A>
+BddTrans_ptr <I></I>
+<B>BddFsm_get_trans</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned Trans instance is not copied, do not destroy
+   it, since self keeps the ownership.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_get_weak_backward_image"></A>
+BddStatesInputs <I></I>
+<B>BddFsm_get_weak_backward_image</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> This method computes the set of <state,frozen,input> tuples
+   that leads into the set of states given as input.
+   i.e. the set of <s,f,i> such that <s,f,i> is
+   consistent with both the input constraints and the
+   state/input constraints, s is INVAR, and a transition
+   from s to s' labelled by i exists for some INVAR s' in
+   S.
+
+   The weak backward image of S(X,F) is computed as follows.
+   X - state variables, I - input variables, F - frozen variables.
+
+   a. S1(X,F)   := S(X,F) and Invar(X,F)
+   b. S2(X',F   := S1(X,F)[x'/x
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_has_cached_reachable_states"></A>
+boolean <I></I>
+<B>BddFsm_has_cached_reachable_states</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks if the set of reachable states exists in the FSM
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_is_deadlock_free"></A>
+boolean <I></I>
+<B>BddFsm_is_deadlock_free</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method checks wether this machine is deadlock
+   free, i.e.  wether it is impossible to reach an INVAR
+   state with no admittable INVAR successor moving from
+   the initial condition.
+
+   This happens when the machine is total. If it is not,
+   each INVAR state from which no transition to another
+   INVAR state can be made according to the input and
+   state/input constraints is non-reachable.
+
+   This method checks deadlock freeness by checking
+   that the intersection between the set of reachable
+   states and the set of INVAR states with no admittable
+   INVAR successor is empty.
+
+   Could update the cache. May trigger the computation of
+   deadlock states.
+<p>
+
+<dd> <b>Side Effects</b> Cache can change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_is_fair_states"></A>
+boolean <I></I>
+<B>BddFsm_is_fair_states</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>states</b> <i></i>
+)
+</pre>
+<dd> Checks if a set of states is fair.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_is_total"></A>
+boolean <I></I>
+<B>BddFsm_is_total</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method checks wether this machine is total, in
+   the sense that each INVAR state has at least one INVAR
+   successor state given the constraints on the inputs
+   and the state/input.
+
+   This is done by checking that the BddFsm_ImageBwd
+   image of the set of all the states is the set of all
+   the INVAR states.  This way, the INVAR constraints
+   together with the set of constraints on both input and
+   state/input are implicitly taken into account by
+   BddFsm_get_forward_image.
+
+   The answer "false" is produced when states exist that
+   admit no INVAR successor, given the sets of input and
+   state/input constraints. However, all these "dead"
+   states may be non-reachable, so the machine can still
+   be "deadlock free".  See the "BddFsm_is_deadlock_free"
+   method.
+
+   Could update the cache. May trigger the computation of
+   states without successors.
+<p>
+
+<dd> <b>Side Effects</b> Cache can change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_print_fair_states_info"></A>
+void <I></I>
+<B>BddFsm_print_fair_states_info</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  const boolean  <b>print_states</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the number of fair states, taking care of the
+   encoding and of the indifferent variables in the
+   encoding. In verbose mode also prints states.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_print_fair_transitions_info"></A>
+void <I></I>
+<B>BddFsm_print_fair_transitions_info</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  const boolean  <b>print_transitions</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the number of fair states, taking care of
+   the encoding and of the indifferent variables in the encoding.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_print_info"></A>
+void <I></I>
+<B>BddFsm_print_info</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints some information about this BddFsm.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_print_reachable_states_info"></A>
+void <I></I>
+<B>BddFsm_print_reachable_states_info</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  const boolean  <b>print_states</b>, <i></i>
+  const boolean  <b>print_defines</b>, <i></i>
+  const boolean  <b>print_formula</b>, <i></i>
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints statistical information about reachable
+   states, i.e. the real number of reachable states. It is computed
+   taking care of the encoding and of the indifferent variables in the
+   encoding.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_reachable_states_computed"></A>
+boolean <I></I>
+<B>BddFsm_reachable_states_computed</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Note: a state is represented by state and frozen variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_set_reachable_states"></A>
+void <I></I>
+<B>BddFsm_set_reachable_states</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>reachable</b> <i></i>
+)
+</pre>
+<dd> Sets the whole set of reachable states for this FSM, with
+   no onion ring informations
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_states_inputs_to_inputs"></A>
+BddStates <I></I>
+<B>BddFsm_states_inputs_to_inputs</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> Quantifies away the state variables (including frozen ones).
+   A state is represented by state and frozen variables thus
+   both state and frozen variables are abstracted away.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_states_inputs_to_states"></A>
+BddStates <I></I>
+<B>BddFsm_states_inputs_to_states</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> Quantifies away the input variables.
+   Note: a state is represented by state and frozen variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_states_to_states_get_inputs"></A>
+BddInputs <I></I>
+<B>BddFsm_states_to_states_get_inputs</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStates  <b>cur_states</b>, <i></i>
+  BddStates  <b>next_states</b> <i></i>
+)
+</pre>
+<dd> Note: a state is represented by state and frozen variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddFsm_update_cached_reachable_states"></A>
+void <I></I>
+<B>BddFsm_update_cached_reachable_states</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>layers_list</b>, <i></i>
+  int  <b>size</b>, <i></i>
+  boolean  <b>completed</b> <i></i>
+)
+</pre>
+<dd> Updates the cached reachable states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string"></A>
+BddOregJusticeEmptinessBddAlgorithmType \ <I></I>
+<B>Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Converts the given type from string "name" to a
+                      BddOregJusticeEmptinessBddAlgorithmType object.
+<p>
+
+<dd> <b>Side Effects</b> None.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddOregJusticeEmptinessBddAlgorithmType_to_string">BddOregJusticeEmptinessBddAlgorithmType_to_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string"></A>
+const char* <I></I>
+<B>Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string</B>(
+  const BddOregJusticeEmptinessBddAlgorithmType  <b>self</b> <i></i>
+)
+</pre>
+<dd> It takes BddOregJusticeEmptinessBddAlgorithmType of
+                      self and returns a string specifying the type of it.
+                      Returned string is statically allocated and must not be
+                      freed.
+<p>
+
+<dd> <b>Side Effects</b> None.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string">Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_End"></A>
+void <I></I>
+<B>Bdd_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quit the BddFsm package
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_Init"></A>
+void <I></I>
+<B>Bdd_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the BddFsm package.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_elfwd_check_options"></A>
+boolean <I></I>
+<B>Bdd_elfwd_check_options</B>(
+  unsigned int  <b>which_options</b>, <i></i>
+  boolean  <b>on_fail_print</b> <i></i>
+)
+</pre>
+<dd> Depending on the value of which_options, it checks that
+                      forward search, ltl_tableau_forward_search, and
+                      use_reachable_states are enabled and counter_examples is
+                      disabled. Returns true if the checks are successful,
+                      false otherwise. If on_fail_print is true, it prints an
+                      error message on failure.
+<p>
+
+<dd> <b>Side Effects</b> None.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_elfwd_check_set_and_save_options"></A>
+BddELFwdSavedOptions_ptr <I></I>
+<B>Bdd_elfwd_check_set_and_save_options</B>(
+  unsigned int  <b>which_options</b> <i></i>
+)
+</pre>
+<dd> Which values are actually checked, set, and saved is
+                      determined by the value of which_options. If set
+                      in which_options, forward search,
+                      ltl_tableau_forward_search, and
+                      use_reachable_states are enabled and
+                      counter_examples is disabled. Previous values
+                      are stored and returned.
+
+                      Creates the returned
+                      BddELFwdSavedOptions_ptr. It does *not* belong
+                      to caller - it will be destroyed by the
+                      corresponding call to
+                      Bdd_elfwd_restore_options.
+<p>
+
+<dd> <b>Side Effects</b> Modifies options.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bdd_elfwd_restore_options">Bdd_elfwd_restore_options</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_elfwd_restore_options"></A>
+void <I></I>
+<B>Bdd_elfwd_restore_options</B>(
+  unsigned int  <b>which_options</b>, <i></i>
+  BddELFwdSavedOptions_ptr  <b>saved_options</b> <i></i>
+)
+</pre>
+<dd> Which values are actually restored from saved_options is
+                      determined by the value of which_options.
+<p>
+
+<dd> <b>Side Effects</b> Modifies options.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bdd_elfwd_check_set_and_save_options">Bdd_elfwd_check_set_and_save_options</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bdd_print_available_BddOregJusticeEmptinessBddAlgorithms"></A>
+void <I></I>
+<B>Bdd_print_available_BddOregJusticeEmptinessBddAlgorithms</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the BDD-based algorithms to check language
+                      emptiness for omega-regular properties the system
+                      currently supplies
+<p>
+
+<dd> <b>Side Effects</b> None.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddOregJusticeEmptinessBddAlgorithmType">BddOregJusticeEmptinessBddAlgorithmType</a>
+<a href="#Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string">Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddMisc.c"TARGET="ABSTRACT"><CODE>bddMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckFsm"></A>
+int <I></I>
+<B>CommandCheckFsm</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Checks the fsm for totality and deadlock states.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandComputeReachable"></A>
+int <I></I>
+<B>CommandComputeReachable</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Computates the set of reachable states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintFairStates"></A>
+int <I></I>
+<B>CommandPrintFairStates</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Prints the fair states.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintFairTransitions"></A>
+int <I></I>
+<B>CommandPrintFairTransitions</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Prints the fair transitions.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintReachableStates"></A>
+int <I></I>
+<B>CommandPrintReachableStates</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Prints the reachable states.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#bddCmd.c"TARGET="ABSTRACT"><CODE>bddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CompassionList_append_p_q"></A>
+void <I></I>
+<B>CompassionList_append_p_q</B>(
+  CompassionList_ptr  <b>self</b>, <i></i>
+  BddStates  <b>p</b>, <i></i>
+  BddStates  <b>q</b> <i></i>
+)
+</pre>
+<dd> Given bdds are referenced, so the caller should free it
+  when it is no longer needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="CompassionList_apply_synchronous_product"></A>
+void <I></I>
+<B>CompassionList_apply_synchronous_product</B>(
+  CompassionList_ptr  <b>self</b>, <i></i>
+  const CompassionList_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Creates the union of the two given fairness lists. Result
+  goes into self
+<p>
+
+<dd> <b>Side Effects</b> self changes
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="CompassionList_create"></A>
+CompassionList_ptr <I></I>
+<B>CompassionList_create</B>(
+  DdManager* <b>dd_manager</b> <i></i>
+)
+</pre>
+<dd> Call FairnessList_destroy to destruct self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="CompassionList_get_p"></A>
+BddStates <I></I>
+<B>CompassionList_get_p</B>(
+  const CompassionList_ptr  <b>self</b>, <i></i>
+  const FairnessListIterator_ptr  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="CompassionList_get_q"></A>
+BddStates <I></I>
+<B>CompassionList_get_q</B>(
+  const CompassionList_ptr  <b>self</b>, <i></i>
+  const FairnessListIterator_ptr  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="FairnessListIterator_is_end"></A>
+boolean <I></I>
+<B>FairnessListIterator_is_end</B>(
+  const FairnessListIterator_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Use to check end of iteration
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="FairnessListIterator_next"></A>
+FairnessListIterator_ptr <I></I>
+<B>FairnessListIterator_next</B>(
+  const FairnessListIterator_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> use to iterate on an list iterator
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="FairnessList_begin"></A>
+FairnessListIterator_ptr <I></I>
+<B>FairnessList_begin</B>(
+  const FairnessList_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Use to start iteration
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="FairnessList_create"></A>
+FairnessList_ptr <I></I>
+<B>FairnessList_create</B>(
+  DdManager* <b>dd_manager</b> <i></i>
+)
+</pre>
+<dd> Base class constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="JusticeList_append_p"></A>
+void <I></I>
+<B>JusticeList_append_p</B>(
+  JusticeList_ptr  <b>self</b>, <i></i>
+  BddStates  <b>p</b> <i></i>
+)
+</pre>
+<dd> Given bdd is referenced, so the caller should free it
+  when it is no longer needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="JusticeList_apply_synchronous_product"></A>
+void <I></I>
+<B>JusticeList_apply_synchronous_product</B>(
+  JusticeList_ptr  <b>self</b>, <i></i>
+  const JusticeList_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Creates the union of the two given fairness lists. Result
+  goes into self
+<p>
+
+<dd> <b>Side Effects</b> self changes
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="JusticeList_create"></A>
+JusticeList_ptr <I></I>
+<B>JusticeList_create</B>(
+  DdManager* <b>dd_manager</b> <i></i>
+)
+</pre>
+<dd> Call FairnessList_destroy to destruct self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="JusticeList_get_p"></A>
+BddStates <I></I>
+<B>JusticeList_get_p</B>(
+  const JusticeList_ptr  <b>self</b>, <i></i>
+  const FairnessListIterator_ptr  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_EUorES_SI"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_EUorES_SI</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>f</b>, <i></i>
+  BddStatesInputs  <b>g</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Computes the set of state-input pairs that satisfy E(f U g)
+   (if dir = BDD_FSM_DIR_BWD) or E(f S g) (otherwise),
+   with f and g sets of state-input pairs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_EXorEY_SI"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_EXorEY_SI</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>si</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Preimage:
+
+   Quantifies away the inputs, and computes the (states-inputs)
+   preimage of the resulting set of states.
+
+   Postimage:
+
+   Computes the (states-inputs) postimage of si.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_cache_deinit_reachables"></A>
+static void <I></I>
+<B>bdd_fsm_cache_deinit_reachables</B>(
+  BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Call only if family_counter is 0
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_cache_deinit"></A>
+static void <I></I>
+<B>bdd_fsm_cache_deinit</B>(
+  BddFsmCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> private deinitializer. Call only if family_counter is 0
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_cache_init"></A>
+static void <I></I>
+<B>bdd_fsm_cache_init</B>(
+  BddFsmCache_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> private initializer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsmCache.c"TARGET="ABSTRACT"><CODE>BddFsmCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_check_fairness_emptiness"></A>
+static void <I></I>
+<B>bdd_fsm_check_fairness_emptiness</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks fair states for emptiness, as well as fot the
+   intersaction of fair states and inits. Prints a warning if needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_check_init_state_invar_emptiness"></A>
+static void <I></I>
+<B>bdd_fsm_check_init_state_invar_emptiness</B>(
+  const BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Check inits for emptiness, and prints a warning if needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_compute_EL_SI_subset_aux"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_compute_EL_SI_subset_aux</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>states</b>, <i></i>
+  BddStatesInputs  <b>subspace</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Executes the inner fixed point of the Emerson-Lei
+   algorithm. Direction is given by dir, fair states are restricted to
+   states, backward/forward exploration (other than the last, "strict"
+   image) is restricted to subspace.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_compute_EL_SI_subset"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_compute_EL_SI_subset</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>subspace</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Executes the Emerson-Lei algorithm in the set of states
+   given by subspace in the direction given by dir
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_compute_reachable_states"></A>
+static void <I></I>
+<B>bdd_fsm_compute_reachable_states</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Computes the set of reachable states of this machine
+<p>
+
+<dd> <b>Side Effects</b> Changes the internal cache
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_copy"></A>
+static void <I></I>
+<B>bdd_fsm_copy</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddFsm_ptr  <b>copy</b> <i></i>
+)
+</pre>
+<dd> private copy constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_deinit"></A>
+static void <I></I>
+<B>bdd_fsm_deinit</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> private member called by the destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace</B>(
+  const BddFsm_ptr  <b>self</b>, <i></i>
+  BddStatesInputs  <b>subspace</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Computes the set of fair states (if dir =
+   BDD_FSM_DIR_BWD) or reverse fair states (otherwise) by calling the
+   Emerson-Lei algorithm.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_get_fair_or_revfair_states_inputs"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_get_fair_or_revfair_states_inputs</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  BddFsm_dir  <b>dir</b> <i></i>
+)
+</pre>
+<dd> Computes the set of fair states (if dir =
+   BDD_FSM_DIR_BWD) or reverse fair states (otherwise) by calling the
+   Emerson-Lei algorithm.
+<p>
+
+<dd> <b>Side Effects</b> Cache might change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace">bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_get_legal_state_input"></A>
+static BddStatesInputs <I></I>
+<B>bdd_fsm_get_legal_state_input</B>(
+  BddFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> A legal transition is a transition which satisfy the
+   transition relation, and the state, input and next-state satisfy the
+   invariants.  So the image S(X, F, I) is computed as follows:
+   S(X,F,I) = StateConstr(X,F) & InputConstr(i) & StateConstr(X',F) &
+   Tr(X,F,I,X') for some X'
+   X - state variables, I - input variables, F - frozen variables.
+
+   Used for planning in strong backward image computation.
+   Could update the cache.
+
+   Note: a state is represented by state and frozen variables,
+   but frozen variable are never abstracted away.
+
+   Returned bdd is referenced.
+<p>
+
+<dd> <b>Side Effects</b> Cache can change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_fsm_init"></A>
+static void <I></I>
+<B>bdd_fsm_init</B>(
+  BddFsm_ptr  <b>self</b>, <i></i>
+  BddEnc_ptr  <b>encoding</b>, <i></i>
+  BddStates  <b>init</b>, <i></i>
+  BddInvarStates  <b>invar_states</b>, <i></i>
+  BddInvarInputs  <b>invar_inputs</b>, <i></i>
+  BddTrans_ptr  <b>trans</b>, <i></i>
+  JusticeList_ptr  <b>justice</b>, <i></i>
+  CompassionList_ptr  <b>compassion</b> <i></i>
+)
+</pre>
+<dd> Private initializer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddFsm.c"TARGET="ABSTRACT"><CODE>BddFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="fairness_list_init"></A>
+static void <I></I>
+<B>fairness_list_init</B>(
+  FairnessList_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd_manager</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#FairnessList.c"TARGET="ABSTRACT"><CODE>FairnessList.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

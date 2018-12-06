@@ -1,0 +1,256 @@
+<html><head><title>The NuSMV Interactive Shell Commands</title></head>
+<body>
+<h1>The NuSMV Interactive Shell Commands</h1>
+<hr>
+<dl>
+<dt> <a href="add_propertyCmd.html"><code>add_property</code></a></dt>
+<dd> Adds a property to the list of properties
+</dd>
+<dt> <a href="aliasCmd.html"><code>alias</code></a></dt>
+<dd> Provides an alias for a command
+</dd>
+<dt> <a href="bmc_inc_simulateCmd.html"><code>bmc_inc_simulate</code></a></dt>
+<dd> Incrementally generates a trace of the model performing a given number of steps.
+</dd>
+<dt> <a href="bmc_pick_stateCmd.html"><code>bmc_pick_state</code></a></dt>
+<dd> Picks a state from the set of initial states
+</dd>
+<dt> <a href="bmc/sbmc/check_ltlspec_sbmcCmd.html"><code>check_ltlspec_sbmc</code></a></dt>
+<dd> Finds error up to depth k
+</dd>
+<dt> <a href="bmc/sbmc/check_ltlspec_sbmc_incCmd.html"><code>check_ltlspec_sbmc_inc</code></a></dt>
+<dd> Incremental SBMC LTL model checking
+</dd>
+<dt> <a href="bmc/sbmc/gen_ltlspec_sbmcCmd.html"><code>gen_ltlspec_sbmc</code></a></dt>
+<dd> Dumps into one or more dimacs files the given LTL specification, or all LTL specifications if no formula is given. Generation and dumping parameters are the maximum bound and the loopback values. Uses Kepa's and Timo's method for doing bmc.
+</dd>
+<dt> <a href="bmc_setupCmd.html"><code>bmc_setup</code></a></dt>
+<dd> Builds the model in a Boolean Epression format.
+</dd>
+<dt> <a href="bmc_simulate_check_feasible_constraintsCmd.html"><code>bmc_simulate_check_feasible_constraints</code></a></dt>
+<dd> Performs a feasibility check on the list of given constraints. Constraints that are found to be feasible can be safely assumed not to cause deadlocks if used in the following step of incremental simulation.
+</dd>
+<dt> <a href="bmc_simulateCmd.html"><code>bmc_simulate</code></a></dt>
+<dd> Generates a trace of the model from 0 (zero) to k
+</dd>
+<dt> <a href="_bmc_test_tableauCmd.html"><code>_bmc_test_tableau</code></a></dt>
+<dd> Generates a random formula to logically test the equivalent tableau
+</dd>
+<dt> <a href="build_boolean_modelCmd.html"><code>build_boolean_model</code></a></dt>
+<dd> Compiles the flattened hierarchy into boolean SEXP
+</dd>
+<dt> <a href="build_flat_modelCmd.html"><code>build_flat_model</code></a></dt>
+<dd> Compiles the flattened hierarchy into SEXP
+</dd>
+<dt> <a href="build_modelCmd.html"><code>build_model</code></a></dt>
+<dd> Compiles the flattened hierarchy into BDD
+</dd>
+<dt> <a href="check_ctlspecCmd.html"><code>check_ctlspec</code></a></dt>
+<dd> Performs fair CTL model checking.
+</dd>
+<dt> <a href="check_invar_bmcCmd.html"><code>check_invar_bmc</code></a></dt>
+<dd> Generates and solve the given invariant, or all invariants if no formula is given
+</dd>
+<dt> <a href="check_invar_bmc_incCmd.html"><code>check_invar_bmc_inc</code></a></dt>
+<dd> Generates and solve the given invariant, or all invariants if no formula is given
+</dd>
+<dt> <a href="check_invarCmd.html"><code>check_invar</code></a></dt>
+<dd> Performs model checking of invariants
+</dd>
+<dt> <a href="check_ltlspec_bmcCmd.html"><code>check_ltlspec_bmc</code></a></dt>
+<dd> Checks the given LTL specification, or all LTL specifications if no formula is given. Checking parameters are the maximum length and the loopback values
+</dd>
+<dt> <a href="check_ltlspec_bmc_incCmd.html"><code>check_ltlspec_bmc_inc</code></a></dt>
+<dd> Checks the given LTL specification, or all LTL specifications if no formula is given, using incremental algorithms. Checking parameters are the maximum length and the loopback values
+</dd>
+<dt> <a href="check_ltlspec_bmc_onepbCmd.html"><code>check_ltlspec_bmc_onepb</code></a></dt>
+<dd> Checks the given LTL specification, or all LTL specifications if no formula is given. Checking parameters are the single problem bound and the loopback values
+</dd>
+<dt> <a href="check_ltlspecCmd.html"><code>check_ltlspec</code></a></dt>
+<dd> Performs LTL model checking
+</dd>
+<dt> <a href="check_propertyCmd.html"><code>check_property</code></a></dt>
+<dd> Checks a property into the current list of properties, or a newly specified property
+</dd>
+<dt> <a href="check_pslspecCmd.html"><code>check_pslspec</code></a></dt>
+<dd> Performs fair PSL model checking.
+</dd>
+<dt> <a href="clean_bdd_cacheCmd.html"><code>clean_bdd_cache</code></a></dt>
+<dd> Cleans the cache used during evaluation of expressions to ADD and BDD representations.
+</dd>
+<dt> <a href="computeCmd.html"><code>compute</code></a></dt>
+<dd> Performs computation of quantitative characteristics
+</dd>
+<dt> <a href="dynamic_var_orderingCmd.html"><code>dynamic_var_ordering</code></a></dt>
+<dd> Deals with the dynamic variable ordering.
+</dd>
+<dt> <a href="echoCmd.html"><code>echo</code></a></dt>
+<dd> Merely echoes the arguments. File redirection is allowed.
+</dd>
+<dt> <a href="encode_variablesCmd.html"><code>encode_variables</code></a></dt>
+<dd> Builds the BDD variables necessary to compile the model into BDD.
+</dd>
+<dt> <a href="execute_partial_tracesCmd.html"><code>execute_partial_traces</code></a></dt>
+<dd> Executes partial traces on the model FSM
+</dd>
+<dt> <a href="execute_tracesCmd.html"><code>execute_traces</code></a></dt>
+<dd> Executes complete traces on the model FSM
+</dd>
+<dt> <a href="flatten_hierarchyCmd.html"><code>flatten_hierarchy</code></a></dt>
+<dd> Flattens the hierarchy of modules
+</dd>
+<dt> <a href="fsm/bdd/check_fsmCmd.html"><code>check_fsm</code></a></dt>
+<dd> Checks the transition relation for totality.
+</dd>
+<dt> <a href="fsm/bdd/compute_reachableCmd.html"><code>compute_reachable</code></a></dt>
+<dd> Computes the set of reachable states
+</dd>
+<dt> <a href="fsm/bdd/print_fair_statesCmd.html"><code>print_fair_states</code></a></dt>
+<dd> Prints out information about fair states
+</dd>
+<dt> <a href="fsm/bdd/print_fair_transitionsCmd.html"><code>print_fair_transitions</code></a></dt>
+<dd> Prints the number of fair transitions
+</dd>
+<dt> <a href="fsm/bdd/print_reachable_statesCmd.html"><code>print_reachable_states</code></a></dt>
+<dd> Prints out information about reachable states
+</dd>
+<dt> <a href="gen_invar_bmcCmd.html"><code>gen_invar_bmc</code></a></dt>
+<dd> Generates the given invariant, or all invariants if no formula is given
+</dd>
+<dt> <a href="gen_ltlspec_bmcCmd.html"><code>gen_ltlspec_bmc</code></a></dt>
+<dd> Dumps into one or more dimacs files the given LTL specification, or all LTL specifications if no formula is given. Generation and dumping parameters are the maximum bound and the loopback values
+</dd>
+<dt> <a href="gen_ltlspec_bmc_onepbCmd.html"><code>gen_ltlspec_bmc_onepb</code></a></dt>
+<dd> Dumps into one dimacs file the problem generated for the given LTL specification, or for all LTL specifications if no formula is explicitly given. Generation and dumping parameters are the problem bound and the loopback values
+</dd>
+<dt> <a href="get_internal_statusCmd.html"><code>get_internal_status</code></a></dt>
+<dd> Returns the internal status of the system.
+</dd>
+<dt> <a href="go_bmcCmd.html"><code>go_bmc</code></a></dt>
+<dd> Initializes the system for the BMC verification.
+</dd>
+<dt> <a href="goCmd.html"><code>go</code></a></dt>
+<dd> Initializes the system for the verification.
+</dd>
+<dt> <a href="goto_stateCmd.html"><code>goto_state</code></a></dt>
+<dd> Goes to a given state of a trace
+</dd>
+<dt> <a href="helpCmd.html"><code>help</code></a></dt>
+<dd> Provides on-line information on commands
+</dd>
+<dt> <a href="historyCmd.html"><code>history</code></a></dt>
+<dd> list previous commands and their event numbers
+</dd>
+<dt> <a href="hrc_write_modelCmd.html"><code>hrc_write_model</code></a></dt>
+<dd> Writes the hrc structure from root node to a given SMV file
+</dd>
+<dt> <a href="language_emptinessCmd.html"><code>language_emptiness</code></a></dt>
+<dd> Checks for language emptiness.
+</dd>
+<dt> <a href="_memory_profileCmd.html"><code>_memory_profile</code></a></dt>
+<dd> It shows the amount of memory used by every package.
+</dd>
+<dt> <a href="pick_stateCmd.html"><code>pick_state</code></a></dt>
+<dd> Picks a state from the set of initial states
+</dd>
+<dt> <a href="print_bdd_statsCmd.html"><code>print_bdd_stats</code></a></dt>
+<dd> Prints out the BDD statistics and parameters
+</dd>
+<dt> <a href="print_clusterinfoCmd.html"><code>print_clusterinfo</code></a></dt>
+<dd> Prints out information about the clustering. This command is *deprecated* in 2.4
+</dd>
+<dt> <a href="print_current_stateCmd.html"><code>print_current_state</code></a></dt>
+<dd> Prints out the current state
+</dd>
+<dt> <a href="print_formulaCmd.html"><code>print_formula</code></a></dt>
+<dd> Prints a formula
+</dd>
+<dt> <a href="print_fsm_statsCmd.html"><code>print_fsm_stats</code></a></dt>
+<dd> Prints out information about the fsm and clustering.
+</dd>
+<dt> <a href="print_iwls95optionsCmd.html"><code>print_iwls95options</code></a></dt>
+<dd> Prints the Iwls95 Options.
+</dd>
+<dt> <a href="print_usageCmd.html"><code>print_usage</code></a></dt>
+<dd> Prints processor and BDD statistics.
+</dd>
+<dt> <a href="process_modelCmd.html"><code>process_model</code></a></dt>
+<dd> Performs the batch steps and then returns control to the interactive shell.
+</dd>
+<dt> <a href="quitCmd.html"><code>quit</code></a></dt>
+<dd> exits NuSMV
+</dd>
+<dt> <a href="read_modelCmd.html"><code>read_model</code></a></dt>
+<dd> Reads a NuSMV file into NuSMV.
+</dd>
+<dt> <a href="read_traceCmd.html"><code>read_trace</code></a></dt>
+<dd> Reads the trace from the specified file into the memory
+</dd>
+<dt> <a href="resetCmd.html"><code>reset</code></a></dt>
+<dd> Resets the whole system.
+</dd>
+<dt> <a href="set_bdd_parametersCmd.html"><code>set_bdd_parameters</code></a></dt>
+<dd> Creates a table with the value of all currently active NuSMV flags and change accordingly the configurable parameters of the BDD package.
+</dd>
+<dt> <a href="setCmd.html"><code>set</code></a></dt>
+<dd> Sets an environment variable
+</dd>
+<dt> <a href="show_dependenciesCmd.html"><code>show_dependencies</code></a></dt>
+<dd> Shows the expression dependencies
+</dd>
+<dt> <a href="_show_helpCmd.html"><code>_show_help</code></a></dt>
+<dd> Provides on-line information for all commands
+</dd>
+<dt> <a href="show_pluginsCmd.html"><code>show_plugins</code></a></dt>
+<dd> Lists out all the available plugins inside the system. In addition, it prints [D] in front of the default plugin.
+</dd>
+<dt> <a href="show_propertyCmd.html"><code>show_property</code></a></dt>
+<dd> Shows the currently stored properties
+</dd>
+<dt> <a href="show_tracesCmd.html"><code>show_traces</code></a></dt>
+<dd> Shows the traces generated in a NuSMV session
+</dd>
+<dt> <a href="show_varsCmd.html"><code>show_vars</code></a></dt>
+<dd> Shows model's symbolic variables and their values
+</dd>
+<dt> <a href="simulateCmd.html"><code>simulate</code></a></dt>
+<dd> Performs a simulation from the current selected state
+</dd>
+<dt> <a href="sourceCmd.html"><code>source</code></a></dt>
+<dd> Executes a sequence of commands from a file
+</dd>
+<dt> <a href="timeCmd.html"><code>time</code></a></dt>
+<dd> Provides a simple CPU elapsed time value
+</dd>
+<dt> <a href="unaliasCmd.html"><code>unalias</code></a></dt>
+<dd> Removes the definition of an alias.
+</dd>
+<dt> <a href="unsetCmd.html"><code>unset</code></a></dt>
+<dd> Unsets an environment variable
+</dd>
+<dt> <a href="usageCmd.html"><code>usage</code></a></dt>
+<dd> Provides a dump of process statistics
+</dd>
+<dt> <a href="whichCmd.html"><code>which</code></a></dt>
+<dd> Looks for a file called "file_name"
+</dd>
+<dt> <a href="write_boolean_modelCmd.html"><code>write_boolean_model</code></a></dt>
+<dd> Writes a flattened and booleanized model of a given SMV file
+</dd>
+<dt> <a href="write_coi_modelCmd.html"><code>write_coi_model</code></a></dt>
+<dd> Writes a flat model of SMV file, restricted to the COI of the model properties
+</dd>
+<dt> <a href="write_flat_modelCmd.html"><code>write_flat_model</code></a></dt>
+<dd> Writes a flat model of a given SMV file
+</dd>
+<dt> <a href="write_flat_model_udgCmd.html"><code>write_flat_model_udg</code></a></dt>
+<dd> Writes a flat model of a given SMV file in uDraw format
+</dd>
+<dt> <a href="write_orderCmd.html"><code>write_order</code></a></dt>
+<dd> Writes variable order to file.
+</dd>
+</dl>
+<hr>
+<address><a href="http://nusmv.fbk.eu">NuSMV</a> &lt;<a href="mailto:nusmv@fbk.eu">nusmv@fbk.eu</a>&gt;</address>
+</body>
+</html>

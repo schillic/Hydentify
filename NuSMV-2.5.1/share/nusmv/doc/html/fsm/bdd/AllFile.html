@@ -1,0 +1,423 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#bddCmd.c"><CODE>bddCmd.c</CODE></A>
+ <DD> Bdd FSM commands
+ <DT> <A HREF="#BddFsm.c"><CODE>BddFsm.c</CODE></A>
+ <DD> Defines the public interface for the class BddFsm
+ <DT> <A HREF="#BddFsmCache.c"><CODE>BddFsmCache.c</CODE></A>
+ <DD> Private module, that defines a structure privately used
+  into each instance of the class BddFsm, to cache some information
+ <DT> <A HREF="#bddMisc.c"><CODE>bddMisc.c</CODE></A>
+ <DD> Miscellanous routines not really specific to other files
+ <DT> <A HREF="#FairnessList.c"><CODE>FairnessList.c</CODE></A>
+ <DD> Declares the interface for the classes that contains fairness
+  conditions
+</DL><HR>
+<A NAME="bddCmd.c"><H1>bddCmd.c</H1></A>
+Bdd FSM commands <P>
+<B>By: Marco Roveri</B><P>
+This file contains all the shell commands to dela with
+  computation and printing of reachable states, fair states and fair
+  transitions. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#Bdd_Init" TARGET="MAIN"><CODE>Bdd_Init()</CODE></A>
+ <DD> Initializes the BddFsm package.
+
+ <DT> <A HREF="AllDet.html#Bdd_End" TARGET="MAIN"><CODE>Bdd_End()</CODE></A>
+ <DD> Quit the BddFsm package
+
+ <DT> <A HREF="AllDet.html#CommandCheckFsm" TARGET="MAIN"><CODE>CommandCheckFsm()</CODE></A>
+ <DD> Checks the fsm for totality and deadlock states.
+
+ <DT> <A HREF="AllDet.html#CommandComputeReachable" TARGET="MAIN"><CODE>CommandComputeReachable()</CODE></A>
+ <DD> Computates the set of reachable states
+
+ <DT> <A HREF="AllDet.html#CommandPrintReachableStates" TARGET="MAIN"><CODE>CommandPrintReachableStates()</CODE></A>
+ <DD> Prints the reachable states.
+
+ <DT> <A HREF="AllDet.html#CommandPrintFairStates" TARGET="MAIN"><CODE>CommandPrintFairStates()</CODE></A>
+ <DD> Prints the fair states.
+
+ <DT> <A HREF="AllDet.html#CommandPrintFairTransitions" TARGET="MAIN"><CODE>CommandPrintFairTransitions()</CODE></A>
+ <DD> Prints the fair transitions.
+
+</DL>
+<HR>
+<A NAME="BddFsm.c"><H1>BddFsm.c</H1></A>
+Defines the public interface for the class BddFsm <P>
+<B>By: Roberto Cavada, Marco Benedetti</B><P>
+A BddFsm is a Finite State Machine (FSM) whose building blocks
+   (the set of initial state, the transition relation, the set of
+   constraints on inputs and so on) are represented by means of
+   BDD data structures, and whose capabilities are based on
+   operations upon and between BDDs as well.
+
+   Note: a state is an assignment to state and frozen variables.
+   an input is an assigment to input variables. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#BddFsm_create" TARGET="MAIN"><CODE>BddFsm_create()</CODE></A>
+ <DD> Constructor for BddFsm
+
+ <DT> <A HREF="AllDet.html#BddFsm_destroy" TARGET="MAIN"><CODE>BddFsm_destroy()</CODE></A>
+ <DD> Destructor of class BddFsm
+
+ <DT> <A HREF="AllDet.html#BddFsm_copy" TARGET="MAIN"><CODE>BddFsm_copy()</CODE></A>
+ <DD> Copy constructor for BddFsm
+
+ <DT> <A HREF="AllDet.html#BddFsm_copy_cache" TARGET="MAIN"><CODE>BddFsm_copy_cache()</CODE></A>
+ <DD> Copies cached information of 'other' into self
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_justice" TARGET="MAIN"><CODE>BddFsm_get_justice()</CODE></A>
+ <DD> Getter for justice list
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_compassion" TARGET="MAIN"><CODE>BddFsm_get_compassion()</CODE></A>
+ <DD> Getter for compassion list
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_init" TARGET="MAIN"><CODE>BddFsm_get_init()</CODE></A>
+ <DD> Getter for init
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_state_constraints" TARGET="MAIN"><CODE>BddFsm_get_state_constraints()</CODE></A>
+ <DD> Getter for state constraints
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_input_constraints" TARGET="MAIN"><CODE>BddFsm_get_input_constraints()</CODE></A>
+ <DD> Getter for input constraints
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_trans" TARGET="MAIN"><CODE>BddFsm_get_trans()</CODE></A>
+ <DD> Getter for the trans
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_bdd_encoding" TARGET="MAIN"><CODE>BddFsm_get_bdd_encoding()</CODE></A>
+ <DD> Returns the be encoding associated with the given fsm
+   instance
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_cached_reachable_states" TARGET="MAIN"><CODE>BddFsm_get_cached_reachable_states()</CODE></A>
+ <DD> Returns the cached reachable states
+
+ <DT> <A HREF="AllDet.html#BddFsm_set_reachable_states" TARGET="MAIN"><CODE>BddFsm_set_reachable_states()</CODE></A>
+ <DD> Sets the whole set of reachable states for this FSM, with
+   no onion ring informations
+
+ <DT> <A HREF="AllDet.html#BddFsm_has_cached_reachable_states" TARGET="MAIN"><CODE>BddFsm_has_cached_reachable_states()</CODE></A>
+ <DD> Checks if the set of reachable states exists in the FSM
+
+ <DT> <A HREF="AllDet.html#BddFsm_update_cached_reachable_states" TARGET="MAIN"><CODE>BddFsm_update_cached_reachable_states()</CODE></A>
+ <DD> Updates the cached reachable states
+
+ <DT> <A HREF="AllDet.html#BddFsm_reachable_states_computed" TARGET="MAIN"><CODE>BddFsm_reachable_states_computed()</CODE></A>
+ <DD> Returns true if the set of reachable states has already been
+   computed
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_reachable_states" TARGET="MAIN"><CODE>BddFsm_get_reachable_states()</CODE></A>
+ <DD> Gets the set of reachable states of this machine
+
+ <DT> <A HREF="AllDet.html#BddFsm_copy_reachable_states" TARGET="MAIN"><CODE>BddFsm_copy_reachable_states()</CODE></A>
+ <DD> Copies reachable states of 'other' into 'self'
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_reachable_states_at_distance" TARGET="MAIN"><CODE>BddFsm_get_reachable_states_at_distance()</CODE></A>
+ <DD> Returns the set of reachable states at a given distance
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_monolithic_trans_bdd" TARGET="MAIN"><CODE>BddFsm_get_monolithic_trans_bdd()</CODE></A>
+ <DD> Returns a bdd that represents the monolithic
+   transition relation
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_distance_of_states" TARGET="MAIN"><CODE>BddFsm_get_distance_of_states()</CODE></A>
+ <DD> Returns the distance of a given set of states from initial
+   states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_minimum_distance_of_states" TARGET="MAIN"><CODE>BddFsm_get_minimum_distance_of_states()</CODE></A>
+ <DD> Returns the minimum distance of a given set of states
+   from initial states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_diameter" TARGET="MAIN"><CODE>BddFsm_get_diameter()</CODE></A>
+ <DD> Returns the diameter of the machine from the inital state
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_not_successor_states" TARGET="MAIN"><CODE>BddFsm_get_not_successor_states()</CODE></A>
+ <DD> Returns the set of states without subsequents
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_deadlock_states" TARGET="MAIN"><CODE>BddFsm_get_deadlock_states()</CODE></A>
+ <DD> Returns the set of deadlock states
+
+ <DT> <A HREF="AllDet.html#BddFsm_is_total" TARGET="MAIN"><CODE>BddFsm_is_total()</CODE></A>
+ <DD> Returns true if this machine is total
+
+ <DT> <A HREF="AllDet.html#BddFsm_is_deadlock_free" TARGET="MAIN"><CODE>BddFsm_is_deadlock_free()</CODE></A>
+ <DD> Returns true if this machine is deadlock free
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_forward_image" TARGET="MAIN"><CODE>BddFsm_get_forward_image()</CODE></A>
+ <DD> Returns the forward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_constrained_forward_image" TARGET="MAIN"><CODE>BddFsm_get_constrained_forward_image()</CODE></A>
+ <DD> Returns the constrained forward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_sins_constrained_forward_image" TARGET="MAIN"><CODE>BddFsm_get_sins_constrained_forward_image()</CODE></A>
+ <DD> Returns the constrained forward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_forward_image_states_inputs" TARGET="MAIN"><CODE>BddFsm_get_forward_image_states_inputs()</CODE></A>
+ <DD> Returns the forward image of a set of state-input pairs
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_constrained_forward_image_states_inputs" TARGET="MAIN"><CODE>BddFsm_get_constrained_forward_image_states_inputs()</CODE></A>
+ <DD> Returns the constrained forward image of a set of
+   state-input pairs
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_backward_image" TARGET="MAIN"><CODE>BddFsm_get_backward_image()</CODE></A>
+ <DD> Returns the backward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_constrained_backward_image" TARGET="MAIN"><CODE>BddFsm_get_constrained_backward_image()</CODE></A>
+ <DD> Returns the constrained backward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_k_backward_image" TARGET="MAIN"><CODE>BddFsm_get_k_backward_image()</CODE></A>
+ <DD> Returns the k-backward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_weak_backward_image" TARGET="MAIN"><CODE>BddFsm_get_weak_backward_image()</CODE></A>
+ <DD> Returns the weak backward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_strong_backward_image" TARGET="MAIN"><CODE>BddFsm_get_strong_backward_image()</CODE></A>
+ <DD> Returns the strong backward image of a set of states
+
+ <DT> <A HREF="AllDet.html#BddFsm_print_info" TARGET="MAIN"><CODE>BddFsm_print_info()</CODE></A>
+ <DD> Prints some information about this BddFsm.
+
+ <DT> <A HREF="AllDet.html#BddFsm_print_reachable_states_info" TARGET="MAIN"><CODE>BddFsm_print_reachable_states_info()</CODE></A>
+ <DD> Prints statistical information about reachable states.
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_fair_states_inputs" TARGET="MAIN"><CODE>BddFsm_get_fair_states_inputs()</CODE></A>
+ <DD> Returns the set of fair state-input pairs of the machine.
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_revfair_states_inputs" TARGET="MAIN"><CODE>BddFsm_get_revfair_states_inputs()</CODE></A>
+ <DD> Returns the set of reverse fair state-input pairs of the
+   machine.
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_fair_states" TARGET="MAIN"><CODE>BddFsm_get_fair_states()</CODE></A>
+ <DD> Returns the set of fair states of a fsm.
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_revfair_states" TARGET="MAIN"><CODE>BddFsm_get_revfair_states()</CODE></A>
+ <DD> Returns the set of reverse fair states of a fsm.
+
+ <DT> <A HREF="AllDet.html#BddFsm_states_to_states_get_inputs" TARGET="MAIN"><CODE>BddFsm_states_to_states_get_inputs()</CODE></A>
+ <DD> Given two sets of states, returns the set of inputs
+   labeling any transition from a state in the first set to a state in
+   the second set.
+
+ <DT> <A HREF="AllDet.html#BddFsm_is_fair_states" TARGET="MAIN"><CODE>BddFsm_is_fair_states()</CODE></A>
+ <DD> Checks if a set of states is fair.
+
+ <DT> <A HREF="AllDet.html#BddFsm_get_states_inputs_constraints" TARGET="MAIN"><CODE>BddFsm_get_states_inputs_constraints()</CODE></A>
+ <DD> Returns a state-input pair for which at least one
+   legal successor (if dir  = BDD_FSM_DIR_BWD) or
+   predecessor (otherwise) exists
+
+ <DT> <A HREF="AllDet.html#BddFsm_states_inputs_to_states" TARGET="MAIN"><CODE>BddFsm_states_inputs_to_states()</CODE></A>
+ <DD> Returns the states occurring in a set of states-inputs pairs.
+
+ <DT> <A HREF="AllDet.html#BddFsm_expand_cached_reachable_states" TARGET="MAIN"><CODE>BddFsm_expand_cached_reachable_states()</CODE></A>
+ <DD> Makes k steps of expansion of the set of reachable states
+   of this machine but limit the computation to terminate in the
+   number of seconds specified (even if this limit can be exceeded for
+   the termination of the last cycle)
+
+ <DT> <A HREF="AllDet.html#BddFsm_states_inputs_to_inputs" TARGET="MAIN"><CODE>BddFsm_states_inputs_to_inputs()</CODE></A>
+ <DD> Returns the inputs occurring in a set of states-inputs pairs.
+
+ <DT> <A HREF="AllDet.html#BddFsm_print_fair_states_info" TARGET="MAIN"><CODE>BddFsm_print_fair_states_info()</CODE></A>
+ <DD> Prints statistical information about fair states.
+
+ <DT> <A HREF="AllDet.html#BddFsm_print_fair_transitions_info" TARGET="MAIN"><CODE>BddFsm_print_fair_transitions_info()</CODE></A>
+ <DD> Prints statistical information about fair states and
+   transitions.
+
+ <DT> <A HREF="AllDet.html#BddFsm_check_machine" TARGET="MAIN"><CODE>BddFsm_check_machine()</CODE></A>
+ <DD> Check that the transition relation is total
+
+ <DT> <A HREF="AllDet.html#BddFsm_apply_synchronous_product_custom_varsets" TARGET="MAIN"><CODE>BddFsm_apply_synchronous_product_custom_varsets()</CODE></A>
+ <DD> Performs the synchronous product of two fsm
+
+ <DT> <A HREF="AllDet.html#BddFsm_apply_synchronous_product" TARGET="MAIN"><CODE>BddFsm_apply_synchronous_product()</CODE></A>
+ <DD> Variant of
+                BddFsm_apply_synchronous_product_custom_varsets that
+                simply takes all variables in the encoding into
+                account.
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_init" TARGET="MAIN"><CODE>bdd_fsm_init()</CODE></A>
+ <DD> Private initializer
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_copy" TARGET="MAIN"><CODE>bdd_fsm_copy()</CODE></A>
+ <DD> private copy constructor
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_deinit" TARGET="MAIN"><CODE>bdd_fsm_deinit()</CODE></A>
+ <DD> private member called by the destructor
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_compute_reachable_states" TARGET="MAIN"><CODE>bdd_fsm_compute_reachable_states()</CODE></A>
+ <DD> Computes the set of reachable states of this machine
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_get_legal_state_input" TARGET="MAIN"><CODE>bdd_fsm_get_legal_state_input()</CODE></A>
+ <DD> Returns the set of states and inputs,
+   for which a legal transition can be made.
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_EXorEY_SI" TARGET="MAIN"><CODE>bdd_fsm_EXorEY_SI()</CODE></A>
+ <DD> Computes the preimage (if dir = BDD_FSM_DIR_BWD) or the
+   postimage (otherwise) of a set of states-inputs pairs.
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_EUorES_SI" TARGET="MAIN"><CODE>bdd_fsm_EUorES_SI()</CODE></A>
+ <DD> Computes the set of state-input pairs that satisfy E(f U g)
+   (if dir = BDD_FSM_DIR_BWD) or E(f S g) (otherwise),
+   with f and g sets of state-input pairs.
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_compute_EL_SI_subset" TARGET="MAIN"><CODE>bdd_fsm_compute_EL_SI_subset()</CODE></A>
+ <DD> Executes the Emerson-Lei algorithm
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_compute_EL_SI_subset_aux" TARGET="MAIN"><CODE>bdd_fsm_compute_EL_SI_subset_aux()</CODE></A>
+ <DD> Executes the inner fixed point of the Emerson-Lei algorithm
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace" TARGET="MAIN"><CODE>bdd_fsm_get_fair_or_revfair_states_inputs_in_subspace()</CODE></A>
+ <DD> Computes the set of (reverse) fair states in subspace
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_get_fair_or_revfair_states_inputs" TARGET="MAIN"><CODE>bdd_fsm_get_fair_or_revfair_states_inputs()</CODE></A>
+ <DD> Computes the set of (reverse) fair states
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_check_init_state_invar_emptiness" TARGET="MAIN"><CODE>bdd_fsm_check_init_state_invar_emptiness()</CODE></A>
+ <DD> Check inits for emptiness, and prints a warning if needed
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_check_fairness_emptiness" TARGET="MAIN"><CODE>bdd_fsm_check_fairness_emptiness()</CODE></A>
+ <DD> Checks fair states for emptiness, as well as fot the
+   intersaction of fair states and inits. Prints a warning if needed
+
+</DL>
+<HR>
+<A NAME="BddFsmCache.c"><H1>BddFsmCache.c</H1></A>
+Private module, that defines a structure privately used
+  into each instance of the class BddFsm, to cache some information <P>
+<B>By: Roberto Cavada</B><P>
+This defines the interface of class BddFsmCache only.
+  Since the cache is privately accessed also by the class BddFsm, the
+  cache is declared by file bddFsmInt.h <P>
+<DL>
+ <DT> <A HREF="AllDet.html#BddFsmCache_create" TARGET="MAIN"><CODE>BddFsmCache_create()</CODE></A>
+ <DD> Class contructor
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_destroy" TARGET="MAIN"><CODE>BddFsmCache_destroy()</CODE></A>
+ <DD> Class destructor
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_hard_copy" TARGET="MAIN"><CODE>BddFsmCache_hard_copy()</CODE></A>
+ <DD> Class copy constructor
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_reset_not_reusable_fields_after_product" TARGET="MAIN"><CODE>BddFsmCache_reset_not_reusable_fields_after_product()</CODE></A>
+ <DD> Resets any field in the cache that must be recalculated
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_soft_copy" TARGET="MAIN"><CODE>BddFsmCache_soft_copy()</CODE></A>
+ <DD> Family soft copier
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_copy_reachables" TARGET="MAIN"><CODE>BddFsmCache_copy_reachables()</CODE></A>
+ <DD> Copies reachable states information within other into self
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_set_reachable_states" TARGET="MAIN"><CODE>BddFsmCache_set_reachable_states()</CODE></A>
+ <DD> Fills cache structure with reachable states information
+
+ <DT> <A HREF="AllDet.html#BddFsmCache_set_reachables" TARGET="MAIN"><CODE>BddFsmCache_set_reachables()</CODE></A>
+ <DD> Fills cache structure with reachable states information
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_cache_init" TARGET="MAIN"><CODE>bdd_fsm_cache_init()</CODE></A>
+ <DD> private initializer
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_cache_deinit" TARGET="MAIN"><CODE>bdd_fsm_cache_deinit()</CODE></A>
+ <DD> private deinitializer
+
+ <DT> <A HREF="AllDet.html#bdd_fsm_cache_deinit_reachables" TARGET="MAIN"><CODE>bdd_fsm_cache_deinit_reachables()</CODE></A>
+ <DD> private deinitializer for reachables states
+
+</DL>
+<HR>
+<A NAME="bddMisc.c"><H1>bddMisc.c</H1></A>
+Miscellanous routines not really specific to other files <P>
+<B>By: Viktor Schuppan</B><P>
+Miscellanous routines not really specific to other files:
+
+               - Conversion between
+                 BddOregJusticeEmptinessBddAlgorithmType and const
+                 char*
+
+               - Ensuring the preconditions for forward Emerson-Lei
+                 algorithm are met <P>
+<DL>
+ <DT> <A HREF="AllDet.html#Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string" TARGET="MAIN"><CODE>Bdd_BddOregJusticeEmptinessBddAlgorithmType_from_string()</CODE></A>
+ <DD> const char* to BddOregJusticeEmptinessBddAlgorithmType
+
+ <DT> <A HREF="AllDet.html#Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string" TARGET="MAIN"><CODE>Bdd_BddOregJusticeEmptinessBddAlgorithmType_to_string()</CODE></A>
+ <DD> BddOregJusticeEmptinessBddAlgorithmType to const char*
+
+ <DT> <A HREF="AllDet.html#Bdd_print_available_BddOregJusticeEmptinessBddAlgorithms" TARGET="MAIN"><CODE>Bdd_print_available_BddOregJusticeEmptinessBddAlgorithms()</CODE></A>
+ <DD> Prints the BDD-based algorithms to check language
+                      emptiness for omega-regular properties the system
+                      currently supplies
+
+ <DT> <A HREF="AllDet.html#Bdd_elfwd_check_options" TARGET="MAIN"><CODE>Bdd_elfwd_check_options()</CODE></A>
+ <DD> Checks options for forward Emerson-Lei algorithm
+
+ <DT> <A HREF="AllDet.html#Bdd_elfwd_check_set_and_save_options" TARGET="MAIN"><CODE>Bdd_elfwd_check_set_and_save_options()</CODE></A>
+ <DD> Checks, sets and saves previous values of options for
+                      forward Emerson-Lei
+
+ <DT> <A HREF="AllDet.html#Bdd_elfwd_restore_options" TARGET="MAIN"><CODE>Bdd_elfwd_restore_options()</CODE></A>
+ <DD> Restores previous values of options for forward
+                      Emerson-Lei
+
+</DL>
+<HR>
+<A NAME="FairnessList.c"><H1>FairnessList.c</H1></A>
+Declares the interface for the classes that contains fairness
+  conditions <P>
+<B>By: Roberto Cavada</B><P>
+Exported classes are:
+  - FairnessList (pure, base class)
+  - JusticeList
+  - CompassionList <P>
+<DL>
+ <DT> <A HREF="AllDet.html#FairnessList_create" TARGET="MAIN"><CODE>FairnessList_create()</CODE></A>
+ <DD> Base class constructor
+
+ <DT> <A HREF="AllDet.html#FairnessList_begin" TARGET="MAIN"><CODE>FairnessList_begin()</CODE></A>
+ <DD> Use to start iteration
+
+ <DT> <A HREF="AllDet.html#FairnessListIterator_is_end" TARGET="MAIN"><CODE>FairnessListIterator_is_end()</CODE></A>
+ <DD> Use to check end of iteration
+
+ <DT> <A HREF="AllDet.html#FairnessListIterator_next" TARGET="MAIN"><CODE>FairnessListIterator_next()</CODE></A>
+ <DD> use to iterate on an list iterator
+
+ <DT> <A HREF="AllDet.html#JusticeList_create" TARGET="MAIN"><CODE>JusticeList_create()</CODE></A>
+ <DD> Constructor for justice fairness constraints list
+
+ <DT> <A HREF="AllDet.html#JusticeList_get_p" TARGET="MAIN"><CODE>JusticeList_get_p()</CODE></A>
+ <DD> Getter for BddStates pointed by given iterator
+
+ <DT> <A HREF="AllDet.html#JusticeList_append_p" TARGET="MAIN"><CODE>JusticeList_append_p()</CODE></A>
+ <DD> Appends the given bdd to the list
+
+ <DT> <A HREF="AllDet.html#JusticeList_apply_synchronous_product" TARGET="MAIN"><CODE>JusticeList_apply_synchronous_product()</CODE></A>
+ <DD> Creates the union of the two given fairness lists. Result
+  goes into self
+
+ <DT> <A HREF="AllDet.html#CompassionList_create" TARGET="MAIN"><CODE>CompassionList_create()</CODE></A>
+ <DD> Constructor for compassion fairness constraints list
+
+ <DT> <A HREF="AllDet.html#CompassionList_get_p" TARGET="MAIN"><CODE>CompassionList_get_p()</CODE></A>
+ <DD> Getter of left-side bdd pointed by given iterator
+
+ <DT> <A HREF="AllDet.html#CompassionList_get_q" TARGET="MAIN"><CODE>CompassionList_get_q()</CODE></A>
+ <DD> Getter of right-side bdd pointed by given iterator
+
+ <DT> <A HREF="AllDet.html#CompassionList_append_p_q" TARGET="MAIN"><CODE>CompassionList_append_p_q()</CODE></A>
+ <DD> Appends the given BDDs to the list
+
+ <DT> <A HREF="AllDet.html#CompassionList_apply_synchronous_product" TARGET="MAIN"><CODE>CompassionList_apply_synchronous_product()</CODE></A>
+ <DD> Creates the union of the two given fairness lists. Result
+  goes into self
+
+ <DT> <A HREF="AllDet.html#fairness_list_init" TARGET="MAIN"><CODE>fairness_list_init()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

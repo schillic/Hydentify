@@ -1,0 +1,156 @@
+<HTML>
+<HEAD><TITLE>The dag package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#dag.h"><CODE>dag.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#dagInt.h"><CODE>dagInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#dagDfs.c"><CODE>dagDfs.c</CODE></A>
+ <DD> Depth First Search routines.
+ <DT> <A HREF="#dagManager.c"><CODE>dagManager.c</CODE></A>
+ <DD> DAG manager main routines.
+ <DT> <A HREF="#dagStat.c"><CODE>dagStat.c</CODE></A>
+ <DD> DAG manager statistics.
+ <DT> <A HREF="#dagVertex.c"><CODE>dagVertex.c</CODE></A>
+ <DD> Vertex handling.
+</DL><HR>
+<A NAME="dag.h"><H1>dag.h</H1></A>
+External header file <P>
+<B>By: Armando Tacchella</B><P>
+<DL>
+ <DT> <A HREF="dagAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Filters a pointer from bit annotations.
+
+ <DT> <A HREF="dagAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Sets (forces) a bit annotation to 1.
+
+ <DT> <A HREF="dagAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Clears (forces) a bit annotation to 0.
+
+ <DT> <A HREF="dagAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Tests if the edge is annotated.
+
+</DL>
+<HR>
+<A NAME="dagInt.h"><H1>dagInt.h</H1></A>
+Internal header file <P>
+<B>By: Armando Tacchella and Tommi Junttila</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="dagDfs.c"><H1>dagDfs.c</H1></A>
+Depth First Search routines. <P>
+<B>By: Armando Tacchella</B><P>
+External procedures included in this module:
+		<ul>
+                <li> <b>Dag_Dfs()<b> Generic depth first search engine.
+		</ul> <P>
+<P><B>See Also</B><A HREF="#dagManager.c"><CODE>dagManager.c</CODE></A>
+<A HREF="#dagVertex.c"><CODE>dagVertex.c</CODE></A>
+<DL>
+ <DT> <A HREF="dagAllDet.html#Dag_Dfs" TARGET="MAIN"><CODE>Dag_Dfs()</CODE></A>
+ <DD> Performs a generic DFS on the dag.
+
+ <DT> <A HREF="dagAllDet.html#DFS" TARGET="MAIN"><CODE>DFS()</CODE></A>
+ <DD> Performs a generic (recursive) DFS on the dag.
+
+ <DT> <A HREF="dagAllDet.html#CleanSet" TARGET="MAIN"><CODE>CleanSet()</CODE></A>
+ <DD> Dfs Set for cleaning.
+
+ <DT> <A HREF="dagAllDet.html#CleanFirst" TARGET="MAIN"><CODE>CleanFirst()</CODE></A>
+ <DD> Dfs FirstVisit for cleaning.
+
+ <DT> <A HREF="dagAllDet.html#CleanBack" TARGET="MAIN"><CODE>CleanBack()</CODE></A>
+ <DD> Dfs BackVisit for cleaning.
+
+ <DT> <A HREF="dagAllDet.html#CleanLast" TARGET="MAIN"><CODE>CleanLast()</CODE></A>
+ <DD> Dfs LastVisit for cleaning.
+
+</DL>
+<HR>
+<A NAME="dagManager.c"><H1>dagManager.c</H1></A>
+DAG manager main routines. <P>
+<B>By: Armando Tacchella</B><P>
+External procedures included in this module:
+              <ul>
+              <li> <b>Dag_ManagerAlloc()</b> allocates a DAG Manager;
+              <li> <b>Dag_ManagerAllocWithParams()</b> user-driven allocation;
+              <li> <b>Dag_ManagerFree()</b> deallocates a DAG Manager;
+              <li> <b>Dag_ManagerGC()</b> forces a garbage collection.
+              </ul> <P>
+<P><B>See Also</B><A HREF="#dagVertex.c"><CODE>dagVertex.c</CODE></A>
+<A HREF="#dagDfs.c"><CODE>dagDfs.c</CODE></A>
+<DL>
+ <DT> <A HREF="dagAllDet.html#Dag_ManagerAlloc" TARGET="MAIN"><CODE>Dag_ManagerAlloc()</CODE></A>
+ <DD> Creates a new DAG manager.
+
+ <DT> <A HREF="dagAllDet.html#Dag_ManagerFree" TARGET="MAIN"><CODE>Dag_ManagerFree()</CODE></A>
+ <DD> Deallocates a DAG manager.
+
+ <DT> <A HREF="dagAllDet.html#Dag_ManagerGC" TARGET="MAIN"><CODE>Dag_ManagerGC()</CODE></A>
+ <DD> Garbage collects the DAG manager.
+
+ <DT> <A HREF="dagAllDet.html#GC" TARGET="MAIN"><CODE>GC()</CODE></A>
+ <DD> Depth-first garbage collection.
+
+</DL>
+<HR>
+<A NAME="dagStat.c"><H1>dagStat.c</H1></A>
+DAG manager statistics. <P>
+External procedures included in this module:
+		<ul>
+		<li> <b>Dag_GetStats()</b> Get statistics;
+		<li> <b>Dag_PrintStats()</b> Print statistics;
+		</ul> <P>
+<P><B>See Also</B><A HREF="#dagManager"><CODE>dagManager</CODE></A>
+<DL>
+ <DT> <A HREF="dagAllDet.html#Dag_PrintStats" TARGET="MAIN"><CODE>Dag_PrintStats()</CODE></A>
+ <DD> Prints various statistics.
+
+</DL>
+<HR>
+<A NAME="dagVertex.c"><H1>dagVertex.c</H1></A>
+Vertex handling. <P>
+External procedures included in this module:
+                <ul>
+                <li> <b>Dag_VertexLookup()</b> Lookup for a vertex;
+                <li> <b>Dag_VertexInsert()</b> Insert a vertex;
+                <li> <b>Dag_VertexMark()</b> make a vertex permanent;
+                <li> <b>Dag_VertexUnmark()</b> make a vertex volatile;
+                </ul>
+               Internal procedures included in this module:
+                <ul>
+                <li> <b>DagVertexInit()</b> Initialize a vertex;
+                <li> <b>DagVertexComp()</b> Compare two vertices;
+                <li> <b>DagVertexHash()</b> calculate vertex hash code;
+                </ul> <P>
+<P><B>See Also</B><A HREF="#dagManager"><CODE>dagManager</CODE></A>
+<A HREF="#dagDfs"><CODE>dagDfs</CODE></A>
+<DL>
+ <DT> <A HREF="dagAllDet.html#Dag_VertexLookup" TARGET="MAIN"><CODE>Dag_VertexLookup()</CODE></A>
+ <DD> Vertex lookup.
+
+ <DT> <A HREF="dagAllDet.html#Dag_VertexInsert" TARGET="MAIN"><CODE>Dag_VertexInsert()</CODE></A>
+ <DD> Vertex insert.
+
+ <DT> <A HREF="dagAllDet.html#Dag_VertexMark" TARGET="MAIN"><CODE>Dag_VertexMark()</CODE></A>
+ <DD> Marks a vertex as permanent.
+
+ <DT> <A HREF="dagAllDet.html#Dag_VertexUnmark" TARGET="MAIN"><CODE>Dag_VertexUnmark()</CODE></A>
+ <DD> Unmarks a vertex (makes it volatile).
+
+ <DT> <A HREF="dagAllDet.html#DagVertexInit" TARGET="MAIN"><CODE>DagVertexInit()</CODE></A>
+ <DD> Vertex initialization.
+
+ <DT> <A HREF="dagAllDet.html#DagVertexComp" TARGET="MAIN"><CODE>DagVertexComp()</CODE></A>
+ <DD> Compare two vertices.
+
+ <DT> <A HREF="dagAllDet.html#DagVertexHash" TARGET="MAIN"><CODE>DagVertexHash()</CODE></A>
+ <DD> Calculate the hash key of a vertex.
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

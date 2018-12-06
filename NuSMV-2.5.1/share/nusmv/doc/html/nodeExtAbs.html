@@ -1,0 +1,78 @@
+<html>
+<head><title>node package abstract</title></head>
+<body>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<dt> <a href="nodeAllDet.html#node_alloc" TARGET="MAIN"><code>node_alloc()</code></a>
+<dd> Allocates NODE_MEM_CHUNK records and stores them
+  in the free list of the <tt>node</tt> manager.
+
+<dt> <a href="nodeAllDet.html#node_cmp_fun" TARGET="MAIN"><code>node_cmp_fun()</code></a>
+<dd> Comparison function for <tt>node</tt> sorted insertion.
+  Returns is < 0 if node1 < node2, 0 if node1 == node2, and > 0 if
+  node1 > node2
+
+<dt> <a href="nodeAllDet.html#node_eq_fun" TARGET="MAIN"><code>node_eq_fun()</code></a>
+<dd> Equality function for <tt>node</tt> hash.
+
+<dt> <a href="nodeAllDet.html#node_hash_fun" TARGET="MAIN"><code>node_hash_fun()</code></a>
+<dd> Hash function for <tt>node</tt>s.
+
+<dt> <a href="nodeAllDet.html#node_init" TARGET="MAIN"><code>node_init()</code></a>
+<dd> Initializes the <tt>node</tt> manager.
+
+<dt> <a href="nodeAllDet.html#node_is_constant" TARGET="MAIN"><code>node_is_constant()</code></a>
+<dd> Tells if the given node is a numeric/boolean constant
+
+<dt> <a href="nodeAllDet.html#node_is_failure" TARGET="MAIN"><code>node_is_failure()</code></a>
+<dd> Returns 0 if given node is not a FAILURE node
+
+<dt> <a href="nodeAllDet.html#node_normalize_list" TARGET="MAIN"><code>node_normalize_list()</code></a>
+<dd> Does the same thing as node_normalize but
+  do it more efficiently if sexp is a list
+
+<dt> <a href="nodeAllDet.html#node_normalize" TARGET="MAIN"><code>node_normalize()</code></a>
+<dd> Traverses the tree, and returns a possibly new tree that
+  is a normalized copy of the first. Use for constant-time comparison
+  of two trees
+
+<dt> <a href="nodeAllDet.html#node_pkg_get_global_master_normalizer" TARGET="MAIN"><code>node_pkg_get_global_master_normalizer()</code></a>
+<dd> Returns the global master normalizer
+
+<dt> <a href="nodeAllDet.html#node_pkg_get_global_master_sexp_printer" TARGET="MAIN"><code>node_pkg_get_global_master_sexp_printer()</code></a>
+<dd> Returns the global master wff printer
+
+<dt> <a href="nodeAllDet.html#node_pkg_get_global_master_wff_printer" TARGET="MAIN"><code>node_pkg_get_global_master_wff_printer()</code></a>
+<dd> Returns the global master wff printer
+
+<dt> <a href="nodeAllDet.html#node_pkg_get_indenting_master_wff_printer" TARGET="MAIN"><code>node_pkg_get_indenting_master_wff_printer()</code></a>
+<dd> Returns the indenting master wff printer
+
+<dt> <a href="nodeAllDet.html#node_pkg_init" TARGET="MAIN"><code>node_pkg_init()</code></a>
+<dd> Initializes the node package
+
+<dt> <a href="nodeAllDet.html#node_pkg_quit" TARGET="MAIN"><code>node_pkg_quit()</code></a>
+<dd> Deinitializes the packages, finalizing all internal
+  structures
+
+<dt> <a href="nodeAllDet.html#node_quit" TARGET="MAIN"><code>node_quit()</code></a>
+<dd> De-initializes the <tt>node</tt> manager.
+
+<dt> <a href="nodeAllDet.html#node_set_type" TARGET="MAIN"><code>node_set_type()</code></a>
+<dd> Replaces the type of the node
+
+<dt> <a href="nodeAllDet.html#node_show_profile_stats" TARGET="MAIN"><code>node_show_profile_stats()</code></a>
+<dd> Quits the <tt>node</tt> manager.
+
+<dt> <a href="nodeAllDet.html#node_subtract" TARGET="MAIN"><code>node_subtract()</code></a>
+<dd> Deletes from list set2 the elements of list set1.
+
+</dl>
+
+<hr>
+
+Last updated on 2010/10/01 19h:57
+</body></html>

@@ -1,0 +1,28 @@
+<html>
+<head><title>build_model</title></head>
+<body>
+
+<h3>build_model - Compiles the flattened hierarchy into BDD</h3>
+<hr>
+<code>build_model [-h] [-f] [-m Method]</code><p>
+Compiles the flattened hierarchy into BDD (initial states, invariants,
+  and transition relation) using the method specified in the environment
+  variable <tt>partition_method</tt> for building the transition relation.<p>
+
+  Command options:<p>
+  <dl>
+    <dt> <tt>-m Method</tt>
+       <dd> Sets the environment variable <tt>partition_method</tt> to
+           the value <tt>Method</tt>, and then builds the transition
+           relation. Available methods are <code>Monolithic</code>,
+           <code>Threshold</code> and <code>Iwls95CP</code>.
+    <dt> <tt>-f</tt>
+       <dd> Forces model construction. By default, only one partition
+            method is allowed. This option allows to overcome this
+            default, and to build the transition relation with different
+            partitioning methods.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

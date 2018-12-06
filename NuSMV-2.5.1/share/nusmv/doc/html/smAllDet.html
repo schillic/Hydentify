@@ -1,0 +1,1392 @@
+<html>
+<head><title>The sm package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandCmdReset"></A>
+int <I></I>
+<B>CommandCmdReset</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the reset command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smCmd.c"TARGET="ABSTRACT"><CODE>smCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintUsage"></A>
+int <I></I>
+<B>CommandPrintUsage</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the print_usage command.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smCmd.c"TARGET="ABSTRACT"><CODE>smCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="DateReadFromDateString"></A>
+static char * <I></I>
+<B>DateReadFromDateString</B>(
+  char * <b>datestr</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_add_env_command_line_option"></A>
+void <I></I>
+<B>NuSMVCore_add_env_command_line_option</B>(
+  char* <b>name</b>, <i></i>
+  char* <b>usage</b>, <i></i>
+  char* <b>parameter</b>, <i></i>
+  char* <b>env_var</b>, <i></i>
+  boolean  <b>public</b>, <i></i>
+  boolean  <b>deprecated</b>, <i></i>
+  char* <b>dependency</b>, <i></i>
+  char* <b>conflict</b> <i></i>
+)
+</pre>
+<dd> Adds a command line option to the system. The command
+   line option MUST have an environment option
+   associated. When the command line option is
+   specified, the environment option is
+   automatically set to the correct value (In case
+   of boolean options, the current value is
+   negated, in any other case, the cmd option
+   requires an argument which is set to the
+   associated option
+
+   Function arguments:
+   1) name -> The name of the cmd line option (e.g. -int)
+   2) usage -> The usage string that will be
+   printed in the help (i.e. -help)
+   3) parameter -> NULL if none, a string value if any.
+   e.g: "k" for bmc_length
+   4) env_var  -> The associated environment variable name
+   5) public -> Tells whether the cmd line option
+   is public or not. If not, the usage
+   is not printed when invoking the
+   tool with -h.
+   6) deprecated -> Tells whether the cmd line
+   options is deprecated or not
+   7) dependency -> The possibly option name on which this
+   one dependens on. NULL if none.
+   e.g. -bmc_length depends on -bmc
+   8) conflict -> The list of option names that
+   conflict with this one.
+   e.g. -mono conflicts with
+   "-thresh -iwls95"
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_add_command_line_option">NuSMVCore_add_command_line_option</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_bug_report_message"></A>
+char* <I></I>
+<B>NuSMVCore_get_bug_report_message</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm bug_report_message field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_bug_report_message">NuSMVCore_set_bug_report_message</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_build_date"></A>
+char* <I></I>
+<B>NuSMVCore_get_build_date</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm build_date field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_build_date">NuSMVCore_set_build_date</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_email"></A>
+char* <I></I>
+<B>NuSMVCore_get_email</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm email field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_email">NuSMVCore_set_email</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_bug_report_message"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_bug_report_message</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_bug_report_message field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_bug_report_message">NuSMVCore_get_bug_report_message</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_build_date"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_build_date</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_build_date field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_build_date">NuSMVCore_get_build_date</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_email"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_email</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_email field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_email">NuSMVCore_get_email</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_name"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_name</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_name field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_tool_name">NuSMVCore_get_tool_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_version"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_version</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_version field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_tool_version">NuSMVCore_get_tool_version</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_library_website"></A>
+char* <I></I>
+<B>NuSMVCore_get_library_website</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm library_website field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_website">NuSMVCore_get_website</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_linked_addons"></A>
+char* <I></I>
+<B>NuSMVCore_get_linked_addons</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm linked_addons field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_linked_addons">NuSMVCore_set_linked_addons</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_prompt_string"></A>
+char* <I></I>
+<B>NuSMVCore_get_prompt_string</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm prompt_string field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_prompt_string">NuSMVCore_set_prompt_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_tool_name"></A>
+char* <I></I>
+<B>NuSMVCore_get_tool_name</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm tool_name field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_tool_name">NuSMVCore_set_tool_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_tool_rc_file_name"></A>
+char* <I></I>
+<B>NuSMVCore_get_tool_rc_file_name</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm tool rc file name field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_tool_name">NuSMVCore_set_tool_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_tool_version"></A>
+char* <I></I>
+<B>NuSMVCore_get_tool_version</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm tool_version field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_tool_version">NuSMVCore_set_tool_version</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_get_website"></A>
+char* <I></I>
+<B>NuSMVCore_get_website</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm website field getter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_website">NuSMVCore_set_website</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_init_cmd_options"></A>
+void <I></I>
+<B>NuSMVCore_init_cmd_options</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes all NuSMV library command line options.
+   All command line options are registered within the
+   library.  If standard command line options are needed,
+   this function has to be called before NuSMVCore_main and
+   after NuSMVCore_init
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Package_init">Package_init</a>
+<a href="#Package_main">Package_main</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_init_data"></A>
+void <I></I>
+<B>NuSMVCore_init_data</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the NuSMVCore data. The following operations are
+   performed:
+
+   1) Initialize the internal class
+   2) Sets all fields to default for NuSMV
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Package_init_cmd_options">Package_init_cmd_options</a>
+<a href="#Package_init">Package_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_init"></A>
+void <I></I>
+<B>NuSMVCore_init</B>(
+   <b></b>, <i></i>
+  int  <b>num_funs</b> <i></i>
+)
+</pre>
+<dd> Initializes the system. First calls the
+                       NuSMVCore initialization function, and then
+                       calls each initialization function that is in
+                       the given list. The order of the list is
+                       followed.
+                       The list must be declared as follows:
+
+                       FP_V_V funs[
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_reset_first_fun">NuSMVCore_set_reset_first_fun</a>
+<a href="#NuSMVCore_set_reset_last_fun">NuSMVCore_set_reset_last_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_main"></A>
+boolean <I></I>
+<B>NuSMVCore_main</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b>, <i></i>
+  int* <b>status</b> <i></i>
+)
+</pre>
+<dd> Executes the main program.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_init">NuSMVCore_init</a>
+<a href="#NuSMVCore_quit">NuSMVCore_quit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_quit"></A>
+void <I></I>
+<B>NuSMVCore_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Shuts down the system. First all quit functions
+                       in the list given to NuSMVCore_init are
+                       called. Then all complex structures that have a
+                       dependency among some internal packages are
+                       deinitialized. After that, the Core is shut
+                       down and finally all simple internal structures
+                       are freed
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_reset_first_fun">NuSMVCore_set_reset_first_fun</a>
+<a href="#NuSMVCore_set_reset_last_fun">NuSMVCore_set_reset_last_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_reset"></A>
+void <I></I>
+<B>NuSMVCore_reset</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Shuts down and restarts the system. 4 steps are done:
+   1) Call the reset_first function (if any).
+   2) Call the NuSMV package reset_first function
+   3) Call the NuSMV package reset_last function
+   4) Call the reset_last function (if any)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_set_reset_first_fun">NuSMVCore_set_reset_first_fun</a>
+<a href="#NuSMVCore_set_reset_last_fun">NuSMVCore_set_reset_last_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_bug_report_message"></A>
+void <I></I>
+<B>NuSMVCore_set_bug_report_message</B>(
+  char* <b>bug_report_message</b> <i></i>
+)
+</pre>
+<dd> The Sm bug_report_message field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_bug_report_message">NuSMVCore_get_bug_report_message</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_build_date"></A>
+void <I></I>
+<B>NuSMVCore_set_build_date</B>(
+  char* <b>build_date</b> <i></i>
+)
+</pre>
+<dd> The Sm build_date field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_build_date">NuSMVCore_get_build_date</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_email"></A>
+void <I></I>
+<B>NuSMVCore_set_email</B>(
+  char* <b>email</b> <i></i>
+)
+</pre>
+<dd> The Sm email field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_email">NuSMVCore_get_email</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_linked_addons"></A>
+void <I></I>
+<B>NuSMVCore_set_linked_addons</B>(
+  char* <b>linked_addons</b> <i></i>
+)
+</pre>
+<dd> The Sm linked_addons field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_linked_addons">NuSMVCore_get_linked_addons</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_prompt_string"></A>
+void <I></I>
+<B>NuSMVCore_set_prompt_string</B>(
+  char* <b>prompt_string</b> <i></i>
+)
+</pre>
+<dd> The Sm prompt_string field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_prompt_string">NuSMVCore_get_prompt_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_tool_name"></A>
+void <I></I>
+<B>NuSMVCore_set_tool_name</B>(
+  char* <b>tool_name</b> <i></i>
+)
+</pre>
+<dd> The Sm tool_name field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_tool_name">NuSMVCore_get_tool_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_tool_version"></A>
+void <I></I>
+<B>NuSMVCore_set_tool_version</B>(
+  char* <b>tool_version</b> <i></i>
+)
+</pre>
+<dd> The Sm tool_version field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_tool_version">NuSMVCore_get_tool_version</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="NuSMVCore_set_website"></A>
+void <I></I>
+<B>NuSMVCore_set_website</B>(
+  char* <b>website</b> <i></i>
+)
+</pre>
+<dd> The Sm website field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_website">NuSMVCore_get_website</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrintLibrary"></A>
+void <I></I>
+<B>Sm_BannerPrintLibrary</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> To be used by addons linking against the NuSMV library.
+               You can use this as banner print function if you don't
+               need a special banner print function and you are
+               linking against NuSMV
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrint_cudd"></A>
+void <I></I>
+<B>Sm_BannerPrint_cudd</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the banner of cudd.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrint_minisat"></A>
+void <I></I>
+<B>Sm_BannerPrint_minisat</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the banner of minisat.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrint_nusmv_library"></A>
+void <I></I>
+<B>Sm_BannerPrint_nusmv_library</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> To be used by tools linking against the NuSMV library
+               and using custom banner function
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrint_zchaff"></A>
+void <I></I>
+<B>Sm_BannerPrint_zchaff</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the banner of zchaff.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_BannerPrint"></A>
+void <I></I>
+<B>Sm_BannerPrint</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints the banner of NuSMV.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_NuSMVEndPrintMore"></A>
+int <I></I>
+<B>Sm_NuSMVEndPrintMore</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This function is  called to terminate piping
+  stdout through "more". It is important to call Sm_NuSMVEndPrintMore  before exiting
+  your function (preferably at the end of your printing; failing to do so will cause
+  the stdin lines not to appear). The function returns a 0 if it fails.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_NuSMVInitPrintMore">Sm_NuSMVInitPrintMore</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_NuSMVInitPrintMore"></A>
+void <I></I>
+<B>Sm_NuSMVInitPrintMore</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This function is  called to initialize piping
+  stdout through "more". It is important to call Sm_NuSMVEndPrintMore before
+  returning from your function and after
+  calling Sm_NuSMVInitPrintMore (preferably at the end of your printing;
+  failing to do so will cause the stdin lines not to appear).
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_NuSMVEndPrintMore">Sm_NuSMVEndPrintMore</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_NuSMVObtainLibrary"></A>
+char* <I></I>
+<B>Sm_NuSMVObtainLibrary</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns a string giving the directory which contains the
+  standard NuSMV library.  Used to find things like the default .nusmvrc, the
+  on-line help files, etc. It is the responsibility of the user to free the
+  returned string.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_NuSMVReadVersion">Sm_NuSMVReadVersion</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_NuSMVReadVersion"></A>
+char* <I></I>
+<B>Sm_NuSMVReadVersion</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns a static string giving the NuSMV version and compilation
+  timestamp.  The user should not free this string.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_NuSMVObtainLibrary">Sm_NuSMVObtainLibrary</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_NusmvrcSource"></A>
+int <I></I>
+<B>Sm_NusmvrcSource</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Sources the .nusmvrc file.  Always sources the .nusmvrc from
+  library.  Then source the .nusmvrc from the home directory.  If there is none
+  in the home directory, then execute the one in the current directory if one
+  is present.  Returns 1 if scripts were successfully executed, else return 0.
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smMisc.c"TARGET="ABSTRACT"><CODE>smMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_end"></A>
+void <I></I>
+<B>Sm_end</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Calls the end routines of all the packages.
+<p>
+
+<dd> <b>Side Effects</b> Closes the output files if not the standard ones.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_Init">Sm_Init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_init"></A>
+void <I></I>
+<B>Sm_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Calls the initialization routines of all the packages.
+<p>
+
+<dd> <b>Side Effects</b> Sets the global variables nusmv_stdout, nusmv_stderr,
+  nusmv_historyFile.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SmEnd">SmEnd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_reset_first"></A>
+void <I></I>
+<B>Sm_reset_first</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Shuts down and restarts the system, shut down part
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_reset_last">Sm_reset_last</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sm_reset_last"></A>
+void <I></I>
+<B>Sm_reset_last</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Shuts down and restarts the system, restart part
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_reset_first">Sm_reset_first</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="core_data_set_fs"></A>
+static boolean <I></I>
+<B>core_data_set_fs</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -f cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_executable_name"></A>
+static char* <I></I>
+<B>get_executable_name</B>(
+  const char* <b>command</b> <i></i>
+)
+</pre>
+<dd> Given a command, returns the executable file name (with
+  extension if required)
+<p>
+
+<dd> <b>Side Effects</b> If not already specified, extension suffix is appended
+  to the returned string. Returned string must be freed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_preprocessor_call"></A>
+char* <I></I>
+<B>get_preprocessor_call</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Gets the command line call for the specified pre-processor
+  name. Returns NULL if given name is not available, or a string that must be
+  NOT freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_preprocessor_filename"></A>
+char* <I></I>
+<B>get_preprocessor_filename</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Gets the actual program name of the specified pre-processor.
+  Returns NULL if given name is not available, or a string that must be
+  freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_preprocessor_names"></A>
+char* <I></I>
+<B>get_preprocessor_names</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Gets the names of the avaliable pre-processors. Returned
+  string must be freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_preprocessors_num"></A>
+int <I></I>
+<B>get_preprocessors_num</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the number of available proprocessors
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="init_preprocessors"></A>
+static void <I></I>
+<B>init_preprocessors</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes information about the pre-processors avaliable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_check_rbc_fun"></A>
+static boolean <I></I>
+<B>nusmv_core_check_rbc_fun</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -rbc cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_check_sin_fun"></A>
+static boolean <I></I>
+<B>nusmv_core_check_sin_fun</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -sin cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_deinit_opt"></A>
+static void <I></I>
+<B>nusmv_core_deinit_opt</B>(
+  CmdLineOpt_ptr  <b>opt</b> <i></i>
+)
+</pre>
+<dd> Deinitializes and frees the internal representation
+   structure of a command line option
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_init_opt">nusmv_core_init_opt</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_deinit"></A>
+static void <I></I>
+<B>nusmv_core_deinit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Deinitializes and frees the internal variable
+   core_data. This function should be called
+   only when terminating the program
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_get_instance">nusmv_core_get_instance</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_free_line_options"></A>
+static void <I></I>
+<B>nusmv_core_free_line_options</B>(
+  CoreData_ptr  <b>core_data</b> <i></i>
+)
+</pre>
+<dd> Frees the line_options hash and all it's contents
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_get_instance"></A>
+static CoreData_ptr <I></I>
+<B>nusmv_core_get_instance</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes (once) the internal core_data variable
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_deinit">nusmv_core_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_get_next_word_length"></A>
+static int <I></I>
+<B>nusmv_core_get_next_word_length</B>(
+  char* <b>string</b> <i></i>
+)
+</pre>
+<dd> Aux function for the nusmv_core_split function
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_split">nusmv_core_split</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_init_opt"></A>
+static CmdLineOpt_ptr <I></I>
+<B>nusmv_core_init_opt</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the internal representation structure
+   of a command line option
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_deinit_opt">nusmv_core_deinit_opt</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_merge"></A>
+static char* <I></I>
+<B>nusmv_core_merge</B>(
+  Olist_ptr  <b>set</b> <i></i>
+)
+</pre>
+<dd> Given a set of unique strings, returns a string
+   representing the set of strings, separated by a
+   white space
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_split">nusmv_core_split</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_olist_intersection"></A>
+static Olist_ptr <I></I>
+<B>nusmv_core_olist_intersection</B>(
+  Olist_ptr  <b>a</b>, <i></i>
+  Olist_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Calculates the intersection list between a and b.
+                       The returned list must be freed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_olist_union"></A>
+static void <I></I>
+<B>nusmv_core_olist_union</B>(
+  Olist_ptr  <b>a</b>, <i></i>
+  Olist_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Adds all elements in b to a, if a does
+                       not contain it already
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_parse_line_options"></A>
+static int <I></I>
+<B>nusmv_core_parse_line_options</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Parses the given command line options.
+   -h, -help and input-file are hardcoded options,
+   all other options should be registered using
+   NuSMVCore_add_env_command_line_option or
+   NuSMVCore_add_command_line_option
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_add_env_command_line_option">NuSMVCore_add_env_command_line_option</a>
+<a href="#NuSMVCore_add_command_line_option">NuSMVCore_add_command_line_option</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_print_string"></A>
+static void <I></I>
+<B>nusmv_core_print_string</B>(
+  FILE* <b>out</b>, <i></i>
+  char* <b>str</b>, <i></i>
+  int  <b>padding</b> <i></i>
+)
+</pre>
+<dd> Prints the given string on the given stream, padded by
+   the given number. If the given string is longer
+   than MAX_PRINT_WIDTH, then a new-line is added
+   and the remaining part of the string is prinded
+   (padded as the previous one). The string is
+   divided in such way that no words are
+   truncated.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_print_usage"></A>
+static void <I></I>
+<B>nusmv_core_print_usage</B>(
+  boolean  <b>print_banner</b> <i></i>
+)
+</pre>
+<dd> Prints the command line option usages.
+   If print_banner is true, also the banner is
+   printed out. Printed command line options are
+   taken from the list of registered ones.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_add_command_line_option">NuSMVCore_add_command_line_option</a>
+<a href="#NuSMVCore_add_env_command_line_option">NuSMVCore_add_env_command_line_option</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_cpp"></A>
+static boolean <I></I>
+<B>nusmv_core_set_cpp</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -cpp cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_dp"></A>
+static boolean <I></I>
+<B>nusmv_core_set_dp</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -dp cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_iwls95_partition"></A>
+static boolean <I></I>
+<B>nusmv_core_set_iwls95_partition</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -iwls95 cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_mono_partition"></A>
+static boolean <I></I>
+<B>nusmv_core_set_mono_partition</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -mono cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_pre"></A>
+static boolean <I></I>
+<B>nusmv_core_set_pre</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -pre cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_set_thresh_partition"></A>
+static boolean <I></I>
+<B>nusmv_core_set_thresh_partition</B>(
+  OptsHandler_ptr  <b>opt</b>, <i></i>
+  char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check and apply function for the -thresh cmd line opt
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_split"></A>
+static Olist_ptr <I></I>
+<B>nusmv_core_split</B>(
+  char* <b>string</b> <i></i>
+)
+</pre>
+<dd> Given a string of white-space separated strings,
+   splits the string and builds a set of unique strings
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_merge">nusmv_core_merge</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="nusmv_core_tolower"></A>
+static char* <I></I>
+<B>nusmv_core_tolower</B>(
+  char* <b>str</b> <i></i>
+)
+</pre>
+<dd> Lowercases a string
+<p>
+
+<dd> <b>See Also</b> <code><a href="#nusmv_core_merge">nusmv_core_merge</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_usage"></A>
+void <I></I>
+<B>print_usage</B>(
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints on <code>nusmv_stdout</code> usage
+  statistics, i.e. the amount of memory used, the amount of time
+  spent, the number of BDD nodes allocated and the size of the model
+  in BDD.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#compilePrintBddModelStatistic">compilePrintBddModelStatistic</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smMisc.c"TARGET="ABSTRACT"><CODE>smMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="quit_preprocessors"></A>
+static void <I></I>
+<B>quit_preprocessors</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Removes information regarding the avaliable pre-processors.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smInit.c"TARGET="ABSTRACT"><CODE>smInit.c</CODE></A>
+
+<dt><pre>
+<A NAME="restore_nusmv_stderr"></A>
+void <I></I>
+<B>restore_nusmv_stderr</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smMisc.c"TARGET="ABSTRACT"><CODE>smMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="restore_nusmv_stdout"></A>
+void <I></I>
+<B>restore_nusmv_stdout</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smMisc.c"TARGET="ABSTRACT"><CODE>smMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="smBatchMain"></A>
+void <I></I>
+<B>smBatchMain</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The batch main. It first read the input file, than
+  flatten the hierarchy. Aftre this preliminar phase it creates the
+  boolean variables necessary for the encoding and then start
+  compiling the read model into BDD. Now computes the reachable states
+  depending if the flag has been set. before starting verifying if the
+  properties specified in the model hold or not it computes the
+  fairness constraints. You can also activate the reordering and
+  also choose to avoid the verification of the properties.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smMisc.c"TARGET="ABSTRACT"><CODE>smMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sm_banner_print"></A>
+void <I></I>
+<B>sm_banner_print</B>(
+  FILE* <b>file</b>, <i></i>
+  boolean  <b>is_linked</b> <i></i>
+)
+</pre>
+<dd> Prints the banner of NuSMV. If is_linked is true,
+               also the NuSMV library banner is output
+<p>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smVers.c"TARGET="ABSTRACT"><CODE>smVers.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Adds a command line option to the system.
+
+   When the command line option is specified, the
+   check_and_apply function is called, which should
+   first check that the (possible) parameter is
+   valid, and then perform an action on it.
+
+   Function arguments:
+   1) name -> The name of the cmd line option (e.g. -int)
+   2) usage -> The usage string that will be
+   printed in the help (i.e. -help)
+   3) parameter -> NULL if none, a string value if any.
+   e.g: "k" for bmc_length
+   4) check_and_apply -> The function that checks
+   the (possible) parameter
+   value and performs an
+   action
+   5) public -> Tells whether the cmd line option
+   is public or not. If not, the usage
+   is not printed when invoking the
+   tool with -h.
+   6) deprecated -> Tells whether the cmd line
+   options is deprecated or not
+   7) dependency -> The possibly option name on which this
+   one dependens on. NULL if none.
+   e.g. -bmc_length depends on -bmc
+   8) conflict -> The list of option names that
+   conflict with this one.
+   e.g. -mono conflicts with
+   "-thresh -iwls95"
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_add_env_command_line_option">NuSMVCore_add_env_command_line_option</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm banner_print_fun field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_banner_print_fun">NuSMVCore_get_banner_print_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The Sm batch fun field setter
+<p>
+
+<dd> <b>See Also</b> <code><a href="#NuSMVCore_get_batch_fun">NuSMVCore_get_batch_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="smAllFile.html#smData.c"TARGET="ABSTRACT"><CODE>smData.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

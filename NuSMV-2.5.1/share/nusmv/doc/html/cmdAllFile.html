@@ -1,0 +1,218 @@
+<HTML>
+<HEAD><TITLE>The cmd package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#cmd.h"><CODE>cmd.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#cmdInt.h"><CODE>cmdInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#cmdCmd.c"><CODE>cmdCmd.c</CODE></A>
+ <DD> Command table and command execution.
+ <DT> <A HREF="#cmdFile.c"><CODE>cmdFile.c</CODE></A>
+ <DD> File open, and file completion.
+ <DT> <A HREF="#cmdMisc.c"><CODE>cmdMisc.c</CODE></A>
+ <DD> Variable table; miscellaneous commands related to the general
+  system.
+</DL><HR>
+<A NAME="cmd.h"><H1>cmd.h</H1></A>
+External header file <P>
+<B>By: Adapted to NuSMV by Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="cmdInt.h"><H1>cmdInt.h</H1></A>
+Internal header file <P>
+<B>By: Adapted to NuSMV by Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="cmdCmd.c"><H1>cmdCmd.c</H1></A>
+Command table and command execution. <P>
+<B>By: Adapted to NuSMV by Marco Roveri</B><P>
+<DL>
+ <DT> <A HREF="cmdAllDet.html#Cmd_CommandAdd" TARGET="MAIN"><CODE>Cmd_CommandAdd()</CODE></A>
+ <DD> Adds a command to the command table.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_CommandRemove" TARGET="MAIN"><CODE>Cmd_CommandRemove()</CODE></A>
+ <DD> Removes given command from the command table.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_CommandDefined" TARGET="MAIN"><CODE>Cmd_CommandDefined()</CODE></A>
+ <DD> True iff a command named 'name' is defined.
+
+ <DT> <A HREF="cmdAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Returns the command stored under 'name' in the command table.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_CommandExecute" TARGET="MAIN"><CODE>Cmd_CommandExecute()</CODE></A>
+ <DD> Executes a command line.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_SecureCommandExecute" TARGET="MAIN"><CODE>Cmd_SecureCommandExecute()</CODE></A>
+ <DD> Secure layer for Cmd_CommandExecute
+
+ <DT> <A HREF="cmdAllDet.html#CmdCommandFree" TARGET="MAIN"><CODE>CmdCommandFree()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#CmdCommandCopy" TARGET="MAIN"><CODE>CmdCommandCopy()</CODE></A>
+ <DD> Copies value.
+
+ <DT> <A HREF="cmdAllDet.html#com_dispatch" TARGET="MAIN"><CODE>com_dispatch()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#apply_alias" TARGET="MAIN"><CODE>apply_alias()</CODE></A>
+ <DD> Applies alias.
+
+ <DT> <A HREF="cmdAllDet.html#variableInterpolation" TARGET="MAIN"><CODE>variableInterpolation()</CODE></A>
+ <DD> Allows interpolation of variables
+
+ <DT> <A HREF="cmdAllDet.html#variableInterpolationRecur" TARGET="MAIN"><CODE>variableInterpolationRecur()</CODE></A>
+ <DD> Recursive procedure that expands the interpolation variables
+
+ <DT> <A HREF="cmdAllDet.html#split_line" TARGET="MAIN"><CODE>split_line()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#check_shell_escape" TARGET="MAIN"><CODE>check_shell_escape()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#sigterm" TARGET="MAIN"><CODE>sigterm()</CODE></A>
+ <DD> Signal handler.
+
+ <DT> <A HREF="cmdAllDet.html#arm_signal_andler" TARGET="MAIN"><CODE>arm_signal_andler()</CODE></A>
+ <DD> Enable signal trapping depending on the interactive/batch
+  mode.
+
+ <DT> <A HREF="cmdAllDet.html#disarm_signal_andler" TARGET="MAIN"><CODE>disarm_signal_andler()</CODE></A>
+ <DD> Enable signal trapping depending on the interactive/batch
+  mode.
+
+</DL>
+<HR>
+<A NAME="cmdFile.c"><H1>cmdFile.c</H1></A>
+File open, and file completion. <P>
+<B>By: Adapted to NuSMV by Marco Roveri</B><P>
+<DL>
+ <DT> <A HREF="cmdAllDet.html#Cmd_FileOpen" TARGET="MAIN"><CODE>Cmd_FileOpen()</CODE></A>
+ <DD> Opens the file with the given mode.
+
+ <DT> <A HREF="cmdAllDet.html#CmdFgetsFilec" TARGET="MAIN"><CODE>CmdFgetsFilec()</CODE></A>
+ <DD> Duplicates the function of fgets, but also provides file
+  completion in the same style as csh
+
+ <DT> <A HREF="cmdAllDet.html#CmdFgetsFilec" TARGET="MAIN"><CODE>CmdFgetsFilec()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#cmp" TARGET="MAIN"><CODE>cmp()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#match" TARGET="MAIN"><CODE>match()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#CmdHistorySubstitution" TARGET="MAIN"><CODE>CmdHistorySubstitution()</CODE></A>
+ <DD> Simple history substitution routine.
+
+ <DT> <A HREF="cmdAllDet.html#getnum" TARGET="MAIN"><CODE>getnum()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#getarg" TARGET="MAIN"><CODE>getarg()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#bad_event" TARGET="MAIN"><CODE>bad_event()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#do_subst" TARGET="MAIN"><CODE>do_subst()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#print_prompt" TARGET="MAIN"><CODE>print_prompt()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#removeWhiteSpaces" TARGET="MAIN"><CODE>removeWhiteSpaces()</CODE></A>
+ <DD> Removes tabs and spaces from the beginning and end of string.
+
+</DL>
+<HR>
+<A NAME="cmdMisc.c"><H1>cmdMisc.c</H1></A>
+Variable table; miscellaneous commands related to the general
+  system. <P>
+<B>By: Adapted to NuSMV by Marco Roveri</B><P>
+<DL>
+ <DT> <A HREF="cmdAllDet.html#Cmd_FlagReadByName" TARGET="MAIN"><CODE>Cmd_FlagReadByName()</CODE></A>
+ <DD> Looks up value of flag in table of named values.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_Init" TARGET="MAIN"><CODE>Cmd_Init()</CODE></A>
+ <DD> Initializes the command package.
+
+ <DT> <A HREF="cmdAllDet.html#Cmd_End" TARGET="MAIN"><CODE>Cmd_End()</CODE></A>
+ <DD> Ends the command package.
+
+ <DT> <A HREF="cmdAllDet.html#CmdOpenPipe" TARGET="MAIN"><CODE>CmdOpenPipe()</CODE></A>
+ <DD> Opens a pipe with a pager
+
+ <DT> <A HREF="cmdAllDet.html#CmdClosePipe" TARGET="MAIN"><CODE>CmdClosePipe()</CODE></A>
+ <DD> Closes a previously opened pipe
+
+ <DT> <A HREF="cmdAllDet.html#CmdOpenFile" TARGET="MAIN"><CODE>CmdOpenFile()</CODE></A>
+ <DD> Open a file whose name is given
+
+ <DT> <A HREF="cmdAllDet.html#CmdCloseFile" TARGET="MAIN"><CODE>CmdCloseFile()</CODE></A>
+ <DD> Closes a previously opened file
+
+ <DT> <A HREF="cmdAllDet.html#CmdFreeArgv" TARGET="MAIN"><CODE>CmdFreeArgv()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#CmdAliasFree" TARGET="MAIN"><CODE>CmdAliasFree()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#CommandTime" TARGET="MAIN"><CODE>CommandTime()</CODE></A>
+ <DD> Implements the time command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandEcho" TARGET="MAIN"><CODE>CommandEcho()</CODE></A>
+ <DD> Implements the echo command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandMemoryProfile" TARGET="MAIN"><CODE>CommandMemoryProfile()</CODE></A>
+ <DD> Implements the _memory_profile command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandQuit" TARGET="MAIN"><CODE>CommandQuit()</CODE></A>
+ <DD> Implements the quit command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandUsage" TARGET="MAIN"><CODE>CommandUsage()</CODE></A>
+ <DD> Implements the usage command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandWhich" TARGET="MAIN"><CODE>CommandWhich()</CODE></A>
+ <DD> Implements the which command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandHistory" TARGET="MAIN"><CODE>CommandHistory()</CODE></A>
+ <DD> Implements the history command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandAlias" TARGET="MAIN"><CODE>CommandAlias()</CODE></A>
+ <DD> Implements the alias command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandUnalias" TARGET="MAIN"><CODE>CommandUnalias()</CODE></A>
+ <DD> Implements the unalias command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandHelp" TARGET="MAIN"><CODE>CommandHelp()</CODE></A>
+ <DD> Implements the help command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandSource" TARGET="MAIN"><CODE>CommandSource()</CODE></A>
+ <DD> Implements the source command.
+
+ <DT> <A HREF="cmdAllDet.html#CommandShowHelp" TARGET="MAIN"><CODE>CommandShowHelp()</CODE></A>
+ <DD> Implements the _show_help command.
+
+ <DT> <A HREF="cmdAllDet.html#print_alias" TARGET="MAIN"><CODE>print_alias()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Generate completion matches for readline.
+
+ <DT> <A HREF="cmdAllDet.html#command_completion" TARGET="MAIN"><CODE>command_completion()</CODE></A>
+ <DD> Sets up command or filename completion on reading user input.
+
+ <DT> <A HREF="cmdAllDet.html#command_alias_help" TARGET="MAIN"><CODE>command_alias_help()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="cmdAllDet.html#FlushBuffers" TARGET="MAIN"><CODE>FlushBuffers()</CODE></A>
+ <DD> Function to flush nusmv_stdout and nusmv_stderr.
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

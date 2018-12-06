@@ -1,0 +1,787 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="SatMinisat_create"></A>
+SatMinisat_ptr <I></I>
+<B>SatMinisat_create</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> The first parameter is the name of the solver.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="SatMinisat_destroy"></A>
+void <I></I>
+<B>SatMinisat_destroy</B>(
+  SatMinisat_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destroys an instance of a MiniSat SAT solver
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="SatZchaff_create"></A>
+SatZchaff_ptr <I></I>
+<B>SatZchaff_create</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> The first parameter is the name of the solver.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="SatZchaff_destroy"></A>
+void <I></I>
+<B>SatZchaff_destroy</B>(
+  SatZchaff_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The first parameter is the name of the solver.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="_get_clause_size"></A>
+static int <I></I>
+<B>_get_clause_size</B>(
+  const int * <b>clause</b> <i></i>
+)
+</pre>
+<dd> Computes the size of a clause.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="_get_clause_size"></A>
+static int <I></I>
+<B>_get_clause_size</B>(
+  const int * <b>clause</b> <i></i>
+)
+</pre>
+<dd> Computes the size of a clause.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_add"></A>
+void <I></I>
+<B>sat_minisat_add</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Be_Cnf_ptr  <b>cnfProb</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> converts all CNF literals into the internal literals,
+  adds a group id to every clause (if group is not permament) and then add
+  obtained clauses to actual Minisat
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_clear_preferred_variables"></A>
+void <I></I>
+<B>sat_minisat_clear_preferred_variables</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Clears preferred variables in the solver. A preferred variable
+               is split upon with priority, with respect to non-preferedd
+               ones.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolver_set_preferred_variables">SatSolver_set_preferred_variables</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_cnfLiteral2minisatLiteral"></A>
+int <I></I>
+<B>sat_minisat_cnfLiteral2minisatLiteral</B>(
+  SatMinisat_ptr  <b>self</b>, <i></i>
+  int  <b>cnfLiteral</b> <i></i>
+)
+</pre>
+<dd> The literal may not be 0 (because 0 cannot have sign).
+  First, the function obtains the cnf variable (removes the sign),
+  obtains associated internal var through hash table(creates if necessary
+  an internal variable)
+  and then converts it in minisat literal (just adjust the sign).
+  If necessary a new minisat variable is created.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_minisatLiteral2cnfLiteral">sat_minisat_minisatLiteral2cnfLiteral</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_create_group"></A>
+SatSolverGroup <I></I>
+<B>sat_minisat_create_group</B>(
+  const SatIncSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Adds the group at the END of the existing groups list
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_destroy_group">SatIncSolver_destroy_group</a>
+<a href="#SatIncSolver_move_to_permanent_and_destroy_group">SatIncSolver_move_to_permanent_and_destroy_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_deinit"></A>
+void <I></I>
+<B>sat_minisat_deinit</B>(
+  SatMinisat_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Deinitializes SatMinisat object.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_destroy_group"></A>
+void <I></I>
+<B>sat_minisat_destroy_group</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> Just adds to the solver a unit clause with positive literal
+  of a variable with index  equal to group id
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_enlarge_minisatClause"></A>
+void <I></I>
+<B>sat_minisat_enlarge_minisatClause</B>(
+  const SatMinisat_ptr  <b>self</b>, <i></i>
+  unsigned int  <b>minSize</b> <i></i>
+)
+</pre>
+<dd> Enlarges minisatClause until it has at least size minSize.
+<p>
+
+<dd> <b>Side Effects</b> minisatClause might be reallocated, minisatClauseSize
+               changes value.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_add">sat_minisat_add</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_finalize"></A>
+static void <I></I>
+<B>sat_minisat_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>dummy</b> <i></i>
+)
+</pre>
+<dd> Pure virtual function. This must be refined by derived classes.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_get_conflicts"></A>
+Slist_ptr <I></I>
+<B>sat_minisat_get_conflicts</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Only use with SatMinisat_solve_permanent_group_assume
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_solve_permanent_group_assume">sat_minisat_solve_permanent_group_assume</a>
+<a href="#sat_minisat_make_conflicts">sat_minisat_make_conflicts</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_get_minisatClauseSize"></A>
+int <I></I>
+<B>sat_minisat_get_minisatClauseSize</B>(
+  const SatMinisat_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Getter for minisatClauseSize
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_get_minisatClause"></A>
+int* <I></I>
+<B>sat_minisat_get_minisatClause</B>(
+  const SatMinisat_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Getter for minisatClause
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_get_polarity_mode"></A>
+int <I></I>
+<B>sat_minisat_get_polarity_mode</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> It is a pure virtual function and SatSolver is an abstract
+  base class. Every derived class must ovewrwrite this function.
+  It is an error if the last solving was unsuccessful.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_init"></A>
+void <I></I>
+<B>sat_minisat_init</B>(
+  SatMinisat_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Initializes Sat Minisat object.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_make_conflicts"></A>
+Slist_ptr <I></I>
+<B>sat_minisat_make_conflicts</B>(
+  const SatMinisat_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Obtains the set of conflicting assumptions from MiniSat
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_solve_permanent_group_assume">sat_minisat_solve_permanent_group_assume</a>
+<a href="#sat_minisat_get_conflict">sat_minisat_get_conflict</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_make_model"></A>
+Slist_ptr <I></I>
+<B>sat_minisat_make_model</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> The previous invocation of SAT_Solve should have been successful
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_minisatLiteral2cnfLiteral"></A>
+int <I></I>
+<B>sat_minisat_minisatLiteral2cnfLiteral</B>(
+  SatMinisat_ptr  <b>self</b>, <i></i>
+  int  <b>minisatLiteral</b> <i></i>
+)
+</pre>
+<dd> The variable in the literal has to be created by
+   sat_minisat_cnfLiteral2minisatLiteral only.
+  First, the function obtains the minisat variable from the literal,
+  obtains associated cnf variable (there must already be the association),
+  and then converts it in cnf literal (adjust the sign)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_cnfLiteral2minisatLiteral">sat_minisat_cnfLiteral2minisatLiteral</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_move_to_permanent_and_destroy_group"></A>
+void <I></I>
+<B>sat_minisat_move_to_permanent_and_destroy_group</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> just adds  to minisat a unit clause with negative literal
+  of a variable with index equal to group id
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+<a href="#SatSolver_get_permanent_group">SatSolver_get_permanent_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_set_polarity_mode"></A>
+void <I></I>
+<B>sat_minisat_set_polarity_mode</B>(
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  int  <b>mode</b> <i></i>
+)
+</pre>
+<dd> It is a pure virtual function and SatSolver is an abstract
+  base class. Every derived class must ovewrwrite this function.
+  It is an error if the last solving was unsuccessful.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_set_polarity"></A>
+void <I></I>
+<B>sat_minisat_set_polarity</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Be_Cnf_ptr  <b>cnfProb</b>, <i></i>
+  int  <b>polarity</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> Sets the polarity of the formula.
+  Polarity 1 means the formula is considered as positive, and -1 means
+  the negation of the formula will be solved.
+  A unit clause of the literal (with sign equal to polarity)
+  corresponding to the given CNF formula is added to the solve.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_set_preferred_variables"></A>
+void <I></I>
+<B>sat_minisat_set_preferred_variables</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Slist_ptr  <b>cnfVars</b> <i></i>
+)
+</pre>
+<dd> Sets preferred variables in the solver. A preferred variable is
+               split upon with priority, with respect to non-preferedd ones.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolver_clear_preferred_variables">SatSolver_clear_preferred_variables</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_set_random_mode"></A>
+void <I></I>
+<B>sat_minisat_set_random_mode</B>(
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  double  <b>seed</b> <i></i>
+)
+</pre>
+<dd> It is a pure virtual function and SatSolver is an abstract
+  base class. Every derived class must ovewrwrite this function.
+  It is an error if the last solving was unsuccessful.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_solve_all_groups"></A>
+SatSolverResult <I></I>
+<B>sat_minisat_solve_all_groups</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Tries to solve all added formulas
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_solve_groups"></A>
+SatSolverResult <I></I>
+<B>sat_minisat_solve_groups</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  const Olist_ptr  <b>groups</b> <i></i>
+)
+</pre>
+<dd> The permanent group is automatically added to the list.
+  Returns a flag whether the solving was successful. If it was successful only
+  then SatSolver_get_model may be invoked to obtain the model
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_solve_permanent_group_assume"></A>
+SatSolverResult <I></I>
+<B>sat_minisat_solve_permanent_group_assume</B>(
+  const SatSolver_ptr  <b>sol</b>, <i></i>
+  const Slist_ptr  <b>assumptions</b> <i></i>
+)
+</pre>
+<dd> Obtain set of conflicting assumptions with
+  sat_minisat_get_conflict
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_get_conflict">sat_minisat_get_conflict</a>
+<a href="#sat_minisat_make_conflicts">sat_minisat_make_conflicts</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_minisat_solve_without_groups"></A>
+SatSolverResult <I></I>
+<B>sat_minisat_solve_without_groups</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  const Olist_ptr  <b>groups</b> <i></i>
+)
+</pre>
+<dd> The permanent group must not be in the list.
+  Returns a flag whether the solving was successful. If it was successful only
+  then SatSolver_get_model may be invoked to obtain the model
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolverResult">SatSolverResult</a>
+<a href="#SatSolver_get_permanent_group">SatSolver_get_permanent_group</a>
+<a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+<a href="#SatSolver_get_model">SatSolver_get_model</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatMinisat.c"TARGET="ABSTRACT"><CODE>SatMinisat.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_add"></A>
+void <I></I>
+<B>sat_zchaff_add</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Be_Cnf_ptr  <b>cnfProb</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> converts all CNF literals into the internal literals,
+  adds a group id to every clause (if group is not permament) and then add
+  obtained clauses to actual ZChaff
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_clear_preferred_variables"></A>
+void <I></I>
+<B>sat_zchaff_clear_preferred_variables</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Clears preferred variables in the solver
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_set_preferred_variables">sat_zchaff_set_preferred_variables</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_cnfLiteral2zchaffLiteral"></A>
+int <I></I>
+<B>sat_zchaff_cnfLiteral2zchaffLiteral</B>(
+  SatZchaff_ptr  <b>self</b>, <i></i>
+  int  <b>cnfLiteral</b> <i></i>
+)
+</pre>
+<dd> The literal may not be 0 (because 0 cannot have sign).
+  First, the function obtains the cnf variable (removes the sign),
+  obtains associated internal var through hash table(creates if necessary
+  an internal variable)
+  and then converts it in zchaff literal (var*2+sign, see ZChaff SAT.h).
+  If necessary a new minisat variable is created.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_zchaffLiteral2cnfLiteral">sat_zchaff_zchaffLiteral2cnfLiteral</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_create_group"></A>
+SatSolverGroup <I></I>
+<B>sat_zchaff_create_group</B>(
+  const SatIncSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Adds the group at the END of the existing groups list
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_destroy_group">SatIncSolver_destroy_group</a>
+<a href="#SatIncSolver_move_to_permanent_and_destroy_group">SatIncSolver_move_to_permanent_and_destroy_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_deinit"></A>
+void <I></I>
+<B>sat_zchaff_deinit</B>(
+  SatZchaff_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Deinitializes SatZchaff object.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_destroy_group"></A>
+void <I></I>
+<B>sat_zchaff_destroy_group</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> Just adds to the solver a unit clause with positive literal
+  of a variable with index  equal to group id
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_finalize"></A>
+static void <I></I>
+<B>sat_zchaff_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>dummy</b> <i></i>
+)
+</pre>
+<dd> Pure virtual function. This must be refined by derived classes.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_get_conflicts"></A>
+Slist_ptr <I></I>
+<B>sat_zchaff_get_conflicts</B>(
+  const SatSolver_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only use with SatMinisat_solve_permanent_group_assume
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_minisat_solve_permanent_group_assume">sat_minisat_solve_permanent_group_assume</a>
+<a href="#sat_minisat_make_conflict">sat_minisat_make_conflict</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_init"></A>
+void <I></I>
+<B>sat_zchaff_init</B>(
+  SatZchaff_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Initializes Sat Zchaff object.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_make_conflicts"></A>
+Slist_ptr <I></I>
+<B>sat_zchaff_make_conflicts</B>(
+  const SatZchaff_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Obtains the set of conflicting assumptions from zCahdd
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_solve_permanent_group_assume">sat_zchaff_solve_permanent_group_assume</a>
+<a href="#sat_zchaff_get_conflict">sat_zchaff_get_conflict</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_make_model"></A>
+Slist_ptr <I></I>
+<B>sat_zchaff_make_model</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> The previous invocation of SAT_Solve should have been successful
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_move_to_permanent_and_destroy_group"></A>
+void <I></I>
+<B>sat_zchaff_move_to_permanent_and_destroy_group</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> just adds to zchaff a unit clause with negative literal
+  of a variable with index equal to group id
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+<a href="#SatSolver_get_permanent_group">SatSolver_get_permanent_group</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_set_polarity"></A>
+void <I></I>
+<B>sat_zchaff_set_polarity</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Be_Cnf_ptr  <b>cnfProb</b>, <i></i>
+  int  <b>polarity</b>, <i></i>
+  SatSolverGroup  <b>group</b> <i></i>
+)
+</pre>
+<dd> Sets the polarity of the formula.
+  Polarity 1 means the formula is considered as positive, and -1 means
+  the negation of the formula will be solved.
+  A unit clause of the literal (with sign equal to polarity)
+  corresponding to the given CNF formula is added to the solve.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_set_preferred_variables"></A>
+void <I></I>
+<B>sat_zchaff_set_preferred_variables</B>(
+  const SatSolver_ptr  <b>solver</b>, <i></i>
+  const Slist_ptr  <b>cnfVars</b> <i></i>
+)
+</pre>
+<dd> Sets preferred variables in the solver
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_clear_preferred_variables">sat_zchaff_clear_preferred_variables</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_solve_all_groups"></A>
+SatSolverResult <I></I>
+<B>sat_zchaff_solve_all_groups</B>(
+  const SatSolver_ptr  <b>solver</b> <i></i>
+)
+</pre>
+<dd> Tries to solve all added formulas
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_solve_groups"></A>
+SatSolverResult <I></I>
+<B>sat_zchaff_solve_groups</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  const Olist_ptr  <b>groups</b> <i></i>
+)
+</pre>
+<dd> The permanent group is automatically added to the list.
+  Returns a flag whether the solving was successful. If it was successful only
+  then SatSolver_get_model may be invoked to obtain the model
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_solve_permanent_group_assume"></A>
+SatSolverResult <I></I>
+<B>sat_zchaff_solve_permanent_group_assume</B>(
+  const SatSolver_ptr  <b>self</b>, <i></i>
+  const Slist_ptr  <b>assumptions</b> <i></i>
+)
+</pre>
+<dd> Obtain set of conflicting assumptions with
+  sat_minisat_get_conflict
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_get_conflict">sat_zchaff_get_conflict</a>
+<a href="#sat_zchaff_make_conflict">sat_zchaff_make_conflict</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_solve_without_groups"></A>
+SatSolverResult <I></I>
+<B>sat_zchaff_solve_without_groups</B>(
+  const SatIncSolver_ptr  <b>solver</b>, <i></i>
+  const Olist_ptr  <b>groups</b> <i></i>
+)
+</pre>
+<dd> The permanent group must not be in the list.
+  Returns a flag whether the solving was successful. If it was successful only
+  then SatSolver_get_model may be invoked to obtain the model
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolverResult">SatSolverResult</a>
+<a href="#SatSolver_get_permanent_group">SatSolver_get_permanent_group</a>
+<a href="#SatIncSolver_create_group">SatIncSolver_create_group</a>
+<a href="#SatSolver_get_model">SatSolver_get_model</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+<dt><pre>
+<A NAME="sat_zchaff_zchaffLiteral2cnfLiteral"></A>
+int <I></I>
+<B>sat_zchaff_zchaffLiteral2cnfLiteral</B>(
+  SatZchaff_ptr  <b>self</b>, <i></i>
+  int  <b>zchaffLiteral</b> <i></i>
+)
+</pre>
+<dd> The variable in the literal has to be created by
+  sat_zchaff_cnfLiteral2zchaffLiteral only.
+  First, the function obtains the zchaff variable from the literal,
+  obtains associated cnf variable (there must already be the association),
+  and then converts it in cnf literal (add the sign)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sat_zchaff_cnfLiteral2zchaffLiteral">sat_zchaff_cnfLiteral2zchaffLiteral</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SatZchaff.c"TARGET="ABSTRACT"><CODE>SatZchaff.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

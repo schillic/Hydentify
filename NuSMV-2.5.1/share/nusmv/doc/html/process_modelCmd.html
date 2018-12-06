@@ -1,0 +1,35 @@
+<html>
+<head><title>process_model</title></head>
+<body>
+
+<h3>process_model - Performs the batch steps and then returns control to the interactive shell.</h3>
+<hr>
+<code>process_model [-h] [-f] [-r] [-i model-file] [-m Method]</code><p>
+Reads the model, compiles it into BDD and
+  performs the model checking of all the specification contained in
+  it. If the environment variable <tt>forward_search</tt> has been set
+  before, then the set of reachable states is computed. If the
+  option <tt>-r</tt> is specified, the reordering of variables is
+  performed accordingly. This command simulates the batch behavior of
+  NuSMV and then returns the control to the interactive shell.<p>
+
+  Command options:<p>
+  <dl>
+    <dt> <tt>-f</tt>
+       <dd> Forces model construction even when COI is enabled.
+    <dt> <tt>-r</tt>
+       <dd> Performs a variable ordering at the end of the
+       computation, and dumps the variable ordering as the command
+       line option <tt>-reorder</tt> does.
+    <dt> <tt>-i model-file</tt>
+       <dd> Sets the environment variable <tt>input_file</tt> to file
+           <tt>model-file</tt>, and reads the model from file
+           <tt>model-file</tt>.
+    <dt> <tt>-m Method</tt>
+       <dd> Sets the environment variable <tt>partition_method</tt> to
+       <tt>Method</tt> and uses it as partitioning method.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

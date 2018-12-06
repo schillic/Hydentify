@@ -1,0 +1,43 @@
+<html>
+<head><title>check_property</title></head>
+<body>
+
+<h3>check_property - Checks a property into the current list of properties, or a newly specified property</h3>
+<hr>
+<code>check_property [-h] [-n number | -P "name"] | [(-c | -l | -i | -s | -q ) [-p "formula [IN context]"]]</code><p>
+Checks the specified property taken from the property list, or adds
+  the new specified property and checks it.
+
+  <p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-h</tt>
+       <dd> Prints the help.
+    <dt> <tt>-c</tt>
+       <dd> Checks all the CTL properties not already checked
+    <dt> <tt>-l</tt>
+       <dd> Checks all the LTL properties not already checked
+    <dt> <tt>-i</tt>
+       <dd> Checks all the INVAR properties not already checked
+    <dt> <tt>-s</tt>
+       <dd> Checks all the PSL properties not already checked
+    <dt> <tt>-q</tt>
+       <dd> Checks all the COMPUTE properties not already checked
+    <dt> <tt>-n number</tt>
+       <dd> Checks the property with id <tt>number</tt> in the
+            property list if it exists.
+    <dt> <tt>-P name</tt>
+       <dd> Checks the property named <tt>named</tt> in the
+            property list if it exists.
+    <dt> <tt>-p "formula [IN context]"</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+  </dl>
+  If no property has been specified via <tt>-n</tt> or <tt>-p</tt> or <tt>-P</tt>,
+  then all the properties (of a given type) in the property list will be
+  evaluated.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

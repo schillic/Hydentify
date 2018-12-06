@@ -1,0 +1,27 @@
+<html>
+<head><title>bmc_simulate</title></head>
+<body>
+
+<h3>bmc_simulate - Generates a trace of the model from 0 (zero) to k</h3>
+<hr>
+<code>bmc_simulate [-h | [-p | -v] -k <length>]</code><p>
+bmc_simulate does not require a specification
+  to build the problem, because only the model is used to build it.
+  The problem length is represented by the <i>-k</i> command parameter,
+  or by its default value stored in the environment variable
+  <i>bmc_length</i>.<BR>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-p </tt>
+    <dd> prints out the generated trace, with only variables whose
+    values had changed.
+    <dt> <tt>-v </tt>
+    <dd> verbosely prints out the generated trace. All assignments will be
+    printed.
+    <dt> <tt>-k <i> length</i></tt>
+    <dd> <i>length</i> is the number of simulation steps.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

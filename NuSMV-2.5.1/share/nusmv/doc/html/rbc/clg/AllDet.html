@@ -1,0 +1,144 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="AddToClause"></A>
+static int <I></I>
+<B>AddToClause</B>(
+  int  <b>pos_lit</b>, <i></i>
+  int  <b>neg_lit</b>, <i></i>
+  int  <b>size</b> <i></i>
+)
+</pre>
+<dd> Insert pos_lit, where neg_lit is the corresponding
+               literal of opposite polarity. If neg_lit is already in
+               the clause then the clause is cancelled; if pos_lit is
+               already in the clause then it is not reinserted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Conj"></A>
+clause_graph <I></I>
+<B>Clg_Conj</B>(
+  clause_graph  <b>left</b>, <i></i>
+  clause_graph  <b>right</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a conjunction of two CLGs
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Disj"></A>
+clause_graph <I></I>
+<B>Clg_Disj</B>(
+  clause_graph  <b>left</b>, <i></i>
+  clause_graph  <b>right</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a disjunction of two CLGs
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Extract"></A>
+void <I></I>
+<B>Clg_Extract</B>(
+  clause_graph  <b>head</b>, <i></i>
+  int  <b>type</b>, <i></i>
+  Clg_Commit  <b>commit</b>, <i></i>
+  void * <b>data</b> <i></i>
+)
+</pre>
+<dd> Calls commit with each extracted clause as an argument.
+                      type indicates the style of clause (eg, ZChaff 
+		      all-positive integer format); *data is passed to commit
+		      as an extra argument.
+
+		      Clauses have duplicated literals suppressed and
+		      clauses with both positive and negative
+		      occurrences of the same literal are skipped.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Free"></A>
+void <I></I>
+<B>Clg_Free</B>(
+  clause_graph  <b>graph</b> <i></i>
+)
+</pre>
+<dd> Free all CLGs
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Lit"></A>
+clause_graph <I></I>
+<B>Clg_Lit</B>(
+  int  <b>literal</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a single literal
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Clg_Size"></A>
+int <I></I>
+<B>Clg_Size</B>(
+  clause_graph  <b>graph</b> <i></i>
+)
+</pre>
+<dd> Return the number of clauses stored in the CLG
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Extract"></A>
+static void <I></I>
+<B>Extract</B>(
+  clause_graph  <b>head</b>, <i></i>
+  node_ptr  <b>follow</b>, <i></i>
+  int  <b>clause_size</b>, <i></i>
+  int  <b>type</b>, <i></i>
+  Clg_Commit  <b>commit</b>, <i></i>
+  void * <b>data</b> <i></i>
+)
+</pre>
+<dd> Walk the data structure from the head, creating clauses 
+                      each time one is seen complete. See Footnote 936 for 
+		      details of algorithm
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+<dt><pre>
+<A NAME="new_clg"></A>
+static clause_graph <I></I>
+<B>new_clg</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocate a new CLG node.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#clgClg.c"TARGET="ABSTRACT"><CODE>clgClg.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

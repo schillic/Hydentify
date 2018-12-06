@@ -1,0 +1,78 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="GenericTrans_create"></A>
+GenericTrans_ptr <I></I>
+<B>GenericTrans_create</B>(
+  const TransType  <b>trans_type</b> <i></i>
+)
+</pre>
+<dd> None of given arguments will become owned by self. 
+  You should destroy cl_options by yourself.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Object_destroy">Object_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#GenericTrans.c"TARGET="ABSTRACT"><CODE>GenericTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="GenericTrans_get_type"></A>
+TransType <I></I>
+<B>GenericTrans_get_type</B>(
+  const GenericTrans_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the type of the transition relation structure passed as 
+  the arguments.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#GenericTrans.c"TARGET="ABSTRACT"><CODE>GenericTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="TransType_from_string"></A>
+TransType <I></I>
+<B>TransType_from_string</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Converts the given transition type from string "name" to
+  TransType object. The possible values of name can be "Monolithic",
+  "Threshold", or "Iwls95CP".
+<p>
+
+<dd> <b>Side Effects</b> None.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TransType_to_string">TransType_to_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#GenericTrans.c"TARGET="ABSTRACT"><CODE>GenericTrans.c</CODE></A>
+
+<dt><pre>
+<A NAME="TransType_to_string"></A>
+const char* <I></I>
+<B>TransType_to_string</B>(
+  const TransType  <b>self</b> <i></i>
+)
+</pre>
+<dd> It takes TransType of self and returns a string
+  specifying the type of the transition relation. Returned string is statically
+  allocated and must not be freed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TransType_from_string">TransType_from_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#GenericTrans.c"TARGET="ABSTRACT"><CODE>GenericTrans.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

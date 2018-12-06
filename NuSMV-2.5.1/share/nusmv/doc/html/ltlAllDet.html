@@ -1,0 +1,659 @@
+<html>
+<head><title>The ltl package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandCheckLtlSpec"></A>
+int <I></I>
+<B>CommandCheckLtlSpec</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs LTL model checking
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCmd.c"TARGET="ABSTRACT"><CODE>ltlCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_CheckLtlSpec"></A>
+void <I></I>
+<B>Ltl_CheckLtlSpec</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> The main routine to perform LTL model checking. It
+  first takes the LTL formula, prints it in a file. It calls the LTL2SMV
+  translator on it an reads in the generated tableau. The tableau is
+  instantiated, compiled and then conjoined with the original model
+  (both the set of fairness conditions and the transition relation are
+  affected by this operation, for this reason we save the current
+  model, and after the verification of the property we restore the
+  original one).
+
+  If already set (The Scalar and the Bdd ones, the FSMs used for
+  verification are taken from within the property. Otherwise, global
+  FSMs are set within the property and then used for verification.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_Init"></A>
+void <I></I>
+<B>Ltl_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the ltl package.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCmd.c"TARGET="ABSTRACT"><CODE>ltlCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_RewriteInput"></A>
+node_ptr <I></I>
+<B>Ltl_RewriteInput</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr* <b>init</b>, <i></i>
+  node_ptr* <b>invar</b>, <i></i>
+  node_ptr* <b>trans</b> <i></i>
+)
+</pre>
+<dd> The function takes an LTL formula and rewrite it such a
+  way that it will not contain input variables any more. See the
+  description of this file for more details.
+
+  "layer" is the later where new state variables are defined (if it is 
+  required).
+
+  "init", "invar", "trans" point to expressions corresponding to
+  initial condition, invariant and transition relations of the
+  hierarchy, respect. This expressions are added new expression if required.
+  
+  The returned expressions (the LTL formula and parts of hierarchy)
+  are newly created node_ptr constructs and have to be freed by the
+  invoker. 
+  NOTE ABOUT MEMORY: New expressions are created exactly the same way
+  as it is done by Compile_FlattenSexpExpandDefine.
+
+  Precondition: input expression has to be already flattened.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlRewrite.c"TARGET="ABSTRACT"><CODE>ltlRewrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_build_counter_example"></A>
+Trace_ptr <I></I>
+<B>Ltl_StructCheckLtlSpec_build_counter_example</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Perform the computation of a witness for a property.
+  Assumes the Ltl_StructcCheckLtlSpec structure being initialized before with
+  Ltl_StructCheckLtlSpec_build, and that Ltl_StructCheckLtlSpec_build has been
+  invoked.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_build"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_build</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Initialize the structure by computing the tableau for
+  the LTL property and computing the cross-product with the FSM of the model.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_check"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_check</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Perform the check to see wether the property holds or not.
+  Assumes the Ltl_StructcCheckLtlSpec structure being initialized before with
+  Ltl_StructCheckLtlSpec_build.
+
+  If compassion is present it calls the check method for compassion,
+  otherwise the check method dedicated to the algorithm given by the
+  value of the oreg_justice_emptiness_bdd_algorithm option.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ltl_stuctcheckltlspec_check_compassion">ltl_stuctcheckltlspec_check_compassion</a>
+<a href="#ltl_structcheckltlspec_check_el_bwd">ltl_structcheckltlspec_check_el_bwd</a>
+<a href="#ltl_structcheckltlspec_check_el_fwd">ltl_structcheckltlspec_check_el_fwd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_create"></A>
+Ltl_StructCheckLtlSpec_ptr <I></I>
+<B>Ltl_StructCheckLtlSpec_create</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Create an empty Ltl_StructCheckLtlSpec structure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_destroy"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_destroy</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Desrtroy an Ltl_StructCheckLtlSpec structure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_explain"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_explain</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Perform the computation of a witness for a property.
+  Assumes the Ltl_StructcCheckLtlSpec structure being initialized before with
+  Ltl_StructCheckLtlSpec_build, and that Ltl_StructCheckLtlSpec_build has been
+  invoked.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_get_clean_s0"></A>
+bdd_ptr <I></I>
+<B>Ltl_StructCheckLtlSpec_get_clean_s0</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Get the s0 field  of an Ltl_StructCheckLtlSpec structure
+  purified by tableu variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_get_s0"></A>
+bdd_ptr <I></I>
+<B>Ltl_StructCheckLtlSpec_get_s0</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Get the s0 field of an Ltl_StructCheckLtlSpec structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_print_result"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_print_result</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Prints the result of the Ltl_StructCheckLtlSpec_check fun
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_set_do_rewriting"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_set_do_rewriting</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  boolean  <b>do_rewriting</b> <i></i>
+)
+</pre>
+<dd> Set the do_rewriting field of an Ltl_StructCheckLtlSpec
+  structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_set_ltl2smv"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_set_ltl2smv</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  Ltl_StructCheckLtlSpec_ltl2smv  <b>ltl2smv</b> <i></i>
+)
+</pre>
+<dd> Set the ltl2smv field of an Ltl_StructCheckLtlSpec structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_set_negate_formula"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_set_negate_formula</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  boolean  <b>negate_formula</b> <i></i>
+)
+</pre>
+<dd> Set the negate_formula field of an Ltl_StructCheckLtlSpec structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_StructCheckLtlSpec_set_oreg2smv"></A>
+void <I></I>
+<B>Ltl_StructCheckLtlSpec_set_oreg2smv</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  Ltl_StructCheckLtlSpec_oreg2smv  <b>oreg2smv</b> <i></i>
+)
+</pre>
+<dd> Set the oreg2smv field of an Ltl_StructCheckLtlSpec structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="Ltl_apply_input_vars_rewriting"></A>
+Expr_ptr <I></I>
+<B>Ltl_apply_input_vars_rewriting</B>(
+  Expr_ptr  <b>spec</b>, <i></i>
+  SymbTable_ptr  <b>st</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  FlatHierarchy_ptr  <b>outfh</b> <i></i>
+)
+</pre>
+<dd> Rewriting makes side-effect on given hierarchy, and
+  can declare new variables inside given layer.
+  The resulting expression is flattened and define expanded.
+  Invoker has to free returned expression exactly as if it was created by
+  Compile_FlattenSexpExpandDefine.
+<p>
+
+<dd> <b>Side Effects</b> layer and outfh are expected to get changed
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Compile_FlattenSexpExpandDefine">Compile_FlattenSexpExpandDefine</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="feasible"></A>
+bdd_ptr <I></I>
+<B>feasible</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b> <i></i>
+)
+</pre>
+<dd> Checks whether the model has a fair path and returns
+  the initial state of the path.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="fill_path_with_inputs"></A>
+static node_ptr <I></I>
+<B>fill_path_with_inputs</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b> <i></i>
+)
+</pre>
+<dd> Fills a path with inputs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltlPropAddTableau"></A>
+static BddFsm_ptr <I></I>
+<B>ltlPropAddTableau</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  FlatHierarchy_ptr  <b>hierarchy</b> <i></i>
+)
+</pre>
+<dd> The bdd fsm into the property will change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_clean_bdd"></A>
+bdd_ptr <I></I>
+<B>ltl_clean_bdd</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Quantify out tableau variables
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_create_substitution"></A>
+node_ptr <I></I>
+<B>ltl_create_substitution</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  NodeList_ptr  <b>new_var_exprs</b> <i></i>
+)
+</pre>
+<dd> The purpose of the function is to create a substitution
+  for the given expression in an LTL formula.
+
+  Returns the new identifiers.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlRewrite.c"TARGET="ABSTRACT"><CODE>ltlRewrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_rewrite_input"></A>
+LtlInputKind <I></I>
+<B>ltl_rewrite_input</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr* <b>expr</b>, <i></i>
+  NodeList_ptr  <b>new_var_exprs</b> <i></i>
+)
+</pre>
+<dd> A copy of the provided expression is created and
+  returned in the same pointer "expr". The copy may be exact or
+  already rewritten (to remove inputs in temporal expressions).
+
+  "new_var_exprs" is a list of pairs (CONS) of a new state var
+  introduced during rewriting and an expression associated with that
+  state variable.
+  
+  Precondition: the expression have to be correctly typed.
+
+  NOTE FOR DEVELOPERS: This function creates new expression using the
+  same approach as compileFlattenSexpRecur, i.e. consts and ids are
+  find_atom-ed and operations are new_node-ed. Both functions should be 
+  changed synchronously.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#LtlInputKind">LtlInputKind</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlRewrite.c"TARGET="ABSTRACT"><CODE>ltlRewrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_build_tableau_and_prop_fsm"></A>
+int <I></I>
+<B>ltl_structcheckltlspec_build_tableau_and_prop_fsm</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Creates the tableau for a LTL property.  The FSM of the
+  property contains the tableau. Returns 1 if an error is encountered
+  during the tableau generation, 0 otherwise
+<p>
+
+<dd> <b>Side Effects</b> The bdd fsm into the prop will change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_check_compassion"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_check_compassion</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Assumes the Ltl_StructcCheckLtlSpec structure being
+  initialized before with Ltl_StructCheckLtlSpec_build.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_check_el_bwd"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_check_el_bwd</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Assumes the Ltl_StructcCheckLtlSpec structure being
+  initialized before with Ltl_StructCheckLtlSpec_build.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_check_el_fwd"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_check_el_fwd</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Assumes the Ltl_StructcCheckLtlSpec structure being
+  initialized before with Ltl_StructCheckLtlSpec_build.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_deinit"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_deinit</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_init"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_init</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b>, <i></i>
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_prepare"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_prepare</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Support function for the init function
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ltl_structcheckltlspec_init">ltl_structcheckltlspec_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="ltl_structcheckltlspec_remove_layer"></A>
+void <I></I>
+<B>ltl_structcheckltlspec_remove_layer</B>(
+  Ltl_StructCheckLtlSpec_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private service that removes the given layer from
+  the symbol table, and from both the boolean and bdd encodings.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="path"></A>
+static node_ptr <I></I>
+<B>path</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>source</b>, <i></i>
+  bdd_ptr  <b>dest</b>, <i></i>
+  bdd_ptr  <b>R</b> <i></i>
+)
+</pre>
+<dd> Computes a path given the bdds representind the source
+  states, the target states, and the transition relation.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="predecessors"></A>
+static bdd_ptr <I></I>
+<B>predecessors</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>relation</b>, <i></i>
+  bdd_ptr  <b>to</b> <i></i>
+)
+</pre>
+<dd> Given a state to and a transition relation, compute the
+  direct and indirect predecessor states (transitive closure of
+  predecessor).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="predecessor"></A>
+static bdd_ptr <I></I>
+<B>predecessor</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>relation</b>, <i></i>
+  bdd_ptr  <b>to</b> <i></i>
+)
+</pre>
+<dd> Given a state to and a transition relation, compute the
+  direct predecessor state.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_ltlspec"></A>
+void <I></I>
+<B>print_ltlspec</B>(
+  FILE* <b>file</b>, <i></i>
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Print the LTL specification.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+<dt><pre>
+<A NAME="successors"></A>
+static bdd_ptr <I></I>
+<B>successors</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>from</b>, <i></i>
+  bdd_ptr  <b>relation</b> <i></i>
+)
+</pre>
+<dd> Given a state from and transition relation, compute the
+  direct and indirect successor states (transitive closure of
+  successor).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="successor"></A>
+static bdd_ptr <I></I>
+<B>successor</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>from</b>, <i></i>
+  bdd_ptr  <b>relation</b> <i></i>
+)
+</pre>
+<dd> Given a state from and transition relation, compute the
+  direct successor state.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME="witness"></A>
+node_ptr <I></I>
+<B>witness</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>feasib</b> <i></i>
+)
+</pre>
+<dd> Computes fair path from one of the states 
+  passed as parameter.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltlCompassion.c"TARGET="ABSTRACT"><CODE>ltlCompassion.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Takes a formula (with context) and constructs the flat
+  hierarchy from it.
+
+  Description        [
+<p>
+
+<dd> <b>Side Effects</b> layer and outfh are expected to get changed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ltlAllFile.html#ltl.c"TARGET="ABSTRACT"><CODE>ltl.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

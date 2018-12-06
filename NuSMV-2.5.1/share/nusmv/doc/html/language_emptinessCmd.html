@@ -1,0 +1,24 @@
+<html>
+<head><title>language_emptiness</title></head>
+<body>
+
+<h3>language_emptiness - Checks for language emptiness.</h3>
+<hr>
+<code>language_emptiness [-h] [-v] [-a]</code><p>
+Checks for the language emptiness. <br>
+
+  If <tt>-a</tt> is given the check is performed by verifying whether
+  all initial states are included in the set of fair states. If it is
+  the case from all initial states there exists a fair path and thus
+  the language is not empty. On the other hand, if no <tt>-a</tt> is
+  specified, the check is performed by verifying whether there exists
+  at least one inital state that is also a fair state. In this case
+  there is an initial state from which it starts a fair path and thus
+  the lnaguage is not empty.
+
+  if <tt>-v</tt> is specified, then some information on the set of
+  initial states is printed out too.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

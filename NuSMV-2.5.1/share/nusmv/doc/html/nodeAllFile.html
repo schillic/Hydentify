@@ -1,0 +1,256 @@
+<HTML>
+<HEAD><TITLE>The node package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#node.h"><CODE>node.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#nodeInt.h"><CODE>nodeInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#node.c"><CODE>node.c</CODE></A>
+ <DD> The main routines of the <tt>node</tt> package.
+ <DT> <A HREF="#nodePkg.c"><CODE>nodePkg.c</CODE></A>
+ <DD> Initialization and deinitialization for package node and 
+  subpackages
+ <DT> <A HREF="#nodePrint.c"><CODE>nodePrint.c</CODE></A>
+ <DD> Pretty prints a node struct.
+ <DT> <A HREF="#nodeWffPrint.c"><CODE>nodeWffPrint.c</CODE></A>
+ <DD> Pretty printing of formulas represented using node struct.
+</DL><HR>
+<A NAME="node.h"><H1>node.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+ <DT> <A HREF="nodeAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Casts the given pointer to a node_ptr
+
+ <DT> <A HREF="nodeAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Casts the given node_ptr to an int
+
+ <DT> <A HREF="nodeAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Casts the given int to a node_ptr
+
+</DL>
+<HR>
+<A NAME="nodeInt.h"><H1>nodeInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="node.c"><H1>node.c</H1></A>
+The main routines of the <tt>node</tt> package. <P>
+<B>By: Marco Roveri</B><P>
+This file provides an abstract data type a la
+  s-expression in LISP. <P>
+<DL>
+ <DT> <A HREF="nodeAllDet.html#node_show_profile_stats" TARGET="MAIN"><CODE>node_show_profile_stats()</CODE></A>
+ <DD> Quits the <tt>node</tt> manager.
+
+ <DT> <A HREF="nodeAllDet.html#free_node" TARGET="MAIN"><CODE>free_node()</CODE></A>
+ <DD> Free a node of the <tt>node<tt> manager.
+
+ <DT> <A HREF="nodeAllDet.html#new_node" TARGET="MAIN"><CODE>new_node()</CODE></A>
+ <DD> Creates a new node.
+
+ <DT> <A HREF="nodeAllDet.html#new_lined_node" TARGET="MAIN"><CODE>new_lined_node()</CODE></A>
+ <DD> Creates a new node.
+
+ <DT> <A HREF="nodeAllDet.html#find_node" TARGET="MAIN"><CODE>find_node()</CODE></A>
+ <DD> Creates a new node.
+
+ <DT> <A HREF="nodeAllDet.html#find_atom" TARGET="MAIN"><CODE>find_atom()</CODE></A>
+ <DD> Search the <tt>node</tt> hash for a given node.
+
+ <DT> <A HREF="nodeAllDet.html#cons" TARGET="MAIN"><CODE>cons()</CODE></A>
+ <DD> Conses two nodes.
+
+ <DT> <A HREF="nodeAllDet.html#car" TARGET="MAIN"><CODE>car()</CODE></A>
+ <DD> Returns the left branch of a node.
+
+ <DT> <A HREF="nodeAllDet.html#cdr" TARGET="MAIN"><CODE>cdr()</CODE></A>
+ <DD> Returns the right branch of a node.
+
+ <DT> <A HREF="nodeAllDet.html#setcar" TARGET="MAIN"><CODE>setcar()</CODE></A>
+ <DD> Replaces the car of X with Y
+
+ <DT> <A HREF="nodeAllDet.html#setcdr" TARGET="MAIN"><CODE>setcdr()</CODE></A>
+ <DD> Replaces the cdr of X with Y
+
+ <DT> <A HREF="nodeAllDet.html#node_set_type" TARGET="MAIN"><CODE>node_set_type()</CODE></A>
+ <DD> Replaces the type of the node
+
+ <DT> <A HREF="nodeAllDet.html#node_is_failure" TARGET="MAIN"><CODE>node_is_failure()</CODE></A>
+ <DD> Returns 0 if given node is not a FAILURE node
+
+ <DT> <A HREF="nodeAllDet.html#node_is_constant" TARGET="MAIN"><CODE>node_is_constant()</CODE></A>
+ <DD> Tells if the given node is a numeric/boolean constant
+
+ <DT> <A HREF="nodeAllDet.html#new_list" TARGET="MAIN"><CODE>new_list()</CODE></A>
+ <DD> Returns a new empty list
+
+ <DT> <A HREF="nodeAllDet.html#copy_list" TARGET="MAIN"><CODE>copy_list()</CODE></A>
+ <DD> Returns a copy of a list
+
+ <DT> <A HREF="nodeAllDet.html#free_list" TARGET="MAIN"><CODE>free_list()</CODE></A>
+ <DD> Frees all the elements of the list.
+
+ <DT> <A HREF="nodeAllDet.html#is_list_empty" TARGET="MAIN"><CODE>is_list_empty()</CODE></A>
+ <DD> Returns 1 is the list is empty, 0 otherwise
+
+ <DT> <A HREF="nodeAllDet.html#in_list" TARGET="MAIN"><CODE>in_list()</CODE></A>
+ <DD> Checks list R to see if it contains the element N.
+
+ <DT> <A HREF="nodeAllDet.html#llength" TARGET="MAIN"><CODE>llength()</CODE></A>
+ <DD> Returns the length of list r.
+
+ <DT> <A HREF="nodeAllDet.html#append" TARGET="MAIN"><CODE>append()</CODE></A>
+ <DD> Appends two lists and returns the result.
+
+ <DT> <A HREF="nodeAllDet.html#append_ns" TARGET="MAIN"><CODE>append_ns()</CODE></A>
+ <DD> Appends two lists and returns the result.
+
+ <DT> <A HREF="nodeAllDet.html#reverse" TARGET="MAIN"><CODE>reverse()</CODE></A>
+ <DD> Reverse a list.
+
+ <DT> <A HREF="nodeAllDet.html#reverse_ns" TARGET="MAIN"><CODE>reverse_ns()</CODE></A>
+ <DD> reverses the list with no side-effect
+
+ <DT> <A HREF="nodeAllDet.html#last" TARGET="MAIN"><CODE>last()</CODE></A>
+ <DD> Returns the last cons in X.
+
+ <DT> <A HREF="nodeAllDet.html#map" TARGET="MAIN"><CODE>map()</CODE></A>
+ <DD> Applies FUN to successive cars of LISTs and
+  returns the results as a list.
+
+ <DT> <A HREF="nodeAllDet.html#map2" TARGET="MAIN"><CODE>map2()</CODE></A>
+ <DD> Applies FUN to successive cars of LISTs and
+  returns the results as a list. Lists l1 and l2 are traversed in parallel.
+
+ <DT> <A HREF="nodeAllDet.html#odd_elements" TARGET="MAIN"><CODE>odd_elements()</CODE></A>
+ <DD> Extracts odd elements of list L.
+
+ <DT> <A HREF="nodeAllDet.html#even_elements" TARGET="MAIN"><CODE>even_elements()</CODE></A>
+ <DD> Extracts even elements of list L.
+
+ <DT> <A HREF="nodeAllDet.html#walk" TARGET="MAIN"><CODE>walk()</CODE></A>
+ <DD> Applies FUN to successive cars of LISTs.
+
+ <DT> <A HREF="nodeAllDet.html#node_subtract" TARGET="MAIN"><CODE>node_subtract()</CODE></A>
+ <DD> Deletes from list set2 the elements of list set1.
+
+ <DT> <A HREF="nodeAllDet.html#swap_nodes" TARGET="MAIN"><CODE>swap_nodes()</CODE></A>
+ <DD> Swaps two nodes.
+
+ <DT> <A HREF="nodeAllDet.html#node_normalize" TARGET="MAIN"><CODE>node_normalize()</CODE></A>
+ <DD> Traverses the tree, and returns a possibly new tree that
+  is a normalized copy of the first. Use for constant-time comparison
+  of two trees
+
+ <DT> <A HREF="nodeAllDet.html#node_normalize_list" TARGET="MAIN"><CODE>node_normalize_list()</CODE></A>
+ <DD> Does the same thing as node_normalize but
+  do it more efficiently if sexp is a list
+
+ <DT> <A HREF="nodeAllDet.html#node_init" TARGET="MAIN"><CODE>node_init()</CODE></A>
+ <DD> Initializes the <tt>node</tt> manager.
+
+ <DT> <A HREF="nodeAllDet.html#node_quit" TARGET="MAIN"><CODE>node_quit()</CODE></A>
+ <DD> De-initializes the <tt>node</tt> manager.
+
+ <DT> <A HREF="nodeAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Inserts a node in the <tt>node</tt> hash.
+
+ <DT> <A HREF="nodeAllDet.html#node_hash_fun" TARGET="MAIN"><CODE>node_hash_fun()</CODE></A>
+ <DD> Hash function for <tt>node</tt>s.
+
+ <DT> <A HREF="nodeAllDet.html#node_eq_fun" TARGET="MAIN"><CODE>node_eq_fun()</CODE></A>
+ <DD> Equality function for <tt>node</tt> hash.
+
+ <DT> <A HREF="nodeAllDet.html#node_cmp_fun" TARGET="MAIN"><CODE>node_cmp_fun()</CODE></A>
+ <DD> Comparison function for <tt>node</tt> sorted insertion.
+  Returns is < 0 if node1 < node2, 0 if node1 == node2, and > 0 if
+  node1 > node2
+
+ <DT> <A HREF="nodeAllDet.html#node_alloc" TARGET="MAIN"><CODE>node_alloc()</CODE></A>
+ <DD> Allocates NODE_MEM_CHUNK records and stores them
+  in the free list of the <tt>node</tt> manager.
+
+ <DT> <A HREF="nodeAllDet.html#_node_realloc_nodelist" TARGET="MAIN"><CODE>_node_realloc_nodelist()</CODE></A>
+ <DD> Reallocation of the hash
+
+ <DT> <A HREF="nodeAllDet.html#profile_info_cmp" TARGET="MAIN"><CODE>profile_info_cmp()</CODE></A>
+ <DD> Comparison function used for profiling
+
+</DL>
+<HR>
+<A NAME="nodePkg.c"><H1>nodePkg.c</H1></A>
+Initialization and deinitialization for package node and 
+  subpackages <P>
+<B>By: Roberto Cavada</B><P>
+Initialization and deinitialization for package node and 
+  subpackages <P>
+<DL>
+ <DT> <A HREF="nodeAllDet.html#node_pkg_init" TARGET="MAIN"><CODE>node_pkg_init()</CODE></A>
+ <DD> Initializes the node package
+
+ <DT> <A HREF="nodeAllDet.html#node_pkg_quit" TARGET="MAIN"><CODE>node_pkg_quit()</CODE></A>
+ <DD> Deinitializes the packages, finalizing all internal
+  structures
+
+ <DT> <A HREF="nodeAllDet.html#node_pkg_get_global_master_normalizer" TARGET="MAIN"><CODE>node_pkg_get_global_master_normalizer()</CODE></A>
+ <DD> Returns the global master normalizer
+
+ <DT> <A HREF="nodeAllDet.html#node_pkg_get_global_master_wff_printer" TARGET="MAIN"><CODE>node_pkg_get_global_master_wff_printer()</CODE></A>
+ <DD> Returns the global master wff printer
+
+ <DT> <A HREF="nodeAllDet.html#node_pkg_get_global_master_sexp_printer" TARGET="MAIN"><CODE>node_pkg_get_global_master_sexp_printer()</CODE></A>
+ <DD> Returns the global master wff printer
+
+ <DT> <A HREF="nodeAllDet.html#node_pkg_get_indenting_master_wff_printer" TARGET="MAIN"><CODE>node_pkg_get_indenting_master_wff_printer()</CODE></A>
+ <DD> Returns the indenting master wff printer
+
+</DL>
+<HR>
+<A NAME="nodePrint.c"><H1>nodePrint.c</H1></A>
+Pretty prints a node struct. <P>
+<B>By: Marco Roveri</B><P>
+This function pretty print a node struct, in a way
+  similar to a s-expression in LISP. <P>
+<DL>
+ <DT> <A HREF="nodeAllDet.html#print_array_type" TARGET="MAIN"><CODE>print_array_type()</CODE></A>
+ <DD> Print an ARRAY_TYPE structure in smv
+
+ <DT> <A HREF="nodeAllDet.html#print_array_type_rec" TARGET="MAIN"><CODE>print_array_type_rec()</CODE></A>
+ <DD> Private function of print_array_type
+
+</DL>
+<HR>
+<A NAME="nodeWffPrint.c"><H1>nodeWffPrint.c</H1></A>
+Pretty printing of formulas represented using node struct. <P>
+<B>By: Marco Roveri</B><P>
+This file conatins the code to perform pretty printing
+  of a formula represented with a node struct. <P>
+<P><B>See Also</B><A HREF="#node.c"><CODE>node.c</CODE></A>
+<DL>
+ <DT> <A HREF="nodeAllDet.html#print_node" TARGET="MAIN"><CODE>print_node()</CODE></A>
+ <DD> Pretty print a formula on a file
+
+ <DT> <A HREF="nodeAllDet.html#sprint_node" TARGET="MAIN"><CODE>sprint_node()</CODE></A>
+ <DD> Pretty print a formula into a string
+
+ <DT> <A HREF="nodeAllDet.html#print_node_indent_at" TARGET="MAIN"><CODE>print_node_indent_at()</CODE></A>
+ <DD> Pretty print a formula on a file (indenting)
+
+ <DT> <A HREF="nodeAllDet.html#sprint_node_indent_at" TARGET="MAIN"><CODE>sprint_node_indent_at()</CODE></A>
+ <DD> Pretty print a formula into a string (indenting)
+
+ <DT> <A HREF="nodeAllDet.html#print_node_indent" TARGET="MAIN"><CODE>print_node_indent()</CODE></A>
+ <DD> Pretty print a formula on a file (indenting)
+
+ <DT> <A HREF="nodeAllDet.html#sprint_node_indent" TARGET="MAIN"><CODE>sprint_node_indent()</CODE></A>
+ <DD> Pretty print a formula into a string (indenting)
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

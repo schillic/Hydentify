@@ -1,0 +1,38 @@
+<html>
+<head><title>write_boolean_model</title></head>
+<body>
+
+<h3>write_boolean_model - Writes a flattened and booleanized model of a given SMV file</h3>
+<hr>
+<code>write_boolean_model [-h] [-o filename]</code><p>
+Writes the currently loaded SMV model in the
+  specified file, after having flattened and booleanized it. Processes
+  are eliminated and a corresponding equivalent model is printed
+  out.
+
+  If no file is specified, the file specified via the environment
+  variable <tt>output_boolean_model_file</tt> is used if any,
+  otherwise standard output is used.
+  <p>
+  Command options:<p>
+  <dl>
+     <dt><tt>-o filename</tt>
+       <dd> Attempts to write the flat and boolean SMV model in
+       <tt>filename</tt>.
+  </dl>
+
+  ** New in 2.4.0 and later **
+  Scalar variables are dumped as DEFINEs whose body is their boolean
+  encoding.
+
+  This allows the user to still express and see parts of the generated
+  boolean model in terms of the original model's scalar variables
+  names and values, and still keeping the generated model purely boolean.
+
+  Also, symbolic constants are dumped within a CONSTANTS statement to
+  declare the values of the original scalar variables' for future
+  reading of the generated file.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

@@ -1,0 +1,290 @@
+<html>
+<head><title>The trace package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandExecutePartialTraces"></A>
+int <I></I>
+<B>CommandExecutePartialTraces</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> CommandExecutePartialTraces
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CommandExecuteTraces">CommandExecuteTraces</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandExecuteTraces"></A>
+int <I></I>
+<B>CommandExecuteTraces</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> CommandExecuteTraces
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CommandExecutePartialTraces">CommandExecutePartialTraces</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandReadTrace"></A>
+int <I></I>
+<B>CommandReadTrace</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> read_trace
+<p>
+
+<dd> <b>See Also</b> <code><a href="#show_traces">show_traces</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandShowPlugins"></A>
+int <I></I>
+<B>CommandShowPlugins</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Lists out all the available plugins inside the system.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandShowTraces"></A>
+int <I></I>
+<B>CommandShowTraces</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Shows the traces generated in a NuSMV session
+<p>
+
+<dd> <b>See Also</b> <code><a href="#pick_state">pick_state</a>
+<a href="#goto_state">goto_state</a>
+simulate
+</code>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="TraceUtils_fetch_as_bdd"></A>
+bdd_ptr <I></I>
+<B>TraceUtils_fetch_as_bdd</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  TraceIteratorType  <b>iter_type</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b> <i></i>
+)
+</pre>
+<dd> Builds a bdd representing the assignments from a given
+               step in trace. The symbols to be assigned are picked
+               according to "iter_type". Refer to documentation of
+               the TraceIteratorType for possible sets.
+
+               Remarks: returned bdd is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceUtils.c"TARGET="ABSTRACT"><CODE>traceUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="TraceUtils_fetch_as_be"></A>
+be_ptr <I></I>
+<B>TraceUtils_fetch_as_be</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  TraceIteratorType  <b>iter_type</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b> <i></i>
+)
+</pre>
+<dd> Builds a be representing the assignments from a given
+               step in trace. The symbols to be assigned are picked
+               according to "iter_type". Refer to documentation of
+               the TraceIteratorType for possible sets.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceUtils.c"TARGET="ABSTRACT"><CODE>traceUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="TraceUtils_fetch_as_sexp"></A>
+Expr_ptr <I></I>
+<B>TraceUtils_fetch_as_sexp</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  TraceIteratorType  <b>iter_type</b> <i></i>
+)
+</pre>
+<dd> Builds a sexp representing the assignments from a given
+               step in trace. The symbols to be assigned are picked
+               according to "iter_type". Refer to documentation of
+               the TraceIteratorType for possible sets.
+
+               Remarks: returned expression is find-node'd
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceUtils.c"TARGET="ABSTRACT"><CODE>traceUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="UsageExecuteTraces"></A>
+static int <I></I>
+<B>UsageExecuteTraces</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> UsageExecuteTraces
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="UsageReadTrace"></A>
+static int <I></I>
+<B>UsageReadTrace</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> UsageReadTrace
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="UsageShowPlugins"></A>
+static int <I></I>
+<B>UsageShowPlugins</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> UsageShowPlugins
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="UsageShowTraces"></A>
+static int <I></I>
+<B>UsageShowTraces</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> UsageShowTraces
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_cmd_parse_slice"></A>
+int <I></I>
+<B>trace_cmd_parse_slice</B>(
+  const char* <b>s</b>, <i></i>
+  int* <b>trace</b>, <i></i>
+  int* <b>from</b>, <i></i>
+  int* <b>to</b> <i></i>
+)
+</pre>
+<dd> Private service of top level trace execution functions
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_eval_make_environment"></A>
+hash_ptr <I></I>
+<B>trace_eval_make_environment</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b> <i></i>
+)
+</pre>
+<dd> This function builds a local environment for constant
+  expressions evaluation
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceEval.c"TARGET="ABSTRACT"><CODE>traceEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_make_failure"></A>
+node_ptr <I></I>
+<B>trace_make_failure</B>(
+  const char* <b>tmpl</b>, <i></i>
+  node_ptr  <b>symbol</b> <i></i>
+)
+</pre>
+<dd> Private service of trace_evaluate_expr_recur
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Private">Private</a>
+<a href="#service">service</a>
+<a href="#of">of</a>
+<a href="#trace_evaluate_expr_recur">trace_evaluate_expr_recur</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceEval.c"TARGET="ABSTRACT"><CODE>traceEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="trace_step_evaluate_defines"></A>
+void <I></I>
+<B>trace_step_evaluate_defines</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  const TraceIter  <b>step</b> <i></i>
+)
+</pre>
+<dd> Evaluates define for a trace, based on assignments to
+               state, frozen and input variables.
+
+               If a previous value exists for a define, The mismatch
+               is reported to the caller by appending a failure node
+               describing the error to the "failures" list. If
+               "failures" is NULL failures are silently discarded.  If
+               no previous value exists for a given define, assigns
+               the define to the calculated value according to vars
+               assignments. The "failures" list must be either NULL
+               or a valid, empty list.
+
+               0 is returned if no mismatching were detected, 1
+               otherwise
+<p>
+
+<dd> <b>Side Effects</b> The trace is filled with defines, failures list is
+               populated as necessary.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceEval.c"TARGET="ABSTRACT"><CODE>traceEval.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> UsageExecutePartialTrace
+<p>
+
+<DD> <B>Defined in </B> <A HREF="traceAllFile.html#traceCmd.c"TARGET="ABSTRACT"><CODE>traceCmd.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

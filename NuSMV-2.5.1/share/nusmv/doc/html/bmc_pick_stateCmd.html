@@ -1,0 +1,32 @@
+<html>
+<head><title>bmc_pick_state</title></head>
+<body>
+
+<h3>bmc_pick_state - Picks a state from the set of initial states</h3>
+<hr>
+<code>bmc_pick_state [-h] [-v] ] [-c "constraint" | -s trace.state]</code><p>
+Chooses an element from the set of initial states, and makes it the
+  <tt>current state</tt> (replacing the old one). The chosen state is
+  stored as the first state of a new trace ready to be lengthened by
+  <tt>steps</tt> states by the <tt>bmc_simulate</tt> or
+  <tt>bmc_inc_simulate</tt> commands. A constraint can be provided to
+  restrict the set of candidate states. <p>
+
+  Command Options:<p>
+  <dl>
+    <dt> <tt>-v</tt>
+       <dd> Verbosely prints out chosen state (all state variables, otherwise
+       it prints out only the label <tt>t.1</tt> of the state chosen, where
+       <tt>t</tt> is the number of the new trace, that is the number of
+       traces so far generated plus one).
+    <dt> <tt>-c "constraint"</tt>
+       <dd> Uses <tt>constraint</tt> to restrict the set of initial states
+       in which the state has to be picked.
+    <dt> <tt>-s trace.state</tt>
+       <dd> Picks state from trace.state label. A new simulation trace will
+       be created by copying prefix of the source trace up to specified state.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

@@ -1,0 +1,152 @@
+<HTML>
+<HEAD><TITLE>The cmd package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Cmd_CommandAdd"></A>
+void <I></I>
+<B>Cmd_CommandAdd</B>(
+  char* <b>name</b>, <i></i>
+  PFI  <b>funcFp</b>, <i></i>
+  int  <b>changes</b>, <i></i>
+  boolean  <b>reentrant</b> <i></i>
+)
+</pre>
+<dd> Adds a command to the command table.  If name already defines
+  an existing command, its definition is replaced.  FuncFp is a function
+  pointer to code of the form: <p>
+
+                int <br>
+		CommandTest(argc, argv)<br>
+                  int argc;<br>
+                  char **argv;<br>
+                {<br>
+		    return 0;<br>
+		}<p>
+
+  argv[0] will generally
+  be the command name, and argv[1] ... argv[argc-1] are the arguments for the
+  command.  util_getopt() can be used to parse the arguments, but
+  util_getopt_reset() must be used before calling util_getopt().  The command
+  function should return 0 for normal operation, 1 for any error.  The changes
+  flag is used to automatically save the hmgr before executing the command (in
+  order to support undo).
+  The flag reentrant is true if the command execution can be interrupted without
+  leaving the internal status inconsistent.
+<p>
+
+<dt><pre>
+<A NAME="Cmd_CommandDefined"></A>
+boolean <I></I>
+<B>Cmd_CommandDefined</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> True iff a command named 'name' is defined.
+<p>
+
+<dt><pre>
+<A NAME="Cmd_CommandExecute"></A>
+int <I></I>
+<B>Cmd_CommandExecute</B>(
+  char* <b>command</b> <i></i>
+)
+</pre>
+<dd> Executes a command line.  This is the top-level of the command
+  interpreter, and supports multiple commands (separated by ;), alias
+  substitution, etc.  For many simple operations, Cmd_CommandExecute() is the
+  easiest way to accomplish a given task. For example, to set a variable, use
+  the code: Cmd_CommandExecute("set color blue").
+<p>
+
+<dt><pre>
+<A NAME="Cmd_CommandRemove"></A>
+boolean <I></I>
+<B>Cmd_CommandRemove</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if command was found and removed,
+  false if not found
+<p>
+
+<dt><pre>
+<A NAME="Cmd_End"></A>
+void <I></I>
+<B>Cmd_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Ends the command package. Tables are freed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_Init">Cmd_Init</a>
+</code>
+
+<dt><pre>
+<A NAME="Cmd_FileOpen"></A>
+FILE * <I></I>
+<B>Cmd_FileOpen</B>(
+  char * <b>fileName</b>, <i></i>
+  char * <b>mode</b>, <i></i>
+  char ** <b>realFileName_p</b>, <i></i>
+  int  <b>silent</b> <i></i>
+)
+</pre>
+<dd> Opens the file with the given mode (see fopen()).  Tilde
+  expansion (~user/ or ~/) is performed on the fileName, and "-" is allowed as
+  a synonym for stdin (or stdout, depending on the mode).  If the file cannot
+  be opened, a message is reported using perror(); the silent flag, if true,
+  suppresses this error action.  In either case, A NULL file pointer is
+  returned if any error occurs.  The fileName (after tilde expansion) is
+  returned in the pointer realFileName, if realFileName is non-empty.  This
+  is a pointer which should be free'd when you are done with it.
+<p>
+
+<dt><pre>
+<A NAME="Cmd_FlagReadByName"></A>
+char* <I></I>
+<B>Cmd_FlagReadByName</B>(
+  char * <b>flag</b> <i></i>
+)
+</pre>
+<dd> The command parser maintains a table of named values.  These
+  are manipulated using the 'set' and 'unset' commands.  The value of the
+  named flag is returned, or NIL(char) is returned if the flag has not been
+  set.
+<p>
+
+<dt><pre>
+<A NAME="Cmd_Init"></A>
+void <I></I>
+<B>Cmd_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the command package.
+<p>
+
+<dd> <b>Side Effects</b> Commands are added to the command table.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_End">Cmd_End</a>
+</code>
+
+<dt><pre>
+<A NAME="Cmd_SecureCommandExecute"></A>
+int <I></I>
+<B>Cmd_SecureCommandExecute</B>(
+  char* <b>command</b> <i></i>
+)
+</pre>
+<dd> This version is securly callable from scripting languages. 
+  Do not call Cmd_CommandExecute directly from a scripting language, otherwise
+  the script execution could be aborted without any warning.
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,64 @@
+<HTML>
+<HEAD><TITLE>The prop package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#propInt.h"><CODE>propInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#propCmd.c"><CODE>propCmd.c</CODE></A>
+ <DD> Shell interface for the prop package.
+ <DT> <A HREF="#propPkg.c"><CODE>propPkg.c</CODE></A>
+ <DD> Main routines for the prop package
+</DL><HR>
+<A NAME="propInt.h"><H1>propInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+<P><B>See Also</B><A HREF="#optional"><CODE>optional</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="propCmd.c"><H1>propCmd.c</H1></A>
+Shell interface for the prop package. <P>
+<B>By: Marco Roveri</B><P>
+This file contains the interface of the prop package
+  with the interactive shell. <P>
+<P><B>See Also</B><A HREF="#cmdCmd.c"><CODE>cmdCmd.c</CODE></A>
+<DL>
+ <DT> <A HREF="propAllDet.html#PropPkg_init_cmd" TARGET="MAIN"><CODE>PropPkg_init_cmd()</CODE></A>
+ <DD> Initiliaze the prop package for commands
+
+ <DT> <A HREF="propAllDet.html#PropPkg_quit_cmd" TARGET="MAIN"><CODE>PropPkg_quit_cmd()</CODE></A>
+ <DD> Quit the prop package for commands
+
+ <DT> <A HREF="propAllDet.html#CommandShowProperty" TARGET="MAIN"><CODE>CommandShowProperty()</CODE></A>
+ <DD> Shows the currently stored properties
+
+ <DT> <A HREF="propAllDet.html#CommandAddProperty" TARGET="MAIN"><CODE>CommandAddProperty()</CODE></A>
+ <DD> Adds a property to the list of properties
+
+ <DT> <A HREF="propAllDet.html#CommandCheckProperty" TARGET="MAIN"><CODE>CommandCheckProperty()</CODE></A>
+ <DD> Checks properties
+
+</DL>
+<HR>
+<A NAME="propPkg.c"><H1>propPkg.c</H1></A>
+Main routines for the prop package <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="propAllDet.html#PropPkg_init" TARGET="MAIN"><CODE>PropPkg_init()</CODE></A>
+ <DD> Initializes the package: master property and 
+  property database are allocated
+
+ <DT> <A HREF="propAllDet.html#PropPkg_quit" TARGET="MAIN"><CODE>PropPkg_quit()</CODE></A>
+ <DD> Quits the package
+
+ <DT> <A HREF="propAllDet.html#PropPkg_get_prop_database" TARGET="MAIN"><CODE>PropPkg_get_prop_database()</CODE></A>
+ <DD> Returns the global property database instance
+
+ <DT> <A HREF="propAllDet.html#PropPkg_set_prop_database" TARGET="MAIN"><CODE>PropPkg_set_prop_database()</CODE></A>
+ <DD> Sets the global property database instance
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

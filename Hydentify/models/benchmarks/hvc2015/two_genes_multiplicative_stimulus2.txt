@@ -1,0 +1,120 @@
+% number of genes
+3
+% partition for x1
+%1 2  3  4  5  6
+[0 8 12 18 22 30]
+%
+% partition for x2
+%1 2  3  4
+[0 8 12 20]
+%
+% partition for x3 (stimulus)
+%1  2    3  4
+[0 0.29 0.3 1]
+%
+% ------ variable x1 ------
+%
+% number of production terms
+1
+%
+% production rate
+[0  30]
+%
+% production expression
+*
+r
+1
+[1 4 5 6]
+[1 1 0 0]
+-
+*
+r
+2
+[1 2 3 4]
+[0 0 1 1]
+r
+3
+[1 2 3 4]
+% this is stimulus
+%1 1 0 0
+% this is (1 - stimulus)
+[0 0 1 1]
+%
+% number of degradation terms
+1
+%
+% degradation rate
+[1]
+%
+% degradation expression
+1
+%
+% ------ variable x2 ------
+%
+% number of production terms
+1
+%
+% production rate
+[0  40]
+%
+% production expression
+r
+1
+[1 2 3 6]
+[1 1 0 0]
+%
+% number of degradation terms
+1
+%
+% degradation rate
+[2]
+%
+% degradation expression
+1
+%
+% ------ variable x3 (stimulus) ------
+%
+% number of production terms
+1
+%
+% production rate
+[1]
+%
+% production expression
+1
+%
+% number of degradation terms
+1
+%
+% degradation rate
+[0]
+%
+% degradation expression
+1
+%
+% ------------- behavior specifications -------------- 
+% number of atomic propositions
+7
+% the atomic propositions
+{1 '>' 4}
+{1 '<' 5}
+{2 '>' 2}
+{2 '<' 3}
+{3 '>' 1}
+{3 '<' 2}
+{2 '>' 3}
+% initial states for verification (NuSMV predicate or "All")
+(prop1 & prop2 & prop3 & prop4 & prop5 & prop6)
+% property type (0: CTL; 1:LTL)
+1
+% property text
+!F (prop7)
+% compute liveness of SCCs (0: No; 1:Yes)?
+0
+% spaceex initial states
+! [1 2 3 4 5 6]
+% spaceex forbidden states
+! [7]
+%
+% stimulus mode
+0

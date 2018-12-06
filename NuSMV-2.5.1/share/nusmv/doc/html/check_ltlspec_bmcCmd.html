@@ -1,0 +1,69 @@
+<html>
+<head><title>check_ltlspec_bmc</title></head>
+<body>
+
+<h3>check_ltlspec_bmc - Checks the given LTL specification, or all LTL specifications if no formula is given. Checking parameters are the maximum length and the loopback values</h3>
+<hr>
+<code>check_ltlspec_bmc [-h | -n idx | -p "formula" [IN context] | -P "name"] [-k max_length] [-l loopback] [-o filename]</code><p>
+This command generates one or more problems, and calls
+  SAT solver for each one. Each problem is related to a specific problem
+  bound, which increases from zero (0) to the given maximum problem
+  length. Here "<i>length</i>" is the bound of the problem that system
+  is going to generate and/or solve. <BR>
+  In this context the maximum problem bound is represented by the
+  <i>-k</i> command parameter, or by its default value stored in the
+  environment variable <i>bmc_length</i>.<BR>
+  The single generated problem also depends on the "<i>loopback</i>"
+  parameter you can explicitly specify by the <i>-l</i> option, or by its
+  default value stored in the environment variable <i>bmc_loopback</i>. <BR>
+  The property to be checked may be specified using the <i>-n idx</i>,
+  the <i>-p "formula"</i> or the <i>-P "name"</i> options. <BR>
+  If you need to generate a dimacs dump file of all generated problems, you
+  must use the option <i>-o "filename"</i>. <BR>
+  <p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-n <i>index</i></tt>
+       <dd> <i>index</i> is the numeric index of a valid LTL specification
+       formula actually located in the properties database. <BR>
+    <dt> <tt>-p "formula" [IN context]</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+    <dt> <tt>-P name</tt>
+       <dd> Checks the LTLSPEC property with name <tt>name</tt> in the property
+            database.
+    <dt> <tt>-k <i>max_length</i></tt>
+       <dd> <i>max_length</i> is the maximum problem bound must be reached.
+       Only natural number are valid values for this option. If no value
+       is given the environment variable <i>bmc_length</i> is considered
+       instead.
+    <dt> <tt>-l <i>loopback</i></tt>
+       <dd> <i>loopback</i> value may be: <BR>
+       - a natural number in (0, <i>max_length-1</i>). Positive sign ('+') can
+       be also used as prefix of the number. Any invalid combination of length
+       and loopback will be skipped during the generation/solving process.<BR>
+       - a negative number in (-1, -<i>bmc_length</i>). In this case
+       <i>loopback</i> is considered a value relative to <i>max_length</i>.
+       Any invalid combination of length and loopback will be skipped
+       during the generation/solving process.<BR>
+       - the symbol 'X', which means "no loopback" <BR>
+       - the symbol '*', which means "all possible loopback from zero to
+       <i>length-1</i>"
+    <dt> <tt>-o <i>filename</i></tt>
+       <dd> <i>filename</i> is the name of the dumped dimacs file, without
+       extension. <BR>
+       It may contain special symbols which will be macro-expanded to form
+       the real file name. Possible symbols are: <BR>
+       - @F: model name with path part <BR>
+       - @f: model name without path part <BR>
+       - @k: current problem bound <BR>
+       - @l: current loopback value <BR>
+       - @n: index of the currently processed formula in the properties
+       database <BR>
+       - @@: the '@' character
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

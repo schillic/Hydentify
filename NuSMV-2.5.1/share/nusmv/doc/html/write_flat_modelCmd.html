@@ -1,0 +1,27 @@
+<html>
+<head><title>write_flat_model</title></head>
+<body>
+
+<h3>write_flat_model - Writes a flat model of a given SMV file</h3>
+<hr>
+<code>write_flat_model [-h] [-o filename] [-A] [-m]</code><p>
+Processes are eliminated
+  and a corresponding equivalent model is printed out.
+  If no file is specified, the file specified with the environment variable
+  <tt>output_flatten_model_file</tt> is used if any, otherwise standard output
+  is used as output.
+  <p>
+  Command options:<p>
+  <dl>
+     <dt><tt>-o filename</tt>
+       <dd> Attempts to write the flat SMV model in <tt>filename</tt>.
+     <dt><tt>-A</tt>
+       <dd> Write the model using variables and defines rewriting to
+       make it anonimized.
+     <dt><tt>-m</tt>
+       <dd> Disable printing of key map when writing anonimized model
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

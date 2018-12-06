@@ -1,0 +1,243 @@
+<HTML>
+<HEAD><TITLE>The ltl package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#ltl.h"><CODE>ltl.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#ltlInt.h"><CODE>ltlInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#ltl.c"><CODE>ltl.c</CODE></A>
+ <DD> Routines to perform reduction of LTL model checking to
+  CTL model checking.
+ <DT> <A HREF="#ltlCmd.c"><CODE>ltlCmd.c</CODE></A>
+ <DD> Shell commands to deal with the LTL model checking.
+ <DT> <A HREF="#ltlCompassion.c"><CODE>ltlCompassion.c</CODE></A>
+ <DD> Routines to perform strongly fair LTL model checking
+ <DT> <A HREF="#ltlRewrite.c"><CODE>ltlRewrite.c</CODE></A>
+ <DD> Rewrite formula to keep track of possible inputs
+</DL><HR>
+<A NAME="ltl.h"><H1>ltl.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<P><B>See Also</B><A HREF="#mc"><CODE>mc</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="ltlInt.h"><H1>ltlInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="ltl.c"><H1>ltl.c</H1></A>
+Routines to perform reduction of LTL model checking to
+  CTL model checking. <P>
+<B>By: Marco Roveri</B><P>
+Here we perform the reduction of LTL model checking to
+  CTL model checking. The technique adopted has been taken from [1 <P>
+<P><B>See Also</B><A HREF="#mc"><CODE>mc</CODE></A>
+<DL>
+ <DT> <A HREF="ltlAllDet.html#Ltl_CheckLtlSpec" TARGET="MAIN"><CODE>Ltl_CheckLtlSpec()</CODE></A>
+ <DD> The main routine to perform LTL model checking.
+
+ <DT> <A HREF="ltlAllDet.html#print_ltlspec" TARGET="MAIN"><CODE>print_ltlspec()</CODE></A>
+ <DD> Print the LTL specification.
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_create" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_create()</CODE></A>
+ <DD> Create an empty Ltl_StructCheckLtlSpec structure.
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_destroy" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_destroy()</CODE></A>
+ <DD> Desrtroy an Ltl_StructCheckLtlSpec structure.
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_oreg2smv" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_oreg2smv()</CODE></A>
+ <DD> Set the oreg2smv field of an Ltl_StructCheckLtlSpec structure
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_ltl2smv" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_ltl2smv()</CODE></A>
+ <DD> Set the ltl2smv field of an Ltl_StructCheckLtlSpec structure
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_negate_formula" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_negate_formula()</CODE></A>
+ <DD> Set the negate_formula field of an Ltl_StructCheckLtlSpec structure
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_do_rewriting" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_do_rewriting()</CODE></A>
+ <DD> Set the do_rewriting field of an Ltl_StructCheckLtlSpec
+  structure
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_s0" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_get_s0()</CODE></A>
+ <DD> Get the s0 field of an Ltl_StructCheckLtlSpec structure
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_clean_s0" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_get_clean_s0()</CODE></A>
+ <DD> Get the s0 field purified by tableu variables
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_build" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_build()</CODE></A>
+ <DD> Initialize the structure by computing the tableau for
+  the LTL property
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_check" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_check()</CODE></A>
+ <DD> Perform the check to see wether the property holds or not
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_print_result" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_print_result()</CODE></A>
+ <DD> Prints the result of the Ltl_StructCheckLtlSpec_check fun
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_build_counter_example" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_build_counter_example()</CODE></A>
+ <DD> Perform the computation of a witness for a property
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_explain" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_explain()</CODE></A>
+ <DD> Perform the computation of a witness for a property
+
+ <DT> <A HREF="ltlAllDet.html#ltlPropAddTableau" TARGET="MAIN"><CODE>ltlPropAddTableau()</CODE></A>
+ <DD> Main routine to add the tableau to the FSM
+
+ <DT> <A HREF="ltlAllDet.html#Ltl_apply_input_vars_rewriting" TARGET="MAIN"><CODE>Ltl_apply_input_vars_rewriting()</CODE></A>
+ <DD> Takes a LTL formula and applies rewriting to get rid of
+  input variables from the formula
+
+ <DT> <A HREF="ltlAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Takes a formula (with context) and constructs the flat
+  hierarchy from it.
+
+  Description        [
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_build_tableau_and_prop_fsm" TARGET="MAIN"><CODE>ltl_structcheckltlspec_build_tableau_and_prop_fsm()</CODE></A>
+ <DD> Creates the tableau
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_compassion" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_compassion()</CODE></A>
+ <DD> Perform the check to see wether the property holds or
+  not using an algorithm for strong fairness
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_el_bwd" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_el_bwd()</CODE></A>
+ <DD> Perform the check to see wether the property holds or
+  not using the backward Emerson-Lei algorithm
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_el_fwd" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_el_fwd()</CODE></A>
+ <DD> Perform the check to see wether the property holds or
+  not using the forward Emerson-Lei algorithm
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_remove_layer" TARGET="MAIN"><CODE>ltl_structcheckltlspec_remove_layer()</CODE></A>
+ <DD> Private service that removes the given layer from
+  the symbol table, and from both the boolean and bdd encodings.
+
+ <DT> <A HREF="ltlAllDet.html#ltl_clean_bdd" TARGET="MAIN"><CODE>ltl_clean_bdd()</CODE></A>
+ <DD> Quantify out tableau variables
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_init" TARGET="MAIN"><CODE>ltl_structcheckltlspec_init()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_deinit" TARGET="MAIN"><CODE>ltl_structcheckltlspec_deinit()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_prepare" TARGET="MAIN"><CODE>ltl_structcheckltlspec_prepare()</CODE></A>
+ <DD> Support function for the init function
+
+</DL>
+<HR>
+<A NAME="ltlCmd.c"><H1>ltlCmd.c</H1></A>
+Shell commands to deal with the LTL model checking. <P>
+<B>By: Marco Roveri</B><P>
+Shell commands to deal with the LTL model checking. <P>
+<P><B>See Also</B><A HREF="#mc"><CODE>mc</CODE></A>
+<DL>
+ <DT> <A HREF="ltlAllDet.html#Ltl_Init" TARGET="MAIN"><CODE>Ltl_Init()</CODE></A>
+ <DD> Initializes the ltl package.
+
+ <DT> <A HREF="ltlAllDet.html#CommandCheckLtlSpec" TARGET="MAIN"><CODE>CommandCheckLtlSpec()</CODE></A>
+ <DD> Performs LTL model checking
+
+</DL>
+<HR>
+<A NAME="ltlCompassion.c"><H1>ltlCompassion.c</H1></A>
+Routines to perform strongly fair LTL model checking <P>
+<B>By: Rik Eshuis</B><P>
+The technique adopted has been taken from [1 <P>
+<P><B>See Also</B><A HREF="#mc"><CODE>mc</CODE></A>
+<DL>
+ <DT> <A HREF="ltlAllDet.html#feasible" TARGET="MAIN"><CODE>feasible()</CODE></A>
+ <DD> Check for feasability
+
+ <DT> <A HREF="ltlAllDet.html#witness" TARGET="MAIN"><CODE>witness()</CODE></A>
+ <DD> Compute a withness of feasability
+
+ <DT> <A HREF="ltlAllDet.html#successor" TARGET="MAIN"><CODE>successor()</CODE></A>
+ <DD> Compute the direct successor of a state
+
+ <DT> <A HREF="ltlAllDet.html#successors" TARGET="MAIN"><CODE>successors()</CODE></A>
+ <DD> Compute the direct and indirect successors of a state
+
+ <DT> <A HREF="ltlAllDet.html#predecessor" TARGET="MAIN"><CODE>predecessor()</CODE></A>
+ <DD> Compute the direct predecessor of a state
+
+ <DT> <A HREF="ltlAllDet.html#predecessors" TARGET="MAIN"><CODE>predecessors()</CODE></A>
+ <DD> Compute the direct and indirect predecessors of a state
+
+ <DT> <A HREF="ltlAllDet.html#path" TARGET="MAIN"><CODE>path()</CODE></A>
+ <DD> Compute a path from source to destination
+
+ <DT> <A HREF="ltlAllDet.html#fill_path_with_inputs" TARGET="MAIN"><CODE>fill_path_with_inputs()</CODE></A>
+ <DD> Fill a path with inputs.
+
+</DL>
+<HR>
+<A NAME="ltlRewrite.c"><H1>ltlRewrite.c</H1></A>
+Rewrite formula to keep track of possible inputs <P>
+<B>By: Marco Roveri, changed by Andrei Tchaltsev</B><P>
+The algorithm to check an LTL formula cannot deal with
+  input variables. Thus it is necessary to rewrite LTL formula
+  to get rid from input variables. This is done by introducing fresh
+  state variables.
+
+  The idea is the following: let's assume we have an LTL formula which
+  contains a non-temporal boolean sub-formula Phi over state and input
+  variables. The LTL formula is rewritten by substituting a fresh
+  boolean state variable sv for Phi and adding a new transition
+  relation TRANS sv <-> Phi. For example, LTL formula 
+
+    G (s < i);
+
+  becomes
+
+    G sv;
+
+  and the model is augmented by
+
+    VAR sv : boolean;
+    INVAR sv <-> (s < i);
+
+  Note 1: new deadlocks are introduced after the rewriting (because
+  new vars are assigned a value before the value of input vars are
+  known).  For example, with "TRANS s <i" the original model does not
+  have a deadlock but after rewriting it does.  For BDD LTL this is
+  not a problem because all paths with deadlocks are ignored and all
+  original paths are kept by the rewriting.
+  
+
+  Note 2: the validity of an old and a new LTL formulas is the same on
+  *infinite* paths. On finite paths the semantics of formulas is
+  different because of the deadlocks. 
+     For above example, if there is additionally "TRANS s < i" then on
+  infinite paths "G sv" and "G s < i" are both valid whereas there is
+  finite path which violate "G sv" and there is NO such finite path
+  for "G s<i".
+  
+  This thing happens with BMC (which looks for finite path violating a
+  formula) vs BDD (which checks only infinite paths).  Since BMC does
+  not use rewriting we keep the approach as it is. If in future it
+  is necessary to fix this problem then the approach may :
+  1. substitute Phi by "X sv" (instead of just "sv")
+  2. add "VAR sv : boolean;" and "TRANS next(sv) <-> Phi" <P>
+<DL>
+ <DT> <A HREF="ltlAllDet.html#Ltl_RewriteInput" TARGET="MAIN"><CODE>Ltl_RewriteInput()</CODE></A>
+ <DD> Rewrites an LTL formula to get rid of input variables
+  in it present
+
+ <DT> <A HREF="ltlAllDet.html#ltl_rewrite_input" TARGET="MAIN"><CODE>ltl_rewrite_input()</CODE></A>
+ <DD> Recursively walk over the expressions and returns 
+  the kind of the expression, i.e. if it is temporal or with input vars.
+
+ <DT> <A HREF="ltlAllDet.html#ltl_create_substitution" TARGET="MAIN"><CODE>ltl_create_substitution()</CODE></A>
+ <DD> Creates a new state variable and add a pair <var id, expr>
+  to the list "new_var_exprs"
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,538 @@
+<HTML>
+<HEAD><TITLE> package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="AllDet.html#PslNode_convert_from_node_ptr" TARGET="MAIN"><CODE>PslNode_convert_from_node_ptr()</CODE></A>
+<DD> Casts a PslNode_ptr to a node_ptr
+
+<DT> <A HREF="AllDet.html#PslNode_convert_id" TARGET="MAIN"><CODE>PslNode_convert_id()</CODE></A>
+<DD> Converts an id to a different id type, for example a PSL id
+to a SMV id
+
+<DT> <A HREF="AllDet.html#PslNode_convert_psl_to_core" TARGET="MAIN"><CODE>PslNode_convert_psl_to_core()</CODE></A>
+<DD> Reduces the given PSL formula to an equivalent formula that
+                    uses only core symbols. Resulting formula is
+                    either LTL of CTL, and can be used for model
+                    checking.
+
+<DT> <A HREF="AllDet.html#PslNode_convert_to_node_ptr" TARGET="MAIN"><CODE>PslNode_convert_to_node_ptr()</CODE></A>
+<DD> Casts a node_ptr to a PslNode_ptr
+
+<DT> <A HREF="AllDet.html#PslNode_is_handled_psl" TARGET="MAIN"><CODE>PslNode_is_handled_psl()</CODE></A>
+<DD> Returns true iff given expression can be translated
+into LTL.
+
+<DT> <A HREF="AllDet.html#PslNode_is_ltl" TARGET="MAIN"><CODE>PslNode_is_ltl()</CODE></A>
+<DD> Checks for a formula being an LTL formula
+
+<DT> <A HREF="AllDet.html#PslNode_is_obe" TARGET="MAIN"><CODE>PslNode_is_obe()</CODE></A>
+<DD> Checks for a formula being an CTL formula
+
+<DT> <A HREF="AllDet.html#PslNode_is_propositional" TARGET="MAIN"><CODE>PslNode_is_propositional()</CODE></A>
+<DD> Checks for a formula being a propositional formula
+
+<DT> <A HREF="AllDet.html#PslNode_is_trans_propositional" TARGET="MAIN"><CODE>PslNode_is_trans_propositional()</CODE></A>
+<DD> Checks for a formula being a propositional formula
+
+<DT> <A HREF="AllDet.html#PslNode_new_context" TARGET="MAIN"><CODE>PslNode_new_context()</CODE></A>
+<DD> Creates a psl node that represents a contestualized
+node
+
+<DT> <A HREF="AllDet.html#PslNode_propositional_contains_next" TARGET="MAIN"><CODE>PslNode_propositional_contains_next()</CODE></A>
+<DD> Checks if a propositional formula contains a next
+
+<DT> <A HREF="AllDet.html#PslNode_pslltl2ltl" TARGET="MAIN"><CODE>PslNode_pslltl2ltl()</CODE></A>
+<DD> Takes a PSL LTL expression and builds the
+corresponding LTL expression
+
+<DT> <A HREF="AllDet.html#PslNode_pslobe2ctl" TARGET="MAIN"><CODE>PslNode_pslobe2ctl()</CODE></A>
+<DD> Takes a PSL OBE expression and builds the corresponding
+CTL expression
+
+<DT> <A HREF="AllDet.html#PslNode_remove_forall_replicators" TARGET="MAIN"><CODE>PslNode_remove_forall_replicators()</CODE></A>
+<DD> Takes a PSL expression and expands all forall constructs
+contained in the expression
+
+<DT> <A HREF="AllDet.html#PslNode_remove_sere" TARGET="MAIN"><CODE>PslNode_remove_sere()</CODE></A>
+<DD> Converts the given expression (possibly containing sere)
+into an equivalent LTL formula
+
+<DT> <A HREF="AllDet.html#psl_conv_op" TARGET="MAIN"><CODE>psl_conv_op()</CODE></A>
+<DD> Converts the given operator into either a PSL operator, or
+a SMV operator, depending on the value of 'type'
+
+<DT> <A HREF="AllDet.html#psl_expr_base_num_to_val" TARGET="MAIN"><CODE>psl_expr_base_num_to_val()</CODE></A>
+<DD> Converts from base to number: TO BE IMPLEMENTED
+
+<DT> <A HREF="AllDet.html#psl_expr_check_klass" TARGET="MAIN"><CODE>psl_expr_check_klass()</CODE></A>
+<DD> returns 0 if the given psl expr is not compatible with the
+given klass
+
+<DT> <A HREF="AllDet.html#psl_expr_is_boolean" TARGET="MAIN"><CODE>psl_expr_is_boolean()</CODE></A>
+<DD> Returns 1 if the given node is boolean compatible type, 0
+otherwise
+
+<DT> <A HREF="AllDet.html#psl_expr_print_klass" TARGET="MAIN"><CODE>psl_expr_print_klass()</CODE></A>
+<DD> required
+
+<DT> <A HREF="AllDet.html#psl_expr_require_klass" TARGET="MAIN"><CODE>psl_expr_require_klass()</CODE></A>
+<DD> Checks that given expression is compatible with the 
+given required syntactic class
+
+<DT> <A HREF="AllDet.html#psl_new_node" TARGET="MAIN"><CODE>psl_new_node()</CODE></A>
+<DD> Creates a new PSL node, re-using already an existing
+node if there is one
+
+<DT> <A HREF="AllDet.html#psl_node_cons_get_element" TARGET="MAIN"><CODE>psl_node_cons_get_element()</CODE></A>
+<DD> Returns the currently pointed element of a list
+
+<DT> <A HREF="AllDet.html#psl_node_cons_get_next" TARGET="MAIN"><CODE>psl_node_cons_get_next()</CODE></A>
+<DD> Returns the next element of a list
+
+<DT> <A HREF="AllDet.html#psl_node_cons_reverse" TARGET="MAIN"><CODE>psl_node_cons_reverse()</CODE></A>
+<DD> Reverse a list.
+
+<DT> <A HREF="AllDet.html#psl_node_context_to_main_context" TARGET="MAIN"><CODE>psl_node_context_to_main_context()</CODE></A>
+<DD> Contestualizes a context node into the 'main' context
+
+<DT> <A HREF="AllDet.html#psl_node_expand_next_event" TARGET="MAIN"><CODE>psl_node_expand_next_event()</CODE></A>
+<DD> During the conversion to LTL, this function is invoked
+when the expansion of next_event family is required.
+
+<DT> <A HREF="AllDet.html#psl_node_expand_replicator" TARGET="MAIN"><CODE>psl_node_expand_replicator()</CODE></A>
+<DD> Expansion of a replicator 'forall' statement
+
+<DT> <A HREF="AllDet.html#psl_node_extended_next_get_condition" TARGET="MAIN"><CODE>psl_node_extended_next_get_condition()</CODE></A>
+<DD> Returns the boolean condition of a next expression node
+
+<DT> <A HREF="AllDet.html#psl_node_extended_next_get_expr" TARGET="MAIN"><CODE>psl_node_extended_next_get_expr()</CODE></A>
+<DD> Returns the FL expression of a next expression node
+
+<DT> <A HREF="AllDet.html#psl_node_extended_next_get_when" TARGET="MAIN"><CODE>psl_node_extended_next_get_when()</CODE></A>
+<DD> Returns the when component of a next expression node
+
+<DT> <A HREF="AllDet.html#psl_node_get_case_cond" TARGET="MAIN"><CODE>psl_node_get_case_cond()</CODE></A>
+<DD> Returns the condition of the given case node
+
+<DT> <A HREF="AllDet.html#psl_node_get_case_next" TARGET="MAIN"><CODE>psl_node_get_case_next()</CODE></A>
+<DD> Returns the next case node of the given case.
+
+<DT> <A HREF="AllDet.html#psl_node_get_case_then" TARGET="MAIN"><CODE>psl_node_get_case_then()</CODE></A>
+<DD> Returns the 'then' branch of the given case node
+
+<DT> <A HREF="AllDet.html#psl_node_get_ite_cond" TARGET="MAIN"><CODE>psl_node_get_ite_cond()</CODE></A>
+<DD> Returns the condition of the given ITE node
+
+<DT> <A HREF="AllDet.html#psl_node_get_ite_else" TARGET="MAIN"><CODE>psl_node_get_ite_else()</CODE></A>
+<DD> Returns the 'else' branch of the given ITE node
+
+<DT> <A HREF="AllDet.html#psl_node_get_ite_then" TARGET="MAIN"><CODE>psl_node_get_ite_then()</CODE></A>
+<DD> Returns the 'then' branch of the given ITE node
+
+<DT> <A HREF="AllDet.html#psl_node_get_left" TARGET="MAIN"><CODE>psl_node_get_left()</CODE></A>
+<DD> Returns the given expression's left branch
+
+<DT> <A HREF="AllDet.html#psl_node_get_op" TARGET="MAIN"><CODE>psl_node_get_op()</CODE></A>
+<DD> Returns the given expression's top level operator
+
+<DT> <A HREF="AllDet.html#psl_node_get_replicator_id" TARGET="MAIN"><CODE>psl_node_get_replicator_id()</CODE></A>
+<DD> Given a replicator, returns the its ID
+
+<DT> <A HREF="AllDet.html#psl_node_get_replicator_join_op" TARGET="MAIN"><CODE>psl_node_get_replicator_join_op()</CODE></A>
+<DD> Given a replicator, returns the operator joining each
+replicated expression
+
+<DT> <A HREF="AllDet.html#psl_node_get_replicator_normalized_value_set" TARGET="MAIN"><CODE>psl_node_get_replicator_normalized_value_set()</CODE></A>
+<DD> Given a replicator, returns its values set as a list
+of the enumerated values
+
+<DT> <A HREF="AllDet.html#psl_node_get_replicator_range" TARGET="MAIN"><CODE>psl_node_get_replicator_range()</CODE></A>
+<DD> Given a replicator, returns its range
+
+<DT> <A HREF="AllDet.html#psl_node_get_replicator_value_set" TARGET="MAIN"><CODE>psl_node_get_replicator_value_set()</CODE></A>
+<DD> Given a replicator, returns the its values set.
+
+<DT> <A HREF="AllDet.html#psl_node_get_right" TARGET="MAIN"><CODE>psl_node_get_right()</CODE></A>
+<DD> Returns the given expression's right branch
+
+<DT> <A HREF="AllDet.html#psl_node_insert_inside_holes" TARGET="MAIN"><CODE>psl_node_insert_inside_holes()</CODE></A>
+<DD> Service due to way concat_fusion expansion is implemented
+
+<DT> <A HREF="AllDet.html#psl_node_is_boolean_type" TARGET="MAIN"><CODE>psl_node_is_boolean_type()</CODE></A>
+<DD> Returns true if the given node is the PSL syntactic type
+'boolean'
+
+<DT> <A HREF="AllDet.html#psl_node_is_case" TARGET="MAIN"><CODE>psl_node_is_case()</CODE></A>
+<DD> Returns true if the given expression is a case expression
+
+<DT> <A HREF="AllDet.html#psl_node_is_cons" TARGET="MAIN"><CODE>psl_node_is_cons()</CODE></A>
+<DD> Returns true if the given node is a list
+
+<DT> <A HREF="AllDet.html#psl_node_is_emptystar_free" TARGET="MAIN"><CODE>psl_node_is_emptystar_free()</CODE></A>
+<DD> Returns true if the given expression is empty star-free
+
+<DT> <A HREF="AllDet.html#psl_node_is_equal" TARGET="MAIN"><CODE>psl_node_is_equal()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#psl_node_is_extended_next" TARGET="MAIN"><CODE>psl_node_is_extended_next()</CODE></A>
+<DD> Given a psl node returns true iff the expression belongs to
+the next operators family.
+
+<DT> <A HREF="AllDet.html#psl_node_is_false" TARGET="MAIN"><CODE>psl_node_is_false()</CODE></A>
+<DD> Checks if a node is a FALSE node
+
+<DT> <A HREF="AllDet.html#psl_node_is_fl_op" TARGET="MAIN"><CODE>psl_node_is_fl_op()</CODE></A>
+<DD> Private service of PslNode_is_handled_psl
+
+<DT> <A HREF="AllDet.html#psl_node_is_handled_fl_op" TARGET="MAIN"><CODE>psl_node_is_handled_fl_op()</CODE></A>
+<DD> Private service of PslNode_is_handled_psl
+
+<DT> <A HREF="AllDet.html#psl_node_is_handled_next" TARGET="MAIN"><CODE>psl_node_is_handled_next()</CODE></A>
+<DD> Private service of PslNode_is_handled_psl
+
+<DT> <A HREF="AllDet.html#psl_node_is_handled_sere" TARGET="MAIN"><CODE>psl_node_is_handled_sere()</CODE></A>
+<DD> Private service of PslNode_is_handled_psl
+
+<DT> <A HREF="AllDet.html#psl_node_is_handled_star" TARGET="MAIN"><CODE>psl_node_is_handled_star()</CODE></A>
+<DD> Returns true if the given starred sere can be handled by the
+system.
+
+<DT> <A HREF="AllDet.html#psl_node_is_id_equal" TARGET="MAIN"><CODE>psl_node_is_id_equal()</CODE></A>
+<DD> Returns true if two ids are equal
+
+<DT> <A HREF="AllDet.html#psl_node_is_id" TARGET="MAIN"><CODE>psl_node_is_id()</CODE></A>
+<DD> Returns true if the given node is an identifier
+
+<DT> <A HREF="AllDet.html#psl_node_is_infinite" TARGET="MAIN"><CODE>psl_node_is_infinite()</CODE></A>
+<DD> Returns true if the given node is the PSL syntactic value
+'inf'
+
+<DT> <A HREF="AllDet.html#psl_node_is_ite" TARGET="MAIN"><CODE>psl_node_is_ite()</CODE></A>
+<DD> Returns true if the given expression is If Then Else
+
+<DT> <A HREF="AllDet.html#psl_node_is_leaf" TARGET="MAIN"><CODE>psl_node_is_leaf()</CODE></A>
+<DD> Returns true if the given node is a leaf, i.e. PSL_NULL, a
+   number, a boolean constant, or an atom.
+
+<DT> <A HREF="AllDet.html#psl_node_is_num_equal" TARGET="MAIN"><CODE>psl_node_is_num_equal()</CODE></A>
+<DD> Returns true if the given numbers are equal
+
+<DT> <A HREF="AllDet.html#psl_node_is_number" TARGET="MAIN"><CODE>psl_node_is_number()</CODE></A>
+<DD> Returns true if the given expression is an integer number
+
+<DT> <A HREF="AllDet.html#psl_node_is_obe_op" TARGET="MAIN"><CODE>psl_node_is_obe_op()</CODE></A>
+<DD> Private service of PslNode_is_handled_psl
+
+<DT> <A HREF="AllDet.html#psl_node_is_propositional" TARGET="MAIN"><CODE>psl_node_is_propositional()</CODE></A>
+<DD> Checks for a formula being a propositional formula
+
+<DT> <A HREF="AllDet.html#psl_node_is_propstar" TARGET="MAIN"><CODE>psl_node_is_propstar()</CODE></A>
+<DD> Returns true if the given expression is a propositional
+starred sere.
+
+<DT> <A HREF="AllDet.html#psl_node_is_range" TARGET="MAIN"><CODE>psl_node_is_range()</CODE></A>
+<DD> Returns true if the given node is a range
+
+<DT> <A HREF="AllDet.html#psl_node_is_repl_prop" TARGET="MAIN"><CODE>psl_node_is_repl_prop()</CODE></A>
+<DD> Returns true if the given expression is a replicated
+property
+
+<DT> <A HREF="AllDet.html#psl_node_is_replicator" TARGET="MAIN"><CODE>psl_node_is_replicator()</CODE></A>
+<DD> Returns true if the given expression represents a
+replicator.
+
+<DT> <A HREF="AllDet.html#psl_node_is_sere_compound_binary" TARGET="MAIN"><CODE>psl_node_is_sere_compound_binary()</CODE></A>
+<DD> Returns true if the given expression is a sere compound
+
+<DT> <A HREF="AllDet.html#psl_node_is_serebrackets" TARGET="MAIN"><CODE>psl_node_is_serebrackets()</CODE></A>
+<DD> Returns true if the given expression is a SERE in the form {a}
+
+<DT> <A HREF="AllDet.html#psl_node_is_sere" TARGET="MAIN"><CODE>psl_node_is_sere()</CODE></A>
+<DD> Returns true if the given expression is a SERE
+
+<DT> <A HREF="AllDet.html#psl_node_is_star_free" TARGET="MAIN"><CODE>psl_node_is_star_free()</CODE></A>
+<DD> Returns true if the given sere is star-free
+
+<DT> <A HREF="AllDet.html#psl_node_is_suffix_implication_strong" TARGET="MAIN"><CODE>psl_node_is_suffix_implication_strong()</CODE></A>
+<DD> Returns true if the given expression is a strong suffix
+implication
+
+<DT> <A HREF="AllDet.html#psl_node_is_suffix_implication_weak" TARGET="MAIN"><CODE>psl_node_is_suffix_implication_weak()</CODE></A>
+<DD> Returns true if the given expression is a weak suffix
+implication
+
+<DT> <A HREF="AllDet.html#psl_node_is_suffix_implication" TARGET="MAIN"><CODE>psl_node_is_suffix_implication()</CODE></A>
+<DD> Returns true if the given expression is a suffix
+implication
+
+<DT> <A HREF="AllDet.html#psl_node_is_true" TARGET="MAIN"><CODE>psl_node_is_true()</CODE></A>
+<DD> Checks if a node is a TRUE node
+
+<DT> <A HREF="AllDet.html#psl_node_is_unbound_star_free" TARGET="MAIN"><CODE>psl_node_is_unbound_star_free()</CODE></A>
+<DD> Returns true if the given sere doesn't contain any unbound
+                    star
+
+<DT> <A HREF="AllDet.html#psl_node_is_word_number" TARGET="MAIN"><CODE>psl_node_is_word_number()</CODE></A>
+<DD> Returns true if the given expression is a word number
+
+<DT> <A HREF="AllDet.html#psl_node_make_case" TARGET="MAIN"><CODE>psl_node_make_case()</CODE></A>
+<DD> Maker for a CASE node
+
+<DT> <A HREF="AllDet.html#psl_node_make_cons_new" TARGET="MAIN"><CODE>psl_node_make_cons_new()</CODE></A>
+<DD> Maker for a list, does not use find_node
+
+<DT> <A HREF="AllDet.html#psl_node_make_cons" TARGET="MAIN"><CODE>psl_node_make_cons()</CODE></A>
+<DD> Maker for a list
+
+<DT> <A HREF="AllDet.html#psl_node_make_extended_next" TARGET="MAIN"><CODE>psl_node_make_extended_next()</CODE></A>
+<DD> Maker for a NEXT* family node
+
+<DT> <A HREF="AllDet.html#psl_node_make_failure" TARGET="MAIN"><CODE>psl_node_make_failure()</CODE></A>
+<DD> Maker for a FAILURE node
+
+<DT> <A HREF="AllDet.html#psl_node_make_false" TARGET="MAIN"><CODE>psl_node_make_false()</CODE></A>
+<DD> Creates a new FALSE node
+
+<DT> <A HREF="AllDet.html#psl_node_make_number" TARGET="MAIN"><CODE>psl_node_make_number()</CODE></A>
+<DD> Maker for a NUMBER node
+
+<DT> <A HREF="AllDet.html#psl_node_make_sere_2ampersand" TARGET="MAIN"><CODE>psl_node_make_sere_2ampersand()</CODE></A>
+<DD> Maker for a && sere
+
+<DT> <A HREF="AllDet.html#psl_node_make_sere_compound" TARGET="MAIN"><CODE>psl_node_make_sere_compound()</CODE></A>
+<DD> Maker for the sere compound
+
+<DT> <A HREF="AllDet.html#psl_node_make_sere_concat" TARGET="MAIN"><CODE>psl_node_make_sere_concat()</CODE></A>
+<DD> Maker for a concatenation sere
+
+<DT> <A HREF="AllDet.html#psl_node_make_sere_propositional" TARGET="MAIN"><CODE>psl_node_make_sere_propositional()</CODE></A>
+<DD> Maker for a propositional sere
+
+<DT> <A HREF="AllDet.html#psl_node_make_sere_star" TARGET="MAIN"><CODE>psl_node_make_sere_star()</CODE></A>
+<DD> Maker for a star sere
+
+<DT> <A HREF="AllDet.html#psl_node_make_true" TARGET="MAIN"><CODE>psl_node_make_true()</CODE></A>
+<DD> Creates a new TRUE node
+
+<DT> <A HREF="AllDet.html#psl_node_number_get_value" TARGET="MAIN"><CODE>psl_node_number_get_value()</CODE></A>
+<DD> Returns the integer value associated with the given number
+node.
+
+<DT> <A HREF="AllDet.html#psl_node_prune" TARGET="MAIN"><CODE>psl_node_prune()</CODE></A>
+<DD> Prunes aways the given branch from the given tree
+
+<DT> <A HREF="AllDet.html#psl_node_pslltl2ltl" TARGET="MAIN"><CODE>psl_node_pslltl2ltl()</CODE></A>
+<DD> Takes a PSL LTL expression and builds the
+corresponding LTL expression
+
+<DT> <A HREF="AllDet.html#psl_node_pslobe2ctl" TARGET="MAIN"><CODE>psl_node_pslobe2ctl()</CODE></A>
+<DD> Private service for high level function PslNode_pslobe2ctl
+
+<DT> <A HREF="AllDet.html#psl_node_range_get_high" TARGET="MAIN"><CODE>psl_node_range_get_high()</CODE></A>
+<DD> Returns the high bound of the given range
+
+<DT> <A HREF="AllDet.html#psl_node_range_get_low" TARGET="MAIN"><CODE>psl_node_range_get_low()</CODE></A>
+<DD> Returns the low bound of the given range
+
+<DT> <A HREF="AllDet.html#psl_node_remove_forall_replicators" TARGET="MAIN"><CODE>psl_node_remove_forall_replicators()</CODE></A>
+<DD> Private service for high level function
+          PslNode_remove_forall_replicators
+
+<DT> <A HREF="AllDet.html#psl_node_remove_suffix_implication" TARGET="MAIN"><CODE>psl_node_remove_suffix_implication()</CODE></A>
+<DD> Resolves suffix implication
+
+<DT> <A HREF="AllDet.html#psl_node_repl_prop_get_property" TARGET="MAIN"><CODE>psl_node_repl_prop_get_property()</CODE></A>
+<DD> Given a replicated property, returns the node that contains
+the property.
+
+<DT> <A HREF="AllDet.html#psl_node_repl_prop_get_replicator" TARGET="MAIN"><CODE>psl_node_repl_prop_get_replicator()</CODE></A>
+<DD> Given a replicated property, returns the node that contains
+the replicator.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_compound_get_left" TARGET="MAIN"><CODE>psl_node_sere_compound_get_left()</CODE></A>
+<DD> Returns the left operand of a compound sere.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_compound_get_right" TARGET="MAIN"><CODE>psl_node_sere_compound_get_right()</CODE></A>
+<DD> Returns the right operand of a compound sere.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_cut_leftmost" TARGET="MAIN"><CODE>psl_node_sere_concat_cut_leftmost()</CODE></A>
+<DD> Cuts the leftmost element of a concat sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_fusion2ltl" TARGET="MAIN"><CODE>psl_node_sere_concat_fusion2ltl()</CODE></A>
+<DD> Resolves concat/fusion and converts it to an equivalent LTL
+expression
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_get_leftmost" TARGET="MAIN"><CODE>psl_node_sere_concat_get_leftmost()</CODE></A>
+<DD> Returns the leftmost element of a concat sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_get_left" TARGET="MAIN"><CODE>psl_node_sere_concat_get_left()</CODE></A>
+<DD> Returns the left operand of a concat.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_get_rightmost" TARGET="MAIN"><CODE>psl_node_sere_concat_get_rightmost()</CODE></A>
+<DD> Returns the rightmost element of a concat sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_concat_get_right" TARGET="MAIN"><CODE>psl_node_sere_concat_get_right()</CODE></A>
+<DD> Returns the right operand of a concat.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_distrib_disj" TARGET="MAIN"><CODE>psl_node_sere_distrib_disj()</CODE></A>
+<DD> Distributes the disjunction among SEREs
+
+<DT> <A HREF="AllDet.html#psl_node_sere_fusion_get_left" TARGET="MAIN"><CODE>psl_node_sere_fusion_get_left()</CODE></A>
+<DD> Returns the left operand of a fusion.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_fusion_get_right" TARGET="MAIN"><CODE>psl_node_sere_fusion_get_right()</CODE></A>
+<DD> Returns the right operand of a fusion.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_get_leftmost" TARGET="MAIN"><CODE>psl_node_sere_get_leftmost()</CODE></A>
+<DD> Returns the leftmost element of e that is not a SERE
+
+<DT> <A HREF="AllDet.html#psl_node_sere_get_rightmost" TARGET="MAIN"><CODE>psl_node_sere_get_rightmost()</CODE></A>
+<DD> Returns the rightmost element of e that is not a SERE
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_2ampersand" TARGET="MAIN"><CODE>psl_node_sere_is_2ampersand()</CODE></A>
+<DD> Returns true if the given expression is a sere in the form
+{ s2 && s1 }
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_ampersand" TARGET="MAIN"><CODE>psl_node_sere_is_ampersand()</CODE></A>
+<DD> Returns true if the given SERE is in the form {a} & {b}
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_concat_fusion_holes_free" TARGET="MAIN"><CODE>psl_node_sere_is_concat_fusion_holes_free()</CODE></A>
+<DD> [Returns true if there are no holes in the given
+fusion/concat sere to be filled in.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_concat_fusion" TARGET="MAIN"><CODE>psl_node_sere_is_concat_fusion()</CODE></A>
+<DD> Returns true if the given expression is a concat or fusion
+sere.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_concat_holes_free" TARGET="MAIN"><CODE>psl_node_sere_is_concat_holes_free()</CODE></A>
+<DD> Returns true if there are no holes in the given concat sere
+to be filled in.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_concat" TARGET="MAIN"><CODE>psl_node_sere_is_concat()</CODE></A>
+<DD> Returns true if the given expression is a concat.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_disj" TARGET="MAIN"><CODE>psl_node_sere_is_disj()</CODE></A>
+<DD> Returns true if the given expression is a disjunction of SEREs.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_fusion" TARGET="MAIN"><CODE>psl_node_sere_is_fusion()</CODE></A>
+<DD> Returns true if the given expression is a fusion.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_or" TARGET="MAIN"><CODE>psl_node_sere_is_or()</CODE></A>
+<DD> Returns true if the given expression is an or.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_plus" TARGET="MAIN"><CODE>psl_node_sere_is_plus()</CODE></A>
+<DD> Returns true if the given expression a plus repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_propositional" TARGET="MAIN"><CODE>psl_node_sere_is_propositional()</CODE></A>
+<DD> Returns true if the given sere contains a single
+propositional expression
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_repeated" TARGET="MAIN"><CODE>psl_node_sere_is_repeated()</CODE></A>
+<DD> Returns true if the given expr is a repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_standalone_plus" TARGET="MAIN"><CODE>psl_node_sere_is_standalone_plus()</CODE></A>
+<DD> Returns true if the given repeated sere is in the form
+<empty>[+]
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_standalone_star" TARGET="MAIN"><CODE>psl_node_sere_is_standalone_star()</CODE></A>
+<DD> Returns true if the given expr is in the form <empty>[*],
+with or without a counter.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_star_count_zero" TARGET="MAIN"><CODE>psl_node_sere_is_star_count_zero()</CODE></A>
+<DD> Returns true if the given expr is a star sere with
+count zero
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_star_count" TARGET="MAIN"><CODE>psl_node_sere_is_star_count()</CODE></A>
+<DD> Returns true if the given starred repeated sere as also
+a counter
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_stareq" TARGET="MAIN"><CODE>psl_node_sere_is_stareq()</CODE></A>
+<DD> Returns true if the given expr is a starred-eq repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_starminusgt" TARGET="MAIN"><CODE>psl_node_sere_is_starminusgt()</CODE></A>
+<DD> Returns true if the given expr is a starred-minusgt repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_is_star" TARGET="MAIN"><CODE>psl_node_sere_is_star()</CODE></A>
+<DD> Returns true if the given expr is a starred repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_propositional_get_expr" TARGET="MAIN"><CODE>psl_node_sere_propositional_get_expr()</CODE></A>
+<DD> Returns the expression in a propositional sere.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_2ampersand" TARGET="MAIN"><CODE>psl_node_sere_remove_2ampersand()</CODE></A>
+<DD> Resolves {a} && {a}
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_ampersand" TARGET="MAIN"><CODE>psl_node_sere_remove_ampersand()</CODE></A>
+<DD> Resolves {a}&{a}
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_disj" TARGET="MAIN"><CODE>psl_node_sere_remove_disj()</CODE></A>
+<DD> Removes the disjunction among SERE, by distributing it
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_fusion" TARGET="MAIN"><CODE>psl_node_sere_remove_fusion()</CODE></A>
+<DD> Resolves {a}:{a}
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_plus" TARGET="MAIN"><CODE>psl_node_sere_remove_plus()</CODE></A>
+<DD> Resolve SERE [+]
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_star_count" TARGET="MAIN"><CODE>psl_node_sere_remove_star_count()</CODE></A>
+<DD> Resolves starred SEREs
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_star" TARGET="MAIN"><CODE>psl_node_sere_remove_star()</CODE></A>
+<DD> Resolves starred SEREs
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_trailing_plus" TARGET="MAIN"><CODE>psl_node_sere_remove_trailing_plus()</CODE></A>
+<DD> Resolves the last trailing standalone plus
+
+<DT> <A HREF="AllDet.html#psl_node_sere_remove_trailing_star" TARGET="MAIN"><CODE>psl_node_sere_remove_trailing_star()</CODE></A>
+<DD> Resolves trailing standalone stars
+
+<DT> <A HREF="AllDet.html#psl_node_sere_repeated_get_count" TARGET="MAIN"><CODE>psl_node_sere_repeated_get_count()</CODE></A>
+<DD> Returns the count associated to the repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_repeated_get_expr" TARGET="MAIN"><CODE>psl_node_sere_repeated_get_expr()</CODE></A>
+<DD> Returns the repeated expression associated to the repeated
+sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_repeated_get_op" TARGET="MAIN"><CODE>psl_node_sere_repeated_get_op()</CODE></A>
+<DD> Returns the count associated to the repeated sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_star_get_count" TARGET="MAIN"><CODE>psl_node_sere_star_get_count()</CODE></A>
+<DD> Returns the count of a starred sere.
+
+<DT> <A HREF="AllDet.html#psl_node_sere_star_get_starred" TARGET="MAIN"><CODE>psl_node_sere_star_get_starred()</CODE></A>
+<DD> Getter for a star sere
+
+<DT> <A HREF="AllDet.html#psl_node_sere_translate" TARGET="MAIN"><CODE>psl_node_sere_translate()</CODE></A>
+<DD> High-level service of exported function PslNode_remove_sere
+
+<DT> <A HREF="AllDet.html#psl_node_set_left" TARGET="MAIN"><CODE>psl_node_set_left()</CODE></A>
+<DD> Sets the given expression's left branch
+
+<DT> <A HREF="AllDet.html#psl_node_set_right" TARGET="MAIN"><CODE>psl_node_set_right()</CODE></A>
+<DD> Sets the given expression's right branch
+
+<DT> <A HREF="AllDet.html#psl_node_subst_id" TARGET="MAIN"><CODE>psl_node_subst_id()</CODE></A>
+<DD> This is used to rename IDs occurring in the tree, when
+the replicator 'foreach' statement is resolved
+
+<DT> <A HREF="AllDet.html#psl_node_suffix_implication_get_consequence" TARGET="MAIN"><CODE>psl_node_suffix_implication_get_consequence()</CODE></A>
+<DD> Returns the consequence of the given suffix implication
+
+<DT> <A HREF="AllDet.html#psl_node_suffix_implication_get_premise" TARGET="MAIN"><CODE>psl_node_suffix_implication_get_premise()</CODE></A>
+<DD> Returns the premise of the given suffix implication
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Define to optimize the convertion of next
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> This was implemented for the sake of readability
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

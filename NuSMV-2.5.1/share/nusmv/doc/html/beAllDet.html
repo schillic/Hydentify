@@ -1,0 +1,904 @@
+<html>
+<head><title>The be package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Be_And"></A>
+be_ptr <I></I>
+<B>Be_And</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>left</b>, <i></i>
+  be_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> Builds a new be which is the conjunction between
+  its two arguments
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeIndex2BeLiteral"></A>
+int <I></I>
+<B>Be_BeIndex2BeLiteral</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beIndex</b> <i></i>
+)
+</pre>
+<dd> Converts a BE index into a BE literal (always positive)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ConvertToCnf">Be_ConvertToCnf</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeIndex2CnfLiteral"></A>
+int <I></I>
+<B>Be_BeIndex2CnfLiteral</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beIndex</b> <i></i>
+)
+</pre>
+<dd> If no CNF index is associated with a given BE index, 0
+  is returned. BE indexes are associated with CNF indexes through
+  function Be_ConvertToCnf.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ConvertToCnf">Be_ConvertToCnf</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeLiteral2BeIndex"></A>
+int <I></I>
+<B>Be_BeLiteral2BeIndex</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beLiteral</b> <i></i>
+)
+</pre>
+<dd> Converts a BE literal into a CNF literal
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ConvertToCnf">Be_ConvertToCnf</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeLiteral2CnfLiteral"></A>
+int <I></I>
+<B>Be_BeLiteral2CnfLiteral</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beLiteral</b> <i></i>
+)
+</pre>
+<dd> Converts a BE literal into a CNF literal (sign is taken into
+  account)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ConvertToCnf">Be_ConvertToCnf</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeLiteral_IsSignPositive"></A>
+boolean <I></I>
+<B>Be_BeLiteral_IsSignPositive</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beLiteral</b> <i></i>
+)
+</pre>
+<dd> Returns true iff sign of literal is positive.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_BeLiteral_Negate">Be_BeLiteral_Negate</a>
+<a href="#Be_CnfLiteral_IsSignPositive">Be_CnfLiteral_IsSignPositive</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_BeLiteral_Negate"></A>
+int <I></I>
+<B>Be_BeLiteral_Negate</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>beLiteral</b> <i></i>
+)
+</pre>
+<dd> Returns negated literal.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_BeLiteral_IsSignPositive">Be_BeLiteral_IsSignPositive</a>
+<a href="#Be_CnfLiteral_Negate">Be_CnfLiteral_Negate</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_CnfLiteral2BeLiteral"></A>
+int <I></I>
+<B>Be_CnfLiteral2BeLiteral</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>cnfLiteral</b> <i></i>
+)
+</pre>
+<dd> The function returns 0 if there is no BE index
+  associated with the given CNF index.  A given CNF literal should be
+  created by given BE manager (through Be_ConvertToCnf).
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ConvertToCnf">Be_ConvertToCnf</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_CnfLiteral_IsSignPositive"></A>
+boolean <I></I>
+<B>Be_CnfLiteral_IsSignPositive</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>cnfLiteral</b> <i></i>
+)
+</pre>
+<dd> Returns true iff sign of literal is positive.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_CnfLiteral_Negate">Be_CnfLiteral_Negate</a>
+<a href="#Be_BeLiteral_IsSignPositive">Be_BeLiteral_IsSignPositive</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_CnfLiteral_Negate"></A>
+int <I></I>
+<B>Be_CnfLiteral_Negate</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  int  <b>cnfLiteral</b> <i></i>
+)
+</pre>
+<dd> Returns negated literal.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_CnfLiteral_IsSignPositive">Be_CnfLiteral_IsSignPositive</a>
+<a href="#Be_BeLiteral_Negate">Be_BeLiteral_Negate</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_CnfModelToBeModel"></A>
+Slist_ptr <I></I>
+<B>Be_CnfModelToBeModel</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  Slist_ptr  <b>cnfModel</b> <i></i>
+)
+</pre>
+<dd> Since it creates a new lsit , the caller
+  is responsible for deleting it when it is no longer used
+  (via lsDestroy)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_ConvertToCnf"></A>
+Be_Cnf_ptr <I></I>
+<B>Be_ConvertToCnf</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  int  <b>polarity</b> <i></i>
+)
+</pre>
+<dd> Since it creates a new Be_Cnf structure, the caller
+  is responsible for deleting it when it is no longer used
+  (via Be_Cnf_Delete).
+
+  'polarity' is used to determine if the clauses generated should
+   represent the RBC positively, negatively, or both (1, -1 or 0
+   respectively). For an RBC that is known to be true, the clauses
+   that represent it being false are not needed (they would be removed
+   anyway by propogating the unit literal which states that the RBC is
+   true). Similarly for when the RBC is known to be false. This
+   parameter is only used with the compact cnf conversion algorithm,
+   and is ignored if the simple algorithm is used.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Cnf_Delete">Be_Cnf_Delete</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_DumpDavinci"></A>
+void <I></I>
+<B>Be_DumpDavinci</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  FILE* <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Dumps the given be into a file with Davinci format
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_DumpGdl"></A>
+void <I></I>
+<B>Be_DumpGdl</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  FILE* <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Dumps the given be into a file with Davinci format
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_DumpSexpr"></A>
+void <I></I>
+<B>Be_DumpSexpr</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  FILE* <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Dumps the given be into a file
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Falsity"></A>
+be_ptr <I></I>
+<B>Be_Falsity</B>(
+  Be_Manager_ptr  <b>manager</b> <i></i>
+)
+</pre>
+<dd> Builds a 'false' constant value
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Iff"></A>
+be_ptr <I></I>
+<B>Be_Iff</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>left</b>, <i></i>
+  be_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> Builds a new be which is the logical equivalence
+  between its two arguments
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Implies"></A>
+be_ptr <I></I>
+<B>Be_Implies</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>arg1</b>, <i></i>
+  be_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Builds a new be which is the implication between
+  its two arguments
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Index2Var"></A>
+be_ptr <I></I>
+<B>Be_Index2Var</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  int  <b>varIndex</b> <i></i>
+)
+</pre>
+<dd> If corresponding index had not been previously
+  allocated, it will be allocated. If corresponding node does not
+  exist in the dag, it will be inserted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Init"></A>
+void <I></I>
+<B>Be_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Call before any other function contained in this module
+<p>
+
+<dd> <b>Side Effects</b> Any module structure is allocated and initialized if required
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Quit">Be_Quit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#bePkg.c"TARGET="ABSTRACT"><CODE>bePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_IsConstant"></A>
+boolean <I></I>
+<B>Be_IsConstant</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given be is a constant value,
+  such as either False or True
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_IsFalse"></A>
+boolean <I></I>
+<B>Be_IsFalse</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given be is the false value,
+  otherwise returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_IsTrue"></A>
+boolean <I></I>
+<B>Be_IsTrue</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given be is the true value,
+  otherwise returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Ite"></A>
+be_ptr <I></I>
+<B>Be_Ite</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>c</b>, <i></i>
+  be_ptr  <b>t</b>, <i></i>
+  be_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Builds an if-then-else operation be
+<p>
+
+<dd> <b>Side Effects</b> ...
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_LogicalShiftVar"></A>
+be_ptr <I></I>
+<B>Be_LogicalShiftVar</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  int  <b>shift</b>, <i></i>
+  const int* <b>log2phy</b>, <i></i>
+  const int* <b>phy2log</b> <i></i>
+)
+</pre>
+<dd> Shifting operation replaces each occurence of the
+               variable x_i in `f' with the variable x_(i + shift).  A
+               simple lazy mechanism is implemented to optimize that
+               cases which given expression is a constant in.
+
+               The two indices arrays log2phy and phy2log map
+               respectively the logical level to the physical level,
+               and the physical level to the logical levels. They
+               allow the be encoder to freely organize the variables
+               into a logical and a physical level. This feature has
+               been introduced with NuSMV-2.4 that ships dynamic
+               encodings.
+
+               !!!! WARNING !!!!
+                 Since version 2.4 memoizing has been moved to BeEnc,
+                 as there is no way of calculating a good hashing key
+                 as the time would be requested, but timing
+                 information are not available at this stage.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_LogicalVarSubst"></A>
+be_ptr <I></I>
+<B>Be_LogicalVarSubst</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  int* <b>subst</b>, <i></i>
+  const int* <b>log2phy</b>, <i></i>
+  const int* <b>phy2log</b> <i></i>
+)
+</pre>
+<dd> Replaces every occurence of the variable x_i in in `f'
+               with the variable x_j provided that subst[i
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_Be2Spec"></A>
+void* <I></I>
+<B>Be_Manager_Be2Spec</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  be_ptr  <b>be</b> <i></i>
+)
+</pre>
+<dd> Converts a generic BE into a specific-format boolean expression 
+  (for example in rbc format)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Manager_Spec2Be">Be_Manager_Spec2Be</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_Create"></A>
+Be_Manager_ptr <I></I>
+<B>Be_Manager_Create</B>(
+  void* <b>spec_manager</b>, <i></i>
+  Be_Spec2Be_fun  <b>spec2be_converter</b>, <i></i>
+  Be_Be2Spec_fun  <b>be2spec_converter</b> <i></i>
+)
+</pre>
+<dd> spec_manager is the specific structure which is used to manage
+  the low-level structure. For example the RbcManager class in the 
+  RBC dependant implementation. 
+  This does not assume the ownership of 'spec_manager'. If you have dynamically
+  created the spec_manager instance, you are responsible for deleting it after 
+  you deleted the Be_manager instance. 
+  This "virtual" function is supplied in order to be called by any 
+  specific class derived from Be_Manager, in its constructor code.
+  spec2be and be2spec converters are gateways in order to polymorphically 
+  convert the low level support structure (for example a rbc pointer) to 
+  the generic be_ptr and viceversa.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_RbcManager_Create">Be_RbcManager_Create</a>
+<a href="#Be_Manager_Delete">Be_Manager_Delete</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_Delete"></A>
+void <I></I>
+<B>Be_Manager_Delete</B>(
+  Be_Manager_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Call this function from the destructor of the derived class 
+  that implements the Be_Manager class. Any other use is to be considered 
+  unusual.
+<p>
+
+<dd> <b>Side Effects</b> self will be deleted from memory.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_RbcManager_Delete">Be_RbcManager_Delete</a>
+<a href="#Be_Manager_Create">Be_Manager_Create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_GetData"></A>
+void* <I></I>
+<B>Be_Manager_GetData</B>(
+  const Be_Manager_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> When you instantiate a derived BE manager (for example the 
+  rbc manager) you can store any useful specific data by using 
+  Be_Manager_SetData. Those data can be lately retrieved by Be_Manager_GetData
+  which gets a generic, structure-independent Be_Manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Manager_SetData">Be_Manager_SetData</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_SetData"></A>
+void <I></I>
+<B>Be_Manager_SetData</B>(
+  Be_Manager_ptr  <b>self</b>, <i></i>
+  void* <b>data</b> <i></i>
+)
+</pre>
+<dd> You can retieve saved data by using the method 
+  Be_Manager_GetData. This implements a kind of inheritance mechanism.
+<p>
+
+<dd> <b>Side Effects</b> self will change its internal state.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Manager_GetData">Be_Manager_GetData</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Manager_Spec2Be"></A>
+be_ptr <I></I>
+<B>Be_Manager_Spec2Be</B>(
+  const Be_Manager_ptr  <b>self</b>, <i></i>
+  void* <b>spec_expr</b> <i></i>
+)
+</pre>
+<dd> Calls self->spec2be_converter in order to implement the 
+  polymorphism mechanism
+<p>
+
+<dd> <b>Side Effects</b> Calls self->be2spec_converter in order to implement the 
+  polymorphism mechanism
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Manager_Be2Spec">Be_Manager_Be2Spec</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beManager.c"TARGET="ABSTRACT"><CODE>beManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Not"></A>
+be_ptr <I></I>
+<B>Be_Not</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>left</b> <i></i>
+)
+</pre>
+<dd> Negates its argument
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Or"></A>
+be_ptr <I></I>
+<B>Be_Or</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>left</b>, <i></i>
+  be_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> Builds a new be which is the disjunction of
+  its two arguments
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_PrintStats"></A>
+void <I></I>
+<B>Be_PrintStats</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  int  <b>clustSize</b>, <i></i>
+  FILE* <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Prints out some statistical data about the underlying
+  rbc structure
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Quit"></A>
+void <I></I>
+<B>Be_Quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Call as soon as you finished to use this module services
+<p>
+
+<dd> <b>Side Effects</b> Any module structure is deleted if required
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_Init">Be_Init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#bePkg.c"TARGET="ABSTRACT"><CODE>bePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_RbcManager_Create"></A>
+Be_Manager_ptr <I></I>
+<B>Be_RbcManager_Create</B>(
+  const size_t  <b>capacity</b> <i></i>
+)
+</pre>
+<dd> You must call Be_RbcManager_Delete when the created instance
+  is no longer used.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_RbcManager_Delete">Be_RbcManager_Delete</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_RbcManager_Delete"></A>
+void <I></I>
+<B>Be_RbcManager_Delete</B>(
+  Be_Manager_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destroys the given Be_MAnager instance you previously
+  created by using Be_RbcManager_Create
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_RbcManager_Create">Be_RbcManager_Create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_RbcManager_Reserve"></A>
+void <I></I>
+<B>Be_RbcManager_Reserve</B>(
+  Be_Manager_ptr  <b>self</b>, <i></i>
+  const size_t  <b>size</b> <i></i>
+)
+</pre>
+<dd> Changes the maximum number of variables the rbc manager can
+  handle
+<p>
+
+<dd> <b>Side Effects</b> The given rbc manager will possibly change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_ShiftVar"></A>
+be_ptr <I></I>
+<B>Be_ShiftVar</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  int  <b>shift</b> <i></i>
+)
+</pre>
+<dd> Shifting operation replaces each occurence of the variable x_i
+  in `f' with the variable x_(i + shift).
+  A simple lazy mechanism is implemented to optimize that cases which
+  given expression is a constant in.
+
+  !!!!!! WARNING   WARNING   WARNING   WARNING   WARNING   WARNING !!!!!
+  !!                                                                  !!
+  !!  This function cannot be used with the new encoding BeEnc. As    !!
+  !!  shifting involves the traversal of the logical layer within the !!
+  !!  BeEnc, simple shifting is no longer usable, and will produce    !!
+  !!  unpredictable results if used on variables handled by a BeEnc   !!
+  !!  instance.                                                       !!
+  !!                                                                  !!
+  !!  Use Be_LogicalShiftVar instead.                                 !!
+  !!                                                                  !!
+  !!!!!! WARNING   WARNING   WARNING   WARNING   WARNING   WARNING !!!!!
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_LogicalShiftVar">Be_LogicalShiftVar</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Truth"></A>
+be_ptr <I></I>
+<B>Be_Truth</B>(
+  Be_Manager_ptr  <b>manager</b> <i></i>
+)
+</pre>
+<dd> Builds a 'true' constant value
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Var2Index"></A>
+int <I></I>
+<B>Be_Var2Index</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>var</b> <i></i>
+)
+</pre>
+<dd> Converts the given variable (as boolean expression) into
+  the corresponding index
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_VarSubst"></A>
+be_ptr <I></I>
+<B>Be_VarSubst</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  int* <b>subst</b> <i></i>
+)
+</pre>
+<dd> Replaces every occurence of the variable x_i in in `f'
+  with the variable x_j provided that subst[i
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_LogicalSubst">Be_LogicalSubst</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_Xor"></A>
+be_ptr <I></I>
+<B>Be_Xor</B>(
+  Be_Manager_ptr  <b>manager</b>, <i></i>
+  be_ptr  <b>left</b>, <i></i>
+  be_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> Builds a new be which is the exclusive-disjunction
+  of its two arguments
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Be_apply_inlining"></A>
+be_ptr <I></I>
+<B>Be_apply_inlining</B>(
+  Be_Manager_ptr  <b>mgr</b>, <i></i>
+  be_ptr  <b>f</b>, <i></i>
+  boolean  <b>add_conj</b> <i></i>
+)
+</pre>
+<dd> If add_conj is true, the conjuction set is included, otherwise
+        only the inlined formula is returned for a lazy SAT solving.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#InlineResult">InlineResult</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="beRbc_Be2Rbc"></A>
+static void* <I></I>
+<B>beRbc_Be2Rbc</B>(
+  Be_Manager_ptr  <b>mgr</b>, <i></i>
+  be_ptr  <b>be</b> <i></i>
+)
+</pre>
+<dd> The current implementation is really a simple type renaming.
+  Internally used by Be_Manager via the inheritance mechanism.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="beRbc_Rbc2Be"></A>
+static be_ptr <I></I>
+<B>beRbc_Rbc2Be</B>(
+  Be_Manager_ptr  <b>mgr</b>, <i></i>
+  void* <b>rbc</b> <i></i>
+)
+</pre>
+<dd> The current implementation is really a simple type renaming.
+  Internally used by Be_Manager via the inheritance mechanism.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="be_shiftHashInit"></A>
+void <I></I>
+<B>be_shiftHashInit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Call be_shiftHash_Quit() before quit from the be  
+  module
+<p>
+
+<dd> <b>Side Effects</b> Private global vars htShift_ptr will change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ShiftVar">Be_ShiftVar</a>
+<a href="#Be_LogicalShiftVar">Be_LogicalShiftVar</a>
+<a href="#Hash_Quit">Hash_Quit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#bePkg.c"TARGET="ABSTRACT"><CODE>bePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="be_shiftHash_Quit"></A>
+void <I></I>
+<B>be_shiftHash_Quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Call be_shiftHash_Quit() before quit from BMC module
+<p>
+
+<dd> <b>Side Effects</b> Private global vars htShift_ptr will be put to NULL
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Be_ShiftVar">Be_ShiftVar</a>
+<a href="#be_shiftHashInit">be_shiftHashInit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#bePkg.c"TARGET="ABSTRACT"><CODE>bePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This is a macro which can be used to simplify the code.
+<p>
+
+<dd> <b>See Also</b> <code>BE
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This is a macro which can be used to simplify the code.
+<p>
+
+<dd> <b>See Also</b> <code>RBC
+</code>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This is a macro which can be used to simplify the code.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="beAllFile.html#beRbcManager.c"TARGET="ABSTRACT"><CODE>beRbcManager.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,157 @@
+<html>
+<head><title>rbc package abstract</title></head>
+<body>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<dt> <a href="rbcAllDet.html#Rbc_CnfConversionAlgorithm2Str" TARGET="MAIN"><code>Rbc_CnfConversionAlgorithm2Str()</code></a>
+<dd> Conversion from CNF conversion algorithm enumerative to string
+
+<dt> <a href="rbcAllDet.html#Rbc_CnfConversionAlgorithmFromStr" TARGET="MAIN"><code>Rbc_CnfConversionAlgorithmFromStr()</code></a>
+<dd> Conversion from string to CNF conversion algorithm enumerative
+
+<dt> <a href="rbcAllDet.html#Rbc_CnfGetValidRbc2CnfAlgorithms" TARGET="MAIN"><code>Rbc_CnfGetValidRbc2CnfAlgorithms()</code></a>
+<dd> String of valid conversion algorithms
+
+<dt> <a href="rbcAllDet.html#Rbc_CnfVar2RbcIndex" TARGET="MAIN"><code>Rbc_CnfVar2RbcIndex()</code></a>
+<dd> Returns the RBC index corresponding to a particular CNF var
+
+<dt> <a href="rbcAllDet.html#Rbc_Convert2CnfCompact" TARGET="MAIN"><code>Rbc_Convert2CnfCompact()</code></a>
+<dd> Translates the rbc into the corresponding (equisatisfiable)
+               set of clauses.
+
+<dt> <a href="rbcAllDet.html#Rbc_Convert2CnfSimple" TARGET="MAIN"><code>Rbc_Convert2CnfSimple()</code></a>
+<dd> Translates the rbc into the corresponding (equisatisfiable)
+               set of clauses.
+
+<dt> <a href="rbcAllDet.html#Rbc_Convert2Cnf" TARGET="MAIN"><code>Rbc_Convert2Cnf()</code></a>
+<dd> Translates the rbc into the corresponding (equisatisfiable)
+               set of clauses.
+
+<dt> <a href="rbcAllDet.html#Rbc_GetIthVar" TARGET="MAIN"><code>Rbc_GetIthVar()</code></a>
+<dd> Returns a variable.
+
+<dt> <a href="rbcAllDet.html#Rbc_GetLeftOpnd" TARGET="MAIN"><code>Rbc_GetLeftOpnd()</code></a>
+<dd> Gets the left operand.
+
+<dt> <a href="rbcAllDet.html#Rbc_GetOne" TARGET="MAIN"><code>Rbc_GetOne()</code></a>
+<dd> Logical constant 1 (truth).
+
+<dt> <a href="rbcAllDet.html#Rbc_GetRightOpnd" TARGET="MAIN"><code>Rbc_GetRightOpnd()</code></a>
+<dd> Gets the right operand.
+
+<dt> <a href="rbcAllDet.html#Rbc_GetVarIndex" TARGET="MAIN"><code>Rbc_GetVarIndex()</code></a>
+<dd> Gets the variable index.
+
+<dt> <a href="rbcAllDet.html#Rbc_GetZero" TARGET="MAIN"><code>Rbc_GetZero()</code></a>
+<dd> Logical constant 0 (falsity).
+
+<dt> <a href="rbcAllDet.html#Rbc_IsConstant" TARGET="MAIN"><code>Rbc_IsConstant()</code></a>
+<dd> Returns true if the given rbc is a constant value,
+  such as either False or True
+
+<dt> <a href="rbcAllDet.html#Rbc_LogicalShift" TARGET="MAIN"><code>Rbc_LogicalShift()</code></a>
+<dd> Creates a fresh copy G(X') of the rbc F(X) by shifting 
+               each variable index of a certain amount.
+
+<dt> <a href="rbcAllDet.html#Rbc_LogicalSubstRbc" TARGET="MAIN"><code>Rbc_LogicalSubstRbc()</code></a>
+<dd> Creates a fresh copy G(S) of the rbc F(X) such 
+               that G(S) = F(X)[S/X
+
+<dt> <a href="rbcAllDet.html#Rbc_LogicalSubst" TARGET="MAIN"><code>Rbc_LogicalSubst()</code></a>
+<dd> Creates a fresh copy G(Y) of the rbc F(X) such 
+               that G(Y) = F(X)[Y/X
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeAnd" TARGET="MAIN"><code>Rbc_MakeAnd()</code></a>
+<dd> Makes the conjunction of two rbcs.
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeIff" TARGET="MAIN"><code>Rbc_MakeIff()</code></a>
+<dd> Makes the coimplication of two rbcs.
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeIte" TARGET="MAIN"><code>Rbc_MakeIte()</code></a>
+<dd> Makes the if-then-else of three rbcs.
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeNot" TARGET="MAIN"><code>Rbc_MakeNot()</code></a>
+<dd> Returns the complement of an rbc.
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeOr" TARGET="MAIN"><code>Rbc_MakeOr()</code></a>
+<dd> Makes the disjunction of two rbcs.
+
+<dt> <a href="rbcAllDet.html#Rbc_MakeXor" TARGET="MAIN"><code>Rbc_MakeXor()</code></a>
+<dd> Makes the exclusive disjunction of two rbcs.
+
+<dt> <a href="rbcAllDet.html#Rbc_ManagerAlloc" TARGET="MAIN"><code>Rbc_ManagerAlloc()</code></a>
+<dd> Creates a new RBC manager.
+
+<dt> <a href="rbcAllDet.html#Rbc_ManagerCapacity" TARGET="MAIN"><code>Rbc_ManagerCapacity()</code></a>
+<dd> Returns the current variable capacity of the rbc.
+
+<dt> <a href="rbcAllDet.html#Rbc_ManagerFree" TARGET="MAIN"><code>Rbc_ManagerFree()</code></a>
+<dd> Deallocates an RBC manager.
+
+<dt> <a href="rbcAllDet.html#Rbc_ManagerGC" TARGET="MAIN"><code>Rbc_ManagerGC()</code></a>
+<dd> Garbage collection in the RBC manager.
+
+<dt> <a href="rbcAllDet.html#Rbc_ManagerReserve" TARGET="MAIN"><code>Rbc_ManagerReserve()</code></a>
+<dd> Reserves more space for new variables.
+
+<dt> <a href="rbcAllDet.html#Rbc_Mark" TARGET="MAIN"><code>Rbc_Mark()</code></a>
+<dd> Makes a node permanent.
+
+<dt> <a href="rbcAllDet.html#Rbc_OutputDaVinci" TARGET="MAIN"><code>Rbc_OutputDaVinci()</code></a>
+<dd> Print out an rbc using DaVinci graph format.
+
+<dt> <a href="rbcAllDet.html#Rbc_OutputGdl" TARGET="MAIN"><code>Rbc_OutputGdl()</code></a>
+<dd> Print out an rbc using Gdl graph format.
+
+<dt> <a href="rbcAllDet.html#Rbc_OutputSexpr" TARGET="MAIN"><code>Rbc_OutputSexpr()</code></a>
+<dd> Print out an rbc using LISP S-expressions.
+
+<dt> <a href="rbcAllDet.html#Rbc_PrintStats" TARGET="MAIN"><code>Rbc_PrintStats()</code></a>
+<dd> Prints various statistics.
+
+<dt> <a href="rbcAllDet.html#Rbc_RbcIndex2CnfVar" TARGET="MAIN"><code>Rbc_RbcIndex2CnfVar()</code></a>
+<dd> Returns the associated CNF variable of a given RBC index
+
+<dt> <a href="rbcAllDet.html#Rbc_Shift" TARGET="MAIN"><code>Rbc_Shift()</code></a>
+<dd> Creates a fresh copy G(X') of the rbc F(X) by shifting 
+               each variable index of a certain amount.
+
+<dt> <a href="rbcAllDet.html#Rbc_SubstRbc" TARGET="MAIN"><code>Rbc_SubstRbc()</code></a>
+<dd> Creates a fresh copy G(S) of the rbc F(X) such 
+               that G(S) = F(X)[S/X
+
+<dt> <a href="rbcAllDet.html#Rbc_Subst" TARGET="MAIN"><code>Rbc_Subst()</code></a>
+<dd> Creates a fresh copy G(Y) of the rbc F(X) such 
+               that G(Y) = F(X)[Y/X
+
+<dt> <a href="rbcAllDet.html#Rbc_Unmark" TARGET="MAIN"><code>Rbc_Unmark()</code></a>
+<dd> Makes a node volatile.
+
+<dt> <a href="rbcAllDet.html#Rbc_get_node_cnf" TARGET="MAIN"><code>Rbc_get_node_cnf()</code></a>
+<dd> Given a rbc node, this function returns the corrensponding
+  CNF var it had been already allocated one. Otherwise it will allocate a
+  new CNF var and will increment given maxvar value. If f is RBCDUMMY,
+  a new variable will be always allocated (intended to be a non-terminal var,
+  but a corresponding RBC var will be not allocated)
+
+<dt> <a href="rbcAllDet.html#rbc_inlining_cache_add_result" TARGET="MAIN"><code>rbc_inlining_cache_add_result()</code></a>
+<dd> Inline caching private service
+
+<dt> <a href="rbcAllDet.html#rbc_inlining_cache_init" TARGET="MAIN"><code>rbc_inlining_cache_init()</code></a>
+<dd> Inline caching private service
+
+<dt> <a href="rbcAllDet.html#rbc_inlining_cache_lookup_result" TARGET="MAIN"><code>rbc_inlining_cache_lookup_result()</code></a>
+<dd> Inline caching private service
+
+<dt> <a href="rbcAllDet.html#rbc_inlining_cache_quit" TARGET="MAIN"><code>rbc_inlining_cache_quit()</code></a>
+<dd> Inline caching private service
+
+</dl>
+
+<hr>
+
+Last updated on 2010/10/01 19h:57
+</body></html>

@@ -1,0 +1,26 @@
+  bmc_simulate - Generates a trace of the model from 0 (zero) to k
+
+   --------------------------------------------------------------------------
+
+   bmc_simulate [-h | [-p | -v] -k ]
+
+   bmc_simulate does not require a specification to build the problem,
+   because only the model is used to build it. The problem length is
+   represented by the -k command parameter, or by its default value stored in
+   the environment variable bmc_length.
+   Command options:
+
+   -p
+           prints out the generated trace, with only variables whose values
+           had changed.
+
+   -v
+           verbosely prints out the generated trace. All assignments will be
+           printed.
+
+   -k length
+           length is the number of simulation steps.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

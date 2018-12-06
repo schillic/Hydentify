@@ -1,0 +1,177 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#psl_grammar.y"><CODE>psl_grammar.y</CODE></A>
+ <DD> Grammar (for Yacc and Bison) of PSL specification input
+  language
+ <DT> <A HREF="#psl_input.l"><CODE>psl_input.l</CODE></A>
+ <DD> Lexical analyzer for the PSL specification input language
+ <DT> <A HREF="#pslConv.c"><CODE>pslConv.c</CODE></A>
+ <DD> Algorithms and conversions on PslNode structure
+ <DT> <A HREF="#pslExpr.c"><CODE>pslExpr.c</CODE></A>
+ <DD> Implementation of the PSL parser interface
+</DL><HR>
+<A NAME="psl_grammar.y"><H1>psl_grammar.y</H1></A>
+Grammar (for Yacc and Bison) of PSL specification input
+  language <P>
+<B>By: Roberto Cavada</B><P>
+<P><B>See Also</B><A HREF="#psl_input.l"><CODE>psl_input.l</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="psl_input.l"><H1>psl_input.l</H1></A>
+Lexical analyzer for the PSL specification input language <P>
+<B>By: Roberto Cavada</B><P>
+<P><B>See Also</B><A HREF="#psl_grammar.y"><CODE>psl_grammar.y</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="pslConv.c"><H1>pslConv.c</H1></A>
+Algorithms and conversions on PslNode structure <P>
+<B>By: Fabio Barbon, Roberto Cavada, Simone Semprini</B><P>
+<P><B>See Also</B><A HREF="#psl_conv.h"><CODE>psl_conv.h</CODE></A>
+<DL>
+ <DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Define to optimize the convertion of next
+
+ <DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> This was implemented for the sake of readability
+
+ <DT> <A HREF="AllDet.html#PslNode_convert_psl_to_core" TARGET="MAIN"><CODE>PslNode_convert_psl_to_core()</CODE></A>
+ <DD> Reduces the given PSL formula to an equivalent formula that
+                    uses only core symbols. Resulting formula is
+                    either LTL of CTL, and can be used for model
+                    checking.
+
+ <DT> <A HREF="AllDet.html#PslNode_convert_id" TARGET="MAIN"><CODE>PslNode_convert_id()</CODE></A>
+ <DD> Converts an id to a different id type, for example a PSL id
+to a SMV id
+
+ <DT> <A HREF="AllDet.html#PslNode_pslobe2ctl" TARGET="MAIN"><CODE>PslNode_pslobe2ctl()</CODE></A>
+ <DD> Takes a PSL OBE expression and builds the corresponding
+CTL expression
+
+ <DT> <A HREF="AllDet.html#psl_node_pslobe2ctl" TARGET="MAIN"><CODE>psl_node_pslobe2ctl()</CODE></A>
+ <DD> Private service for high level function PslNode_pslobe2ctl
+
+ <DT> <A HREF="AllDet.html#PslNode_remove_forall_replicators" TARGET="MAIN"><CODE>PslNode_remove_forall_replicators()</CODE></A>
+ <DD> Takes a PSL expression and expands all forall constructs
+contained in the expression
+
+ <DT> <A HREF="AllDet.html#psl_node_remove_forall_replicators" TARGET="MAIN"><CODE>psl_node_remove_forall_replicators()</CODE></A>
+ <DD> Private service for high level function
+          PslNode_remove_forall_replicators
+
+ <DT> <A HREF="AllDet.html#PslNode_pslltl2ltl" TARGET="MAIN"><CODE>PslNode_pslltl2ltl()</CODE></A>
+ <DD> Takes a PSL LTL expression and builds the
+corresponding LTL expression
+
+ <DT> <A HREF="AllDet.html#psl_node_pslltl2ltl" TARGET="MAIN"><CODE>psl_node_pslltl2ltl()</CODE></A>
+ <DD> Takes a PSL LTL expression and builds the
+corresponding LTL expression
+
+ <DT> <A HREF="AllDet.html#PslNode_remove_sere" TARGET="MAIN"><CODE>PslNode_remove_sere()</CODE></A>
+ <DD> Converts the given expression (possibly containing sere)
+into an equivalent LTL formula
+
+ <DT> <A HREF="AllDet.html#psl_conv_op" TARGET="MAIN"><CODE>psl_conv_op()</CODE></A>
+ <DD> Converts the given operator into either a PSL operator, or
+a SMV operator, depending on the value of 'type'
+
+ <DT> <A HREF="AllDet.html#psl_node_expand_next_event" TARGET="MAIN"><CODE>psl_node_expand_next_event()</CODE></A>
+ <DD> During the conversion to LTL, this function is invoked
+when the expansion of next_event family is required.
+
+ <DT> <A HREF="AllDet.html#psl_node_subst_id" TARGET="MAIN"><CODE>psl_node_subst_id()</CODE></A>
+ <DD> This is used to rename IDs occurring in the tree, when
+the replicator 'foreach' statement is resolved
+
+ <DT> <A HREF="AllDet.html#psl_node_expand_replicator" TARGET="MAIN"><CODE>psl_node_expand_replicator()</CODE></A>
+ <DD> Expansion of a replicator 'forall' statement
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_disj" TARGET="MAIN"><CODE>psl_node_sere_remove_disj()</CODE></A>
+ <DD> Removes the disjunction among SERE, by distributing it
+
+ <DT> <A HREF="AllDet.html#psl_node_insert_inside_holes" TARGET="MAIN"><CODE>psl_node_insert_inside_holes()</CODE></A>
+ <DD> Service due to way concat_fusion expansion is implemented
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_concat_fusion2ltl" TARGET="MAIN"><CODE>psl_node_sere_concat_fusion2ltl()</CODE></A>
+ <DD> Resolves concat/fusion and converts it to an equivalent LTL
+expression
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_translate" TARGET="MAIN"><CODE>psl_node_sere_translate()</CODE></A>
+ <DD> High-level service of exported function PslNode_remove_sere
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_is_disj" TARGET="MAIN"><CODE>psl_node_sere_is_disj()</CODE></A>
+ <DD> Returns true if the given expression is a disjunction of SEREs.
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_distrib_disj" TARGET="MAIN"><CODE>psl_node_sere_distrib_disj()</CODE></A>
+ <DD> Distributes the disjunction among SEREs
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_star_count" TARGET="MAIN"><CODE>psl_node_sere_remove_star_count()</CODE></A>
+ <DD> Resolves starred SEREs
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_is_ampersand" TARGET="MAIN"><CODE>psl_node_sere_is_ampersand()</CODE></A>
+ <DD> Returns true if the given SERE is in the form {a} & {b}
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_get_leftmost" TARGET="MAIN"><CODE>psl_node_sere_get_leftmost()</CODE></A>
+ <DD> Returns the leftmost element of e that is not a SERE
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_get_rightmost" TARGET="MAIN"><CODE>psl_node_sere_get_rightmost()</CODE></A>
+ <DD> Returns the rightmost element of e that is not a SERE
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_plus" TARGET="MAIN"><CODE>psl_node_sere_remove_plus()</CODE></A>
+ <DD> Resolve SERE [+]
+
+ <DT> <A HREF="AllDet.html#psl_node_remove_suffix_implication" TARGET="MAIN"><CODE>psl_node_remove_suffix_implication()</CODE></A>
+ <DD> Resolves suffix implication
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_star" TARGET="MAIN"><CODE>psl_node_sere_remove_star()</CODE></A>
+ <DD> Resolves starred SEREs
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_trailing_star" TARGET="MAIN"><CODE>psl_node_sere_remove_trailing_star()</CODE></A>
+ <DD> Resolves trailing standalone stars
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_trailing_plus" TARGET="MAIN"><CODE>psl_node_sere_remove_trailing_plus()</CODE></A>
+ <DD> Resolves the last trailing standalone plus
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_ampersand" TARGET="MAIN"><CODE>psl_node_sere_remove_ampersand()</CODE></A>
+ <DD> Resolves {a}&{a}
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_2ampersand" TARGET="MAIN"><CODE>psl_node_sere_remove_2ampersand()</CODE></A>
+ <DD> Resolves {a} && {a}
+
+ <DT> <A HREF="AllDet.html#psl_node_sere_remove_fusion" TARGET="MAIN"><CODE>psl_node_sere_remove_fusion()</CODE></A>
+ <DD> Resolves {a}:{a}
+
+</DL>
+<HR>
+<A NAME="pslExpr.c"><H1>pslExpr.c</H1></A>
+Implementation of the PSL parser interface <P>
+<B>By: Roberto Cavada, Marco Roveri</B><P>
+<P><B>See Also</B><A HREF="#pslExpr.h"><CODE>pslExpr.h</CODE></A>
+<DL>
+ <DT> <A HREF="AllDet.html#psl_expr_print_klass" TARGET="MAIN"><CODE>psl_expr_print_klass()</CODE></A>
+ <DD> required
+
+ <DT> <A HREF="AllDet.html#psl_expr_is_boolean" TARGET="MAIN"><CODE>psl_expr_is_boolean()</CODE></A>
+ <DD> Returns 1 if the given node is boolean compatible type, 0
+otherwise
+
+ <DT> <A HREF="AllDet.html#psl_expr_check_klass" TARGET="MAIN"><CODE>psl_expr_check_klass()</CODE></A>
+ <DD> returns 0 if the given psl expr is not compatible with the
+given klass
+
+ <DT> <A HREF="AllDet.html#psl_expr_base_num_to_val" TARGET="MAIN"><CODE>psl_expr_base_num_to_val()</CODE></A>
+ <DD> Converts from base to number: TO BE IMPLEMENTED
+
+ <DT> <A HREF="AllDet.html#psl_expr_require_klass" TARGET="MAIN"><CODE>psl_expr_require_klass()</CODE></A>
+ <DD> Checks that given expression is compatible with the 
+given required syntactic class
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

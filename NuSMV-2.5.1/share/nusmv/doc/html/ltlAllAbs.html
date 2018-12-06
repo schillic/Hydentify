@@ -1,0 +1,147 @@
+<HTML>
+<HEAD><TITLE>ltl package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="ltlAllDet.html#CommandCheckLtlSpec" TARGET="MAIN"><CODE>CommandCheckLtlSpec()</CODE></A>
+<DD> Performs LTL model checking
+
+<DT> <A HREF="ltlAllDet.html#Ltl_CheckLtlSpec" TARGET="MAIN"><CODE>Ltl_CheckLtlSpec()</CODE></A>
+<DD> The main routine to perform LTL model checking.
+
+<DT> <A HREF="ltlAllDet.html#Ltl_Init" TARGET="MAIN"><CODE>Ltl_Init()</CODE></A>
+<DD> Initializes the ltl package.
+
+<DT> <A HREF="ltlAllDet.html#Ltl_RewriteInput" TARGET="MAIN"><CODE>Ltl_RewriteInput()</CODE></A>
+<DD> Rewrites an LTL formula to get rid of input variables
+  in it present
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_build_counter_example" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_build_counter_example()</CODE></A>
+<DD> Perform the computation of a witness for a property
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_build" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_build()</CODE></A>
+<DD> Initialize the structure by computing the tableau for
+  the LTL property
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_check" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_check()</CODE></A>
+<DD> Perform the check to see wether the property holds or not
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_create" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_create()</CODE></A>
+<DD> Create an empty Ltl_StructCheckLtlSpec structure.
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_destroy" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_destroy()</CODE></A>
+<DD> Desrtroy an Ltl_StructCheckLtlSpec structure.
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_explain" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_explain()</CODE></A>
+<DD> Perform the computation of a witness for a property
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_clean_s0" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_get_clean_s0()</CODE></A>
+<DD> Get the s0 field purified by tableu variables
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_s0" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_get_s0()</CODE></A>
+<DD> Get the s0 field of an Ltl_StructCheckLtlSpec structure
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_print_result" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_print_result()</CODE></A>
+<DD> Prints the result of the Ltl_StructCheckLtlSpec_check fun
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_do_rewriting" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_do_rewriting()</CODE></A>
+<DD> Set the do_rewriting field of an Ltl_StructCheckLtlSpec
+  structure
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_ltl2smv" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_ltl2smv()</CODE></A>
+<DD> Set the ltl2smv field of an Ltl_StructCheckLtlSpec structure
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_negate_formula" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_negate_formula()</CODE></A>
+<DD> Set the negate_formula field of an Ltl_StructCheckLtlSpec structure
+
+<DT> <A HREF="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_oreg2smv" TARGET="MAIN"><CODE>Ltl_StructCheckLtlSpec_set_oreg2smv()</CODE></A>
+<DD> Set the oreg2smv field of an Ltl_StructCheckLtlSpec structure
+
+<DT> <A HREF="ltlAllDet.html#Ltl_apply_input_vars_rewriting" TARGET="MAIN"><CODE>Ltl_apply_input_vars_rewriting()</CODE></A>
+<DD> Takes a LTL formula and applies rewriting to get rid of
+  input variables from the formula
+
+<DT> <A HREF="ltlAllDet.html#feasible" TARGET="MAIN"><CODE>feasible()</CODE></A>
+<DD> Check for feasability
+
+<DT> <A HREF="ltlAllDet.html#fill_path_with_inputs" TARGET="MAIN"><CODE>fill_path_with_inputs()</CODE></A>
+<DD> Fill a path with inputs.
+
+<DT> <A HREF="ltlAllDet.html#ltlPropAddTableau" TARGET="MAIN"><CODE>ltlPropAddTableau()</CODE></A>
+<DD> Main routine to add the tableau to the FSM
+
+<DT> <A HREF="ltlAllDet.html#ltl_clean_bdd" TARGET="MAIN"><CODE>ltl_clean_bdd()</CODE></A>
+<DD> Quantify out tableau variables
+
+<DT> <A HREF="ltlAllDet.html#ltl_create_substitution" TARGET="MAIN"><CODE>ltl_create_substitution()</CODE></A>
+<DD> Creates a new state variable and add a pair <var id, expr>
+  to the list "new_var_exprs"
+
+<DT> <A HREF="ltlAllDet.html#ltl_rewrite_input" TARGET="MAIN"><CODE>ltl_rewrite_input()</CODE></A>
+<DD> Recursively walk over the expressions and returns 
+  the kind of the expression, i.e. if it is temporal or with input vars.
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_build_tableau_and_prop_fsm" TARGET="MAIN"><CODE>ltl_structcheckltlspec_build_tableau_and_prop_fsm()</CODE></A>
+<DD> Creates the tableau
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_compassion" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_compassion()</CODE></A>
+<DD> Perform the check to see wether the property holds or
+  not using an algorithm for strong fairness
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_el_bwd" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_el_bwd()</CODE></A>
+<DD> Perform the check to see wether the property holds or
+  not using the backward Emerson-Lei algorithm
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_check_el_fwd" TARGET="MAIN"><CODE>ltl_structcheckltlspec_check_el_fwd()</CODE></A>
+<DD> Perform the check to see wether the property holds or
+  not using the forward Emerson-Lei algorithm
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_deinit" TARGET="MAIN"><CODE>ltl_structcheckltlspec_deinit()</CODE></A>
+<DD> required
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_init" TARGET="MAIN"><CODE>ltl_structcheckltlspec_init()</CODE></A>
+<DD> required
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_prepare" TARGET="MAIN"><CODE>ltl_structcheckltlspec_prepare()</CODE></A>
+<DD> Support function for the init function
+
+<DT> <A HREF="ltlAllDet.html#ltl_structcheckltlspec_remove_layer" TARGET="MAIN"><CODE>ltl_structcheckltlspec_remove_layer()</CODE></A>
+<DD> Private service that removes the given layer from
+  the symbol table, and from both the boolean and bdd encodings.
+
+<DT> <A HREF="ltlAllDet.html#path" TARGET="MAIN"><CODE>path()</CODE></A>
+<DD> Compute a path from source to destination
+
+<DT> <A HREF="ltlAllDet.html#predecessors" TARGET="MAIN"><CODE>predecessors()</CODE></A>
+<DD> Compute the direct and indirect predecessors of a state
+
+<DT> <A HREF="ltlAllDet.html#predecessor" TARGET="MAIN"><CODE>predecessor()</CODE></A>
+<DD> Compute the direct predecessor of a state
+
+<DT> <A HREF="ltlAllDet.html#print_ltlspec" TARGET="MAIN"><CODE>print_ltlspec()</CODE></A>
+<DD> Print the LTL specification.
+
+<DT> <A HREF="ltlAllDet.html#successors" TARGET="MAIN"><CODE>successors()</CODE></A>
+<DD> Compute the direct and indirect successors of a state
+
+<DT> <A HREF="ltlAllDet.html#successor" TARGET="MAIN"><CODE>successor()</CODE></A>
+<DD> Compute the direct successor of a state
+
+<DT> <A HREF="ltlAllDet.html#witness" TARGET="MAIN"><CODE>witness()</CODE></A>
+<DD> Compute a withness of feasability
+
+<DT> <A HREF="ltlAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Takes a formula (with context) and constructs the flat
+  hierarchy from it.
+
+  Description        [
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#TraceLoader.c"><CODE>TraceLoader.c</CODE></A>
+ <DD> Routines related to TraceLoader object.
+ <DT> <A HREF="#TraceXmlLoader.c"><CODE>TraceXmlLoader.c</CODE></A>
+ <DD> Routines related to TraceXmlLoader class
+</DL><HR>
+<A NAME="TraceLoader.c"><H1>TraceLoader.c</H1></A>
+Routines related to TraceLoader object. <P>
+<B>By: Marco Pensallorto</B><P>
+This file contains the definition of "TraceLoader" class. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#TraceLoader_load_trace" TARGET="MAIN"><CODE>TraceLoader_load_trace()</CODE></A>
+ <DD> Action associated with the Class TraceLoader.
+
+ <DT> <A HREF="AllDet.html#TraceLoader_get_desc" TARGET="MAIN"><CODE>TraceLoader_get_desc()</CODE></A>
+ <DD> Returns a short description of the loader.
+
+ <DT> <A HREF="AllDet.html#trace_loader_load" TARGET="MAIN"><CODE>trace_loader_load()</CODE></A>
+ <DD> Action associated with the Class action.
+
+ <DT> <A HREF="AllDet.html#trace_loader_init" TARGET="MAIN"><CODE>trace_loader_init()</CODE></A>
+ <DD> This function initializes the loader class.
+
+ <DT> <A HREF="AllDet.html#trace_loader_deinit" TARGET="MAIN"><CODE>trace_loader_deinit()</CODE></A>
+ <DD> This function de-initializes the loader class.
+
+ <DT> <A HREF="AllDet.html#trace_loader_finalize" TARGET="MAIN"><CODE>trace_loader_finalize()</CODE></A>
+ <DD> Finalize method of loader class.
+
+</DL>
+<HR>
+<A NAME="TraceXmlLoader.c"><H1>TraceXmlLoader.c</H1></A>
+Routines related to TraceXmlLoader class <P>
+<B>By: Ashutosh Trivedi, Roberto Cavada, Marco Pensallorto</B><P>
+This file contains the definition of TraceXmlLoader
+               class. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#TraceXmlLoader_create" TARGET="MAIN"><CODE>TraceXmlLoader_create()</CODE></A>
+ <DD> Constructor
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_init" TARGET="MAIN"><CODE>trace_xml_loader_init()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_deinit" TARGET="MAIN"><CODE>trace_xml_loader_deinit()</CODE></A>
+ <DD> Deallocates internal structures
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_load" TARGET="MAIN"><CODE>trace_xml_loader_load()</CODE></A>
+ <DD> Read the trace from the XML file
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_finalize" TARGET="MAIN"><CODE>trace_xml_loader_finalize()</CODE></A>
+ <DD> Virtual destructor
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_prepare" TARGET="MAIN"><CODE>trace_xml_loader_prepare()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_reset" TARGET="MAIN"><CODE>trace_xml_loader_reset()</CODE></A>
+ <DD> Cleans up after reading of xml source
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_store_loopbacks" TARGET="MAIN"><CODE>trace_xml_loader_store_loopbacks()</CODE></A>
+ <DD> Store loopback information and freezes loaded trace
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_tag_begin" TARGET="MAIN"><CODE>trace_xml_loader_tag_begin()</CODE></A>
+ <DD> Function that gets called when parser encounter start of
+                    some tag.
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_tag_end" TARGET="MAIN"><CODE>trace_xml_loader_tag_end()</CODE></A>
+ <DD> Function that gets called when end of any tag is
+                   encountered by the parser.
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_char_handler" TARGET="MAIN"><CODE>trace_xml_loader_char_handler()</CODE></A>
+ <DD> Character Handler used by parser.
+
+ <DT> <A HREF="AllDet.html#trace_xml_loader_flatten_symbol" TARGET="MAIN"><CODE>trace_xml_loader_flatten_symbol()</CODE></A>
+ <DD> Private service of trace_xml_loader_fill_trace
+
+ <DT> <A HREF="AllDet.html#trace_xml_report_invalid_assignment" TARGET="MAIN"><CODE>trace_xml_report_invalid_assignment()</CODE></A>
+ <DD> This function reports an error/warning message when LHS of
+               an assignment is found to be in invalid section
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

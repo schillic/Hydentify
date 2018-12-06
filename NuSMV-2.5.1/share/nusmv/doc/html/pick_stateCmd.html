@@ -1,0 +1,42 @@
+<html>
+<head><title>pick_state</title></head>
+<body>
+
+<h3>pick_state - Picks a state from the set of initial states</h3>
+<hr>
+<code>pick_state [-h] [-v] [-r | -i [-a]] [-c "constraints"]</code><p>
+Chooses an element from the set of initial states, and makes it the
+  <tt>current state</tt> (replacing the old one). The chosen state is
+  stored as the first state of a new trace ready to be lengthened by
+  <tt>steps</tt> states by the <tt>simulate</tt> command. The state can be
+  chosen according to different policies which can be specified via command
+  line options. By default the state is chosen in a deterministic way.
+  <p>
+  Command Options:<p>
+  <dl>
+    <dt> <tt>-v</tt>
+       <dd> Verbosely prints out chosen state (all state variables, otherwise
+       it prints out only the label <tt>t.1</tt> of the state chosen, where
+       <tt>t</tt> is the number of the new trace, that is the number of
+       traces so far generated plus one).
+    <dt> <tt>-r</tt>
+       <dd> Randomly picks a state from the set of initial states.
+    <dt> <tt>-i</tt>
+       <dd> Enables the user to interactively pick up an initial state. The
+       user is requested to choose a state from a list of possible items
+       (every item in the list doesn't show state variables unchanged with
+       respect to a previous item). If the number of possible states is too
+       high, then the user has to specify some further constraints as
+       "simple expression".
+    <dt> <tt>-a</tt>
+       <dd> Displays all state variables (changed and unchanged with respect
+       to a previous item) in an interactive picking. This option
+       works only if the <tt>-i</tt> options has been specified.
+    <dt> <tt>-c "constraints"</tt>
+       <dd> Uses <tt>constraints</tt> to restrict the set of initial states
+       in which the state has to be picked.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

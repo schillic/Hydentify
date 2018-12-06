@@ -1,0 +1,82 @@
+<HTML>
+<HEAD><TITLE>The  package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Clg_Conj"></A>
+clause_graph <I></I>
+<B>Clg_Conj</B>(
+  clause_graph  <b>left</b>, <i></i>
+  clause_graph  <b>right</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a conjunction of two CLGs
+<p>
+
+<dt><pre>
+<A NAME="Clg_Disj"></A>
+clause_graph <I></I>
+<B>Clg_Disj</B>(
+  clause_graph  <b>left</b>, <i></i>
+  clause_graph  <b>right</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a disjunction of two CLGs
+<p>
+
+<dt><pre>
+<A NAME="Clg_Extract"></A>
+void <I></I>
+<B>Clg_Extract</B>(
+  clause_graph  <b>head</b>, <i></i>
+  int  <b>type</b>, <i></i>
+  Clg_Commit  <b>commit</b>, <i></i>
+  void * <b>data</b> <i></i>
+)
+</pre>
+<dd> Calls commit with each extracted clause as an argument.
+                      type indicates the style of clause (eg, ZChaff 
+		      all-positive integer format); *data is passed to commit
+		      as an extra argument.
+
+		      Clauses have duplicated literals suppressed and
+		      clauses with both positive and negative
+		      occurrences of the same literal are skipped.
+<p>
+
+<dt><pre>
+<A NAME="Clg_Free"></A>
+void <I></I>
+<B>Clg_Free</B>(
+  clause_graph  <b>graph</b> <i></i>
+)
+</pre>
+<dd> Free all CLGs
+<p>
+
+<dt><pre>
+<A NAME="Clg_Lit"></A>
+clause_graph <I></I>
+<B>Clg_Lit</B>(
+  int  <b>literal</b> <i></i>
+)
+</pre>
+<dd> Create a CLG representing a single literal
+<p>
+
+<dt><pre>
+<A NAME="Clg_Size"></A>
+int <I></I>
+<B>Clg_Size</B>(
+  clause_graph  <b>graph</b> <i></i>
+)
+</pre>
+<dd> Return the number of clauses stored in the CLG
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

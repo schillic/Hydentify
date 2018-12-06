@@ -1,0 +1,469 @@
+<HTML>
+<HEAD><TITLE> package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="AllDet.html#Expr_and_from_list" TARGET="MAIN"><CODE>Expr_and_from_list()</CODE></A>
+<DD> Builds the logical/bitwise AND of all elements in the
+  list
+
+<DT> <A HREF="AllDet.html#Expr_and_nil" TARGET="MAIN"><CODE>Expr_and_nil()</CODE></A>
+<DD> Builds the logical/bitwise AND of given operators,
+  considering Nil as the true value
+
+<DT> <A HREF="AllDet.html#Expr_and" TARGET="MAIN"><CODE>Expr_and()</CODE></A>
+<DD> Builds the logical/bitwise AND of given operators
+
+<DT> <A HREF="AllDet.html#Expr_attime_get_time" TARGET="MAIN"><CODE>Expr_attime_get_time()</CODE></A>
+<DD> Retrieves the time out of an ATTIME node
+
+<DT> <A HREF="AllDet.html#Expr_attime_get_untimed" TARGET="MAIN"><CODE>Expr_attime_get_untimed()</CODE></A>
+<DD> Retrieves the untimed node out of an ATTIME node
+
+<DT> <A HREF="AllDet.html#Expr_attime" TARGET="MAIN"><CODE>Expr_attime()</CODE></A>
+<DD> Creates a ATTIME node
+
+<DT> <A HREF="AllDet.html#Expr_bool_to_word1" TARGET="MAIN"><CODE>Expr_bool_to_word1()</CODE></A>
+<DD> Builds the node for casting boolean to word1.
+
+  Description        [Works with booleans.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_divide" TARGET="MAIN"><CODE>Expr_divide()</CODE></A>
+<DD> Builds the scalar node for DIVIDE of given operators
+
+<DT> <A HREF="AllDet.html#Expr_equal" TARGET="MAIN"><CODE>Expr_equal()</CODE></A>
+<DD> Builds the logical EQUAL of given operators
+
+<DT> <A HREF="AllDet.html#Expr_false" TARGET="MAIN"><CODE>Expr_false()</CODE></A>
+<DD> Returns the false expression value
+
+<DT> <A HREF="AllDet.html#Expr_function" TARGET="MAIN"><CODE>Expr_function()</CODE></A>
+<DD> Builds an Uninterpreted function
+
+<DT> <A HREF="AllDet.html#Expr_get_time" TARGET="MAIN"><CODE>Expr_get_time()</CODE></A>
+<DD> Obtain the base time of an expression
+
+<DT> <A HREF="AllDet.html#Expr_ge" TARGET="MAIN"><CODE>Expr_ge()</CODE></A>
+<DD> Builds the predicate GE (greater-then-equal)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_gt" TARGET="MAIN"><CODE>Expr_gt()</CODE></A>
+<DD> Builds the predicate GT (greater-then)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_iff" TARGET="MAIN"><CODE>Expr_iff()</CODE></A>
+<DD> Builds the logical/bitwise IFF of given operators
+
+<DT> <A HREF="AllDet.html#Expr_implies" TARGET="MAIN"><CODE>Expr_implies()</CODE></A>
+<DD> Builds the logical/bitwise IMPLIES of given operators
+
+<DT> <A HREF="AllDet.html#Expr_is_false" TARGET="MAIN"><CODE>Expr_is_false()</CODE></A>
+<DD> Checkes whether given value is the false value
+
+<DT> <A HREF="AllDet.html#Expr_is_timed" TARGET="MAIN"><CODE>Expr_is_timed()</CODE></A>
+<DD> Determines whether a formula has ATTIME nodes in it
+
+<DT> <A HREF="AllDet.html#Expr_is_true" TARGET="MAIN"><CODE>Expr_is_true()</CODE></A>
+<DD> Checkes whether given value is the true value
+
+<DT> <A HREF="AllDet.html#Expr_ite" TARGET="MAIN"><CODE>Expr_ite()</CODE></A>
+<DD> Builds the If-Then-Else node with given operators
+
+<DT> <A HREF="AllDet.html#Expr_le" TARGET="MAIN"><CODE>Expr_le()</CODE></A>
+<DD> Builds the predicate LE (less-then-equal)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_lt" TARGET="MAIN"><CODE>Expr_lt()</CODE></A>
+<DD> Builds the predicate LT (less-then) of given operators
+
+<DT> <A HREF="AllDet.html#Expr_minus" TARGET="MAIN"><CODE>Expr_minus()</CODE></A>
+<DD> Builds the scalar node for MINUS of given operators
+
+<DT> <A HREF="AllDet.html#Expr_mod" TARGET="MAIN"><CODE>Expr_mod()</CODE></A>
+<DD> Builds the scalar node for MODule of given operators
+
+<DT> <A HREF="AllDet.html#Expr_next" TARGET="MAIN"><CODE>Expr_next()</CODE></A>
+<DD> Constructs a NEXT node of given expression
+
+<DT> <A HREF="AllDet.html#Expr_notequal" TARGET="MAIN"><CODE>Expr_notequal()</CODE></A>
+<DD> Builds the logical NOTEQUAL of given operators
+
+<DT> <A HREF="AllDet.html#Expr_not" TARGET="MAIN"><CODE>Expr_not()</CODE></A>
+<DD> Builds the logical/bitwise NOT of given operator
+
+<DT> <A HREF="AllDet.html#Expr_or" TARGET="MAIN"><CODE>Expr_or()</CODE></A>
+<DD> Builds the logical/bitwise OR of given operators
+
+<DT> <A HREF="AllDet.html#Expr_plus" TARGET="MAIN"><CODE>Expr_plus()</CODE></A>
+<DD> Builds the scalar node for PLUS of given operators
+
+<DT> <A HREF="AllDet.html#Expr_range" TARGET="MAIN"><CODE>Expr_range()</CODE></A>
+<DD> Makes a TWODOTS node, representing an integer range
+
+<DT> <A HREF="AllDet.html#Expr_resolve" TARGET="MAIN"><CODE>Expr_resolve()</CODE></A>
+<DD> This is the top-level function that simplifiers can use to
+  simplify expressions. This evaluates constant values in operands
+  left and right with respect to the operation required with parameter type.
+
+<DT> <A HREF="AllDet.html#Expr_setin" TARGET="MAIN"><CODE>Expr_setin()</CODE></A>
+<DD> Makes a setin node, with possible syntactic
+                      simplification.
+
+<DT> <A HREF="AllDet.html#Expr_signed_word_to_unsigned" TARGET="MAIN"><CODE>Expr_signed_word_to_unsigned()</CODE></A>
+<DD> Builds the node for casting signed words to unsigned
+  words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_simplify_equal" TARGET="MAIN"><CODE>Expr_simplify_equal()</CODE></A>
+<DD> Builds the logical EQUAL of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_ge" TARGET="MAIN"><CODE>Expr_simplify_ge()</CODE></A>
+<DD> Builds the predicate GE (greater-then-equal)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_gt" TARGET="MAIN"><CODE>Expr_simplify_gt()</CODE></A>
+<DD> Builds the predicate GT (greater-then)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_iff" TARGET="MAIN"><CODE>Expr_simplify_iff()</CODE></A>
+<DD> Builds the logical/bitwise IFF of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_le" TARGET="MAIN"><CODE>Expr_simplify_le()</CODE></A>
+<DD> Builds the predicate LE (less-then-equal)
+  of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_lt" TARGET="MAIN"><CODE>Expr_simplify_lt()</CODE></A>
+<DD> Builds the predicate LT (less-then) of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_notequal" TARGET="MAIN"><CODE>Expr_simplify_notequal()</CODE></A>
+<DD> Builds the logical NOTEQUAL of given operators
+
+<DT> <A HREF="AllDet.html#Expr_simplify_word_bit_select" TARGET="MAIN"><CODE>Expr_simplify_word_bit_select()</CODE></A>
+<DD> Builds the node for bit selection of words.
+
+  Description        [Works with words. Performs local semantic and syntactic
+                      simplification
+
+<DT> <A HREF="AllDet.html#Expr_simplify_word_extend" TARGET="MAIN"><CODE>Expr_simplify_word_extend()</CODE></A>
+<DD> Builds the node for extending a word.
+
+<DT> <A HREF="AllDet.html#Expr_simplify_word_resize" TARGET="MAIN"><CODE>Expr_simplify_word_resize()</CODE></A>
+<DD> Builds the node for resizing a word.
+
+<DT> <A HREF="AllDet.html#Expr_simplify" TARGET="MAIN"><CODE>Expr_simplify()</CODE></A>
+<DD> Top-level simplifier that evaluates constants and
+  simplifies syntactically the given expression
+
+<DT> <A HREF="AllDet.html#Expr_time_is_current" TARGET="MAIN"><CODE>Expr_time_is_current()</CODE></A>
+<DD> Returns true if the time (obtained by Expr_get_time) is
+                       current
+
+<DT> <A HREF="AllDet.html#Expr_time_is_dont_care" TARGET="MAIN"><CODE>Expr_time_is_dont_care()</CODE></A>
+<DD> Returns true if the time (obtained by Expr_get_time) is
+                       dont't care
+
+<DT> <A HREF="AllDet.html#Expr_time_is_next" TARGET="MAIN"><CODE>Expr_time_is_next()</CODE></A>
+<DD> Returns true if the time (obtained by Expr_get_time) is
+                       next
+
+<DT> <A HREF="AllDet.html#Expr_times" TARGET="MAIN"><CODE>Expr_times()</CODE></A>
+<DD> Builds the scalar node for TIMES of given operators
+
+<DT> <A HREF="AllDet.html#Expr_true" TARGET="MAIN"><CODE>Expr_true()</CODE></A>
+<DD> Returns the true expression value
+
+<DT> <A HREF="AllDet.html#Expr_unary_minus" TARGET="MAIN"><CODE>Expr_unary_minus()</CODE></A>
+<DD> Builds the scalar node for UMINUS (unary minus) of given
+  operators
+
+<DT> <A HREF="AllDet.html#Expr_union" TARGET="MAIN"><CODE>Expr_union()</CODE></A>
+<DD> Makes a union node
+
+<DT> <A HREF="AllDet.html#Expr_unsigned_word_to_signed" TARGET="MAIN"><CODE>Expr_unsigned_word_to_signed()</CODE></A>
+<DD> Builds the node for casting unsigned words to signed words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_untimed_explicit_time" TARGET="MAIN"><CODE>Expr_untimed_explicit_time()</CODE></A>
+<DD> Returns the untimed version of an expression without
+                       searching for the current time
+
+<DT> <A HREF="AllDet.html#Expr_untimed" TARGET="MAIN"><CODE>Expr_untimed()</CODE></A>
+<DD> Returns the untimed version of an expression
+
+<DT> <A HREF="AllDet.html#Expr_word1_to_bool" TARGET="MAIN"><CODE>Expr_word1_to_bool()</CODE></A>
+<DD> Builds the node for casting word1 to boolean.
+
+  Description        [Works with words with width 1.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_bit_select" TARGET="MAIN"><CODE>Expr_word_bit_select()</CODE></A>
+<DD> Builds the node for bit selection of words.
+
+  Description        [Works with words. Performs local syntactic
+                      simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_concatenate" TARGET="MAIN"><CODE>Expr_word_concatenate()</CODE></A>
+<DD> Builds the node for word concatenation.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_extend" TARGET="MAIN"><CODE>Expr_word_extend()</CODE></A>
+<DD> Builds the node for extending a word.
+
+<DT> <A HREF="AllDet.html#Expr_word_left_rotate" TARGET="MAIN"><CODE>Expr_word_left_rotate()</CODE></A>
+<DD> Builds the node left rotation of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_left_shift" TARGET="MAIN"><CODE>Expr_word_left_shift()</CODE></A>
+<DD> Builds the node left shifting of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_right_rotate" TARGET="MAIN"><CODE>Expr_word_right_rotate()</CODE></A>
+<DD> Builds the node right rotation of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_word_right_shift" TARGET="MAIN"><CODE>Expr_word_right_shift()</CODE></A>
+<DD> Builds the node right shifting of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+
+<DT> <A HREF="AllDet.html#Expr_xnor" TARGET="MAIN"><CODE>Expr_xnor()</CODE></A>
+<DD> Builds the logical/bitwise XNOR of given operators
+
+<DT> <A HREF="AllDet.html#Expr_xor" TARGET="MAIN"><CODE>Expr_xor()</CODE></A>
+<DD> Builds the logical/bitwise XOR of given operators
+
+<DT> <A HREF="AllDet.html#SexpFsm_apply_synchronous_product" TARGET="MAIN"><CODE>SexpFsm_apply_synchronous_product()</CODE></A>
+<DD> Performs the synchronous product of two FSMs
+
+<DT> <A HREF="AllDet.html#SexpFsm_copy" TARGET="MAIN"><CODE>SexpFsm_copy()</CODE></A>
+<DD> Copy costructor
+
+<DT> <A HREF="AllDet.html#SexpFsm_create_predicate_normalised_copy" TARGET="MAIN"><CODE>SexpFsm_create_predicate_normalised_copy()</CODE></A>
+<DD> Copy the Sexp FSM and perform predicate-normalisation
+  on all the expressions.
+
+<DT> <A HREF="AllDet.html#SexpFsm_create" TARGET="MAIN"><CODE>SexpFsm_create()</CODE></A>
+<DD> Costructor for a scalar sexp fsm
+
+<DT> <A HREF="AllDet.html#SexpFsm_destroy" TARGET="MAIN"><CODE>SexpFsm_destroy()</CODE></A>
+<DD> Destructor
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_compassion" TARGET="MAIN"><CODE>SexpFsm_get_compassion()</CODE></A>
+<DD> Gets the list of sexp expressions defining the set of
+                  compassion constraints for this machine.
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_hierarchy" TARGET="MAIN"><CODE>SexpFsm_get_hierarchy()</CODE></A>
+<DD> Returns the internal complete hierarchy
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_init" TARGET="MAIN"><CODE>SexpFsm_get_init()</CODE></A>
+<DD> Returns an Expr that collects init states for all
+  variables handled by self
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_input" TARGET="MAIN"><CODE>SexpFsm_get_input()</CODE></A>
+<DD> Returns an Expr that collects all input states for all
+  variables handled by self
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_invar" TARGET="MAIN"><CODE>SexpFsm_get_invar()</CODE></A>
+<DD> Returns an Expr that collects invar states for all
+  variables handled by self
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_justice" TARGET="MAIN"><CODE>SexpFsm_get_justice()</CODE></A>
+<DD> Gets the list of sexp expressions defining the set of justice
+                  constraints for this machine.
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_symb_table" TARGET="MAIN"><CODE>SexpFsm_get_symb_table()</CODE></A>
+<DD> Returns the symbol table that is connected to the
+  BoolEnc instance connected to self
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_symbols_list" TARGET="MAIN"><CODE>SexpFsm_get_symbols_list()</CODE></A>
+<DD> Returns the set of symbols in the FSM
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_trans" TARGET="MAIN"><CODE>SexpFsm_get_trans()</CODE></A>
+<DD> Returns an Expr that collects all next states for all
+  variables handled by self
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_var_init" TARGET="MAIN"><CODE>SexpFsm_get_var_init()</CODE></A>
+<DD> Gets the sexp expression defining the initial state for
+                  the variable "v".
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_var_input" TARGET="MAIN"><CODE>SexpFsm_get_var_input()</CODE></A>
+<DD> Gets the sexp expression defining the input relation
+                  for the variable "v".
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_var_invar" TARGET="MAIN"><CODE>SexpFsm_get_var_invar()</CODE></A>
+<DD> Gets the sexp expression defining the state constraints
+                  for the variable "v".
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_var_trans" TARGET="MAIN"><CODE>SexpFsm_get_var_trans()</CODE></A>
+<DD> Gets the sexp expression defining the transition relation
+                  for the variable "v".
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_vars_list" TARGET="MAIN"><CODE>SexpFsm_get_vars_list()</CODE></A>
+<DD> Returns the set of variables in the FSM
+
+<DT> <A HREF="AllDet.html#SexpFsm_get_vars" TARGET="MAIN"><CODE>SexpFsm_get_vars()</CODE></A>
+<DD> Returns the set of variables in the FSM
+
+<DT> <A HREF="AllDet.html#SexpFsm_is_boolean" TARGET="MAIN"><CODE>SexpFsm_is_boolean()</CODE></A>
+<DD> Use to check if this FSM is a scalar or boolean fsm
+
+<DT> <A HREF="AllDet.html#SexpFsm_is_syntactically_universal" TARGET="MAIN"><CODE>SexpFsm_is_syntactically_universal()</CODE></A>
+<DD> Checks if the SexpFsm is syntactically universal
+
+<DT> <A HREF="AllDet.html#SexpFsm_self_check" TARGET="MAIN"><CODE>SexpFsm_self_check()</CODE></A>
+<DD> Self-check for the instance
+
+<DT> <A HREF="AllDet.html#__add_edge_aux" TARGET="MAIN"><CODE>__add_edge_aux()</CODE></A>
+<DD> Private service of sexp_fsm_add_edge
+
+<DT> <A HREF="AllDet.html#__free_nodelist" TARGET="MAIN"><CODE>__free_nodelist()</CODE></A>
+<DD> private service used as callback by
+  sexp_fsm_destroy_vars_dag
+
+<DT> <A HREF="AllDet.html#__search_equal_eqdef" TARGET="MAIN"><CODE>__search_equal_eqdef()</CODE></A>
+<DD> Traverses the given expression searching for assignments and
+  equalities concerning given variable name.
+
+<DT> <A HREF="AllDet.html#_subst_expr" TARGET="MAIN"><CODE>_subst_expr()</CODE></A>
+<DD> Substitutes all expressions of subst keys c inside expr by
+  the corresponding value into subst, ignoring left side of EQDEF.
+  Defines are expanded.
+  Output parameter assg will contain the set of substuituted assignments
+
+<DT> <A HREF="AllDet.html#expr_get_curr_time" TARGET="MAIN"><CODE>expr_get_curr_time()</CODE></A>
+<DD> Calculates current time for an expression
+
+<DT> <A HREF="AllDet.html#expr_is_timed_aux" TARGET="MAIN"><CODE>expr_is_timed_aux()</CODE></A>
+<DD> true if expression is timed
+
+<DT> <A HREF="AllDet.html#expr_timed_to_untimed" TARGET="MAIN"><CODE>expr_timed_to_untimed()</CODE></A>
+<DD> Converts a timed node into an untimed node
+
+<DT> <A HREF="AllDet.html#sexp_fsm_add_edge" TARGET="MAIN"><CODE>sexp_fsm_add_edge()</CODE></A>
+<DD> Adds an edgs to the graph. If to is null, adds only the vertex
+  from
+
+<DT> <A HREF="AllDet.html#sexp_fsm_add_vertices_from_expr" TARGET="MAIN"><CODE>sexp_fsm_add_vertices_from_expr()</CODE></A>
+<DD> private service of create_vars_dag
+
+<DT> <A HREF="AllDet.html#sexp_fsm_apply_inlining" TARGET="MAIN"><CODE>sexp_fsm_apply_inlining()</CODE></A>
+<DD> Called during initialization to perform inlining.
+
+<DT> <A HREF="AllDet.html#sexp_fsm_callback_var_fsm_free" TARGET="MAIN"><CODE>sexp_fsm_callback_var_fsm_free()</CODE></A>
+<DD> Private callback that destroys a single variable fsm
+  contained into the var fsm hash
+
+<DT> <A HREF="AllDet.html#sexp_fsm_conj_equals" TARGET="MAIN"><CODE>sexp_fsm_conj_equals()</CODE></A>
+<DD> Private service of sexp_fsm_apply_inlining
+
+<DT> <A HREF="AllDet.html#sexp_fsm_copy_aux" TARGET="MAIN"><CODE>sexp_fsm_copy_aux()</CODE></A>
+<DD> private service for copying self to other
+
+<DT> <A HREF="AllDet.html#sexp_fsm_copy" TARGET="MAIN"><CODE>sexp_fsm_copy()</CODE></A>
+<DD> This is called by the virtual copy constructor
+
+<DT> <A HREF="AllDet.html#sexp_fsm_create_vars_dag" TARGET="MAIN"><CODE>sexp_fsm_create_vars_dag()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#sexp_fsm_dag_get_roots" TARGET="MAIN"><CODE>sexp_fsm_dag_get_roots()</CODE></A>
+<DD> returns the roots in the graph. Returned list must be
+  destroyed
+
+<DT> <A HREF="AllDet.html#sexp_fsm_dag_get_subst_hash" TARGET="MAIN"><CODE>sexp_fsm_dag_get_subst_hash()</CODE></A>
+<DD> returns an hash table for variable inlining substitution. The
+  hash is created by using a scheduling.
+
+<DT> <A HREF="AllDet.html#sexp_fsm_deinit" TARGET="MAIN"><CODE>sexp_fsm_deinit()</CODE></A>
+<DD> Initializes the vars fsm hash
+
+<DT> <A HREF="AllDet.html#sexp_fsm_destroy_vars_dag" TARGET="MAIN"><CODE>sexp_fsm_destroy_vars_dag()</CODE></A>
+<DD> Destroyer for the vars dag, used by inlining
+
+<DT> <A HREF="AllDet.html#sexp_fsm_finalize" TARGET="MAIN"><CODE>sexp_fsm_finalize()</CODE></A>
+<DD> The SexpFsm class virtual finalizer
+
+<DT> <A HREF="AllDet.html#sexp_fsm_hash_var_fsm_destroy" TARGET="MAIN"><CODE>sexp_fsm_hash_var_fsm_destroy()</CODE></A>
+<DD> Call to destroy the var fsm hash
+
+<DT> <A HREF="AllDet.html#sexp_fsm_hash_var_fsm_init" TARGET="MAIN"><CODE>sexp_fsm_hash_var_fsm_init()</CODE></A>
+<DD> Initializes the vars fsm hash
+
+<DT> <A HREF="AllDet.html#sexp_fsm_hash_var_fsm_insert_var" TARGET="MAIN"><CODE>sexp_fsm_hash_var_fsm_insert_var()</CODE></A>
+<DD> Adds a var fsm to the internal hash. Private.
+
+<DT> <A HREF="AllDet.html#sexp_fsm_hash_var_fsm_lookup_var" TARGET="MAIN"><CODE>sexp_fsm_hash_var_fsm_lookup_var()</CODE></A>
+<DD> Given a variable name, returns the corresponding variable
+  fsm, or NULL if not found
+
+<DT> <A HREF="AllDet.html#sexp_fsm_init" TARGET="MAIN"><CODE>sexp_fsm_init()</CODE></A>
+<DD> Initializes the sexp fsm
+
+<DT> <A HREF="AllDet.html#sexp_fsm_remove_dep_dag_node" TARGET="MAIN"><CODE>sexp_fsm_remove_dep_dag_node()</CODE></A>
+<DD> Removes the given node from deps dag
+
+<DT> <A HREF="AllDet.html#sexp_fsm_simplify_expr" TARGET="MAIN"><CODE>sexp_fsm_simplify_expr()</CODE></A>
+<DD> removes duplicates from expression containing AND nodes
+
+<DT> <A HREF="AllDet.html#simplifier_hash_add_expr" TARGET="MAIN"><CODE>simplifier_hash_add_expr()</CODE></A>
+<DD> To insert a new node in the hash
+
+<DT> <A HREF="AllDet.html#simplifier_hash_create" TARGET="MAIN"><CODE>simplifier_hash_create()</CODE></A>
+<DD> This is used when creating cluster list from vars list
+
+<DT> <A HREF="AllDet.html#simplifier_hash_destroy" TARGET="MAIN"><CODE>simplifier_hash_destroy()</CODE></A>
+<DD> Call after sexp_fsm_cluster_hash_create
+
+<DT> <A HREF="AllDet.html#simplifier_hash_query_expr" TARGET="MAIN"><CODE>simplifier_hash_query_expr()</CODE></A>
+<DD> Queries for an element in the hash, returns True if
+  found
+
+<DT> <A HREF="AllDet.html#var_fsm_create" TARGET="MAIN"><CODE>var_fsm_create()</CODE></A>
+<DD> Creates a var fsm
+
+<DT> <A HREF="AllDet.html#var_fsm_destroy" TARGET="MAIN"><CODE>var_fsm_destroy()</CODE></A>
+<DD> It does not destroy the init, trans and invar nodes.
+  It destroys only the support nodes
+
+<DT> <A HREF="AllDet.html#var_fsm_get_init" TARGET="MAIN"><CODE>var_fsm_get_init()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#var_fsm_get_input" TARGET="MAIN"><CODE>var_fsm_get_input()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#var_fsm_get_invar" TARGET="MAIN"><CODE>var_fsm_get_invar()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#var_fsm_get_next" TARGET="MAIN"><CODE>var_fsm_get_next()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#var_fsm_synchronous_product" TARGET="MAIN"><CODE>var_fsm_synchronous_product()</CODE></A>
+<DD> Returns new var fsm that is synchronous product of var
+  fsms.
+
+<DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+<DD> Set to 1 (needs recompilation) to force auto-check of the
+             SexpFsm
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,33 @@
+<html>
+<head><title>encode_variables</title></head>
+<body>
+
+<h3>encode_variables - Builds the BDD variables necessary to compile the model into BDD.</h3>
+<hr>
+<code>encode_variables [-h] [-i order-file]</code><p>
+Generates the boolean BDD variables and the ADD needed to encode
+  propositionally the (symbolic) variables declared in the model.<br>
+
+  The variables are created as default in the order in which they
+  appear in a depth first traversal of the hierarchy.<p>
+
+  The input order file can be partial and can contain variables not
+  declared in the model. Variables not declared in the model are
+  simply discarded. Variables declared in the model which are not
+  listed in the ordering input file will be created and appended at the
+  end of the given ordering list, according to the default ordering.<p>
+
+  Command options:<p>
+  <dl>
+    <dt> <tt>-i order-file</tt>
+       <dd> Sets the environment variable <tt>input_order_file</tt> to
+       <tt>order-file</tt>, and reads the variable ordering to be used from
+       file <tt>order-file</tt>. This can be combined with the
+       <tt>write_order</tt> command. The variable ordering is written to a
+       file, which can be inspected and reordered by the user, and then
+       read back in.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

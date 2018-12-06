@@ -1,0 +1,2598 @@
+<html>
+<head><title>The dd package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandDynamicVarOrdering"></A>
+int <I></I>
+<B>CommandDynamicVarOrdering</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the dynamic_var_ordering command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#ddCmd.c"TARGET="ABSTRACT"><CODE>ddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintBddStats"></A>
+int <I></I>
+<B>CommandPrintBddStats</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the print_bdd_stats command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#ddCmd.c"TARGET="ABSTRACT"><CODE>ddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandSetBddParameters"></A>
+int <I></I>
+<B>CommandSetBddParameters</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the set_bdd_parameters command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#ddCmd.c"TARGET="ABSTRACT"><CODE>ddCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="DynOrderTypeConvertToString"></A>
+char * <I></I>
+<B>DynOrderTypeConvertToString</B>(
+  int  <b>method</b> <i></i>
+)
+</pre>
+<dd> Converts a dynamic ordering method type to a string.  This
+  string must NOT be freed by the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="InvalidType"></A>
+static void <I></I>
+<B>InvalidType</B>(
+  FILE * <b>file</b>, <i></i>
+  char * <b>field</b>, <i></i>
+  char * <b>expected</b> <i></i>
+)
+</pre>
+<dd> Function to print a warning that an illegal value was read.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_set_parameters">bdd_set_parameters</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="StringConvertToDynOrderType"></A>
+int <I></I>
+<B>StringConvertToDynOrderType</B>(
+  char * <b>string</b> <i></i>
+)
+</pre>
+<dd> Converts a string to a dynamic ordering method type. If string
+  is not "sift" or "window", then returns REORDER_.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_and_accumulate"></A>
+void <I></I>
+<B>add_and_accumulate</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr * <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical AND to the corresponding discriminants
+  of f and g and stores the result in f. f and g must have only FALSE
+  or TRUE as terminal nodes.
+<p>
+
+<dd> <b>Side Effects</b> The result is stored in the first operand.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_and"></A>
+add_ptr <I></I>
+<B>add_and</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical AND to the corresponding discriminants
+  of f and g. f and g must have only FALSE or TRUE as terminal
+  nodes. Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_or">add_or</a>
+<a href="#add_xor">add_xor</a>
+<a href="#add_not">add_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_apply"></A>
+add_ptr <I></I>
+<B>add_apply</B>(
+  DdManager * <b>dd</b>, <i></i>
+  NPFNN  <b>op</b>, <i></i>
+  add_ptr  <b>f</b>, <i></i>
+  add_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_build"></A>
+add_ptr <I></I>
+<B>add_build</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>level</b>, <i></i>
+  add_ptr  <b>t</b>, <i></i>
+  add_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Checks the unique table for the existence of an internal
+  node. If it does not exist, it creates a new one. The reference
+  count of whatever is returned is increased by one unit. For a newly
+  created node, increments the reference counts of what T and E point
+  to.  Returns a pointer to the new node if successful; a failure
+  occurs if memory is exhausted or if reordering took place.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_count_minterm"></A>
+double <I></I>
+<B>add_count_minterm</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b>, <i></i>
+  int  <b>nvars</b> <i></i>
+)
+</pre>
+<dd> Counts the number of minterms of an ADD. The function is
+  assumed to depend on nvars variables. The minterm count is
+  represented as a double, to allow for a larger number of variables.
+  Returns the number of minterms of the function rooted at node. The
+  result is parameterized by the number of "nvars" passed as argument.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_size">bdd_size</a>
+<a href="#bdd_count_minterm">bdd_count_minterm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_cube_diff"></A>
+add_ptr <I></I>
+<B>add_cube_diff</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Computes the difference between two ADD cubes, i.e. the
+  cube of ADD variables belonging to cube a and not belonging to cube
+  b. Returns a pointer to the resulting cube; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_cube_diff">bdd_cube_diff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_deref"></A>
+void <I></I>
+<B>add_deref</B>(
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Dereference an ADD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is decremented by one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_ref">add_ref</a>
+<a href="#add_free">add_free</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_dup"></A>
+add_ptr <I></I>
+<B>add_dup</B>(
+  add_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Creates a copy of an ADD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count is increased by one unit.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_ref">add_ref</a>
+<a href="#add_free">add_free</a>
+<a href="#add_deref">add_deref</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_else"></A>
+add_ptr <I></I>
+<B>add_else</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the else child of an internal node. If
+  <code>f</code> is a constant node, the result is
+  unpredictable. Notice that the reference count of the returned node
+  is not incremented.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_else">add_else</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_exist_abstract"></A>
+add_ptr <I></I>
+<B>add_exist_abstract</B>(
+  DdManager* <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Abstracts away variables from an ADD, summing up the values
+                      of the merged branches.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_false"></A>
+add_ptr <I></I>
+<B>add_false</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant FALSE ADD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_true">add_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_free"></A>
+void <I></I>
+<B>add_free</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Decreases the reference count of node. If the node dies,
+  recursively decreases the reference counts of its children. It is used to
+  dispose off an ADD that is no longer needed.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is decremented by one,
+  and if the node dies a recursive dereferencing is applied to its children.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_get_leaf"></A>
+node_ptr <I></I>
+<B>add_get_leaf</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>Leaf</b> <i></i>
+)
+</pre>
+<dd> Returns the value of a constant node. If <code>Leaf</code>
+  is an internal node, a failure occurs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_if_then"></A>
+add_ptr <I></I>
+<B>add_if_then</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>I</b>, <i></i>
+  add_ptr  <b>T</b> <i></i>
+)
+</pre>
+<dd> Given a minterm, it returns an ADD indicating the rules
+  to traverse the ADD.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_value">add_value</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_iff"></A>
+add_ptr <I></I>
+<B>add_iff</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical IFF to the corresponding discriminants
+  of f and g.  f and g must have only FALSE or TRUE as terminal
+  nodes. Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+<a href="#add_xor">add_xor</a>
+<a href="#add_or">add_or</a>
+<a href="#add_not">add_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_ifthenelse"></A>
+add_ptr <I></I>
+<B>add_ifthenelse</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>If</b>, <i></i>
+  add_ptr  <b>Then</b>, <i></i>
+  add_ptr  <b>Else</b> <i></i>
+)
+</pre>
+<dd> Implements ITE(f,g,h). This procedure assumes that f is
+  a FALSE-TRUE ADD.  Returns a pointer to the resulting ADD if
+  successful; a failure is generated otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_implies"></A>
+add_ptr <I></I>
+<B>add_implies</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical IMPLY to the corresponding
+  discriminants of f and g.  f and g must have only FALSE or TRUE as
+  terminal nodes. Returns a pointer to the result if successful; a
+  failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+<a href="#add_xor">add_xor</a>
+<a href="#add_or">add_or</a>
+<a href="#add_not">add_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_index"></A>
+int <I></I>
+<B>add_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the index of the node.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_is_false"></A>
+int <I></I>
+<B>add_is_false</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the ADD is false.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_false">add_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_is_one"></A>
+int <I></I>
+<B>add_is_one</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the ADD is one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_true">add_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_is_true"></A>
+int <I></I>
+<B>add_is_true</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the ADD is true.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_true">add_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_is_zero"></A>
+int <I></I>
+<B>add_is_zero</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the ADD is zero.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_false">add_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_isleaf"></A>
+int <I></I>
+<B>add_isleaf</B>(
+  add_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if the ADD node is a constant node (rather than an
+  internal node). All constant nodes have the same index (MAX_VAR_INDEX).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_leaf"></A>
+add_ptr <I></I>
+<B>add_leaf</B>(
+  DdManager * <b>dd</b>, <i></i>
+  node_ptr  <b>leaf_node</b> <i></i>
+)
+</pre>
+<dd> Retrieves the ADD for constant leaf_node if it already
+  exists, or creates a new ADD.  Returns a pointer to the
+  ADD if successful; fails otherwise.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is incremented by one unit.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_monadic_apply"></A>
+add_ptr <I></I>
+<B>add_monadic_apply</B>(
+  DdManager * <b>dd</b>, <i></i>
+   <b></b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+
+  NOTE: At the moment CUDD does not have unary 'apply', so you have
+  to provide a binary op, which is actually unary and applies to
+  the first operand only.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_new_var_at_level"></A>
+add_ptr <I></I>
+<B>add_new_var_at_level</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>level</b> <i></i>
+)
+</pre>
+<dd> Creates a new ADD variable. The new variable has an
+  index equal to the largest previous index plus 1 and is positioned at
+  the specified level in the order.  Returns a pointer to the new
+  variable if successful; a failure is generated otherwise. The
+  returned value is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_new_var_with_index">add_new_var_with_index</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_new_var_with_index"></A>
+add_ptr <I></I>
+<B>add_new_var_with_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>index</b> <i></i>
+)
+</pre>
+<dd> Retrieves the ADD variable with index
+  <code>index</code> if it already exists, or creates a new ADD
+  variable. Returns a pointer to the variable if successful; a failure
+  is generated otherwise.  An ADD variable differs from a BDD variable
+  because it points to the arithmetic zero, instead of having a
+  complement pointer to 1. The returned value is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_new_var_at_level">add_new_var_at_level</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_not"></A>
+add_ptr <I></I>
+<B>add_not</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Applies logical NOT to the corresponding discriminant
+  of f.  f must have only FALSE or TRUE as terminal nodes. Returns a
+  pointer to the result if successful; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+<a href="#add_xor">add_xor</a>
+<a href="#add_or">add_or</a>
+<a href="#add_imply">add_imply</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_one"></A>
+add_ptr <I></I>
+<B>add_one</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant one ADD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_false">add_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_or_accumulate"></A>
+void <I></I>
+<B>add_or_accumulate</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr * <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical OR to the corresponding discriminants
+  of f and g and stores the result in f. f and g must have only FALSE
+  or TRUE as terminal nodes.
+<p>
+
+<dd> <b>Side Effects</b> The result is stored in the first operand.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_or"></A>
+add_ptr <I></I>
+<B>add_or</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical OR to the corresponding discriminants
+  of f and g. f and g must have only FALSE or TRUE as terminal
+  nodes. Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_and">add_and</a>
+<a href="#add_xor">add_xor</a>
+<a href="#add_not">add_not</a>
+<a href="#add_imply">add_imply</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_permute"></A>
+add_ptr <I></I>
+<B>add_permute</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b>, <i></i>
+  int * <b>permut</b> <i></i>
+)
+</pre>
+<dd> Given a permutation in array permut, creates a new ADD
+  with permuted variables. There should be an entry in array permut
+  for each variable in the manager. The i-th entry of permut holds the
+  index of the variable that is to substitute the i-th variable.
+  Returns a pointer to the resulting ADD if successful; a failure is
+  generated otherwise. The reuslt is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_permute">bdd_permute</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_ref"></A>
+void <I></I>
+<B>add_ref</B>(
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Reference an ADD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is incremented by one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_deref">add_deref</a>
+<a href="#add_free">add_free</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_simplify_assuming"></A>
+add_ptr <I></I>
+<B>add_simplify_assuming</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> ADD restrict according to Coudert and Madre's algorithm
+  (ICCAD90). Returns the restricted ADD if successful; a failure is
+  generated otherwise.
+  If application of restrict results in an ADD larger than the input
+  ADD, the input ADD is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_size"></A>
+int <I></I>
+<B>add_size</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Counts the number of ADD nodes in an ADD. Returns the number
+  of nodes in the graph rooted at node.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_count_minterm">add_count_minterm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_support"></A>
+add_ptr <I></I>
+<B>add_support</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Finds the variables on which an ADD depends on.
+  Returns an ADD consisting of the product of the variables if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_support">bdd_support</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_then"></A>
+add_ptr <I></I>
+<B>add_then</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the then child of an internal node. If
+  <code>f</code> is a constant node, the result is
+  unpredictable. Notice that the reference count of the returned node
+  is not incremented.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_else">add_else</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_to_bdd_strict_threshold"></A>
+bdd_ptr <I></I>
+<B>add_to_bdd_strict_threshold</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Converts an ADD to a BDD by replacing all discriminants
+  greater than value k with TRUE, and all other discriminants with
+  FALSE. Returns a pointer to the resulting BDD if successful; a
+  failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_to_bdd_threshold">add_to_bdd_threshold</a>
+<a href="#add_to_bdd">add_to_bdd</a>
+<a href="#bdd_to_01_add">bdd_to_01_add</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_to_bdd"></A>
+bdd_ptr <I></I>
+<B>add_to_bdd</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Converts an ADD to a BDD. Only TRUE and FALSE leaves
+  are admitted. Returns a pointer to the resulting BDD if successful;
+  NULL otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_to_add">bdd_to_add</a>
+<a href="#bdd_to_01_add">bdd_to_01_add</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_true"></A>
+add_ptr <I></I>
+<B>add_true</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant TRUE ADD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_false">add_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_value"></A>
+node_ptr <I></I>
+<B>add_value</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Given the result of add_if_then it returns the leaf
+  corresponding. The ADD is traversed according to the rules given as
+  a result of add_if_then. If it is costant, then the corresponding
+  value is returned. The Else branch is recursively traversed, if the
+  result of this travesring is an ELSE_CNST, then the result of the
+  traversing of the Then branch is returned.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_if_then">add_if_then</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_walkleaves"></A>
+void <I></I>
+<B>add_walkleaves</B>(
+  VPFCVT  <b>op</b>, <i></i>
+  add_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Applies a generic function <tt>VPFCVT op</tt> to the
+  constants nodes of <tt>f</tt>.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_xnor"></A>
+add_ptr <I></I>
+<B>add_xnor</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical XNOR to the corresponding discriminants
+  of f and g. f and g must have only FALSE or TRUE as terminal
+  nodes. Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_xor">add_xor</a>
+<a href="#add_or">add_or</a>
+<a href="#add_and">add_and</a>
+<a href="#add_not">add_not</a>
+<a href="#add_imply">add_imply</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_xor"></A>
+add_ptr <I></I>
+<B>add_xor</B>(
+  DdManager * <b>dd</b>, <i></i>
+  add_ptr  <b>a</b>, <i></i>
+  add_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical XOR to the corresponding discriminants
+  of f and g. f and g must have only FALSE or TRUE as terminal nodes. Returns
+  a pointer to the result if successful; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_or">add_or</a>
+<a href="#add_and">add_and</a>
+<a href="#add_not">add_not</a>
+<a href="#add_imply">add_imply</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_zero"></A>
+add_ptr <I></I>
+<B>add_zero</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant zero ADD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_true">add_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_DumpBlifBody"></A>
+int <I></I>
+<B>bdd_DumpBlifBody</B>(
+  DdManager* <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr* <b>f</b>, <i>array of output nodes to be dumped</i>
+  char** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char** <b>onames</b>, <i>array of output names (or NULL)</i>
+  FILE* <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a blif body representing the argument BDDs as a
+  network of multiplexers.  No header (.model, .inputs, and .outputs) and
+  footer (.end) are produced by this function.  One multiplexer is written
+  for each BDD node. It returns 1 in case of success; 0 otherwise (e.g.,
+  out-of-memory, file system full, or an ADD with constants different
+  from 0 and 1).  bdd_DumpBlifBody does not close the file: This is the
+  caller responsibility. bdd_DumpBlifBody uses a minimal unique subset of
+  the hexadecimal address of a node as name for it.  If the argument
+  inames is non-null, it is assumed to hold the pointers to the names
+  of the inputs. Similarly for onames. This function prints out only
+  .names part.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_DumpBlif">bdd_DumpBlif</a>
+<a href="#dd_dump_dot">dd_dump_dot</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_DumpBlif"></A>
+int <I></I>
+<B>bdd_DumpBlif</B>(
+  DdManager* <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr* <b>f</b>, <i>array of output nodes to be dumped</i>
+  char** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char** <b>onames</b>, <i>array of output names (or NULL)</i>
+  char* <b>mname</b>, <i>model name (or NULL)</i>
+  FILE* <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a blif file representing the argument BDDs as a
+  network of multiplexers. One multiplexer is written for each BDD
+  node. It returns 1 in case of success; 0 otherwise (e.g.,
+  out-of-memory, file system full, or an ADD with constants different
+  from 0 and 1).  bdd_DumpBlif does not close the file: This is the
+  caller responsibility. bdd_DumpBlif uses a minimal unique subset of
+  the hexadecimal address of a node as name for it.  If the argument
+  inames is non-null, it is assumed to hold the pointers to the names
+  of the inputs. Similarly for onames.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_DumpBlifBody">bdd_DumpBlifBody</a>
+<a href="#dd_dump_dot">dd_dump_dot</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_and_abstract"></A>
+bdd_ptr <I></I>
+<B>bdd_and_abstract</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>T</b>, <i></i>
+  bdd_ptr  <b>S</b>, <i></i>
+  bdd_ptr  <b>V</b> <i></i>
+)
+</pre>
+<dd> Takes the AND of two BDDs and simultaneously abstracts
+  the variables in cube. The variables are existentially abstracted.
+  Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_and">bdd_and</a>
+<a href="#bdd_forsome">bdd_forsome</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_and_accumulate"></A>
+void <I></I>
+<B>bdd_and_accumulate</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr * <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical AND to the corresponding discriminants
+  of f and g and stores the result in f. f and g must be two BDDs. The
+  result is referenced.
+<p>
+
+<dd> <b>Side Effects</b> The result is stored in the first operand and referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_and">bdd_and</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_and"></A>
+bdd_ptr <I></I>
+<B>bdd_and</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical AND to the corresponding discriminants
+  of f and g. f and g must be BDDs. Returns a pointer to the result if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_or">bdd_or</a>
+<a href="#bdd_xor">bdd_xor</a>
+<a href="#bdd_not">bdd_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_between"></A>
+bdd_ptr <I></I>
+<B>bdd_between</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f_min</b>, <i></i>
+  bdd_ptr  <b>f_max</b> <i></i>
+)
+</pre>
+<dd> Return a minimum size BDD between bounds.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_minimize">bdd_minimize</a>
+<a href="#bdd_simplify_assuming">bdd_simplify_assuming</a>
+<a href="#bdd_cofactor">bdd_cofactor</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_cofactor"></A>
+bdd_ptr <I></I>
+<B>bdd_cofactor</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes f constrain c (f @ c).
+  Uses a canonical form: (f' @ c) = ( f @ c)'.  (Note: this is not true
+  for c.)  List of special cases:
+    <ul>
+    <li> F @ 0 = 0
+    <li> F @ 1 = F
+    <li> 0 @ c = 0
+    <li> 1 @ c = 1
+    <li> F @ F = 1
+    <li> F @ F'= 0
+    </ul>
+  Returns a pointer to the result if successful; a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_minimize">bdd_minimize</a>
+<a href="#bdd_simplify_assuming">bdd_simplify_assuming</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_compose"></A>
+bdd_ptr <I></I>
+<B>bdd_compose</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b>, <i></i>
+  int  <b>v</b> <i></i>
+)
+</pre>
+<dd> Substitutes g for x_v in the BDD for f. v is the index of the
+  variable to be substituted. bdd_compose passes the corresponding
+  projection function to the recursive procedure, so that the cache may
+  be used.  Returns the composed BDD if successful; an error (which either
+  results in a jump to the last CATCH-FAIL  block, or in a call to exit())
+  is triggered otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_compute_essentials"></A>
+bdd_ptr <I></I>
+<B>bdd_compute_essentials</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Returns the cube of the essential variables. A positive
+  literal means that the variable must be set to 1 for the function to be
+  1. A negative literal means that the variable must be set to 0 for the
+  function to be 1. Returns a pointer to the cube BDD if successful;
+  NULL otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_compute_prime_low"></A>
+bdd_ptr <I></I>
+<B>bdd_compute_prime_low</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>b</b>, <i></i>
+  bdd_ptr  <b>low</b> <i></i>
+)
+</pre>
+<dd> Finds the prime implicant of a BDD b based on the largest cube
+  in low where low implies b.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_compute_primes_low"></A>
+array_t * <I></I>
+<B>bdd_compute_primes_low</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>b</b>, <i></i>
+  bdd_ptr  <b>low</b> <i></i>
+)
+</pre>
+<dd> Finds the set of prime implicants of a BDD b that are
+  implied by low where low implies b.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_compute_primes"></A>
+array_t * <I></I>
+<B>bdd_compute_primes</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Finds the set of prime implicants of a BDD b.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_count_minterm"></A>
+double <I></I>
+<B>bdd_count_minterm</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  int  <b>nvars</b> <i></i>
+)
+</pre>
+<dd> Counts the number of minterms of an BDD. The function is
+  assumed to depend on nvars variables. The minterm count is
+  represented as a double, to allow for a larger number of variables.
+  Returns the number of minterms of the function rooted at node. The
+  result is parameterized by the number of "nvars" passed as argument.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_size">bdd_size</a>
+<a href="#bdd_count_minterm">bdd_count_minterm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_cube_diff"></A>
+bdd_ptr <I></I>
+<B>bdd_cube_diff</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Computes the difference between two BDD cubes, i.e. the
+  cube of BDD variables belonging to cube a and not belonging to cube
+  b. Returns a pointer to the resulting cube; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_cube_diff">add_cube_diff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_cube_intersection"></A>
+bdd_ptr <I></I>
+<B>bdd_cube_intersection</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Computes the difference between two BDD cubes, i.e. the
+  cube of BDD variables belonging to cube a AND belonging to cube
+  b. Returns a pointer to the resulting cube; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_cube_union">bdd_cube_union</a>
+<a href="#bdd_cube_diff">bdd_cube_diff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_cube_union"></A>
+bdd_ptr <I></I>
+<B>bdd_cube_union</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Computes the union between two BDD cubes, i.e. the
+  cube of BDD variables belonging to cube a OR to cube b.
+  Returns a pointer to the resulting cube; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_cube_intersection">bdd_cube_intersection</a>
+<a href="#bdd_and">bdd_and</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_deref"></A>
+void <I></I>
+<B>bdd_deref</B>(
+  bdd_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Dereference an BDD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is decremented by one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_ref">bdd_ref</a>
+<a href="#bdd_free">bdd_free</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_dup"></A>
+bdd_ptr <I></I>
+<B>bdd_dup</B>(
+  bdd_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Creates a copy of an BDD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count is increased by one unit.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_ref">bdd_ref</a>
+<a href="#bdd_free">bdd_free</a>
+<a href="#bdd_deref">bdd_deref</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_else"></A>
+bdd_ptr <I></I>
+<B>bdd_else</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the else child of a bdd node. The node
+  must not be a leaf node. Notice that this funxction does not save
+  the bdd. Is the responsibility of the user to save it if it is the case.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_entailed"></A>
+int <I></I>
+<B>bdd_entailed</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if f is less than or equal to g; 0 otherwise.
+  No new nodes are created.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_false"></A>
+bdd_ptr <I></I>
+<B>bdd_false</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant FALSE BDD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_true">bdd_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_forall"></A>
+bdd_ptr <I></I>
+<B>bdd_forall</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr  <b>cube</b> <i></i>
+)
+</pre>
+<dd> Universally abstracts all the variables in cube from f.
+  Returns the abstracted BDD if successful; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_forsome">bdd_forsome</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_forsome"></A>
+bdd_ptr <I></I>
+<B>bdd_forsome</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr  <b>cube</b> <i></i>
+)
+</pre>
+<dd> Existentially abstracts all the variables in cube from fn.
+  Returns the abstracted BDD if successful; a failure is generated
+  otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_forall">bdd_forall</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_free"></A>
+void <I></I>
+<B>bdd_free</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Decreases the reference count of node. If the node dies,
+  recursively decreases the reference counts of its children. It is used to
+  dispose off a BDD that is no longer needed.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is decremented by one,
+  and if the node dies a recursive dereferencing is applied to its children.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_get_lowest_index"></A>
+int <I></I>
+<B>bdd_get_lowest_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Returns the index of the lowest variable in the
+  BDD, i.e. the variable in BDD a with the highest position in the
+  ordering.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_get_one_sparse_sat"></A>
+bdd_ptr <I></I>
+<B>bdd_get_one_sparse_sat</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>d</b> <i></i>
+)
+</pre>
+<dd> Finds a satisfying path in the BDD d. This path should
+  not include all variabales. It only need ot include the levels needed to
+  satify the BDD.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_iff"></A>
+bdd_ptr <I></I>
+<B>bdd_iff</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical IFF to the corresponding discriminants
+  of f and g. f and g must be BDDs. Returns a pointer to the result if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_or">bdd_or</a>
+<a href="#bdd_xor">bdd_xor</a>
+<a href="#bdd_not">bdd_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_imply"></A>
+bdd_ptr <I></I>
+<B>bdd_imply</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical IMPLY to the corresponding discriminants
+  of f and g. f and g must be BDDs. Returns a pointer to the result if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_or">bdd_or</a>
+<a href="#bdd_xor">bdd_xor</a>
+<a href="#bdd_not">bdd_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_index"></A>
+int <I></I>
+<B>bdd_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the index of the node.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_intersected"></A>
+int <I></I>
+<B>bdd_intersected</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if an intersection between
+  f and g is not empty; 0 otherwise.
+  No new nodes are created.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_is_false"></A>
+int <I></I>
+<B>bdd_is_false</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the BDD is false.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_false">bdd_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_is_true"></A>
+int <I></I>
+<B>bdd_is_true</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the BDD is TRUE.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_true">bdd_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_iscomplement"></A>
+int <I></I>
+<B>bdd_iscomplement</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if the BDD pointer is complemented.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_isleaf"></A>
+int <I></I>
+<B>bdd_isleaf</B>(
+  bdd_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if the BDD node is a constant node (rather than an
+  internal node). All constant nodes have the same index (MAX_VAR_INDEX).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_isnot_false"></A>
+int <I></I>
+<B>bdd_isnot_false</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the BDD is not false.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_false">bdd_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_isnot_true"></A>
+int <I></I>
+<B>bdd_isnot_true</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Check if the BDD is not true.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_true">bdd_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_ite"></A>
+bdd_ptr <I></I>
+<B>bdd_ite</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>i</b>, <i></i>
+  bdd_ptr  <b>t</b>, <i></i>
+  bdd_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Implements ITE(i,t,e). Returns a pointer to the
+  resulting BDD if successful;  a failure is
+  generated otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_largest_cube"></A>
+bdd_ptr <I></I>
+<B>bdd_largest_cube</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>b</b>, <i></i>
+  int * <b>length</b> <i></i>
+)
+</pre>
+<dd> Finds a largest cube in a BDD b, i.e. an implicant of BDD b.
+  Notice that, it is not guaranteed to be the largest implicant of b.
+<p>
+
+<dd> <b>Side Effects</b> The number of literals of the cube is returned in length.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_leq"></A>
+int <I></I>
+<B>bdd_leq</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Returns 1 if f is less than or equal to g; 0 otherwise.
+  No new nodes are created.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_make_prime"></A>
+bdd_ptr <I></I>
+<B>bdd_make_prime</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>cube</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Expands cube to a prime implicant of f. Returns the prime
+  if successful; NULL otherwise.  In particular, NULL is returned if cube
+  is not a real cube or is not an implicant of f.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_minimize"></A>
+bdd_ptr <I></I>
+<B>bdd_minimize</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr  <b>c</b> <i></i>
+)
+</pre>
+<dd> Restrict operator as described in Coudert et
+  al. ICCAD90.  Always returns a BDD not larger than the input
+  <code>f</code> if successful; a failure is generated otherwise. The
+  result is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_simplify_assuming">bdd_simplify_assuming</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_new_var_with_index"></A>
+bdd_ptr <I></I>
+<B>bdd_new_var_with_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>index</b> <i></i>
+)
+</pre>
+<dd> Retrieves the BDD variable with index <code>index</code>
+  if it already exists, or creates a new BDD variable. Returns a
+  pointer to the variable if successful; a failure is generated
+  otherwise. The returned value is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_new_var_at_level">bdd_new_var_at_level</a>
+<a href="#add_new_var_at_level">add_new_var_at_level</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_not"></A>
+bdd_ptr <I></I>
+<B>bdd_not</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Applies logical NOT to the corresponding discriminant of f.
+  f must be a BDD. Returns a pointer to the result if successful; a
+  failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_and">bdd_and</a>
+<a href="#bdd_xor">bdd_xor</a>
+<a href="#bdd_or">bdd_or</a>
+<a href="#bdd_imply">bdd_imply</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_or_accumulate"></A>
+void <I></I>
+<B>bdd_or_accumulate</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr * <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical OR to the corresponding discriminants
+  of f and g and stores the result in f. f and g must be two BDDs. The
+  result is referenced.
+<p>
+
+<dd> <b>Side Effects</b> The result is stored in the first operand and referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_and">bdd_and</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_or"></A>
+bdd_ptr <I></I>
+<B>bdd_or</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical OR to the corresponding discriminants
+  of f and g. f and g must be BDDs. Returns a pointer to the result if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_and">bdd_and</a>
+<a href="#bdd_xor">bdd_xor</a>
+<a href="#bdd_not">bdd_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_permute"></A>
+bdd_ptr <I></I>
+<B>bdd_permute</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  int * <b>permut</b> <i></i>
+)
+</pre>
+<dd> Given a permutation in array permut, creates a new BDD
+  with permuted variables. There should be an entry in array permut
+  for each variable in the manager. The i-th entry of permut holds the
+  index of the variable that is to substitute the i-th variable.
+  Returns a pointer to the resulting BDD if successful; a failure is
+  generated otherwise. The result is referenced.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_permute">bdd_permute</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_pick_all_terms"></A>
+int <I></I>
+<B>bdd_pick_all_terms</B>(
+  DdManager * <b>dd</b>, <i>dd manager</i>
+  bdd_ptr  <b>pick_from_set</b>, <i>minterm from which to pick all term</i>
+  bdd_ptr * <b>vars</b>, <i>The array of vars to be put in the returned array</i>
+  int  <b>vars_dim</b>, <i>The size of the above array</i>
+  bdd_ptr * <b>result</b>, <i>The array used as return value</i>
+  int  <b>result_dim</b> <i>The size of the above array</i>
+)
+</pre>
+<dd> Takes a minterm and returns an array of all its terms,
+  according to variables specified in the array vars[
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_pick_one_minterm_rand">bdd_pick_one_minterm_rand</a>
+<a href="#bdd_pick_one_minterm">bdd_pick_one_minterm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_pick_one_minterm_rand"></A>
+bdd_ptr <I></I>
+<B>bdd_pick_one_minterm_rand</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr * <b>vars</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Picks one on-set minterm randomly from the given DD. The
+  minterm is in terms of vars. Builds a BDD for the minterm and returns a
+  pointer to it if successful; a failure is generated otherwise. There
+  are two reasons why the procedure may fail: It may run out of
+  memory; or the function f may be the constant 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_pick_one_minterm"></A>
+bdd_ptr <I></I>
+<B>bdd_pick_one_minterm</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr * <b>vars</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Picks one on-set minterm deterministically from the
+  given DD. The minterm is in terms of vars. Builds a BDD for the
+  minterm and returns a pointer to it if successful; a failure is
+  generated otherwise. There are two reasons why the procedure may fail: It may
+  run out of memory; or the function fn may be the constant 0. The
+  result is referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_readperm"></A>
+int <I></I>
+<B>bdd_readperm</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Finds the current position of variable index in the
+  order.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_ref_count"></A>
+int <I></I>
+<B>bdd_ref_count</B>(
+  bdd_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Returns the reference count of a node. The node pointer can be
+  either regular or complemented.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_ref"></A>
+void <I></I>
+<B>bdd_ref</B>(
+  bdd_ptr  <b>dd_node</b> <i></i>
+)
+</pre>
+<dd> Reference an BDD node.
+<p>
+
+<dd> <b>Side Effects</b> The reference count of the node is incremented by one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_deref">bdd_deref</a>
+<a href="#bdd_free">bdd_free</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_simplify_assuming"></A>
+bdd_ptr <I></I>
+<B>bdd_simplify_assuming</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b>, <i></i>
+  bdd_ptr  <b>c</b> <i></i>
+)
+</pre>
+<dd> BDD restrict according to Coudert and Madre's algorithm
+  (ICCAD90). Returns the restricted BDD if successful; a failure is
+  generated otherwise.
+  If application of restrict results in an BDD larger than the input
+  BDD, the input BDD is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_size"></A>
+int <I></I>
+<B>bdd_size</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Counts the number of BDD nodes in an BDD. Returns the number
+  of nodes in the graph rooted at node.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_count_minterm">bdd_count_minterm</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_support"></A>
+bdd_ptr <I></I>
+<B>bdd_support</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Finds the variables on which an BDD depends on.
+  Returns an BDD consisting of the product of the variables if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_support">add_support</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_swap_variables"></A>
+bdd_ptr <I></I>
+<B>bdd_swap_variables</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr * <b>x_varlist</b>, <i></i>
+  bdd_ptr * <b>y_varlist</b>, <i></i>
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> Swaps two sets of variables of the same size (x and y)
+  in the BDD f. The size is given by n. The two sets of variables are
+  assumed to be disjoint.  Returns a pointer to the resulting BDD if
+  successful; an error (which either results in a jump to the last CATCH-FAIL
+  block, or in a call to exit()) is triggered otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_then"></A>
+bdd_ptr <I></I>
+<B>bdd_then</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Returns the then child of a bdd node. The node
+  must not be a leaf node. Notice that this funxction does not save
+  the bdd. Is the responsibility of the user to save it if it is the case.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_to_01_add"></A>
+add_ptr <I></I>
+<B>bdd_to_01_add</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Converts a BDD to a 0-1 ADD. Returns a pointer to the
+  resulting ADD if successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_to_add">bdd_to_add</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_to_add"></A>
+add_ptr <I></I>
+<B>bdd_to_add</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>fn</b> <i></i>
+)
+</pre>
+<dd> Converts a BDD to a FALSE-TRUE ADD. Returns a pointer to the
+  resulting ADD if successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_to_bdd">add_to_bdd</a>
+<a href="#bdd_to_01_add">bdd_to_01_add</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_true"></A>
+bdd_ptr <I></I>
+<B>bdd_true</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Reads the constant TRUE BDD of the manager.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_false">bdd_false</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_xor"></A>
+bdd_ptr <I></I>
+<B>bdd_xor</B>(
+  DdManager * <b>dd</b>, <i></i>
+  bdd_ptr  <b>a</b>, <i></i>
+  bdd_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Applies logical XOR to the corresponding discriminants
+  of f and g. f and g must be BDDs. Returns a pointer to the result if
+  successful; a failure is generated otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_or">bdd_or</a>
+<a href="#bdd_imply">bdd_imply</a>
+<a href="#bdd_not">bdd_not</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="calculate_bdd_value"></A>
+int <I></I>
+<B>calculate_bdd_value</B>(
+  DdManager* <b>mgr</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  int* <b>values</b> <i></i>
+)
+</pre>
+<dd> Computes the value (0 or 1) of the given function with the given
+  values for variables. The parameter "values" must be an array, at least as
+  long as the number of indices in the BDD.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_autodyn_disable"></A>
+void <I></I>
+<B>dd_autodyn_disable</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Disables automatic dynamic reordering of BDD and ADD.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_enable">dd_autodyn_enable</a>
+<a href="#dd_reordering_status">dd_reordering_status</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_autodyn_enable"></A>
+void <I></I>
+<B>dd_autodyn_enable</B>(
+  DdManager * <b>dd</b>, <i></i>
+  dd_reorderingtype  <b>method</b> <i></i>
+)
+</pre>
+<dd> Enables automatic dynamic reordering of BDDs and
+  ADDs. Parameter method is used to determine the method used for
+  reordering. If REORDER_SAME is passed, the method is
+  unchanged.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_disable">dd_autodyn_disable</a>
+<a href="#dd_reordering_status">dd_reordering_status</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_checkzeroref"></A>
+int <I></I>
+<B>dd_checkzeroref</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Checks the unique table for nodes with non-zero
+  reference counts. It is normally called before dd_quit to make sure
+  that there are no memory leaks due to missing add/bdd_free's.
+  Takes into account that reference counts may saturate and that the
+  basic constants and the projection functions are referenced by the
+  manager.  Returns the number of nodes with non-zero reference count.
+  (Except for the cases mentioned above.)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_dump_davinci"></A>
+int <I></I>
+<B>dd_dump_davinci</B>(
+  DdManager * <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr * <b>f</b>, <i>array of output nodes to be dumped</i>
+  char ** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char ** <b>onames</b>, <i>array of output names (or NULL)</i>
+  FILE * <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a daVnci file representing the argument
+  DDs. For a better description see the "Cudd_DumpDaVinci" documentation
+  in the CUDD package.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_dump_davinci">dd_dump_davinci</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_dump_dot"></A>
+int <I></I>
+<B>dd_dump_dot</B>(
+  DdManager * <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr * <b>f</b>, <i>array of output nodes to be dumped</i>
+  char ** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char ** <b>onames</b>, <i>array of output names (or NULL)</i>
+  FILE * <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a dot file representing the argument
+  DDs. For a better description see the "Cudd_DumpDot" documentation
+  in the CUDD package.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_dump_davinci">dd_dump_davinci</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_free_var_block"></A>
+int <I></I>
+<B>dd_free_var_block</B>(
+  DdManager* <b>dd</b>, <i></i>
+  dd_block* <b>group</b> <i></i>
+)
+</pre>
+<dd> Dissolves a group previously created by
+  dd_new_var_block.  Returns 0 if the group was actually removed, 1
+  otherwise (that may be not due to an error)
+<p>
+
+<dd> <b>Side Effects</b> Modifies the variable tree.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_get_index_at_level"></A>
+int <I></I>
+<B>dd_get_index_at_level</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>level</b> <i></i>
+)
+</pre>
+<dd> Returns the index of the variable currently in the i-th
+  position of the order. If the index is MAX_VAR_INDEX, returns
+  MAX_VAR_INDEX; otherwise, if the index is out of bounds fails.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_get_level_at_index"></A>
+int <I></I>
+<B>dd_get_level_at_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>index</b> <i></i>
+)
+</pre>
+<dd> Returns the current position of the i-th variable in the
+  order. If the index is CUDD_MAXINDEX, returns CUDD_MAXINDEX; otherwise,
+  if the index is out of bounds returns -1.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_ReadInvPerm">Cudd_ReadInvPerm</a>
+<a href="#Cudd_ReadPermZdd">Cudd_ReadPermZdd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_get_ordering_method"></A>
+dd_reorderingtype <I></I>
+<B>dd_get_ordering_method</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the internal reordering method used.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_get_reorderings"></A>
+int <I></I>
+<B>dd_get_reorderings</B>(
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the number of times reordering has occurred in
+  the manager. The number includes both the calls to Cudd_ReduceHeap
+  from the application program and those automatically performed by
+  the package. However, calls that do not even initiate reordering are
+  not counted. A call may not initiate reordering if there are fewer
+  than minsize live nodes in the manager, or if CUDD_REORDER_NONE is
+  specified as reordering method. The calls to Cudd_ShuffleHeap are
+  not counted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_get_size"></A>
+int <I></I>
+<B>dd_get_size</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the number of BDD variables in existance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_new_var_block"></A>
+dd_block * <I></I>
+<B>dd_new_var_block</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>start_index</b>, <i></i>
+  int  <b>offset</b> <i></i>
+)
+</pre>
+<dd> Builds a group of variables that should stay adjacent
+  during reordering. The group is made up of n variables. The first
+  variable in the group is f. The other variables are the n-1
+  variables following f in the order at the time of invocation of this
+  function. Returns a handle to the variable group if successful else fail.
+<p>
+
+<dd> <b>Side Effects</b> Modifies the variable tree.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_print_stats"></A>
+void <I></I>
+<B>dd_print_stats</B>(
+  DdManager * <b>mgr</b>, <i></i>
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints out statistics and settings for a CUDD manager.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_printminterm"></A>
+int <I></I>
+<B>dd_printminterm</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>node</b> <i></i>
+)
+</pre>
+<dd> Prints a disjoint sum of product cover for the function
+  rooted at node. Each product corresponds to a path from node a leaf
+  node different from the logical zero, and different from the
+  background value. Uses the standard output.  Returns 1 if successful;
+  0 otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_reordering_status"></A>
+int <I></I>
+<B>dd_reordering_status</B>(
+  DdManager * <b>dd</b>, <i></i>
+  dd_reorderingtype * <b>method</b> <i></i>
+)
+</pre>
+<dd> Reports the status of automatic dynamic reordering of
+  BDDs and ADDs. Parameter method is set to the reordering method
+  currently selected. Returns 1 if automatic reordering is enabled; 0
+  otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Parameter method is set to the reordering method currently
+  selected.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_disable">dd_autodyn_disable</a>
+<a href="#dd_autodyn_enable">dd_autodyn_enable</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_reorder"></A>
+int <I></I>
+<B>dd_reorder</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>method</b>, <i></i>
+  int  <b>minsize</b> <i></i>
+)
+</pre>
+<dd> Main dynamic reordering routine.
+  Calls one of the possible reordering procedures:
+  <ul>
+  <li>Swapping
+  <li>Sifting
+  <li>Symmetric Sifting
+  <li>Group Sifting
+  <li>Window Permutation
+  <li>Simulated Annealing
+  <li>Genetic Algorithm
+  <li>Dynamic Programming (exact)
+  </ul>
+
+  For sifting, symmetric sifting, group sifting, and window
+  permutation it is possible to request reordering to convergence.<p>
+
+  Returns 1 in case of success; 0 otherwise. In the case of symmetric
+  sifting (with and without convergence) returns 1 plus the number of
+  symmetric variables, in case of success.<p>
+
+  This functions takes as arguments:
+  <ul>
+  <li> <tt>dd</tt> the DD manager;
+  <li> <tt>heuristics</tt> method used for reordering;
+  <li> <tt>minsize</tt> bound below which no reordering occurs;
+  </ul>
+<p>
+
+<dd> <b>Side Effects</b> Changes the variable order for all diagrams and clears
+  the cache.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_ReduceHeap">Cudd_ReduceHeap</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_set_order"></A>
+int <I></I>
+<B>dd_set_order</B>(
+  DdManager* <b>dd</b>, <i></i>
+  int* <b>permutation</b> <i></i>
+)
+</pre>
+<dd> Reorders variables according to given permutation.
+  The i-th entry of the permutation array contains the index of the variable
+  that should be brought to the i-th level.  The size of the array should be
+  equal or greater to the number of variables currently in use.
+  Returns 1 in case of success; 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Changes the variable order for all diagrams and clears
+  the cache.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="dd_set_parameters"></A>
+int <I></I>
+<B>dd_set_parameters</B>(
+  DdManager * <b>mgr</b>, <i></i>
+  avl_tree * <b>valueTable</b>, <i></i>
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> The CUDD package has a set of parameters that can be assigned
+  different values. This function receives a table which maps strings to
+  values and sets the parameters represented by the strings to the pertinent
+  values. Some basic type checking is done. It returns 1 if everything is
+  correct and 0 otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_dd_nodes_allocated"></A>
+int <I></I>
+<B>get_dd_nodes_allocated</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the total number of nodes currently in the unique
+  table, including the dead nodes.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="init_dd_package"></A>
+DdManager* <I></I>
+<B>init_dd_package</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates a new DD manager, initializes the table, the
+  basic constants and the projection functions.<br>
+  "maxMemory" (the last parameter of the function "Cudd_Init")
+  is set to 0. In such a way "Cudd_Init" decides suitables values
+  for the maximum size of the cache and for the limit for fast unique
+  table growth based on the available memory. Returns a pointer to the
+  manager if successful; else abort depending the mode (interactive or
+  batch) the system is used.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#quit_dd_package">quit_dd_package</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="map_dd"></A>
+node_ptr <I></I>
+<B>map_dd</B>(
+  DdManager * <b>dd</b>, <i></i>
+  NPFDD  <b>f</b>, <i></i>
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> This function acts like the Lisp <tt>mapcar</tt>. It returns
+  the list of the result of the application of function code>f</code> to each
+  element of list <code>l</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#map">map</a>
+<a href="#walk">walk</a>
+<a href="#walk_dd">walk_dd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="quit_dd_package"></A>
+void <I></I>
+<B>quit_dd_package</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Deletes resources associated with a DD manager and
+  resets the global statistical counters. (Otherwise, another manager
+  subsequently created would inherit the stats of this one.)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#init_dd_package">init_dd_package</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+<dt><pre>
+<A NAME="walk_dd"></A>
+void <I></I>
+<B>walk_dd</B>(
+  DdManager * <b>dd</b>, <i></i>
+  VPFDD  <b>f</b>, <i></i>
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> This function acts like the <tt>map_dd</dd>. This functions
+  applies the function <code>f</code> to each element of list
+  <code>l</code>. Nothing is returned, performs side-effects on the elements.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#map">map</a>
+<a href="#walk">walk</a>
+<a href="#map_dd">map_dd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="ddAllFile.html#dd.c"TARGET="ABSTRACT"><CODE>dd.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

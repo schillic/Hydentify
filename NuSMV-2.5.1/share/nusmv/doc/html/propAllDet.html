@@ -1,0 +1,142 @@
+<html>
+<head><title>The prop package: all functions </title></head>
+<body>
+
+optional
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandAddProperty"></A>
+int <I></I>
+<B>CommandAddProperty</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Adds a property to the list of properties
+<p>
+
+<dd> <b>See Also</b> <code><a href="#show_property">show_property</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propCmd.c"TARGET="ABSTRACT"><CODE>propCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckProperty"></A>
+int <I></I>
+<B>CommandCheckProperty</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Checks properties
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_property">check_property</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propCmd.c"TARGET="ABSTRACT"><CODE>propCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandShowProperty"></A>
+int <I></I>
+<B>CommandShowProperty</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Shows the currently stored properties
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_property">add_property</a>
+<a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#check_invar">check_invar</a>
+<a href="#compute">compute</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propCmd.c"TARGET="ABSTRACT"><CODE>propCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_get_prop_database"></A>
+PropDb_ptr <I></I>
+<B>PropPkg_get_prop_database</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global property database instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propPkg.c"TARGET="ABSTRACT"><CODE>propPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_init_cmd"></A>
+void <I></I>
+<B>PropPkg_init_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initialize the prop package for commands.  This must be
+  called independently from the package initialization function
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propCmd.c"TARGET="ABSTRACT"><CODE>propCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_init"></A>
+void <I></I>
+<B>PropPkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> After you had called this, you must also call 
+  PropPkg_init_cmd if you need to use the interactive shell for 
+  commands
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propPkg.c"TARGET="ABSTRACT"><CODE>propPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_quit_cmd"></A>
+void <I></I>
+<B>PropPkg_quit_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This must be called independently from
+  the package initialization function
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propCmd.c"TARGET="ABSTRACT"><CODE>propCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_quit"></A>
+void <I></I>
+<B>PropPkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quits the package
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propPkg.c"TARGET="ABSTRACT"><CODE>propPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="PropPkg_set_prop_database"></A>
+void <I></I>
+<B>PropPkg_set_prop_database</B>(
+  PropDb_ptr  <b>db</b> <i></i>
+)
+</pre>
+<dd> Simply overwrites global_prop_database with a new
+  value. Hence, caller is responsible for freeing
+  global_prop_database before calling this function.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="propAllFile.html#propPkg.c"TARGET="ABSTRACT"><CODE>propPkg.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

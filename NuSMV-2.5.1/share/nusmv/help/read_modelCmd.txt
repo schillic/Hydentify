@@ -1,0 +1,18 @@
+  read_model - Reads a NuSMV file into NuSMV.
+
+   --------------------------------------------------------------------------
+
+   read_model [-h] [-i model-file]
+
+   Reads a NuSMV file. If the -i option is not specified, it reads from the
+   file specified in the environment variable input_file.
+
+   Command options:
+
+   -i model-file
+           Sets the environment variable input_file to model-file, and reads
+           the model from the specified file.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

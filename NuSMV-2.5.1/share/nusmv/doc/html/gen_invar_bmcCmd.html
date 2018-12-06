@@ -1,0 +1,39 @@
+<html>
+<head><title>gen_invar_bmc</title></head>
+<body>
+
+<h3>gen_invar_bmc - Generates the given invariant, or all invariants if no formula is given</h3>
+<hr>
+<code>gen_invar_bmc [-h | -n idx | -p "formula" [IN context] | -P "name"] [-o filename]</code><p>
+<p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-n <i>index</i></tt>
+       <dd> <i>index</i> is the numeric index of a valid INVAR specification
+       formula actually located in the properties database. <BR>
+       The validity of <i>index</i> value is checked out by the system.
+    <dt> <tt>-p "formula" [IN context]</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+    <dt> <tt>-P "name"</tt>
+       <dd> Checks the invariant property stored in the properties
+       database with name "name"
+    <dt> <tt>-o <i>filename</i></tt>
+       <dd> <i>filename</i> is the name of the dumped dimacs file,
+       without extension. <BR>
+       If you
+       do not use this option the dimacs file name is taken from the
+       environment variable <i>bmc_invar_dimacs_filename</i>. <BR>
+       File name may contain special symbols which will be macro-expanded
+       to form the real dimacs file name. Possible symbols are: <BR>
+       - @F: model name with path part <BR>
+       - @f: model name without path part <BR>
+       - @n: index of the currently processed formula in the properties
+       database <BR>
+       - @@: the '@' character
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

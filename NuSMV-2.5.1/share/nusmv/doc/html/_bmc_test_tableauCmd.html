@@ -1,0 +1,19 @@
+<html>
+<head><title>_bmc_test_tableau</title></head>
+<body>
+
+<h3>_bmc_test_tableau - Generates a random formula to logically test the equivalent tableau</h3>
+<hr>
+<code>_bmc_test_tableau [-h] | [-n property_index] | [[ -d max_depth] [-c max_conns] [-o operator]]</code><p>
+Use this hidden command to generate random formulae and
+  to test the equivalent tableau. The first time this command is called in the
+  current NuSMV session it creates a new smv file with a model and generates a
+  random ltl spec to test tableau.
+  The following times it is called it appends a new formula to the file.
+  The generated model contains the same number of non-deterministic variables
+  the currently model loaded into NuSMV contains. <BR>
+  You cannot call this command if the bmc_loopback is set to '*' (all loops).
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

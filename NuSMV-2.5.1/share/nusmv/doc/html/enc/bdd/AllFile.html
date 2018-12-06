@@ -1,0 +1,141 @@
+<HTML>
+<HEAD><TITLE>The  package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#BddEnc.c"><CODE>BddEnc.c</CODE></A>
+ <DD> Implementaion of class 'BddEnc'
+ <DT> <A HREF="#BddEncBddPrintWff.c"><CODE>BddEncBddPrintWff.c</CODE></A>
+ <DD> Bdd to Well Formed Formulas conversions/printout
+ <DT> <A HREF="#BddEncCache.c"><CODE>BddEncCache.c</CODE></A>
+ <DD> The BddEncCache class implementation. This class is
+  intended to be used exclusively by the class BddEnc.
+</DL><HR>
+<A NAME="BddEnc.c"><H1>BddEnc.c</H1></A>
+Implementaion of class 'BddEnc' <P>
+<B>By: Roberto Cavada</B><P>
+<P><B>See Also</B><A HREF="#BddEnc.h"><CODE>BddEnc.h</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="BddEncBddPrintWff.c"><H1>BddEncBddPrintWff.c</H1></A>
+Bdd to Well Formed Formulas conversions/printout <P>
+<B>By: Marco Pensallorto</B><P>
+This module exports functions to generate or print a
+  Bdd as an optimized Well Formed Formula. <P>
+<DL>
+ <DT> <A HREF="AllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> A shorthand to ease reading of bdd_enc_bdd_to_wff_rec
+
+ <DT> <A HREF="AllDet.html#BddEnc_print_formula_info" TARGET="MAIN"><CODE>BddEnc_print_formula_info()</CODE></A>
+ <DD> Prints statistical information of a formula.
+
+ <DT> <A HREF="AllDet.html#BddEnc_print_bdd_wff" TARGET="MAIN"><CODE>BddEnc_print_bdd_wff()</CODE></A>
+ <DD> Prints a BDD as a Well Formed Formula using optional
+  sharing
+
+ <DT> <A HREF="AllDet.html#BddEnc_bdd_to_wff" TARGET="MAIN"><CODE>BddEnc_bdd_to_wff()</CODE></A>
+ <DD> Converts a bdd into a Well Formed Formula representing
+  it.
+
+ <DT> <A HREF="AllDet.html#bdd_enc_hash_free_bdd_counted" TARGET="MAIN"><CODE>bdd_enc_hash_free_bdd_counted()</CODE></A>
+ <DD> Used to deref bdds in the sharing hashtable
+
+ <DT> <A HREF="AllDet.html#bdd_enc_get_scalar_essentials" TARGET="MAIN"><CODE>bdd_enc_get_scalar_essentials()</CODE></A>
+ <DD> Compute scalar essentials of a bdd.
+
+ <DT> <A HREF="AllDet.html#bdd_enc_get_preprocessed_vars" TARGET="MAIN"><CODE>bdd_enc_get_preprocessed_vars()</CODE></A>
+ <DD> Preprocesses variables list, as part of the
+  bdd_enc_bdd_to_wff implementation.
+
+ <DT> <A HREF="AllDet.html#bdd_enc_debug_bdd_to_wff" TARGET="MAIN"><CODE>bdd_enc_debug_bdd_to_wff()</CODE></A>
+ <DD> Debug code for BddEnc_bdd_to_wff
+
+ <DT> <A HREF="AllDet.html#bdd_enc_bdd_to_wff_rec" TARGET="MAIN"><CODE>bdd_enc_bdd_to_wff_rec()</CODE></A>
+ <DD> Recursively build a sexp representing a formula encoded as
+  a BDD
+
+</DL>
+<HR>
+<A NAME="BddEncCache.c"><H1>BddEncCache.c</H1></A>
+The BddEncCache class implementation. This class is
+  intended to be used exclusively by the class BddEnc. <P>
+<B>By: Roberto Cavada</B><P>
+<P><B>See Also</B><A HREF="#BddEncCache.h"><CODE>BddEncCache.h</CODE></A>
+<DL>
+ <DT> <A HREF="AllDet.html#BddEncCache_create" TARGET="MAIN"><CODE>BddEncCache_create()</CODE></A>
+ <DD> Class constructor
+
+ <DT> <A HREF="AllDet.html#BddEncCache_destroy" TARGET="MAIN"><CODE>BddEncCache_destroy()</CODE></A>
+ <DD> Class destructor
+
+ <DT> <A HREF="AllDet.html#BddEncCache_new_constant" TARGET="MAIN"><CODE>BddEncCache_new_constant()</CODE></A>
+ <DD> Call to associate given constant to the relative add
+
+ <DT> <A HREF="AllDet.html#BddEncCache_remove_constant" TARGET="MAIN"><CODE>BddEncCache_remove_constant()</CODE></A>
+ <DD> Removes the given constant from the internal hash
+
+ <DT> <A HREF="AllDet.html#BddEncCache_is_constant_encoded" TARGET="MAIN"><CODE>BddEncCache_is_constant_encoded()</CODE></A>
+ <DD> Returns true whether the given constant has been encoded
+
+ <DT> <A HREF="AllDet.html#BddEncCache_lookup_constant" TARGET="MAIN"><CODE>BddEncCache_lookup_constant()</CODE></A>
+ <DD> Returns the ADD corresponding to the given constant, or 
+  NULL if not defined
+
+ <DT> <A HREF="AllDet.html#BddEncCache_new_boolean_var" TARGET="MAIN"><CODE>BddEncCache_new_boolean_var()</CODE></A>
+ <DD> Call this to insert the encoding for a given boolean
+  variable
+
+ <DT> <A HREF="AllDet.html#BddEncCache_remove_boolean_var" TARGET="MAIN"><CODE>BddEncCache_remove_boolean_var()</CODE></A>
+ <DD> Removes the given variable from the internal hash
+
+ <DT> <A HREF="AllDet.html#BddEncCache_is_boolean_var_encoded" TARGET="MAIN"><CODE>BddEncCache_is_boolean_var_encoded()</CODE></A>
+ <DD> Returns true whether the given boolean variable has 
+  been encoded
+
+ <DT> <A HREF="AllDet.html#BddEncCache_lookup_boolean_var" TARGET="MAIN"><CODE>BddEncCache_lookup_boolean_var()</CODE></A>
+ <DD> Retrieves the add associated with the given boolean 
+  variable, if previously encoded.
+
+ <DT> <A HREF="AllDet.html#BddEncCache_set_evaluation" TARGET="MAIN"><CODE>BddEncCache_set_evaluation()</CODE></A>
+ <DD> This method is used to remember the result of evaluation,
+  i.e. to keep the association between the expression in node_ptr form
+  and its ADD representation.
+
+ <DT> <A HREF="AllDet.html#BddEncCache_remove_evaluation" TARGET="MAIN"><CODE>BddEncCache_remove_evaluation()</CODE></A>
+ <DD> This method is used to remove the result of evaluation
+  of an expression
+
+ <DT> <A HREF="AllDet.html#BddEncCache_get_evaluation" TARGET="MAIN"><CODE>BddEncCache_get_evaluation()</CODE></A>
+ <DD> Retrieve the evaluation of a given symbol, 
+  as an array of ADD
+
+ <DT> <A HREF="AllDet.html#BddEncCache_clean_evaluation_about" TARGET="MAIN"><CODE>BddEncCache_clean_evaluation_about()</CODE></A>
+ <DD> Cleans those hashed entries that are about a symbol that
+  is being removed
+
+ <DT> <A HREF="AllDet.html#BddEncCache_clean_evaluation" TARGET="MAIN"><CODE>BddEncCache_clean_evaluation()</CODE></A>
+ <DD> Cleans up the cache from all the evaluated expressions
+
+ <DT> <A HREF="AllDet.html#bdd_enc_cache_init" TARGET="MAIN"><CODE>bdd_enc_cache_init()</CODE></A>
+ <DD> Private initializer
+
+ <DT> <A HREF="AllDet.html#bdd_enc_cache_deinit" TARGET="MAIN"><CODE>bdd_enc_cache_deinit()</CODE></A>
+ <DD> Private deinitializer
+
+ <DT> <A HREF="AllDet.html#hash_free_add" TARGET="MAIN"><CODE>hash_free_add()</CODE></A>
+ <DD> Private micro function used when destroying caches of
+  adds
+
+ <DT> <A HREF="AllDet.html#hash_free_add_array" TARGET="MAIN"><CODE>hash_free_add_array()</CODE></A>
+ <DD> Private micro function used when destroying caches of
+  adds
+
+ <DT> <A HREF="AllDet.html#hash_free_add_counted" TARGET="MAIN"><CODE>hash_free_add_counted()</CODE></A>
+ <DD> Private micro function used when destroying caches of
+  adds
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

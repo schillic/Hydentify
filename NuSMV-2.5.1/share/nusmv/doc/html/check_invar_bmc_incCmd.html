@@ -1,0 +1,38 @@
+<html>
+<head><title>check_invar_bmc_inc</title></head>
+<body>
+
+<h3>check_invar_bmc_inc - Generates and solve the given invariant, or all invariants if no formula is given</h3>
+<hr>
+<code>check_invar_bmc_inc [-h | -n idx | -p "formula" [IN context] | -P "name"] [-k max_length] [-a algorithm] [-s strategy]</code><p>
+<p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-n <i>index</i></tt>
+       <dd> <i>index</i> is the numeric index of a valid INVAR specification
+       formula actually located in the properties database. <BR>
+       The validity of <i>index</i> value is checked out by the system.
+    <dt> <tt>-p "formula [IN context]"</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+    <dt> <tt>-P name</tt>
+       <dd> Checks the INVARSPEC property with name <tt>name</tt> in the property
+            database.
+    <dt> <tt>-k <i>max_length</i></tt>
+       <dd> Use to specify the maximal depth to be reached by the incremental
+            invariant checking algorithm. If not specified, the value assigned
+            to the system variable <i>bmc_length</i> is taken.
+    <dt> <tt>-a <i>algorithm</i></tt>
+       <dd> Use to specify incremental invariant checking algorithm. Currently
+            this can be one of the following values: dual, zigzag,
+            falsification.
+    <dt> <tt>-s <i>strategy</i></tt>
+       <dd> Use to specify closure strategy (this currenly applies to dual
+       algorithm only). This can be one of the following values: backward,
+       forward.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

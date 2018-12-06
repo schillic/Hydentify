@@ -1,0 +1,1049 @@
+<HTML>
+<HEAD><TITLE>The compile package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#compile.h"><CODE>compile.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#compileInt.h"><CODE>compileInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#compileBEval.c"><CODE>compileBEval.c</CODE></A>
+ <DD> 
+ <DT> <A HREF="#compileCheck.c"><CODE>compileCheck.c</CODE></A>
+ <DD> Performs semantic checks on the model.
+ <DT> <A HREF="#compileCmd.c"><CODE>compileCmd.c</CODE></A>
+ <DD> Shell interface for the compile package.
+ <DT> <A HREF="#compileCone.c"><CODE>compileCone.c</CODE></A>
+ <DD> Computes the cone of influence of the model variables.
+ <DT> <A HREF="#compileFlatten.c"><CODE>compileFlatten.c</CODE></A>
+ <DD> Flattening of the model.
+ <DT> <A HREF="#compileStruct.c"><CODE>compileStruct.c</CODE></A>
+ <DD> Structure used to store compilation results.
+ <DT> <A HREF="#compileUtil.c"><CODE>compileUtil.c</CODE></A>
+ <DD> Routines for model computation.
+ <DT> <A HREF="#compileWrite.c"><CODE>compileWrite.c</CODE></A>
+ <DD> Creation of an SMV file containing the flattened or booleanized
+   model.
+ <DT> <A HREF="#compileWriteUdg.c"><CODE>compileWriteUdg.c</CODE></A>
+ <DD> Creation of a UDG file containing the flattened or booleanized
+   model.
+</DL><HR>
+<A NAME="compile.h"><H1>compile.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri, Emanuele Olivetti</B><P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> The name of the standard layer dedicated to model symbols
+
+</DL>
+<HR>
+<A NAME="compileInt.h"><H1>compileInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="compileBEval.c"><H1>compileBEval.c</H1></A>
+ <P>
+<B>By: Alessandro Cimatti and Marco Roveri</B><P>
+Conversion from scalar expressions to boolean expressions. <P>
+<P><B>See Also</B><A HREF="#optional"><CODE>optional</CODE></A>
+<DL>
+ <DT> <A HREF="compileAllDet.html#Compile_expr2bexpr" TARGET="MAIN"><CODE>Compile_expr2bexpr()</CODE></A>
+ <DD> Converts a scalar expression into a boolean expression.
+
+ <DT> <A HREF="compileAllDet.html#Compile_detexpr2bexpr" TARGET="MAIN"><CODE>Compile_detexpr2bexpr()</CODE></A>
+ <DD> Converts a scalar expression into a boolean expression.
+
+ <DT> <A HREF="compileAllDet.html#Compile_detexpr2bexpr_list" TARGET="MAIN"><CODE>Compile_detexpr2bexpr_list()</CODE></A>
+ <DD> Converts a scalar expression into a boolean expression.
+
+ <DT> <A HREF="compileAllDet.html#Compile_is_expr_booleanizable" TARGET="MAIN"><CODE>Compile_is_expr_booleanizable()</CODE></A>
+ <DD> Check if an expr is of a finite range type
+
+ <DT> <A HREF="compileAllDet.html#Compile_cleanup_booleanizer_cache_about" TARGET="MAIN"><CODE>Compile_cleanup_booleanizer_cache_about()</CODE></A>
+ <DD> Cleans those hashed entries that are about a symbol that
+  is being removed
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_shift_left" TARGET="MAIN"><CODE>expr2bexpr_shift_left()</CODE></A>
+ <DD> Creates the encoding of the left-shifting circuit for
+  words
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_shift_right" TARGET="MAIN"><CODE>expr2bexpr_shift_right()</CODE></A>
+ <DD> Creates the encoding of the unsigned right-shifting circuit for
+  words
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_get_shift_def_value" TARGET="MAIN"><CODE>expr2bexpr_get_shift_def_value()</CODE></A>
+ <DD> Private service for shifting operations
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_shift" TARGET="MAIN"><CODE>expr2bexpr_shift()</CODE></A>
+ <DD> High-level function for shifting operations
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_rotate" TARGET="MAIN"><CODE>expr2bexpr_rotate()</CODE></A>
+ <DD> High-level function for rotating words
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_recur_unary" TARGET="MAIN"><CODE>expr2bexpr_recur_unary()</CODE></A>
+ <DD> This function booleanize an unary expression in a standard way:
+  at first process the argument. Then for words apply a corresponding unary
+  word function, for all other type just create exp of the same kind with
+ find_node.
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_recur_binary" TARGET="MAIN"><CODE>expr2bexpr_recur_binary()</CODE></A>
+ <DD> This function booleanize a binary expression in a standard way.
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_ite" TARGET="MAIN"><CODE>expr2bexpr_ite()</CODE></A>
+ <DD> Creates an encoding for CASE node. If CASE evaluates to
+  a word, a WORD encoding is created.
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_word_ite_aux" TARGET="MAIN"><CODE>expr2bexpr_word_ite_aux()</CODE></A>
+ <DD> Service of expr2bexpr_word_ite, that creates the word encoding
+
+ <DT> <A HREF="compileAllDet.html#expr2bexpr_recur" TARGET="MAIN"><CODE>expr2bexpr_recur()</CODE></A>
+ <DD> Converts a generic expression into a boolean expression.
+
+ <DT> <A HREF="compileAllDet.html#scalar_atom2bexpr" TARGET="MAIN"><CODE>scalar_atom2bexpr()</CODE></A>
+ <DD> Converts an atomic expression into the corresponding
+  (boolean) expression.
+
+ <DT> <A HREF="compileAllDet.html#compile_is_booleanizable_aux" TARGET="MAIN"><CODE>compile_is_booleanizable_aux()</CODE></A>
+ <DD> true if expression is booleanizable
+
+</DL>
+<HR>
+<A NAME="compileCheck.c"><H1>compileCheck.c</H1></A>
+Performs semantic checks on the model. <P>
+<B>By: Marco Roveri</B><P>
+The routines to perform some the semantic checks.<br>
+  The performed checks are:
+  <ul>
+  <li>undefined symbols</li>
+  <li>multiple definition of symbols</li>
+  <li>circular definition of symbols</li>
+  <li>assignment to input variables</li>
+  </ul> <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#Compile_CheckAssigns" TARGET="MAIN"><CODE>Compile_CheckAssigns()</CODE></A>
+ <DD> Semantic checks on assignments of the module.
+
+ <DT> <A HREF="compileAllDet.html#compileCheckForInputVars" TARGET="MAIN"><CODE>compileCheckForInputVars()</CODE></A>
+ <DD> Checks expressions for illegal occurrences of input vars
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_next" TARGET="MAIN"><CODE>Compile_check_next()</CODE></A>
+ <DD> Checks that given expression contains either no nested
+  next, or no next operator at all.
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_input_next" TARGET="MAIN"><CODE>Compile_check_input_next()</CODE></A>
+ <DD> Checks that given expression contains either no input
+  variables in next.
+
+ <DT> <A HREF="compileAllDet.html#compileCheckInitForInputVars" TARGET="MAIN"><CODE>compileCheckInitForInputVars()</CODE></A>
+ <DD> Checks flattened init statement for input variables
+
+ <DT> <A HREF="compileAllDet.html#compileCheckInvarForInputVars" TARGET="MAIN"><CODE>compileCheckInvarForInputVars()</CODE></A>
+ <DD> Checks flattened invar statement for input variables
+
+ <DT> <A HREF="compileAllDet.html#compileCheckTransForInputVars" TARGET="MAIN"><CODE>compileCheckTransForInputVars()</CODE></A>
+ <DD> Checks flattened trans statement for input variables
+
+ <DT> <A HREF="compileAllDet.html#compileCheckAssignForInputVars" TARGET="MAIN"><CODE>compileCheckAssignForInputVars()</CODE></A>
+ <DD> Checks flattened assign statement for input variables
+
+ <DT> <A HREF="compileAllDet.html#compileCheckNoNextInputs" TARGET="MAIN"><CODE>compileCheckNoNextInputs()</CODE></A>
+ <DD> Checks expression for input variables in next statements
+
+ <DT> <A HREF="compileAllDet.html#init_check_program" TARGET="MAIN"><CODE>init_check_program()</CODE></A>
+ <DD> Initializes the data structure to perform semantic
+  checks.
+
+ <DT> <A HREF="compileAllDet.html#check_circ" TARGET="MAIN"><CODE>check_circ()</CODE></A>
+ <DD> Checks for circular definitions.
+
+ <DT> <A HREF="compileAllDet.html#check_circular_assign" TARGET="MAIN"><CODE>check_circular_assign()</CODE></A>
+ <DD> Performs circular assignment checking
+
+ <DT> <A HREF="compileAllDet.html#check_assign" TARGET="MAIN"><CODE>check_assign()</CODE></A>
+ <DD> Checks for multiple or circular assignments.
+
+ <DT> <A HREF="compileAllDet.html#check_assign_both" TARGET="MAIN"><CODE>check_assign_both()</CODE></A>
+ <DD> Given a variable, it checks if there are
+  multiple assignments to it.
+
+ <DT> <A HREF="compileAllDet.html#compile_check_print_io_atom_stack_assign" TARGET="MAIN"><CODE>compile_check_print_io_atom_stack_assign()</CODE></A>
+ <DD> 
+
+</DL>
+<HR>
+<A NAME="compileCmd.c"><H1>compileCmd.c</H1></A>
+Shell interface for the compile package. <P>
+<B>By: Marco Roveri</B><P>
+This file contains the interface of the compile package
+  with the interactive shell. <P>
+<P><B>See Also</B><A HREF="#cmdCmd.c"><CODE>cmdCmd.c</CODE></A>
+<DL>
+ <DT> <A HREF="compileAllDet.html#Compile_init" TARGET="MAIN"><CODE>Compile_init()</CODE></A>
+ <DD> Initializes the compile package.
+
+ <DT> <A HREF="compileAllDet.html#Compile_init_cmd" TARGET="MAIN"><CODE>Compile_init_cmd()</CODE></A>
+ <DD> Initializes the commands provided by this package
+
+ <DT> <A HREF="compileAllDet.html#Compile_quit" TARGET="MAIN"><CODE>Compile_quit()</CODE></A>
+ <DD> Shut down the compile package
+
+ <DT> <A HREF="compileAllDet.html#CommandProcessModel" TARGET="MAIN"><CODE>CommandProcessModel()</CODE></A>
+ <DD> Performs the batch steps and then returns
+  control to the interactive shell.
+
+ <DT> <A HREF="compileAllDet.html#CommandFlattenHierarchy" TARGET="MAIN"><CODE>CommandFlattenHierarchy()</CODE></A>
+ <DD> Flattens the hierarchy of modules
+
+ <DT> <A HREF="compileAllDet.html#CommandShowVars" TARGET="MAIN"><CODE>CommandShowVars()</CODE></A>
+ <DD> Shows model's symbolic variables and their values
+
+ <DT> <A HREF="compileAllDet.html#CommandEncodeVariables" TARGET="MAIN"><CODE>CommandEncodeVariables()</CODE></A>
+ <DD> Builds the BDD variables necessary to compile the
+  model into BDD.
+
+ <DT> <A HREF="compileAllDet.html#CommandBuildModel" TARGET="MAIN"><CODE>CommandBuildModel()</CODE></A>
+ <DD> Compiles the flattened hierarchy into BDD
+
+ <DT> <A HREF="compileAllDet.html#CommandBuildFlatModel" TARGET="MAIN"><CODE>CommandBuildFlatModel()</CODE></A>
+ <DD> Compiles the flattened hierarchy into SEXP
+
+ <DT> <A HREF="compileAllDet.html#CommandBuildBooleanModel" TARGET="MAIN"><CODE>CommandBuildBooleanModel()</CODE></A>
+ <DD> Compiles the flattened hierarchy into boolean SEXP
+
+ <DT> <A HREF="compileAllDet.html#CommandWriteOrder" TARGET="MAIN"><CODE>CommandWriteOrder()</CODE></A>
+ <DD> Writes variable order to file.
+
+ <DT> <A HREF="compileAllDet.html#CommandCPPrintClusterInfo" TARGET="MAIN"><CODE>CommandCPPrintClusterInfo()</CODE></A>
+ <DD> Prints out information about the clustering.
+  ** DEPRECATED in 2.4 **
+
+ <DT> <A HREF="compileAllDet.html#CommandPrintFsmStats" TARGET="MAIN"><CODE>CommandPrintFsmStats()</CODE></A>
+ <DD> Prints out information about the fsm and clustering.
+
+ <DT> <A HREF="compileAllDet.html#CommandIwls95PrintOption" TARGET="MAIN"><CODE>CommandIwls95PrintOption()</CODE></A>
+ <DD> Prints the Iwls95 Options.
+
+ <DT> <A HREF="compileAllDet.html#CommandGo" TARGET="MAIN"><CODE>CommandGo()</CODE></A>
+ <DD> Implements the go command
+
+ <DT> <A HREF="compileAllDet.html#CommandGoBmc" TARGET="MAIN"><CODE>CommandGoBmc()</CODE></A>
+ <DD> Implements the go_bmc command
+
+ <DT> <A HREF="compileAllDet.html#CommandGetInternalStatus" TARGET="MAIN"><CODE>CommandGetInternalStatus()</CODE></A>
+ <DD> Implements the get_internal_status command
+
+ <DT> <A HREF="compileAllDet.html#CommandWriteModelFlat" TARGET="MAIN"><CODE>CommandWriteModelFlat()</CODE></A>
+ <DD> Writes the currently loaded SMV model in the
+  specified file, after having flattened it
+
+ <DT> <A HREF="compileAllDet.html#CommandWriteModelFlatUdg" TARGET="MAIN"><CODE>CommandWriteModelFlatUdg()</CODE></A>
+ <DD> Writes the currently loaded SMV model in the
+                      specified uDraw file, after having flattened it
+
+ <DT> <A HREF="compileAllDet.html#CommandWriteModelFlatBool" TARGET="MAIN"><CODE>CommandWriteModelFlatBool()</CODE></A>
+ <DD> Writes a flat and boolean model of a given SMV file
+
+ <DT> <A HREF="compileAllDet.html#CommandWriteCoiModel" TARGET="MAIN"><CODE>CommandWriteCoiModel()</CODE></A>
+ <DD> Writes a flat model of a given SMV file, restricted to the
+            COI of the model properties
+
+ <DT> <A HREF="compileAllDet.html#UsageWriteCoiModel" TARGET="MAIN"><CODE>UsageWriteCoiModel()</CODE></A>
+ <DD> Prints the usage for the write_coi_command
+
+ <DT> <A HREF="compileAllDet.html#CommandShowDependencies" TARGET="MAIN"><CODE>CommandShowDependencies()</CODE></A>
+ <DD> Show expression dependencies
+
+ <DT> <A HREF="compileAllDet.html#compile_encode_variables" TARGET="MAIN"><CODE>compile_encode_variables()</CODE></A>
+ <DD> Encodes variables in the model (BDD only).
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_smv" TARGET="MAIN"><CODE>compile_flatten_smv()</CODE></A>
+ <DD> Traverses the parse tree coming from the smv parser and
+                flattens the smv file.
+
+ <DT> <A HREF="compileAllDet.html#compile_create_flat_model" TARGET="MAIN"><CODE>compile_create_flat_model()</CODE></A>
+ <DD> creates the  master scalar fsm if needed
+
+ <DT> <A HREF="compileAllDet.html#compile_create_boolean_model" TARGET="MAIN"><CODE>compile_create_boolean_model()</CODE></A>
+ <DD> Creates the  master boolean fsm if needed.
+  A new layer called DETERM_LAYER_NAME
+  will be added if the bool fsm is created.
+
+ <DT> <A HREF="compileAllDet.html#compile_build_model" TARGET="MAIN"><CODE>compile_build_model()</CODE></A>
+ <DD> Builds the BDD fsm.
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_remove_assignments" TARGET="MAIN"><CODE>compile_cmd_remove_assignments()</CODE></A>
+ <DD> Removes expression in the form "a := b" from the given
+                      expression
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_write_coi_prop" TARGET="MAIN"><CODE>compile_cmd_write_coi_prop()</CODE></A>
+ <DD> Dumps the COI for the given property
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_write_coi_prop_fsm" TARGET="MAIN"><CODE>compile_cmd_write_coi_prop_fsm()</CODE></A>
+ <DD> Dumps the model applied to COI for the given property
+
+ <DT> <A HREF="compileAllDet.html#get_bits" TARGET="MAIN"><CODE>get_bits()</CODE></A>
+ <DD> Computes the total bit number of symbols in the given
+                      list
+
+ <DT> <A HREF="compileAllDet.html#up_log2" TARGET="MAIN"><CODE>up_log2()</CODE></A>
+ <DD> Computes the log2 of the given argument rounding the
+                      result to the closest upper integer
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_write_global_coi_fsm" TARGET="MAIN"><CODE>compile_cmd_write_global_coi_fsm()</CODE></A>
+ <DD> Dumps on output_file the global coi FSM
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_write_properties_coi" TARGET="MAIN"><CODE>compile_cmd_write_properties_coi()</CODE></A>
+ <DD> Dumps properties shared COI FSMs or sets
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_print_type" TARGET="MAIN"><CODE>compile_cmd_print_type()</CODE></A>
+ <DD> Prints the given type to the given stream
+
+ <DT> <A HREF="compileAllDet.html#compile_cmd_get_var_type" TARGET="MAIN"><CODE>compile_cmd_get_var_type()</CODE></A>
+ <DD> Creates an internal representaion of the symbol type
+
+</DL>
+<HR>
+<A NAME="compileCone.c"><H1>compileCone.c</H1></A>
+Computes the cone of influence of the model variables. <P>
+<B>By: Marco Roveri and Marco Pistore</B><P>
+This file contains the functions needed for computing
+  the cone of influence (COI) of a given formula. The COI of all the
+  variables in the model is pre-computed ancd cached the first time
+  a cone of influence is required (function <code>initCoi</code>.
+  Functions are also provided that compute the dependency variables
+  for a formula, namely those variables that appear in the formula
+  or in one of the definitions the formula depends on. <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Indicates that the dependency computation is ongoing.
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Indicates that the dependency is empty
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Indicates that no dependency has been yet computed.
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Indicates that the COI computation should be verbose.
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Clears and frees (with entries) given hash
+
+ <DT> <A HREF="compileAllDet.html#Formula_GetDependencies" TARGET="MAIN"><CODE>Formula_GetDependencies()</CODE></A>
+ <DD> Computes dependencies of a given SMV expression
+
+ <DT> <A HREF="compileAllDet.html#Formula_GetDependenciesByType" TARGET="MAIN"><CODE>Formula_GetDependenciesByType()</CODE></A>
+ <DD> Computes the dependencies of an SMV expression by type
+
+ <DT> <A HREF="compileAllDet.html#Formulae_GetDependencies" TARGET="MAIN"><CODE>Formulae_GetDependencies()</CODE></A>
+ <DD> Compute the dependencies of two set of formulae
+
+ <DT> <A HREF="compileAllDet.html#Formula_GetConstants" TARGET="MAIN"><CODE>Formula_GetConstants()</CODE></A>
+ <DD> Calculates the set of constants occurring into
+  the given formula
+
+ <DT> <A HREF="compileAllDet.html#ComputeCOIFixpoint" TARGET="MAIN"><CODE>ComputeCOIFixpoint()</CODE></A>
+ <DD> Computes the COI of a given expression
+
+ <DT> <A HREF="compileAllDet.html#ComputeCOI" TARGET="MAIN"><CODE>ComputeCOI()</CODE></A>
+ <DD> Computes the COI of a given set of variables, defined
+  within the given symb_table
+
+ <DT> <A HREF="compileAllDet.html#formulaGetDefinitionDependencies" TARGET="MAIN"><CODE>formulaGetDefinitionDependencies()</CODE></A>
+ <DD> Compute the dependencies of an atom
+
+ <DT> <A HREF="compileAllDet.html#formulaGetDependenciesRecur" TARGET="MAIN"><CODE>formulaGetDependenciesRecur()</CODE></A>
+ <DD> Recursive call to Formula_GetDependenciesByType
+
+ <DT> <A HREF="compileAllDet.html#coiInit" TARGET="MAIN"><CODE>coiInit()</CODE></A>
+ <DD> Pre-compute the COI of the variables
+
+ <DT> <A HREF="compileAllDet.html#computeCoiVar" TARGET="MAIN"><CODE>computeCoiVar()</CODE></A>
+ <DD> Computes the complete cone for a given variable.
+
+ <DT> <A HREF="compileAllDet.html#_coi_get_var_coi0" TARGET="MAIN"><CODE>_coi_get_var_coi0()</CODE></A>
+ <DD> Given a variable it returns the cone at depth 0.
+
+</DL>
+<HR>
+<A NAME="compileFlatten.c"><H1>compileFlatten.c</H1></A>
+Flattening of the model. <P>
+<B>By: Marco Roveri</B><P>
+Performs the flattening of the model.
+
+   We start from the module <code>main</code> and we recursively
+   instantiate all the modules or processes declared in it.<br>
+   Consider the following example: <blockquote>
+
+   MODULE main<br>
+   ...<br>
+   VAR<br>
+   a : boolean;<br>
+   b : foo;<br>
+   ...<br><br>
+
+   MODULE foo<br>
+   VAR <br>
+   z : boolean;<br>
+
+   ASSIGN<br>
+   z := 1;<br>
+
+   </blockquote>
+
+   The flattening instantiate the module foo in the
+   <code>main</code> module. You can refer to the variables
+   "<code>z</code>" declared in the module <code>foo</code> after
+   the flattening by using the dot notation <code>b.z</code>. <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Body of define in evaluation
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Cleans and frees the hash
+
+ <DT> <A HREF="compileAllDet.html#Compile_FlattenHierarchy" TARGET="MAIN"><CODE>Compile_FlattenHierarchy()</CODE></A>
+ <DD> Traverse the module hierarchy, collect all required
+   the informations and flatten the hierarchy.
+
+ <DT> <A HREF="compileAllDet.html#Compile_ConstructHierarchy" TARGET="MAIN"><CODE>Compile_ConstructHierarchy()</CODE></A>
+ <DD> Traverses the module hierarchy and extracts the
+   information needed to compile the automaton.
+
+ <DT> <A HREF="compileAllDet.html#Compile_ProcessHierarchy" TARGET="MAIN"><CODE>Compile_ProcessHierarchy()</CODE></A>
+ <DD> This function processes a hierarchy after
+   collecting all its subparts.
+
+ <DT> <A HREF="compileAllDet.html#Compile_FlattenSexp" TARGET="MAIN"><CODE>Compile_FlattenSexp()</CODE></A>
+ <DD> Builds the flattened version of an expression.
+
+ <DT> <A HREF="compileAllDet.html#Compile_FlattenSexpExpandDefine" TARGET="MAIN"><CODE>Compile_FlattenSexpExpandDefine()</CODE></A>
+ <DD> Flattens an expression and expands defined symbols.
+
+ <DT> <A HREF="compileAllDet.html#Flatten_GetDefinition" TARGET="MAIN"><CODE>Flatten_GetDefinition()</CODE></A>
+ <DD> Gets the flattened version of an atom.
+
+ <DT> <A HREF="compileAllDet.html#Flatten_remove_symbol_info" TARGET="MAIN"><CODE>Flatten_remove_symbol_info()</CODE></A>
+ <DD> Resets the hashed information about the given symbol
+
+ <DT> <A HREF="compileAllDet.html#compile_concat_contexts" TARGET="MAIN"><CODE>compile_concat_contexts()</CODE></A>
+ <DD> Concatenates contexts ctx1 and ctx2
+
+ <DT> <A HREF="compileAllDet.html#error_bit_selection_assignment_not_supported" TARGET="MAIN"><CODE>error_bit_selection_assignment_not_supported()</CODE></A>
+ <DD> Error message for unsupported feature
+
+ <DT> <A HREF="compileAllDet.html#compileFlattenProcess" TARGET="MAIN"><CODE>compileFlattenProcess()</CODE></A>
+ <DD> Flatten a hierarchy of SMV processes.
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_expand_range" TARGET="MAIN"><CODE>CompileFlatten_expand_range()</CODE></A>
+ <DD> Returns a range going from a to b
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_normalise_value_list" TARGET="MAIN"><CODE>CompileFlatten_normalise_value_list()</CODE></A>
+ <DD> Takes a list of values and returns the same
+   list being normalised
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_resolve_number" TARGET="MAIN"><CODE>CompileFlatten_resolve_number()</CODE></A>
+ <DD> Resolves the given symbol to be a number
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_resolve_define_chains" TARGET="MAIN"><CODE>CompileFlatten_resolve_define_chains()</CODE></A>
+ <DD> Takes an expression, and if it is a define or parameter
+   resolves it to the actual expression.
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_init_flattener" TARGET="MAIN"><CODE>CompileFlatten_init_flattener()</CODE></A>
+ <DD> Inits the flattener module
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_quit_flattener" TARGET="MAIN"><CODE>CompileFlatten_quit_flattener()</CODE></A>
+ <DD> Quits the flattener module
+
+ <DT> <A HREF="compileAllDet.html#CompileFlatten_hash_module" TARGET="MAIN"><CODE>CompileFlatten_hash_module()</CODE></A>
+ <DD> Add the tableau module to the list of known modules
+
+ <DT> <A HREF="compileAllDet.html#Compile_InstantiateType" TARGET="MAIN"><CODE>Compile_InstantiateType()</CODE></A>
+ <DD> convert a type from node_ptr-form constructed by parser
+   into not-memory-shared SymbType_ptr.
+
+ <DT> <A HREF="compileAllDet.html#Compile_DeclareVariable" TARGET="MAIN"><CODE>Compile_DeclareVariable()</CODE></A>
+ <DD> Instantiates the given variable.
+
+ <DT> <A HREF="compileAllDet.html#compile_add_vars_to_hierarhcy" TARGET="MAIN"><CODE>compile_add_vars_to_hierarhcy()</CODE></A>
+ <DD> Given a fully resolved array name and its type the function
+   adds all the variables in the array to the hierarchy
+
+ <DT> <A HREF="compileAllDet.html#compile_instantiate_var" TARGET="MAIN"><CODE>compile_instantiate_var()</CODE></A>
+ <DD> Instantiates the given variable.
+
+ <DT> <A HREF="compileAllDet.html#compile_instantiate_vars" TARGET="MAIN"><CODE>compile_instantiate_vars()</CODE></A>
+ <DD> Recursively applies <tt>compile_instantiate_var</tt>.
+
+ <DT> <A HREF="compileAllDet.html#resolve_range" TARGET="MAIN"><CODE>resolve_range()</CODE></A>
+ <DD> This function takes a TWODOTS node, and tries to resolve
+   the bounds to integer numbers which are returned.
+
+ <DT> <A HREF="compileAllDet.html#put_in_context" TARGET="MAIN"><CODE>put_in_context()</CODE></A>
+ <DD> Put a variable in the current "context"
+
+ <DT> <A HREF="compileAllDet.html#make_params" TARGET="MAIN"><CODE>make_params()</CODE></A>
+ <DD> Builds the parameters of a module from the list of formal
+   parameters of the module itself.
+
+ <DT> <A HREF="compileAllDet.html#make_params_hrc" TARGET="MAIN"><CODE>make_params_hrc()</CODE></A>
+ <DD> Builds the parameters of a module from the list of formal
+and actual parameters of the module itself.
+
+ <DT> <A HREF="compileAllDet.html#compile_instantiate" TARGET="MAIN"><CODE>compile_instantiate()</CODE></A>
+ <DD> Instantiates all in the body of a module.
+
+ <DT> <A HREF="compileAllDet.html#compile_instantiate_by_name" TARGET="MAIN"><CODE>compile_instantiate_by_name()</CODE></A>
+ <DD> Starts the flattening from a given point in the
+   module hierarchy.
+
+ <DT> <A HREF="compileAllDet.html#compileFlattenSexpRecur" TARGET="MAIN"><CODE>compileFlattenSexpRecur()</CODE></A>
+ <DD> Recursive function for flattenig a sexp.
+
+ <DT> <A HREF="compileAllDet.html#compileFlattenProcessRecur" TARGET="MAIN"><CODE>compileFlattenProcessRecur()</CODE></A>
+ <DD> Recursive definition of compileFlattenProcess
+
+ <DT> <A HREF="compileAllDet.html#create_process_symbolic_variables" TARGET="MAIN"><CODE>create_process_symbolic_variables()</CODE></A>
+ <DD> Creates the internal process selector variable, within
+   the given layer
+
+ <DT> <A HREF="compileAllDet.html#construct_array_multiplexer" TARGET="MAIN"><CODE>construct_array_multiplexer()</CODE></A>
+ <DD> Create array multiplexer in order to get rid of dynamic
+   indexes.
+
+ <DT> <A HREF="compileAllDet.html#push_array_index_down" TARGET="MAIN"><CODE>push_array_index_down()</CODE></A>
+ <DD> Pushes the index-access operator down
+   to if-then-else expressions leaves.
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_eval_number" TARGET="MAIN"><CODE>compile_flatten_eval_number()</CODE></A>
+ <DD> Tries to resolve recursively to a number
+
+ <DT> <A HREF="compileAllDet.html#flatten_declare_constants_within_list" TARGET="MAIN"><CODE>flatten_declare_constants_within_list()</CODE></A>
+ <DD> Traverses the list of values, and declare all
+   constants (leaves) it finds
+
+ <DT> <A HREF="compileAllDet.html#instantiate_array_define" TARGET="MAIN"><CODE>instantiate_array_define()</CODE></A>
+ <DD> Instantiates the elements of an array define
+
+ <DT> <A HREF="compileAllDet.html#compile_insert_assign_hrc" TARGET="MAIN"><CODE>compile_insert_assign_hrc()</CODE></A>
+ <DD> Add an assign declaration in hrc_result.
+
+ <DT> <A HREF="compileAllDet.html#get_hrc_root_node" TARGET="MAIN"><CODE>get_hrc_root_node()</CODE></A>
+ <DD> Get the HRC root node from a child
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_get_int" TARGET="MAIN"><CODE>compile_flatten_get_int()</CODE></A>
+ <DD> Given a numeric constant in node_ptr representation
+   the function returns its value as int
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_normalise_value_list" TARGET="MAIN"><CODE>compile_flatten_normalise_value_list()</CODE></A>
+ <DD> Aux function for the CompileFlatten_normalise_value_list
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_build_word_toint_ith_bit_case" TARGET="MAIN"><CODE>compile_flatten_build_word_toint_ith_bit_case()</CODE></A>
+ <DD> Aux function for the
+                       compile_flatten_rewrite_word_toint_cast, which
+                       is used for toint cast operator rewriting
+
+ <DT> <A HREF="compileAllDet.html#compile_flatten_rewrite_word_toint_cast" TARGET="MAIN"><CODE>compile_flatten_rewrite_word_toint_cast()</CODE></A>
+ <DD> Rewrites the toint operator for word expressions
+                       conversion
+
+</DL>
+<HR>
+<A NAME="compileStruct.c"><H1>compileStruct.c</H1></A>
+Structure used to store compilation results. <P>
+<B>By: Marco Roveri</B><P>
+Structure used to store compilation results. <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#Compile_get_global_predicate_normaliser" TARGET="MAIN"><CODE>Compile_get_global_predicate_normaliser()</CODE></A>
+ <DD> Returns a global predicate normaliser
+
+ <DT> <A HREF="compileAllDet.html#Compile_get_global_fsm_builder" TARGET="MAIN"><CODE>Compile_get_global_fsm_builder()</CODE></A>
+ <DD> Returns the global fsm builder
+
+ <DT> <A HREF="compileAllDet.html#cmp_struct_init" TARGET="MAIN"><CODE>cmp_struct_init()</CODE></A>
+ <DD> Initializes the cmp structure
+
+ <DT> <A HREF="compileAllDet.html#cmp_struct_quit" TARGET="MAIN"><CODE>cmp_struct_quit()</CODE></A>
+ <DD> Free the cmp structure
+
+</DL>
+<HR>
+<A NAME="compileUtil.c"><H1>compileUtil.c</H1></A>
+Routines for model computation. <P>
+<B>By: Marco Roveri</B><P>
+This file contains the code for the compilation of the
+  flattened hierarchy into BDD:
+  <ul>
+  <li> Creation of the boolean variables.</li>
+  <li> Creation of the BDD representing the inertia of the system when
+       there are processes. In fact when a process is running the
+       other processes are stopped, and their state variables don't
+       change.</li>
+  <li> Creation of the BDD representing what does not change in the
+       system, i.e. the set of invariance. These are introduced in the
+       model by the keyword "<tt>INVAR</tt>" or by the <em>normal
+       assignments</em> (i.e. "<tt>ASSIGN x : = y & z;</tt>"). These
+       states are not stored in the transition relation, they are
+       stored in an a doc variable.
+  <li> Creation of the BDD representing the set of initial states.
+  <li> Creation of the BDD representing the transition relation. 
+       Various ways of representing the transition relation are offered
+       the users.
+       <ul>
+       <li> <em>Monolithic</em>: the monolithic transition relation is
+            computed.</li>
+       <li> <em>Conjunctive Partioned (Threshold)</em>: the transition 
+            relation is stored as an implicitly conjoined list of 
+            transition relation. This kind of partitioning can be 
+            used only if the model considered is a synchronous one.</li>
+       <li> <em>Conjunctive Partioned IWLS95</em>: as the above, but the
+            heuristic proposed in [1] is used to order partition clusters. </li>
+       </ul>
+  <li> Computes the fairness constraints. I.e. each fairness constraint
+       (which can be a CTL formula) is evaluated and the resulting BDD
+       is stored in the list <tt>fairness_constraints_bdd</tt> to be
+       then used in the model checking phase.
+  </ul>
+  [1] R. K. Ranjan and A. Aziz and B. Plessier and C. Pixley and R. K. Brayton,
+      "Efficient BDD Algorithms for FSM Synthesis and Verification,
+      IEEE/ACM Proceedings International Workshop on Logic Synthesis,
+      Lake Tahoe (NV), May 1995.</li> <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#sym_intern" TARGET="MAIN"><CODE>sym_intern()</CODE></A>
+ <DD> Builds an internal representation for a given string.
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Private macros for the sake of readability of the function
+  Compile_pop_global
+
+ <DT> <A HREF="compileAllDet.html#Compile_pop_distrib_ops" TARGET="MAIN"><CODE>Compile_pop_distrib_ops()</CODE></A>
+ <DD> Simplifies the given property by exploiting 
+  the distributivity of G, AG and H over AND, and distributivity of F, AF and O 
+  over OR
+
+ <DT> <A HREF="compileAllDet.html#Compile_make_sorted_vars_list_from_order" TARGET="MAIN"><CODE>Compile_make_sorted_vars_list_from_order()</CODE></A>
+ <DD> This function creates a new list of variables that will
+  contain the same symbols into 'vars', but ordered wrt to
+  'vars_order' content
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_if_model_was_built" TARGET="MAIN"><CODE>Compile_check_if_model_was_built()</CODE></A>
+ <DD> Checks if bdd model has been constructed
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_if_bool_model_was_built" TARGET="MAIN"><CODE>Compile_check_if_bool_model_was_built()</CODE></A>
+ <DD> Checks if boolean model has been constructed
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_if_flat_model_was_built" TARGET="MAIN"><CODE>Compile_check_if_flat_model_was_built()</CODE></A>
+ <DD> Checks if flat model has been constructed
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_if_encoding_was_built" TARGET="MAIN"><CODE>Compile_check_if_encoding_was_built()</CODE></A>
+ <DD> Checks if the variables enconding has been constructed
+
+ <DT> <A HREF="compileAllDet.html#Compile_check_if_flattening_was_built" TARGET="MAIN"><CODE>Compile_check_if_flattening_was_built()</CODE></A>
+ <DD> Checks if the flattening has been carried out
+
+</DL>
+<HR>
+<A NAME="compileWrite.c"><H1>compileWrite.c</H1></A>
+Creation of an SMV file containing the flattened or booleanized
+   model. <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+Creation of an SMV file containing the flattened or
+   booleanized model, processes will be removed by explicitly
+   introducing a process variable and modifying assignments to take
+   care of inertia. <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenModel" TARGET="MAIN"><CODE>Compile_WriteFlattenModel()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteRestrictedFlattenModel" TARGET="MAIN"><CODE>Compile_WriteRestrictedFlattenModel()</CODE></A>
+ <DD> Dumps the flatten model on the given FILE
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteObfuscatedFlattenModel" TARGET="MAIN"><CODE>Compile_WriteObfuscatedFlattenModel()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenFsm" TARGET="MAIN"><CODE>Compile_WriteFlattenFsm()</CODE></A>
+ <DD> Prints the flatten version of FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenSpecs" TARGET="MAIN"><CODE>Compile_WriteFlattenSpecs()</CODE></A>
+ <DD> Prints the given flatten specifications.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolModel" TARGET="MAIN"><CODE>Compile_WriteBoolModel()</CODE></A>
+ <DD> Prints the given boolean model
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolFsm" TARGET="MAIN"><CODE>Compile_WriteBoolFsm()</CODE></A>
+ <DD> Prints the boolean FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolSpecs" TARGET="MAIN"><CODE>Compile_WriteBoolSpecs()</CODE></A>
+ <DD> Prints the boolean specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_make_dag_info" TARGET="MAIN"><CODE>Compile_make_dag_info()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_destroy_dag_info" TARGET="MAIN"><CODE>Compile_destroy_dag_info()</CODE></A>
+ <DD> Frees the content of given structures.
+
+ <DT> <A HREF="compileAllDet.html#Compile_write_dag_defines" TARGET="MAIN"><CODE>Compile_write_dag_defines()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_convert_to_dag" TARGET="MAIN"><CODE>Compile_convert_to_dag()</CODE></A>
+ <DD> Top level function to create dags from expressions
+
+ <DT> <A HREF="compileAllDet.html#Compile_print_array_define" TARGET="MAIN"><CODE>Compile_print_array_define()</CODE></A>
+ <DD> Prints an array define node to out file.
+
+ <DT> <A HREF="compileAllDet.html#is_array_define_element" TARGET="MAIN"><CODE>is_array_define_element()</CODE></A>
+ <DD> Returns true iff this name is sub-element of
+   an array define.
+
+ <DT> <A HREF="compileAllDet.html#is_array_var_element" TARGET="MAIN"><CODE>is_array_var_element()</CODE></A>
+ <DD> Returns true iff this name is sub-element of
+   a variable array.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_define" TARGET="MAIN"><CODE>compile_write_flat_define()</CODE></A>
+ <DD> Writes DEFINE declarations in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_define" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_define()</CODE></A>
+ <DD> Writes DEFINE declarations in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_define_aux" TARGET="MAIN"><CODE>compile_write_flat_define_aux()</CODE></A>
+ <DD> Writes a DEFINE declarations in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_define_aux" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_define_aux()</CODE></A>
+ <DD> Writes a DEFINE declarations in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_vars" TARGET="MAIN"><CODE>compile_write_flatten_vars()</CODE></A>
+ <DD> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_vars" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_vars()</CODE></A>
+ <DD> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_vars_aux" TARGET="MAIN"><CODE>compile_write_flatten_vars_aux()</CODE></A>
+ <DD> Print the variable declaration.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_vars_aux" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_vars_aux()</CODE></A>
+ <DD> Print the variable declaration after obfuscation
+
+ <DT> <A HREF="compileAllDet.html#Compile_obfuscate_expression" TARGET="MAIN"><CODE>Compile_obfuscate_expression()</CODE></A>
+ <DD> Apply the obfuscation over an expression
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_asgn" TARGET="MAIN"><CODE>compile_write_flat_asgn()</CODE></A>
+ <DD> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_asgn" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_asgn()</CODE></A>
+ <DD> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_print_assign" TARGET="MAIN"><CODE>compile_print_assign()</CODE></A>
+ <DD> Prints an assignement statement
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_bool_vars" TARGET="MAIN"><CODE>compile_write_flatten_bool_vars()</CODE></A>
+ <DD> Writes boolean VAR, FROZENVAR and IVAR declarations in
+   SMV format on a file. Non boolean vars are dumped as defines for the sake of
+   readability of conterexamples.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_spec_split" TARGET="MAIN"><CODE>compile_write_flatten_spec_split()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_spec_split" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_spec_split()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_spec" TARGET="MAIN"><CODE>compile_write_flatten_spec()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_spec" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_spec()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_expr_split" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_expr_split()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_expr_split" TARGET="MAIN"><CODE>compile_write_flatten_expr_split()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_expr" TARGET="MAIN"><CODE>compile_write_flatten_expr()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_expr" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_expr()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_psl" TARGET="MAIN"><CODE>compile_write_flatten_psl()</CODE></A>
+ <DD> Writes PSL properties as they are.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_bfexpr" TARGET="MAIN"><CODE>compile_write_flatten_bfexpr()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flatten_expr_pair" TARGET="MAIN"><CODE>compile_write_flatten_expr_pair()</CODE></A>
+ <DD> Writes flattened expression pairs in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flatten_expr_pair" TARGET="MAIN"><CODE>compile_write_obfuscated_flatten_expr_pair()</CODE></A>
+ <DD> Writes flattened expression pairs in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_constants" TARGET="MAIN"><CODE>compile_write_constants()</CODE></A>
+ <DD> Writes the set of non-numeric constants as CONSTANTS
+   statement
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_constants" TARGET="MAIN"><CODE>compile_write_obfuscated_constants()</CODE></A>
+ <DD> Writes the set of non-numeric constants as CONSTANTS
+   statement
+
+ <DT> <A HREF="compileAllDet.html#Compile_get_obfuscation_map" TARGET="MAIN"><CODE>Compile_get_obfuscation_map()</CODE></A>
+ <DD> Generates the obfuscation map
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_fsm" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_fsm()</CODE></A>
+ <DD> Prints the obfuscated flatten version of FSM of an
+   SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_fsm" TARGET="MAIN"><CODE>compile_write_flat_fsm()</CODE></A>
+ <DD> Prints the flatten version of FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_get_restricted_vars" TARGET="MAIN"><CODE>compile_write_get_restricted_vars()</CODE></A>
+ <DD> Processes the intersection between the given set
+                       and the given list
+
+ <DT> <A HREF="compileAllDet.html#compile_write_restricted_flat_fsm" TARGET="MAIN"><CODE>compile_write_restricted_flat_fsm()</CODE></A>
+ <DD> Prints the restricted flatten version of FSM of
+                       an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_spec" TARGET="MAIN"><CODE>compile_write_flat_spec()</CODE></A>
+ <DD> Prints the given flatten specifications.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_spec" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_spec()</CODE></A>
+ <DD> Prints the given flatten specifications.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_specs" TARGET="MAIN"><CODE>compile_write_flat_specs()</CODE></A>
+ <DD> Prints the flatten specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_flat_specs" TARGET="MAIN"><CODE>compile_write_obfuscated_flat_specs()</CODE></A>
+ <DD> Prints the obfuscated flatten specifications of an
+   SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_bool_fsm" TARGET="MAIN"><CODE>compile_write_bool_fsm()</CODE></A>
+ <DD> Prints the boolean FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_bool_spec" TARGET="MAIN"><CODE>compile_write_bool_spec()</CODE></A>
+ <DD> Private service to print a boolean specification
+
+ <DT> <A HREF="compileAllDet.html#compile_write_bool_specs" TARGET="MAIN"><CODE>compile_write_bool_specs()</CODE></A>
+ <DD> Prints the boolean specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_convert_to_dag_aux" TARGET="MAIN"><CODE>compile_convert_to_dag_aux()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_create_dag_info_from_hierarchy" TARGET="MAIN"><CODE>compile_create_dag_info_from_hierarchy()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_make_dag_info_aux" TARGET="MAIN"><CODE>compile_make_dag_info_aux()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_pack_dag_info" TARGET="MAIN"><CODE>compile_pack_dag_info()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_unpack_dag_info" TARGET="MAIN"><CODE>compile_unpack_dag_info()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_set_dag_info" TARGET="MAIN"><CODE>compile_set_dag_info()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_free_node" TARGET="MAIN"><CODE>compile_free_node()</CODE></A>
+ <DD> Internal service of Compile_destroy_dag_info
+
+ <DT> <A HREF="compileAllDet.html#compile_free_define" TARGET="MAIN"><CODE>compile_free_define()</CODE></A>
+ <DD> Internal service of Compile_destroy_dag_info
+
+ <DT> <A HREF="compileAllDet.html#compile_symbtype_obfuscated_print" TARGET="MAIN"><CODE>compile_symbtype_obfuscated_print()</CODE></A>
+ <DD> Prints the obfuscation of the given type
+
+ <DT> <A HREF="compileAllDet.html#compile_get_rid_of_define_chain" TARGET="MAIN"><CODE>compile_get_rid_of_define_chain()</CODE></A>
+ <DD> Get rids of chain of defines
+
+ <DT> <A HREF="compileAllDet.html#compile_write_obfuscated_dag_defines" TARGET="MAIN"><CODE>compile_write_obfuscated_dag_defines()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#__create_define_name" TARGET="MAIN"><CODE>__create_define_name()</CODE></A>
+ <DD> Creates a meaningful name for defines needed for dag printing
+
+</DL>
+<HR>
+<A NAME="compileWriteUdg.c"><H1>compileWriteUdg.c</H1></A>
+Creation of a UDG file containing the flattened or booleanized
+   model. <P>
+<B>By: Marco Roveri, Roberto Cavada, Cristian Mattarei</B><P>
+Creation of a UDG file containing the flattened or
+   booleanized model, processes will be removed by explicitly
+   introducing a process variable and modifying assignments to take
+   care of inertia. <P>
+<DL>
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Short way of calling printer_base_throw_print_node
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Short way of print a node with sharing
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Short way of print a node without sharing
+
+ <DT> <A HREF="compileAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Short way of print a node
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenModel_udg" TARGET="MAIN"><CODE>Compile_WriteFlattenModel_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenFsm_udg" TARGET="MAIN"><CODE>Compile_WriteFlattenFsm_udg()</CODE></A>
+ <DD> Prints the flatten version of FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteFlattenSpecs_udg" TARGET="MAIN"><CODE>Compile_WriteFlattenSpecs_udg()</CODE></A>
+ <DD> Prints the given flatten specifications.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolModel_udg" TARGET="MAIN"><CODE>Compile_WriteBoolModel_udg()</CODE></A>
+ <DD> Prints the given boolean model
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolFsm_udg" TARGET="MAIN"><CODE>Compile_WriteBoolFsm_udg()</CODE></A>
+ <DD> Prints the boolean FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_WriteBoolSpecs_udg" TARGET="MAIN"><CODE>Compile_WriteBoolSpecs_udg()</CODE></A>
+ <DD> Prints the boolean specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#Compile_make_dag_info_udg" TARGET="MAIN"><CODE>Compile_make_dag_info_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_destroy_dag_info_udg" TARGET="MAIN"><CODE>Compile_destroy_dag_info_udg()</CODE></A>
+ <DD> Frees the content of given structures.
+
+ <DT> <A HREF="compileAllDet.html#Compile_write_dag_defines_udg" TARGET="MAIN"><CODE>Compile_write_dag_defines_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#Compile_convert_to_dag_udg" TARGET="MAIN"><CODE>Compile_convert_to_dag_udg()</CODE></A>
+ <DD> Top level function to create dags from expressions
+
+ <DT> <A HREF="compileAllDet.html#Compile_print_array_define_udg" TARGET="MAIN"><CODE>Compile_print_array_define_udg()</CODE></A>
+ <DD> Prints a array define node to out file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_array_define" TARGET="MAIN"><CODE>compile_write_udg_flatten_array_define()</CODE></A>
+ <DD> Writes DEFINE declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flat_define" TARGET="MAIN"><CODE>compile_write_udg_flat_define()</CODE></A>
+ <DD> Writes DEFINE declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_flat_array_define_udg" TARGET="MAIN"><CODE>compile_write_flat_array_define_udg()</CODE></A>
+ <DD> Writes ARRAY DEFINE declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flat_asgn" TARGET="MAIN"><CODE>compile_write_udg_flat_asgn()</CODE></A>
+ <DD> Writes flattened ASSIGN declarations in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_print_assign_udg" TARGET="MAIN"><CODE>compile_print_assign_udg()</CODE></A>
+ <DD> Prints an assignement statement
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_vars" TARGET="MAIN"><CODE>compile_write_udg_flatten_vars()</CODE></A>
+ <DD> Writes VAR, FROZENVAR, and IVAR declarations in
+   SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_bool_vars" TARGET="MAIN"><CODE>compile_write_udg_flatten_bool_vars()</CODE></A>
+ <DD> Writes boolean VAR, FROZENVAR and IVAR declarations in
+   SMV format on a file. Non boolean vars are dumped as defines for the sake of
+   readability of conterexamples.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_spec_split" TARGET="MAIN"><CODE>compile_write_udg_flatten_spec_split()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_spec" TARGET="MAIN"><CODE>compile_write_udg_flatten_spec()</CODE></A>
+ <DD> Writes flattened spec in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_psl" TARGET="MAIN"><CODE>compile_write_udg_flatten_psl()</CODE></A>
+ <DD> Writes PSL properties as they are.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_bfexpr" TARGET="MAIN"><CODE>compile_write_udg_flatten_bfexpr()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_expr_split" TARGET="MAIN"><CODE>compile_write_udg_flatten_expr_split()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_expr" TARGET="MAIN"><CODE>compile_write_udg_flatten_expr()</CODE></A>
+ <DD> Writes flattened expression in SMV format on a file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flatten_expr_pair" TARGET="MAIN"><CODE>compile_write_udg_flatten_expr_pair()</CODE></A>
+ <DD> Writes flattened expression pairs in SMV format on a
+   file.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_constants" TARGET="MAIN"><CODE>compile_write_udg_constants()</CODE></A>
+ <DD> Writes the set of non-numeric constants as CONSTANTS
+   statement
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flat_fsm" TARGET="MAIN"><CODE>compile_write_udg_flat_fsm()</CODE></A>
+ <DD> Prints the flatten version of FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_flat_specs" TARGET="MAIN"><CODE>compile_write_udg_flat_specs()</CODE></A>
+ <DD> Prints the flatten specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_bool_fsm" TARGET="MAIN"><CODE>compile_write_udg_bool_fsm()</CODE></A>
+ <DD> Prints the boolean FSM of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_bool_spec" TARGET="MAIN"><CODE>compile_write_udg_bool_spec()</CODE></A>
+ <DD> Private service to print a boolean specification
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_bool_specs" TARGET="MAIN"><CODE>compile_write_udg_bool_specs()</CODE></A>
+ <DD> Prints the boolean specifications of an SMV model.
+
+ <DT> <A HREF="compileAllDet.html#compile_convert_to_dag_aux_udg" TARGET="MAIN"><CODE>compile_convert_to_dag_aux_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_create_dag_info_from_hierarchy_udg" TARGET="MAIN"><CODE>compile_create_dag_info_from_hierarchy_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_make_dag_info_aux_udg" TARGET="MAIN"><CODE>compile_make_dag_info_aux_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_pack_dag_info_udg" TARGET="MAIN"><CODE>compile_pack_dag_info_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_unpack_dag_info_udg" TARGET="MAIN"><CODE>compile_unpack_dag_info_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_set_dag_info_udg" TARGET="MAIN"><CODE>compile_set_dag_info_udg()</CODE></A>
+ <DD> 
+
+ <DT> <A HREF="compileAllDet.html#compile_free_node_udg" TARGET="MAIN"><CODE>compile_free_node_udg()</CODE></A>
+ <DD> Internal service of Compile_destroy_dag_info_udg
+
+ <DT> <A HREF="compileAllDet.html#compile_free_define_udg" TARGET="MAIN"><CODE>compile_free_define_udg()</CODE></A>
+ <DD> Internal service of Compile_destroy_dag_info_udg
+
+ <DT> <A HREF="compileAllDet.html#is_array_define_cell_udg" TARGET="MAIN"><CODE>is_array_define_cell_udg()</CODE></A>
+ <DD> Print to the given file the array define represerntation
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_node" TARGET="MAIN"><CODE>compile_write_udg_print_node()</CODE></A>
+ <DD> Menthod that prints the given node in udg format
+
+ <DT> <A HREF="compileAllDet.html#insert_assoc_w" TARGET="MAIN"><CODE>insert_assoc_w()</CODE></A>
+ <DD> Virtual menthod that prints the given node
+   (core nodes are handled here)
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_2_ary" TARGET="MAIN"><CODE>compile_write_udg_print_2_ary()</CODE></A>
+ <DD> Printer in udg format for a node with children arity equal to 2
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_2_arya" TARGET="MAIN"><CODE>compile_write_udg_print_2_arya()</CODE></A>
+ <DD> Printer in udg format for a node with children arity equal to 2
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_1_ary" TARGET="MAIN"><CODE>compile_write_udg_print_1_ary()</CODE></A>
+ <DD> Printer in udg format for a node with a child
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_3_aryc" TARGET="MAIN"><CODE>compile_write_udg_print_3_aryc()</CODE></A>
+ <DD> Printer in udg format for a node with children arity equal to 3
+
+ <DT> <A HREF="compileAllDet.html#compile_write_udg_print_3_aryc_color" TARGET="MAIN"><CODE>compile_write_udg_print_3_aryc_color()</CODE></A>
+ <DD> Printer in udg format for a node with children arity equal to 3
+   with different colors
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

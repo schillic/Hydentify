@@ -1,0 +1,2458 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="AtMostOnce"></A>
+static be_ptr <I></I>
+<B>AtMostOnce</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Creates an expression which allows at most one el_i to
+                      be true
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_el_at_time">get_el_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="BmcInt_SBMCTableau_GetAtTime"></A>
+be_ptr <I></I>
+<B>BmcInt_SBMCTableau_GetAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> The function generates the necessary auxilliary
+               predicates (loop, atmostonce) and calls on
+               get_f_at_time to generate the tableau for the ltl
+               formula.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AtMostOnce">AtMostOnce</a>
+<a href="#Loop">Loop</a>
+<a href="#get_f_at_time">get_f_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Gen_SBMCProblem"></A>
+be_ptr <I></I>
+<B>Bmc_Gen_SBMCProblem</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns the LTL problem at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcGen.c"TARGET="ABSTRACT"><CODE>sbmcGen.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Hash_delete_table"></A>
+void <I></I>
+<B>Bmc_Hash_delete_table</B>(
+  hashPtr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Delete the table
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Hash_find"></A>
+int <I></I>
+<B>Bmc_Hash_find</B>(
+  hashPtr  <b>table</b>, <i></i>
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Find a node in the table. Return BMC_HASH_NOTFOUND if the
+  node is not present
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Hash_insert"></A>
+void <I></I>
+<B>Bmc_Hash_insert</B>(
+  hashPtr  <b>table</b>, <i></i>
+  node_ptr  <b>key</b>, <i></i>
+  int  <b>data</b> <i></i>
+)
+</pre>
+<dd> Insert an element in the table
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Hash_new_htable"></A>
+hashPtr <I></I>
+<B>Bmc_Hash_new_htable</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Create a new hash_table
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Hash_size"></A>
+unsigned <I></I>
+<B>Bmc_Hash_size</B>(
+  hashPtr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Return the number of occupied slots
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_SBMCGenSolveLtl"></A>
+int <I></I>
+<B>Bmc_SBMCGenSolveLtl</B>(
+  Prop_ptr  <b>ltlprop</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>relative_loop</b>, <i></i>
+  const boolean  <b>must_inc_length</b>, <i></i>
+  const boolean  <b>must_solve</b>, <i></i>
+  const Bmc_DumpType  <b>dump_type</b>, <i></i>
+  const char* <b>dump_fname_template</b> <i></i>
+)
+</pre>
+<dd> Given a LTL property generates and solve the problems
+  for all Ki (k_min<=i<=k_max). If bIncreaseK is 0 then k_min==k_max==k and
+  only one problem is generated. If bIncreaseK is 1 then k_min == 0 and
+  k_max == k.
+  Each problem Ki takes into account of all possible loops from k_min to Ki
+  if loopback is '*' (BMC_ALL_LOOPS). <BR>
+  Also see the Bmc_GenSolve_Action possible values
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_GenSolve_Action">Bmc_GenSolve_Action</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcBmc.c"TARGET="ABSTRACT"><CODE>sbmcBmc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_SBMCTableau_GetAllLoops"></A>
+be_ptr <I></I>
+<B>Bmc_SBMCTableau_GetAllLoops</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Fairness is taken care of by adding it to the formula.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableau.c"TARGET="ABSTRACT"><CODE>sbmcTableau.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_SBMCTableau_GetLoopCondition"></A>
+be_ptr <I></I>
+<B>Bmc_SBMCTableau_GetLoopCondition</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> State l and state k are forced to represent the same
+                      state by conjuncting the if-and-only-if conditions
+                      {Vil<->Vik} between Vil (variable i at time l) and Vik
+                      (variable i at time k) for each variable Vi.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Tableau_GetAllLoopsDisjunction">Bmc_Tableau_GetAllLoopsDisjunction</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableau.c"TARGET="ABSTRACT"><CODE>sbmcTableau.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_SBMCTableau_GetNoLoop"></A>
+be_ptr <I></I>
+<B>Bmc_SBMCTableau_GetNoLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Fairness is ignored
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableau.c"TARGET="ABSTRACT"><CODE>sbmcTableau.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_SBMCTableau_GetSingleLoop"></A>
+be_ptr <I></I>
+<B>Bmc_SBMCTableau_GetSingleLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds tableau for a single loop. This function takes
+                      into account of fairness
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableau.c"TARGET="ABSTRACT"><CODE>sbmcTableau.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_delete"></A>
+void <I></I>
+<B>Bmc_Stack_delete</B>(
+  Bmc_Stack_ptr  <b>thestack</b> <i></i>
+)
+</pre>
+<dd> Delete the stack
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_new_stack"></A>
+Bmc_Stack_ptr <I></I>
+<B>Bmc_Stack_new_stack</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Create a new stack
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_pop"></A>
+node_ptr <I></I>
+<B>Bmc_Stack_pop</B>(
+  Bmc_Stack_ptr  <b>thestack</b> <i></i>
+)
+</pre>
+<dd> Pop an element from the stack
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_push"></A>
+void <I></I>
+<B>Bmc_Stack_push</B>(
+  Bmc_Stack_ptr  <b>thestack</b>, <i></i>
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Push a node unto the stack
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_size"></A>
+unsigned <I></I>
+<B>Bmc_Stack_size</B>(
+  Bmc_Stack_ptr  <b>thestack</b> <i></i>
+)
+</pre>
+<dd> Return the number of occupied slots
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Bmc_Stack_top"></A>
+node_ptr <I></I>
+<B>Bmc_Stack_top</B>(
+  Bmc_Stack_ptr  <b>thestack</b> <i></i>
+)
+</pre>
+<dd> Return the top element of the stack
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcNodeStack.c"TARGET="ABSTRACT"><CODE>sbmcNodeStack.c</CODE></A>
+
+<dt><pre>
+<A NAME="Loop"></A>
+static be_ptr <I></I>
+<B>Loop</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> The expression when coupled with AtMostOnce forces
+                      state i to be equivalent with state k, if el_i
+                      is true.
+
+  SideEffects        [
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="SBmc_AddCmd"></A>
+void <I></I>
+<B>SBmc_AddCmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Adds all bmc-related commands to the interactive shell
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_Init">Sm_Init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcPkg.c"TARGET="ABSTRACT"><CODE>sbmcPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="SBmc_Init"></A>
+void <I></I>
+<B>SBmc_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the SBMC sub package
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcPkg.c"TARGET="ABSTRACT"><CODE>sbmcPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="SBmc_Quit"></A>
+void <I></I>
+<B>SBmc_Quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Frees all resources allocated for the SBMC model manager
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcPkg.c"TARGET="ABSTRACT"><CODE>sbmcPkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_CommandCheckLtlSpecSBmc"></A>
+int <I></I>
+<B>Sbmc_CommandCheckLtlSpecSBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Model check using sbmc
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcCmd.c"TARGET="ABSTRACT"><CODE>sbmcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_CommandGenLtlSpecSBmc"></A>
+int <I></I>
+<B>Sbmc_CommandGenLtlSpecSBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Each problem is dumped for the given LTL specification,
+  or for all LTL specifications if no formula is given.
+  Generation parameters are the maximum bound and the loopback values. <BR>
+  After command line processing it calls the function Bmc_SBMCGenSolveLtl
+  to generate and dump all problems from zero to k.Uses Kepa's and Timo's method for doing bmc
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcCmd.c"TARGET="ABSTRACT"><CODE>sbmcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_CommandLTLCheckZigzagInc"></A>
+int <I></I>
+<B>Sbmc_CommandLTLCheckZigzagInc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> For further information about this implementation see: K. Heljanko,
+  T. Junttila and T. Latvala.  Incremental and Complete Bounded Model
+  Checking for Full PLTL.  In K. Etessami and S. Rajamani (eds.),
+  Computer Aided Verification, Edinburgh, Scotland, Volume 3576 of
+  LNCS, pp. 98-111, Springer, 2005. Copyright © Springer-Verlag.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcCmd.c"TARGET="ABSTRACT"><CODE>sbmcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_Utils_generate_and_print_cntexample"></A>
+Trace_ptr <I></I>
+<B>Sbmc_Utils_generate_and_print_cntexample</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  sbmc_MetaSolver * <b>solver</b>, <i></i>
+  node_ptr  <b>l_var</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const char * <b>trace_name</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Extracts a trace from a sat assignment, registers it in
+                      the TraceManager and prints it using the default plugin.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Utils_generate_and_print_cntexample">Bmc_Utils_generate_and_print_cntexample</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_Utils_generate_cntexample"></A>
+Trace_ptr <I></I>
+<B>Sbmc_Utils_generate_cntexample</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  sbmc_MetaSolver * <b>solver</b>, <i></i>
+  node_ptr  <b>l_var</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const char * <b>trace_name</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Extracts a trace from a sat assignment.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Utils_generate_cntexample">Bmc_Utils_generate_cntexample</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="Sbmc_check_psl_property"></A>
+int <I></I>
+<B>Sbmc_check_psl_property</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  boolean  <b>dump_prob</b>, <i></i>
+  boolean  <b>inc_sat</b>, <i></i>
+  boolean  <b>do_completeness_check</b>, <i></i>
+  boolean  <b>do_virtual_unrolling</b>, <i></i>
+  boolean  <b>single_prob</b>, <i></i>
+  int  <b>k</b>, <i></i>
+  int  <b>rel_loop</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+  - prop is the PSL property to be checked
+  - dump_prob is true if the problem must be dumped as DIMACS file (default filename
+  from system corresponding variable)
+  - inc_sat is true if incremental sat must be used. If there is no
+  support for inc sat, an internal error will occur.
+  - single_prob is true if k must be not incremented from 0 to k_max
+    (single problem)
+  - k and rel_loop are the bmc parameters.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcCmd.c"TARGET="ABSTRACT"><CODE>sbmcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmcSBMC_tableau_GF_FG_last"></A>
+static be_ptr <I></I>
+<B>bmcSBMC_tableau_GF_FG_last</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b> <i></i>
+)
+</pre>
+<dd> Checks if the il-optimisation is enabled and generates
+f(k) accordingly
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_tableau_GetEventuallyIL_opt">bmc_tableau_GetEventuallyIL_opt</a>
+<a href="#bmc_tableau_GetGloballyIL_opt">bmc_tableau_GetGloballyIL_opt</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_cache_delete"></A>
+static void <I></I>
+<B>bmc_cache_delete</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Frees the arrays used by the cache
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_init_cache">bmc_init_cache</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_cache_init"></A>
+static void <I></I>
+<B>bmc_cache_init</B>(
+  const int  <b>count</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function allocates an array of size (k+1)*count for
+                      both f and g. The array is used to cache values
+                      of f_i(time) and g_i(time). Only values for
+                      temporal formulas are stored.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_delete_cache">bmc_delete_cache</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_expandFilename"></A>
+static void <I></I>
+<B>bmc_expandFilename</B>(
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const int  <b>prop_idx</b>, <i></i>
+  const char* <b>filename_to_be_expanded</b>, <i></i>
+  char* <b>filename_expanded</b>, <i></i>
+  const size_t  <b>filename_expanded_maxlen</b> <i></i>
+)
+</pre>
+<dd> This is only a useful wrapper for easily call
+  Bmc_Utils_ExpandMacrosInFilename
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcBmc.c"TARGET="ABSTRACT"><CODE>sbmcBmc.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_past_depth"></A>
+static unsigned <I></I>
+<B>bmc_past_depth</B>(
+  const node_ptr  <b>ltl_wff</b> <i></i>
+)
+</pre>
+<dd> Computes the maximum nesting depth of past operators in PLTL formula
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_tableauGetEventuallyIL_opt"></A>
+static be_ptr <I></I>
+<B>bmc_tableauGetEventuallyIL_opt</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b> <i></i>
+)
+</pre>
+<dd> Creates the expression f(k+1):=vee_{i=1}^k il(i)wedge
+                     f1(i)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="bmc_tableauGetGloballyIL_opt"></A>
+static be_ptr <I></I>
+<B>bmc_tableauGetGloballyIL_opt</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b> <i></i>
+)
+</pre>
+<dd> Creates the expression f(k+1):=lewedge wedge_{i=1}^k neg il(i)vee f1(i)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="find"></A>
+static int <I></I>
+<B>find</B>(
+  hashPtr  <b>table</b>, <i></i>
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Return index of node, a free index if the node is not in the table
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcHash.c"TARGET="ABSTRACT"><CODE>sbmcHash.c</CODE></A>
+
+<dt><pre>
+<A NAME="formulaMap"></A>
+static int <I></I>
+<B>formulaMap</B>(
+  hashPtr  <b>table</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  unsigned  <b>TLcount</b> <i></i>
+)
+</pre>
+<dd> Stores the nodes of the ltl expression in a table and
+                      maps each formula to an integer. Temporal
+                      subformulas are numbered from 0...N while all
+                      other subformulas are mapped to -2
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Eventually_at_time"></A>
+static be_ptr <I></I>
+<B>get_Eventually_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and genrates
+the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Globally_at_time"></A>
+static be_ptr <I></I>
+<B>get_Globally_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and
+                      generates the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Historically_at_time"></A>
+static be_ptr <I></I>
+<B>get_Historically_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and genrates
+                      the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Once_at_time"></A>
+static be_ptr <I></I>
+<B>get_Once_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and genrates
+                      the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Since_at_time"></A>
+static be_ptr <I></I>
+<B>get_Since_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and
+                      genrates the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Trigger_at_time"></A>
+static be_ptr <I></I>
+<B>get_Trigger_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and
+                      genrates the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_Until_at_time"></A>
+static be_ptr <I></I>
+<B>get_Until_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and genrates
+                      the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_V_at_time"></A>
+static be_ptr <I></I>
+<B>get_V_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and
+                      genrates the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_f_at_time">get_f_at_time</a>
+<a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_el_at_time"></A>
+static be_ptr <I></I>
+<B>get_el_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> The variables el(time) describe if the state s_time 
+                      should be equivalent with s_k
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_f_at_time"></A>
+static be_ptr <I></I>
+<B>get_f_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function recursively traverses the formula and genrates
+                      the needed boolean expression.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#get_g_at_time">get_g_at_time</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_g_at_time"></A>
+static be_ptr <I></I>
+<B>get_g_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> Returns a pointer to the g_i(time) variable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_il_at_time"></A>
+static be_ptr <I></I>
+<B>get_il_at_time</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> The il(i) variable describes if the state 'i' is a 
+                      a state of the loop.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="get_loop_exists"></A>
+static be_ptr <I></I>
+<B>get_loop_exists</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> The le variable is true if a loop exists.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="last_f"></A>
+static be_ptr <I></I>
+<B>last_f</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function checks which loop setting is active 
+                      and genrates f(k) accordingly.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="last_g"></A>
+static be_ptr <I></I>
+<B>last_g</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  node_ptr  <b>ltl_wff</b>, <i></i>
+  hashPtr  <b>table</b>, <i></i>
+  hash_ptr  <b>memoiz</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const unsigned  <b>pastdepth</b> <i></i>
+)
+</pre>
+<dd> The function checks which loop setting is active 
+                      and genrates f(k) accordingly.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_1_fresh_state_var"></A>
+node_ptr <I></I>
+<B>sbmc_1_fresh_state_var</B>(
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  unsigned int * <b>index</b> <i></i>
+)
+</pre>
+<dd> Creates a new fresh state variable. The name is
+  according to the pattern #LTL_t%u, being %u an unsigned integer. The
+  index is incremented by one.
+<p>
+
+<dd> <b>Side Effects</b> index is incremented by one.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_E_state"></A>
+int <I></I>
+<B>sbmc_E_state</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> State 1 is the E state
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_L_state">sbmc_L_state</a>
+<a href="#sbmc_real_k">sbmc_real_k</a>
+<a href="#sbmc_model_k">sbmc_model_k</a>
+<a href="#sbmc_real_k_string">sbmc_real_k_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_L_state"></A>
+int <I></I>
+<B>sbmc_L_state</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> State 0 is the L state
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_E_state">sbmc_E_state</a>
+<a href="#sbmc_real_k">sbmc_real_k</a>
+<a href="#sbmc_model_k">sbmc_model_k</a>
+<a href="#sbmc_real_k_string">sbmc_real_k_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_create_volatile_group"></A>
+void <I></I>
+<B>sbmc_MS_create_volatile_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Create the volatile group in the meta solver wrapper. Use
+  of the volatile group is not forced
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_create"></A>
+sbmc_MetaSolver * <I></I>
+<B>sbmc_MS_create</B>(
+  BeEnc_ptr  <b>be_enc</b> <i></i>
+)
+</pre>
+<dd> Creates a meta solver wrapper
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_destroy_volatile_group"></A>
+void <I></I>
+<B>sbmc_MS_destroy_volatile_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Destroy the volatile group of the meta solver wrapper and
+  force use of the permanent one
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_destroy"></A>
+void <I></I>
+<B>sbmc_MS_destroy</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Destroy a meta solver wrapper
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_force_constraint_list"></A>
+void <I></I>
+<B>sbmc_MS_force_constraint_list</B>(
+  sbmc_MetaSolver * <b>ms</b>, <i></i>
+  lsList  <b>constraints</b> <i></i>
+)
+</pre>
+<dd> Forces a list of BEs to be true in the
+  solver. Each is converted to CNF, the CNF is then forced in the
+  group in use, i.e. in the permanent or in the volatile group.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_MS_force_true">sbmc_MS_force_true</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_force_true"></A>
+void <I></I>
+<B>sbmc_MS_force_true</B>(
+  sbmc_MetaSolver * <b>ms</b>, <i></i>
+  be_ptr  <b>be_constraint</b> <i></i>
+)
+</pre>
+<dd> Forces a BE to be true in the solver. The BE
+  converted to CNF, the CNF is then forced in the group in use,
+  i.e. in the permanent or in the volatile group.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_get_conflicts"></A>
+Slist_ptr <I></I>
+<B>sbmc_MS_get_conflicts</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Returns the solver
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_get_model"></A>
+Slist_ptr <I></I>
+<B>sbmc_MS_get_model</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> The previous solving call should have returned SATISFIABLE.
+  The returned list is a list of values in dimac form (positive literal
+  is included as the variable index, negative literal as the negative
+  variable index, if a literal has not been set its value is not included).
+
+  Returned list must be NOT destroyed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_get_solver"></A>
+SatSolver_ptr <I></I>
+<B>sbmc_MS_get_solver</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Returns the solver
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_goto_permanent_group"></A>
+void <I></I>
+<B>sbmc_MS_goto_permanent_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Destroy the volatile group of the meta solver
+  wrapper, thus only considering the permanent group.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_goto_volatile_group"></A>
+void <I></I>
+<B>sbmc_MS_goto_volatile_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Create and force use of the volatile group of
+  the meta solver wrapper.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_solve_assume"></A>
+SatSolverResult <I></I>
+<B>sbmc_MS_solve_assume</B>(
+  sbmc_MetaSolver * <b>ms</b>, <i></i>
+  Slist_ptr  <b>assumptions</b> <i></i>
+)
+</pre>
+<dd> Solves all groups belonging to the solver assuming
+  the CNF assumptions and returns the flag.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolver_solve_all_groups_assume">SatSolver_solve_all_groups_assume</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_solve"></A>
+SatSolverResult <I></I>
+<B>sbmc_MS_solve</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Solves all groups belonging to the solver and
+  returns the flag.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SatSolver_solve_all_groups">SatSolver_solve_all_groups</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_switch_to_permanent_group"></A>
+void <I></I>
+<B>sbmc_MS_switch_to_permanent_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Force use of the permanent group of
+  the meta solver wrapper. Volatile group is left in place, if existing
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_MS_switch_to_volatile_group"></A>
+void <I></I>
+<B>sbmc_MS_switch_to_volatile_group</B>(
+  sbmc_MetaSolver * <b>ms</b> <i></i>
+)
+</pre>
+<dd> Force use of the volatile group of
+  the meta solver wrapper. The volatile group must have been previously
+  created
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_SimplePaths"></A>
+lsList <I></I>
+<B>sbmc_SimplePaths</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const state_vars_struct * <b>state_vars</b>, <i></i>
+  array_t * <b>InLoop_array</b>, <i></i>
+  const unsigned int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Build SimplePath_{i,k} for each 0<=i<k
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauInc.c"TARGET="ABSTRACT"><CODE>sbmcTableauInc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_add_loop_variable"></A>
+void <I></I>
+<B>sbmc_add_loop_variable</B>(
+  BeFsm_ptr  <b>be_fsm</b> <i></i>
+)
+</pre>
+<dd> Declares a new layer to contain the loop variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_add_new_state_variable"></A>
+node_ptr <I></I>
+<B>sbmc_add_new_state_variable</B>(
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  char * <b>name</b> <i></i>
+)
+</pre>
+<dd> Declare a new boolean state variable in the
+  layer. The name is specified as a string. If the variable already
+  exists, then an error is generated.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_alloc_node_info"></A>
+sbmc_node_info * <I></I>
+<B>sbmc_alloc_node_info</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates an empty structure to hold information
+  associated to each subformula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_allocate_trans_vars"></A>
+void <I></I>
+<B>sbmc_allocate_trans_vars</B>(
+  sbmc_node_info * <b>info</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  lsList  <b>state_vars_formula_pd0</b>, <i></i>
+  lsList  <b>state_vars_formula_pdx</b>, <i></i>
+  unsigned int* <b>new_var_index</b> <i></i>
+)
+</pre>
+<dd> Creates info->pastdepth+1 new state variables
+  for the main translation in info->trans_vars. state_vars_formula_pd0,
+  state_vars_formula_pdx and new_var_index are updated accordingly.
+<p>
+
+<dd> <b>Side Effects</b> new_var_index is incremented accordingly to the
+  number of variables created. state_vars_formula_pd0,
+  state_vars_formula_pdx and new_var_index are updated accordingly.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_build_InLoop_i"></A>
+be_ptr <I></I>
+<B>sbmc_build_InLoop_i</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const state_vars_struct * <b>state_vars</b>, <i></i>
+  array_t * <b>InLoop_array</b>, <i></i>
+  const unsigned int  <b>i_model</b> <i></i>
+)
+</pre>
+<dd> Build InLoop_i stuff
+  Define InLoop_i = (InLoop_{i-1} || l_i)<br>
+  Returns the BE constraint InLoop_{i-1} => !l_i  (or 0 when i=0)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauInc.c"TARGET="ABSTRACT"><CODE>sbmcTableauInc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_cmd_options_handling"></A>
+static outcome <I></I>
+<B>sbmc_cmd_options_handling</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b>, <i></i>
+  Prop_Type  <b>prop_type</b>, <i></i>
+  Prop_ptr* <b>res_prop</b>, <i></i>
+  int* <b>res_k</b>, <i></i>
+  int* <b>res_l</b>, <i></i>
+  char** <b>res_o</b>, <i></i>
+  boolean* <b>res_N</b>, <i></i>
+  boolean* <b>res_c</b>, <i></i>
+  boolean* <b>res_1</b> <i></i>
+)
+</pre>
+<dd> Output variables called res_* are pointers to
+  variables that will be changed if the user specified a value for the
+  corresponding option. For example if the user specified "-k 2", then
+  *res_k will be assigned to 2. The caller can selectively choose which
+  options can be specified by the user, by passing either a valid pointer
+  as output parameter, or NULL to disable the corresponding option.
+  For example by passing NULL as actual parameter of res_l, option -l will
+  be not accepted.
+
+  If both specified, k and l will be checked for mutual consistency.
+  Loop will contain a relative value, like the one the user specified.
+
+  prop_type is the expected property type, if specified.
+
+  All integers values will not be changed if the corresponding options
+  had not be specified by the user, so the caller might assign them to
+  default values before calling this function.
+
+  All strings will be allocated by the function if the corresponding
+  options had been used by the user. In this case it is responsability
+  of the caller to free them. Strings will be assigned to NULL if the
+  user had not specified any corresponding option.
+
+  Returns GENERIC_ERROR if an error has occurred;
+  Returns SUCCESS_REQUIRED_HELP if -h options had been specified;
+  Returns SUCCESS in all other cases.
+<p>
+
+<dd> <b>Side Effects</b> Result parameters might change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcCmd.c"TARGET="ABSTRACT"><CODE>sbmcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_dependent"></A>
+lsList <I></I>
+<B>sbmc_dependent</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>bltlspec</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const state_vars_struct * <b>state_vars</b>, <i></i>
+  array_t * <b>InLoop_array</b>, <i></i>
+  const be_ptr  <b>be_LoopExists</b>, <i></i>
+  const hash_ptr  <b>info_map</b> <i></i>
+)
+</pre>
+<dd> Creates several constraints:
+  <ul>
+  <li>Create the constraint l_{k+1} <=> FALSE</li>
+  <li>Create the constraint s_E = s_k</li>
+  <li>Create the constraint LoopExists <=> InLoop_k</li>
+  <li>Create the formula specific k-dependent constraints</li>
+  </ul>
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_equal_vectors_formula"></A>
+be_ptr <I></I>
+<B>sbmc_equal_vectors_formula</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  lsList  <b>vars</b>, <i></i>
+  const unsigned int  <b>i</b>, <i></i>
+  const unsigned int  <b>j</b> <i></i>
+)
+</pre>
+<dd> Creates the BE for the formula "land_{v in vars} s_i = s_j"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauInc.c"TARGET="ABSTRACT"><CODE>sbmcTableauInc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_find_formula_vars"></A>
+lsList <I></I>
+<B>sbmc_find_formula_vars</B>(
+  node_ptr  <b>ltlspec</b> <i></i>
+)
+</pre>
+<dd> Compute the variables that occur in the formula ltlspec.
+  The formula ltlspec must  be in NNF.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_find_relevant_vars"></A>
+void <I></I>
+<B>sbmc_find_relevant_vars</B>(
+  state_vars_struct * <b>svs</b>, <i></i>
+  BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  node_ptr  <b>bltlspec</b> <i></i>
+)
+</pre>
+<dd> Find state and input variables that occurr in the formula.
+  Build the list of system variables for simple path constraints.
+
+  <ul>
+  <li> state_vars->formula_state_vars will have the state vars occurring
+    in the formula bltlspec</li>
+  <li> state_vars->formula_input_vars will have the input vars occurring
+    in the formula bltlspec</li>
+  <li> state_vars->simple_path_system_vars will be the union of
+    state_vars->transition_state_vars,
+    state_vars->formula_state_vars, and
+    state_vars->formula_input_vars </li>
+   </ul>
+
+   Note: frozen variables are not collected since they do no
+   paticipate in state equality formulas.
+<p>
+
+<dd> <b>Side Effects</b> svs is modified to store retrieved information.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_formula_dependent"></A>
+lsList <I></I>
+<B>sbmc_formula_dependent</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const unsigned int  <b>k_model</b>, <i></i>
+  const hash_ptr  <b>info_map</b> <i></i>
+)
+</pre>
+<dd> Create the formula specific k-dependent constraints.
+  Return a list of be_ptrs for the created constraints.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_init_LTL_info"></A>
+hash_ptr <I></I>
+<B>sbmc_init_LTL_info</B>(
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr  <b>ltlspec</b>, <i></i>
+  lsList  <b>state_vars_formula_pd0</b>, <i></i>
+  lsList  <b>state_vars_formula_pdx</b>, <i></i>
+  lsList  <b>state_vars_formula_aux</b>, <i></i>
+  const int  <b>opt_force_state_vars</b>, <i></i>
+  const int  <b>opt_do_virtual_unrolling</b> <i></i>
+)
+</pre>
+<dd> Associates each subformula node of ltlspec with
+  a sbmc_LTL_info. Returns a hash from node_ptr to sbmc_LTL_info*.
+  New state variables named #LTL_t'i' can be allocate to 'layer'.
+  The new state vars are inserted in state_vars_formula_??? appropriately.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauInc.c"TARGET="ABSTRACT"><CODE>sbmcTableauInc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_init_state_vector"></A>
+void <I></I>
+<B>sbmc_init_state_vector</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const unsigned int  <b>i_real</b>, <i></i>
+  const node_ptr  <b>LastState_var</b>, <i></i>
+  const be_ptr  <b>be_LoopExists</b> <i></i>
+)
+</pre>
+<dd> Initialize trans_bes[i
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauInc.c"TARGET="ABSTRACT"><CODE>sbmcTableauInc.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_loop_var_name_get"></A>
+node_ptr <I></I>
+<B>sbmc_loop_var_name_get</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Gets the name of the loop variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_loop_var_name_set"></A>
+void <I></I>
+<B>sbmc_loop_var_name_set</B>(
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Sets the name of the loop variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_make_boolean_formula"></A>
+node_ptr <I></I>
+<B>sbmc_make_boolean_formula</B>(
+  Prop_ptr  <b>ltlprop</b> <i></i>
+)
+</pre>
+<dd> Takes a property and return the negation of the
+  property conjoined with the big and of fairness conditions.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_model_k"></A>
+unsigned int <I></I>
+<B>sbmc_model_k</B>(
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Given a real k return the corresponding model k (real - 2)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_L_state">sbmc_L_state</a>
+<a href="#sbmc_E_state">sbmc_E_state</a>
+<a href="#sbmc_real_k">sbmc_real_k</a>
+<a href="#sbmc_real_k_string">sbmc_real_k_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_n_fresh_state_vars"></A>
+array_t * <I></I>
+<B>sbmc_n_fresh_state_vars</B>(
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  const unsigned int  <b>n</b>, <i></i>
+  unsigned int * <b>index</b> <i></i>
+)
+</pre>
+<dd> Creates N new fresh state variables. The name is
+  according to the pattern #LTL_t%u, being %u an unsigned integer. The
+  index is incremented by N. The new variables are stroed into an
+  array of node_ptr
+<p>
+
+<dd> <b>Side Effects</b> index is incremented by N.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_node_info_assoc_create"></A>
+hash_ptr <I></I>
+<B>sbmc_node_info_assoc_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates an asociative list for pairs node_ptr
+  sbmc_node_info *
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_node_info_assoc_find"></A>
+sbmc_node_info * <I></I>
+<B>sbmc_node_info_assoc_find</B>(
+  hash_ptr  <b>a</b>, <i></i>
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Return the information associated to a
+  subformula if any.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_node_info_assoc_free"></A>
+void <I></I>
+<B>sbmc_node_info_assoc_free</B>(
+  hash_ptr * <b>a</b> <i></i>
+)
+</pre>
+<dd> Creates an asociative list for pairs node_ptr
+  sbmc_node_info *
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_node_info_assoc_insert"></A>
+void <I></I>
+<B>sbmc_node_info_assoc_insert</B>(
+  hash_ptr  <b>a</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  sbmc_node_info * <b>i</b> <i></i>
+)
+</pre>
+<dd> Insert in the assoc table the infomrnation for
+  the subformula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_node_info_free"></A>
+void <I></I>
+<B>sbmc_node_info_free</B>(
+  sbmc_node_info * <b>info</b> <i></i>
+)
+</pre>
+<dd> Frees a structure to hold information
+  associated to each subformula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_print_Fvarmap"></A>
+void <I></I>
+<B>sbmc_print_Fvarmap</B>(
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  node_ptr  <b>formula</b> <i></i>
+)
+</pre>
+<dd> Prints some of the information associated to a F
+  formula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_print_Gvarmap"></A>
+void <I></I>
+<B>sbmc_print_Gvarmap</B>(
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  node_ptr  <b>formula</b> <i></i>
+)
+</pre>
+<dd> Prints some of the information associated to a G
+  formula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_print_node_list"></A>
+void <I></I>
+<B>sbmc_print_node_list</B>(
+  FILE * <b>out</b>, <i></i>
+  lsList  <b>l</b> <i></i>
+)
+</pre>
+<dd> Prints a lsList of node_ptr in a file stream.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_print_node"></A>
+void <I></I>
+<B>sbmc_print_node</B>(
+  FILE * <b>out</b>, <i></i>
+  const char * <b>prefix</b>, <i></i>
+  node_ptr  <b>node</b>, <i></i>
+  const char * <b>postfix</b> <i></i>
+)
+</pre>
+<dd> Prints a node_ptr expression in a file stream by
+  prefixing and suffixing it with a string. If the prefix and suffix
+  strings are NULL they are not printed out.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_print_varmap"></A>
+void <I></I>
+<B>sbmc_print_varmap</B>(
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>node</b>, <i></i>
+  sbmc_node_info * <b>info</b> <i></i>
+)
+</pre>
+<dd> Prints some of the information associated to a
+  subformula.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_real_k_string"></A>
+char* <I></I>
+<B>sbmc_real_k_string</B>(
+  const unsigned int  <b>k_real</b> <i></i>
+)
+</pre>
+<dd> Returns a string correspondingg to the state considered. E, L, Real
+<p>
+
+<dd> <b>Side Effects</b> The returned value must be freed
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_L_state">sbmc_L_state</a>
+<a href="#sbmc_E_state">sbmc_E_state</a>
+<a href="#sbmc_real_k">sbmc_real_k</a>
+<a href="#sbmc_model_k">sbmc_model_k</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_real_k"></A>
+int <I></I>
+<B>sbmc_real_k</B>(
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> The first real state is 2
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#sbmc_L_state">sbmc_L_state</a>
+<a href="#sbmc_E_state">sbmc_E_state</a>
+<a href="#sbmc_model_k">sbmc_model_k</a>
+<a href="#sbmc_real_k_string">sbmc_real_k_string</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_remove_loop_variable"></A>
+void <I></I>
+<B>sbmc_remove_loop_variable</B>(
+  BeFsm_ptr  <b>be_fsm</b> <i></i>
+)
+</pre>
+<dd> Remove the new layer to contain the loop variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcUtils.c"TARGET="ABSTRACT"><CODE>sbmcUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_set_create"></A>
+hash_ptr <I></I>
+<B>sbmc_set_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> An associtative list to avoid duplicates of
+  node_ptr. If a node is in this set, it has a constant 1 associated
+  to it in the associative hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_set_destroy"></A>
+void <I></I>
+<B>sbmc_set_destroy</B>(
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Destroy an associative list used to avoid
+  duplicates of node_ptr.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_set_insert"></A>
+void <I></I>
+<B>sbmc_set_insert</B>(
+  hash_ptr  <b>hash</b>, <i></i>
+  node_ptr  <b>bexp</b> <i></i>
+)
+</pre>
+<dd> Insert a node in the hash associating constant 1
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_set_is_in"></A>
+int <I></I>
+<B>sbmc_set_is_in</B>(
+  hash_ptr  <b>hash</b>, <i></i>
+  node_ptr  <b>bexp</b> <i></i>
+)
+</pre>
+<dd> Checks whether a node_ptr was already
+  inserted. In affermative case return 1, else 0.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_create"></A>
+state_vars_struct* <I></I>
+<B>sbmc_state_vars_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates an empty state_vars_struct
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_destroy"></A>
+void <I></I>
+<B>sbmc_state_vars_destroy</B>(
+  state_vars_struct* <b>svs</b> <i></i>
+)
+</pre>
+<dd> state_vars_struct destroyer
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_LastState_var"></A>
+node_ptr <I></I>
+<B>sbmc_state_vars_get_LastState_var</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "LastState_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_LoopExists_var"></A>
+node_ptr <I></I>
+<B>sbmc_state_vars_get_LoopExists_var</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "LoopExists_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_formula_input_vars"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_formula_input_vars</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "formula_input_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_formula_state_vars"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_formula_state_vars</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "formula_state_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_l_var"></A>
+node_ptr <I></I>
+<B>sbmc_state_vars_get_l_var</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "l_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_simple_path_system_vars"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_simple_path_system_vars</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "simple_path_system_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_trans_state_vars"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_trans_state_vars</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "trans_state_vars"
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_translation_vars_aux"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_translation_vars_aux</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> state_vars_struct destroyer
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_translation_vars_pd0"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_translation_vars_pd0</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "translation_vars_pd0"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_get_translation_vars_pdx"></A>
+lsList <I></I>
+<B>sbmc_state_vars_get_translation_vars_pdx</B>(
+  const state_vars_struct * <b>ss</b> <i></i>
+)
+</pre>
+<dd> getter for field "translation_vars_pdx"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_print"></A>
+void <I></I>
+<B>sbmc_state_vars_print</B>(
+  state_vars_struct * <b>svs</b>, <i></i>
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Print a state_vars_struct to 'out'
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_LastState_var"></A>
+void <I></I>
+<B>sbmc_state_vars_set_LastState_var</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  node_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "LastState_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_LoopExists_var"></A>
+void <I></I>
+<B>sbmc_state_vars_set_LoopExists_var</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  node_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "LoopExists_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_formula_input_vars"></A>
+void <I></I>
+<B>sbmc_state_vars_set_formula_input_vars</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "formula_input_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_formula_state_vars"></A>
+void <I></I>
+<B>sbmc_state_vars_set_formula_state_vars</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "formula_state_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_l_var"></A>
+void <I></I>
+<B>sbmc_state_vars_set_l_var</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  node_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "l_var"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_simple_path_system_vars"></A>
+void <I></I>
+<B>sbmc_state_vars_set_simple_path_system_vars</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "simple_path_system_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_trans_state_vars"></A>
+void <I></I>
+<B>sbmc_state_vars_set_trans_state_vars</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "transition_state_vars"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_translation_vars_aux"></A>
+void <I></I>
+<B>sbmc_state_vars_set_translation_vars_aux</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "translation_vars_aux"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_translation_vars_pd0"></A>
+void <I></I>
+<B>sbmc_state_vars_set_translation_vars_pd0</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "translation_state_vars_pd0"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_state_vars_set_translation_vars_pdx"></A>
+void <I></I>
+<B>sbmc_state_vars_set_translation_vars_pdx</B>(
+  state_vars_struct * <b>ss</b>, <i></i>
+  lsList  <b>f</b> <i></i>
+)
+</pre>
+<dd> setter for field "translation_vars_pdx"
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcStructs.c"TARGET="ABSTRACT"><CODE>sbmcStructs.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_unroll_base"></A>
+lsList <I></I>
+<B>sbmc_unroll_base</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const be_ptr  <b>be_LoopExists</b>, <i></i>
+  const int  <b>do_optimization</b> <i></i>
+)
+</pre>
+<dd> Create the BASE constraints.<br>
+  Return a list of be_ptr for the created constraints.<br>
+  Create the following constraints:<br>
+  <ul>
+    <li> !LoopExists => ([[f
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_unroll_invariant_f"></A>
+static lsList <I></I>
+<B>sbmc_unroll_invariant_f</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const unsigned int  <b>i_model</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const be_ptr  <b>be_InLoop_i</b>, <i></i>
+  const be_ptr  <b>be_l_i</b>, <i></i>
+  const be_ptr  <b>be_LastState_i</b>, <i></i>
+  const be_ptr  <b>be_LoopExists</b>, <i></i>
+  const int  <b>do_optimization</b> <i></i>
+)
+</pre>
+<dd> Create the k-invariant constraints for propositional and
+  future temporal operators at time i. Return a list of be_ptrs for the
+  created constraints.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_unroll_invariant_propositional"></A>
+lsList <I></I>
+<B>sbmc_unroll_invariant_propositional</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const unsigned int  <b>i_model</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const be_ptr  <b>be_InLoop_i</b>, <i></i>
+  const be_ptr  <b>be_l_i</b>, <i></i>
+  const int  <b>do_optimization</b> <i></i>
+)
+</pre>
+<dd> Create the k-invariant constraints for
+  propositional operators at time i. Return a list of be_ptrs for the
+  created constraints.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_unroll_invariant_p"></A>
+static lsList <I></I>
+<B>sbmc_unroll_invariant_p</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltlspec</b>, <i></i>
+  const unsigned int  <b>i_model</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const be_ptr  <b>be_InLoop_i</b>, <i></i>
+  const be_ptr  <b>be_l_i</b>, <i></i>
+  const int  <b>do_optimization</b> <i></i>
+)
+</pre>
+<dd> Create the k-invariant constraints at time
+  i. Return a list of be_ptrs for the created constraints.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+<dt><pre>
+<A NAME="sbmc_unroll_invariant"></A>
+lsList <I></I>
+<B>sbmc_unroll_invariant</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>bltlspec</b>, <i></i>
+  const int  <b>previous_k</b>, <i></i>
+  const int  <b>new_k</b>, <i></i>
+  const state_vars_struct * <b>state_vars</b>, <i></i>
+  array_t * <b>InLoop_array</b>, <i></i>
+  const hash_ptr  <b>info_map</b>, <i></i>
+  const be_ptr  <b>be_LoopExists</b>, <i></i>
+  const int  <b>opt_do_optimization</b> <i></i>
+)
+</pre>
+<dd> Unroll future and past fragment from previous_k+1 
+  upto and including new_k. Return a list of constraints.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#sbmcTableauIncLTLformula.c"TARGET="ABSTRACT"><CODE>sbmcTableauIncLTLformula.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

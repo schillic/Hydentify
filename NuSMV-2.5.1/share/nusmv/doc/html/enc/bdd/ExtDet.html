@@ -1,0 +1,112 @@
+<HTML>
+<HEAD><TITLE>The  package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="bdd_enc_bdd_to_wff_rec"></A>
+node_ptr <I></I>
+<B>bdd_enc_bdd_to_wff_rec</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>vars</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  hash_ptr  <b>cache</b> <i>memoization hashtable for DAG traversal</i>
+)
+</pre>
+<dd> This function accepts a list of variables as part of
+its inputs.The present algorithm assumes that a variable in vars list
+is a boolean only in two distinct cases:
+
+1. Pure booleans 
+2. Boolean
+
+variables belonging to words (i.e. Boolean variables belonging to a
+scalar encoding are _not_ allowed in the input list of this
+function. This would invariably cause this implementation to
+fail). This assumptions are enforced by its public top-level caller.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<dt><pre>
+<A NAME="bdd_enc_debug_bdd_to_wff"></A>
+void <I></I>
+<B>bdd_enc_debug_bdd_to_wff</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Debug code for BddEnc_bdd_to_wff
+<p>
+
+<dd> <b>Side Effects</b> Halts NuSMV if the expression is not a correct
+  representation of bdd.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<dt><pre>
+<A NAME="bdd_enc_get_preprocessed_vars"></A>
+NodeList_ptr <I></I>
+<B>bdd_enc_get_preprocessed_vars</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i>variables to be preprocessed</i>
+)
+</pre>
+<dd> This function is used to preprocess variables list to
+  provide to bddenc_print_wff_bdd. As the algorithm implemented in the
+  latter does not support word variables, word variables (if any)
+  shall be substituted with their bit variables
+  representatives. Moreover, this function takes care of adding NEXT
+  variables for state variables. For this reason no NEXT nor BITS are
+  allowed as input to this function.
+
+  The result NodeList must be destroyed by the caller.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<dt><pre>
+<A NAME="bdd_enc_get_scalar_essentials"></A>
+bdd_ptr <I></I>
+<B>bdd_enc_get_scalar_essentials</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i>variables</i>
+)
+</pre>
+<dd> Computes the scalar essentials of a bdd, picking
+  identifiers from the variables in vars list. Used as part of
+  bdd_enc_bdd_to_wff_rec implementation.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_enc_bdd_to_wff">bdd_enc_bdd_to_wff</a>
+</code>
+
+<dt><pre>
+<A NAME="bdd_enc_hash_free_bdd_counted"></A>
+assoc_retval <I></I>
+<B>bdd_enc_hash_free_bdd_counted</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>data</b>, <i></i>
+  char* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Used to deref bdds in the sharing hashtable
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

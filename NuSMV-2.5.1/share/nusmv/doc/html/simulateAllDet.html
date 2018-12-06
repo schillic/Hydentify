@@ -1,0 +1,492 @@
+<html>
+<head><title>The simulate package: all functions </title></head>
+<body>
+
+External Header File for simulation package: simulation
+  package provides a set of utilities for traces generation (a trace is a
+  possible execution of the model). It performs initial state picking,
+  trace inspection, simulation according to different policies (deterministic,
+  random, interactive) and with the possibility to specify constraints.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandGotoState"></A>
+int <I></I>
+<B>CommandGotoState</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Goes to a given state of a trace
+<p>
+
+<dd> <b>Side Effects</b> <em>state</em> became the current state.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPickState"></A>
+int <I></I>
+<B>CommandPickState</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Picks a state from the set of initial states
+<p>
+
+<dd> <b>Side Effects</b> The state chosen is stored in the traces_hash table as
+  the first state of a new trace
+<p>
+
+<dd> <b>See Also</b> <code><a href="#goto_state">goto_state</a>
+simulate
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandPrintCurrentState"></A>
+int <I></I>
+<B>CommandPrintCurrentState</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Prints the current state
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandSimulate"></A>
+int <I></I>
+<B>CommandSimulate</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs a simulation from the current selected state
+<p>
+
+<dd> <b>Side Effects</b> Generated referenced states traces are stored to be
+  analyzed by the user in a second time
+<p>
+
+<dd> <b>See Also</b> <code><a href="#pick_state">pick_state</a>
+<a href="#goto_state">goto_state</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_create"></A>
+SimulateTransSet_ptr <I></I>
+<B>SimulateTransSet_create</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>from_state</b>, <i></i>
+  bdd_ptr  <b>next_states_set</b>, <i></i>
+  double  <b>next_states_count</b> <i></i>
+)
+</pre>
+<dd> from_state can be NULL when the set of initial states
+  must be queried. next_states_count is checked to be in (1,INT_MAX)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_destroy"></A>
+void <I></I>
+<B>SimulateTransSet_destroy</B>(
+  SimulateTransSet_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_from_state"></A>
+bdd_ptr <I></I>
+<B>SimulateTransSet_get_from_state</B>(
+  const SimulateTransSet_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned BDD is referenced. NULL can be returned if 
+  this transition set target states are the initial states set
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_input_at_state"></A>
+bdd_ptr <I></I>
+<B>SimulateTransSet_get_input_at_state</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  int  <b>state_index</b>, <i></i>
+  int  <b>input_index</b> <i></i>
+)
+</pre>
+<dd> Returns the Ith input from the set of inputs 
+  going to the Nth state in the set of target states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_inputs_num_at_state"></A>
+int <I></I>
+<B>SimulateTransSet_get_inputs_num_at_state</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  int  <b>state_index</b> <i></i>
+)
+</pre>
+<dd> Returned BDD is referenced. NULL can be returned
+  if self represent the initial states set
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_next_state_num"></A>
+int <I></I>
+<B>SimulateTransSet_get_next_state_num</B>(
+  const SimulateTransSet_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the cardinality of the target set of states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_next_state"></A>
+bdd_ptr <I></I>
+<B>SimulateTransSet_get_next_state</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  int  <b>state_index</b> <i></i>
+)
+</pre>
+<dd> Returned BDD is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_state_input_at"></A>
+void <I></I>
+<B>SimulateTransSet_get_state_input_at</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  int  <b>index</b>, <i></i>
+  bdd_ptr* <b>state</b>, <i></i>
+  bdd_ptr* <b>input</b> <i></i>
+)
+</pre>
+<dd> Index is the number corresponding to the index the user
+  chose after having seen the result of the print method. state and
+  input will contain referenced bdds representing the chose
+  state-input pair, but input might be NULL for the initial state
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_state_input_det"></A>
+void <I></I>
+<B>SimulateTransSet_get_state_input_det</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  bdd_ptr* <b>state</b>, <i></i>
+  bdd_ptr* <b>input</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_get_state_input_rand"></A>
+void <I></I>
+<B>SimulateTransSet_get_state_input_rand</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  bdd_ptr* <b>state</b>, <i></i>
+  bdd_ptr* <b>input</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="SimulateTransSet_print"></A>
+int <I></I>
+<B>SimulateTransSet_print</B>(
+  const SimulateTransSet_ptr  <b>self</b>, <i></i>
+  boolean  <b>show_changes_only</b>, <i></i>
+  FILE* <b>output</b> <i></i>
+)
+</pre>
+<dd> Returned value is the maximum index that can be chosen by 
+  user in interactive mode
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateTransSet.c"TARGET="ABSTRACT"><CODE>simulateTransSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_ChooseOneStateInput"></A>
+void <I></I>
+<B>Simulate_ChooseOneStateInput</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>from_state</b>, <i></i>
+  bdd_ptr  <b>next_set</b>, <i></i>
+  Simulation_Mode  <b>mode</b>, <i></i>
+  int  <b>display_all</b>, <i></i>
+  bdd_ptr* <b>input</b>, <i></i>
+  bdd_ptr* <b>state</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_ChooseOneState"></A>
+bdd_ptr <I></I>
+<B>Simulate_ChooseOneState</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>next_set</b>, <i></i>
+  Simulation_Mode  <b>mode</b>, <i></i>
+  int  <b>display_all</b> <i></i>
+)
+</pre>
+<dd> Chooses a state among future states depending on the
+  given simulation policy (random, deterministic or interactive). In case of
+        interactive simulation, the system stops and allows the user to pick
+        a state from a list of possible items. If the number of future states
+        is too high, the system requires some further constraints to limit that
+        number and will asks for them until the number of states is lower than
+        an internal threshold. Entered expressions are accumulated in one big
+        constraint used only in the actual step of the simulation. It will be
+        discarded after a state will be chosen.
+<p>
+
+<dd> <b>Side Effects</b> A referenced state (BDD) is returned. NULL if failed.
+<p>
+
+<dd> <b>See Also</b> <code>Simulate_MultipleStep
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_CmdPickOneState"></A>
+int <I></I>
+<B>Simulate_CmdPickOneState</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  Simulation_Mode  <b>mode</b>, <i></i>
+  int  <b>display_all</b>, <i></i>
+  char * <b>strConstr</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_End"></A>
+void <I></I>
+<B>Simulate_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quits the simulate package
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_Init"></A>
+void <I></I>
+<B>Simulate_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the simulate package.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Simulate_MultipleSteps"></A>
+node_ptr <I></I>
+<B>Simulate_MultipleSteps</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>constraint</b>, <i></i>
+  boolean  <b>time_shift</b>, <i></i>
+  Simulation_Mode  <b>mode</b>, <i></i>
+  int  <b>n</b>, <i></i>
+  int  <b>display_all</b> <i></i>
+)
+</pre>
+<dd> Multiple step simulation: loops n times over the choice of
+  a state according to the picking policy given at command line. It returns a
+  list of at least n+1 referenced states (the first one is always the "current
+  state" from which any simulation must start). The obtained list can contain
+  a minor number of states if there are no future states at some point.
+<p>
+
+<dd> <b>See Also</b> <code>Simulate_ChooseOneState
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_accumulate_constraints"></A>
+bdd_ptr <I></I>
+<B>simulate_accumulate_constraints</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  int  <b>max_size</b> <i></i>
+)
+</pre>
+<dd> There are 4 condition to be verified in order to accept
+        new further constraints:
+
+        1) entered expression must be a non-zero set;
+
+  2) entered expression must be consistent with the accumulated
+        constraints (i.e. the product (further / accumulated) must be
+        non-zero;
+
+  3) if (further / accumulated) is non-zero, it also must be
+        non-zero the product (further / accumulated) / next_set of
+        states
+
+  4) cardinality of the set obtained from the last product must
+     be <= shown_states
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_choose_next"></A>
+void <I></I>
+<B>simulate_choose_next</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>from_state</b>, <i></i>
+  bdd_ptr  <b>next_state_set</b>, <i></i>
+  Simulation_Mode  <b>mode</b>, <i></i>
+  int  <b>display_all</b>, <i></i>
+  bdd_ptr* <b>which_input</b>, <i></i>
+  bdd_ptr* <b>which_state</b> <i></i>
+)
+</pre>
+<dd> from_state can be NULL from the initial set of states.
+  At the end which_input will contained the chosen input (if any, NULL
+  otherwise) and which_state will contain the chosen state
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_get_constraints_from_string"></A>
+bdd_ptr <I></I>
+<B>simulate_get_constraints_from_string</B>(
+  const char* <b>constr_str</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  boolean  <b>allow_nexts</b>, <i></i>
+  boolean  <b>allow_inputs</b> <i></i>
+)
+</pre>
+<dd> Input variables are allowed to occur in the passed
+                      constraint iff allow_inputs is true.
+
+                      Next operators are allowed to occur in the passed
+                      constraint iff allow_nexts is true.
+
+                      If an error occurs, NULL is returned and a
+                      message is printed.
+
+                      This function does not raises any
+                      exception. Returned BDD must be freed by the
+                      caller. In error messages it is assumed that
+                      constr_str is read from the command line.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_request_constraints"></A>
+bdd_ptr <I></I>
+<B>simulate_request_constraints</B>(
+  BddEnc_ptr  <b>enc</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_sigterm"></A>
+void <I></I>
+<B>simulate_sigterm</B>(
+  int  <b>sig</b> <i></i>
+)
+</pre>
+<dd> SIGINT signal handler inside the simulator.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulate.c"TARGET="ABSTRACT"><CODE>simulate.c</CODE></A>
+
+<dt><pre>
+<A NAME="simulate_store_and_print_trace"></A>
+void <I></I>
+<B>simulate_store_and_print_trace</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>fragment</b>, <i></i>
+  boolean  <b>printyesno</b>, <i></i>
+  boolean  <b>only_changes</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Extends current simulation trace by creating a new
+                trace for simulation fragment and concatenating it to
+                existing one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trace_concat">Trace_concat</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="simulateAllFile.html#simulateCmd.c"TARGET="ABSTRACT"><CODE>simulateCmd.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

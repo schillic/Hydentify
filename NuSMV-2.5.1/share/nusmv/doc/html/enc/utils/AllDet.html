@@ -1,0 +1,1184 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="AddArray_create"></A>
+AddArray_ptr <I></I>
+<B>AddArray_create</B>(
+  int  <b>number</b> <i></i>
+)
+</pre>
+<dd> number must be positive. The index of the 
+  array goes from 0 to (number - 1).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_destroy"></A>
+void <I></I>
+<B>AddArray_destroy</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The memory will be freed and all ADD will be
+  de-referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_duplicate"></A>
+AddArray_ptr <I></I>
+<B>AddArray_duplicate</B>(
+  AddArray_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> During duplication all ADD will be referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_from_add"></A>
+AddArray_ptr <I></I>
+<B>AddArray_from_add</B>(
+  add_ptr  <b>add</b> <i></i>
+)
+</pre>
+<dd> Given ADD must already be referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_from_word_number"></A>
+AddArray_ptr <I></I>
+<B>AddArray_from_word_number</B>(
+  DdManager* <b>dd</b>, <i></i>
+  WordNumber_ptr  <b>wn</b> <i></i>
+)
+</pre>
+<dd> Returned add array has the same width as the given word
+  number
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_get_add_size"></A>
+size_t <I></I>
+<B>AddArray_get_add_size</B>(
+  const AddArray_ptr  <b>self</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the sum of the sizes of the ADDs within self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_get_add"></A>
+add_ptr <I></I>
+<B>AddArray_get_add</B>(
+  AddArray_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The array should contain exactly one element
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_get_n"></A>
+add_ptr <I></I>
+<B>AddArray_get_n</B>(
+  AddArray_ptr  <b>self</b>, <i></i>
+  int  <b>number</b> <i></i>
+)
+</pre>
+<dd> "n" can be from 0 to (size-1).
+  The returned ADD is NOT referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_get_size"></A>
+int <I></I>
+<B>AddArray_get_size</B>(
+  AddArray_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> returns the size (number of elements) of the array
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_make_conjunction"></A>
+add_ptr <I></I>
+<B>AddArray_make_conjunction</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Returned ADD is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_make_disjunction"></A>
+add_ptr <I></I>
+<B>AddArray_make_disjunction</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Returned ADD is referenced
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_set_n"></A>
+void <I></I>
+<B>AddArray_set_n</B>(
+  AddArray_ptr  <b>self</b>, <i></i>
+  int  <b>number</b>, <i></i>
+  add_ptr  <b>add</b> <i></i>
+)
+</pre>
+<dd> The given ADD "add" must already be referenced.
+  The previous value should already be de-referenced if it is necessary.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_apply_binary"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_apply_binary</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  FP_A_DAA  <b>op</b> <i></i>
+)
+</pre>
+<dd> Returned AddArray must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_apply_unary"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_apply_unary</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  FP_A_DA  <b>op</b> <i></i>
+)
+</pre>
+<dd> Returned AddArray must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_bit_selection"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_bit_selection</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>word</b>, <i></i>
+  AddArray_ptr  <b>range</b> <i></i>
+)
+</pre>
+<dd> The high-bit and low-bit of selections
+  are specified by "range". "range" must
+  be ADD leafs with a RANGE node (holding two integer constants,
+  and these constant must be in the range [width-1, 0
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_concatenation"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_concatenation</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_ite"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_ite</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>_if</b>, <i></i>
+  AddArray_ptr  <b>_then</b>, <i></i>
+  AddArray_ptr  <b>_else</b> <i></i>
+)
+</pre>
+<dd> The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_left_rotate"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_left_rotate</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b> <i></i>
+)
+</pre>
+<dd> The "number" argument represent 
+  the number of bits to rotate. "number" should have only one ADD.
+  NB: The invoker should destroy the returned array.
+
+  NB for developers:
+  Every i-th bit  of returned array will be:
+       ITE(number=0 , arg[i
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_left_shift"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_left_shift</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b> <i></i>
+)
+</pre>
+<dd> The "number" argument represent 
+  the number of bits to shift. "number" can be a usual integer (and
+  consist of one ADD) or be an unsigned word (and consist of many ADDs).
+  NB: The invoker should destroy the returned array.
+
+  NB for developers:
+  Every i-th bit of returned array will be:
+       ITE(number=0 , arg[i
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_minus"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_minus</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_not_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_not_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_plus"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_plus</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_right_rotate"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_right_rotate</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b> <i></i>
+)
+</pre>
+<dd> The "number" argument represent 
+  the number of bits to rotate. "number" should have only one ADD.
+  NB: The invoker should destroy the returned array.
+
+  NB for developers:
+  Every i-th bit of returned array will be:
+       ITE(number=0 , arg[i
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_divide"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_divide</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_extend"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_extend</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>arg_repeat</b> <i></i>
+)
+</pre>
+<dd> This extension means that the sign (highest) bit 
+  is added 'arg_repeat' times on the left.
+  'arg_repeat' has to be a constant number.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_extend">AddArray_word_extend</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_greater_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_greater_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_greater"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_greater</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_less_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_less_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_less"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_less</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_mod"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_mod</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_resize"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_resize</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>word</b>, <i></i>
+  AddArray_ptr  <b>new_size</b> <i></i>
+)
+</pre>
+<dd> See note 3136 in issue #1787 for full description of
+  signed resize semantics. "new_size" must be ADD leafs with a NUMBER
+  node.NB: The invoker should destroy the returned array.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_unsigned_resize">AddArray_word_unsigned_resize</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_signed_right_shift"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_signed_right_shift</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b> <i></i>
+)
+</pre>
+<dd> See add_array_word_right_shift.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_array_word_right_shift">add_array_word_right_shift</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_times"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_times</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unary_minus"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unary_minus</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> The return expression is equal to (0 - arg)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_divide"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_divide</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_extend"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_extend</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>arg_repeat</b> <i></i>
+)
+</pre>
+<dd> This extension means that the zero bit
+  is added 'arg_repeat' times on the left.
+  'arg_repeat' has to be a constant number.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_signed_extend">AddArray_word_signed_extend</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_greater_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_greater_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_greater"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_greater</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_less_equal"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_less_equal</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_less"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_less</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> the size of arguments should be the same
+  The returned array will constain only one (boolean) ADD.
+  NB: The invoker should destroy the returned array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_mod"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_mod</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_resize"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_resize</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>word</b>, <i></i>
+  AddArray_ptr  <b>new_size</b> <i></i>
+)
+</pre>
+<dd> See note 3136 in issue #1787 for full description of
+  signed resize semantics. "new_size" must be ADD leafs with a NUMBER
+  node.NB: The invoker should destroy the returned array.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_signed_resize">AddArray_word_signed_resize</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="AddArray_word_unsigned_right_shift"></A>
+AddArray_ptr <I></I>
+<B>AddArray_word_unsigned_right_shift</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b> <i></i>
+)
+</pre>
+<dd> See add_array_word_right_shift.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_array_word_right_shift">add_array_word_right_shift</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_add_variables"></A>
+void <I></I>
+<B>OrdGroups_add_variables</B>(
+  OrdGroups_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>vars</b>, <i></i>
+  int  <b>group</b> <i></i>
+)
+</pre>
+<dd> The addition of each variable is performed only if the
+  variable has not been already added to the same group.  If the
+  variable has been already added but to a different group, an error
+  occurs. The group must be already existing.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_add_variable"></A>
+void <I></I>
+<B>OrdGroups_add_variable</B>(
+  OrdGroups_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  int  <b>group</b> <i></i>
+)
+</pre>
+<dd> The addition is performed only if the variable has not
+  been already added to the same group.  If the variable has been
+  already added but to a different group, an error occurs. The group 
+  must be already existing.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_copy"></A>
+OrdGroups_ptr <I></I>
+<B>OrdGroups_copy</B>(
+  const OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance is a copy of self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_create_group"></A>
+int <I></I>
+<B>OrdGroups_create_group</B>(
+  OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Creates a new group, and returns the group ID for 
+  future reference
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_create"></A>
+OrdGroups_ptr <I></I>
+<B>OrdGroups_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Class constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_destroy"></A>
+void <I></I>
+<B>OrdGroups_destroy</B>(
+  OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_get_size"></A>
+int <I></I>
+<B>OrdGroups_get_size</B>(
+  const OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of available groups
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_get_var_group"></A>
+int <I></I>
+<B>OrdGroups_get_var_group</B>(
+  const OrdGroups_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> -1 is returned if the variable does not belong to any
+  group.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="OrdGroups_get_vars_in_group"></A>
+NodeList_ptr <I></I>
+<B>OrdGroups_get_vars_in_group</B>(
+  const OrdGroups_ptr  <b>self</b>, <i></i>
+  int  <b>group</b> <i></i>
+)
+</pre>
+<dd> Returned list instance still belongs to self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_adder"></A>
+static void <I></I>
+<B>add_array_adder</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  add_ptr  <b>carry_in</b>, <i></i>
+  AddArray_ptr* <b>res</b>, <i></i>
+  add_ptr* <b>carry_out</b> <i></i>
+)
+</pre>
+<dd> The sum is returned by the parameter res (the invoker
+  must destroy this array), and the final carry-bit is returned by the
+  parameter carry_out (the ADD is referenced).
+  The size of input arrays must be equal(and positive).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_create_default_value_of_shift_operation"></A>
+static add_ptr <I></I>
+<B>add_array_create_default_value_of_shift_operation</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>number</b>, <i></i>
+  int  <b>width</b>, <i></i>
+  add_ptr  <b>defaultBit</b>, <i></i>
+  const char* <b>errMessage</b> <i></i>
+)
+</pre>
+<dd> This function is used in shift operations.
+  See, for example, AddArray_word_left_shift.
+
+  The 'number' is ADD of the number of bit the Word is shifted.
+  'width' is the width of the given Word expression.
+  'defaultBit' is a bit which pads the shifted bit.
+  'errMessage' is the error message to print if number is out of range,
+  for example, "Right operand of left-shift is out of range".
+
+  NB: The returned ADD is referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_full_adder"></A>
+static void <I></I>
+<B>add_array_full_adder</B>(
+  DdManager* <b>dd</b>, <i></i>
+  add_ptr  <b>arg1</b>, <i></i>
+  add_ptr  <b>arg2</b>, <i></i>
+  add_ptr  <b>carry_in</b>, <i></i>
+  add_ptr* <b>sum</b>, <i></i>
+  add_ptr* <b>carry_out</b> <i></i>
+)
+</pre>
+<dd> The returned ADD (sum and carry_out) are referenced.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_negate_bits"></A>
+static AddArray_ptr <I></I>
+<B>add_array_negate_bits</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> the result of the functions is a new array
+        [!arg[0
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_signed_division_remainder_hardware"></A>
+static void <I></I>
+<B>add_array_signed_division_remainder_hardware</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  AddArray_ptr* <b>quotient</b>, <i></i>
+  AddArray_ptr* <b>remainder</b> <i></i>
+)
+</pre>
+<dd> The quotient and the remainder is returned in the 
+  parameters "quotient" and "remainder" respectively.
+  The invoker should free the returned arrays.
+
+  The size of arguments should be the same (and positive).
+
+  Every bit of the resulting arrays is wrapped in ITE which check
+  the second argument (of the operation) for not being zero.
+
+  NOTE FOR DEVELOPER: the provided functionality was implemented in
+  two forms: as function add_array_signed_division_remainder_simple
+  (which is the simplest) and as function
+  add_array_signed_division_remainder_harware (which resembles the
+  hardware implemenation of signed division). Preliminary benchmarking
+  showed that add_array_signed_division_remainder_harware runs quicker
+  (so it is used now).  Proper benchmarks are still needed to choose
+  one and remove the other one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_array_signed_division_remainder_simple">add_array_signed_division_remainder_simple</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_signed_division_remainder_simple"></A>
+static void <I></I>
+<B>add_array_signed_division_remainder_simple</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  AddArray_ptr* <b>quotient</b>, <i></i>
+  AddArray_ptr* <b>remainder</b> <i></i>
+)
+</pre>
+<dd> The quotient and the remainder is returned in the 
+  parameters "quotient" and "remainder" respectively.
+  The invoker should free the returned arrays.
+
+  The size of arguments should be the same (and positive).
+
+  Every bit of the resulting arrays is wrapped in ITE which check
+  the second argument (of the operation) for not being zero.
+
+  NOTE FOR DEVELOPER: the provided functionality was implemented in
+  two forms: as function add_array_signed_division_remainder_simple
+  (which is the simplest) and as function
+  add_array_signed_division_remainder_harware (which resembles the
+  hardware implemenation of signed division). Preliminary benchmarking
+  showed that add_array_signed_division_remainder_harware runs quicker
+  (so it is used now).  Proper benchmarks are still needed to choose
+  one and remove the other one.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_array_unsigned_division_remainder">add_array_unsigned_division_remainder</a>
+<a href="#add_array_signed_division_remainder_harware">add_array_signed_division_remainder_harware</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_unsigned_division_remainder"></A>
+static void <I></I>
+<B>add_array_unsigned_division_remainder</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  AddArray_ptr* <b>quotient</b>, <i></i>
+  AddArray_ptr* <b>remainder</b> <i></i>
+)
+</pre>
+<dd> The quotient and the remainder is returned in the 
+  parameters "quotient" and "remainder" respectively.
+  The invoker should free the returned arrays.
+
+  The size of arguments should be the same (and positive).
+
+  Every bit of the resulting arrays is wrapped in ITE which check
+  the second argument (of the operation) for not being zero.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#add_array_signed_division_remainder">add_array_signed_division_remainder</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_word_extend"></A>
+static AddArray_ptr <I></I>
+<B>add_array_word_extend</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>arg_repeat</b>, <i></i>
+  add_ptr  <b>paddingBit</b> <i></i>
+)
+</pre>
+<dd> This extension means that a padding bit (paddingBit) is
+  added 'arg_repeat' times on the left.  'arg_repeat' has to be a
+  constant number.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_signed_extend">AddArray_word_signed_extend</a>
+<a href="#AddArray_word_unsigned_extend">AddArray_word_unsigned_extend</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_word_plus_negated_and_one"></A>
+AddArray_ptr <I></I>
+<B>add_array_word_plus_negated_and_one</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b>, <i></i>
+  add_ptr* <b>carry</b> <i></i>
+)
+</pre>
+<dd> The size of both arguments should be the same.
+  'carry' must be not zero and is used to return carry bit of
+  performed operation.
+  Note the overflow or underflow can be detected by checking (not
+  carry-bit).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_word_right_shift"></A>
+AddArray_ptr <I></I>
+<B>add_array_word_right_shift</B>(
+  DdManager* <b>dd</b>, <i></i>
+  AddArray_ptr  <b>arg</b>, <i></i>
+  AddArray_ptr  <b>number</b>, <i></i>
+  boolean  <b>isSigned</b> <i></i>
+)
+</pre>
+<dd> The "number" argument represent 
+  the number of bits to shift. "number" should have only one ADD.
+  "isSigned" is a flag that the word is signed or unsigned.
+
+  NB: The invoker should destroy the returned array.
+
+  Every i-th bit of returned array will be:
+       ITE(number=0 , arg[i
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="add_array_word_signed_comparison"></A>
+static AddArray_ptr <I></I>
+<B>add_array_word_signed_comparison</B>(
+  DdManager* <b>dd</b>, <i></i>
+  APFDAA  <b>op</b>, <i></i>
+  AddArray_ptr  <b>arg1</b>, <i></i>
+  AddArray_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> op can be: any signed relational functions such as 
+  AddArray_word_less, AddArray_word_less_equal, etc
+<p>
+
+<dd> <b>See Also</b> <code><a href="#AddArray_word_signed_less">AddArray_word_signed_less</a>
+<a href="#AddArray_word_signed_less_equal">AddArray_word_signed_less_equal</a>
+<a href="#AddArray_word_signed_greater">AddArray_word_signed_greater</a>
+<a href="#AddArray_word_signed_greater_equal">AddArray_word_signed_greater_equal</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME="enc_utils_parse_ordering_file"></A>
+OrdGroups_ptr <I></I>
+<B>enc_utils_parse_ordering_file</B>(
+  const char* <b>order_filename</b>, <i></i>
+  const BoolEnc_ptr  <b>bool_enc</b> <i></i>
+)
+</pre>
+<dd> The returned instance belongs to the caller. It is a
+  caller's responsability to destroy it. order_filename can be NULL
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#utils.c"TARGET="ABSTRACT"><CODE>utils.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_allocate_new_group"></A>
+static int <I></I>
+<B>ord_groups_allocate_new_group</B>(
+  OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Extends the array of groups if needed. Extension is
+  performed with a grow factor.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_associate_name_to_group"></A>
+static void <I></I>
+<B>ord_groups_associate_name_to_group</B>(
+  OrdGroups_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  int  <b>group</b> <i></i>
+)
+</pre>
+<dd> Use this method to access to the hash name_to_group, 
+  as values are stored in a tricky way.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_copy"></A>
+static void <I></I>
+<B>ord_groups_copy</B>(
+  const OrdGroups_ptr  <b>self</b>, <i></i>
+  OrdGroups_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Private class copier
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_deinit"></A>
+static void <I></I>
+<B>ord_groups_deinit</B>(
+  OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private deinitializer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_init"></A>
+static void <I></I>
+<B>ord_groups_init</B>(
+  OrdGroups_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private class initializer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME="ord_groups_name_to_group"></A>
+static int <I></I>
+<B>ord_groups_name_to_group</B>(
+  OrdGroups_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> use this method to access the hash table name_to_group, 
+  as the way goups are stored within it is very tricky.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#OrdGroups.c"TARGET="ABSTRACT"><CODE>OrdGroups.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The type AddArray_ptr is used just to hide
+  array_t (to enable type-checking by compilers).
+  But the actuall data-structure used is array_t.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> See array2AddArray
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#AddArray.c"TARGET="ABSTRACT"><CODE>AddArray.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

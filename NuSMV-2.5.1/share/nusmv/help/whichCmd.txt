@@ -1,0 +1,19 @@
+  which - Looks for a file called "file_name"
+
+   --------------------------------------------------------------------------
+
+   which [-h] <file_name>
+
+   Looks for a file in a set of directories which includes the current
+   directory as well as those in the NuSMV path. If it finds the specified
+   file, it reports the found file's path. The searching path is specified
+   through the "set open_path" command in ".nusmvrc".
+
+   Command options:
+
+   <file_name>
+           File to be searched
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

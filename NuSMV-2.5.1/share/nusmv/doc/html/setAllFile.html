@@ -1,0 +1,155 @@
+<HTML>
+<HEAD><TITLE>The set package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#set.h"><CODE>set.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#setInt.h"><CODE>setInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#setSet.c"><CODE>setSet.c</CODE></A>
+ <DD> Generic Set Data Structure
+</DL><HR>
+<A NAME="set.h"><H1>set.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+ <DT> <A HREF="setAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> use this to iterate over a set
+
+</DL>
+<HR>
+<A NAME="setInt.h"><H1>setInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<P><B>See Also</B><A HREF="#optional"><CODE>optional</CODE></A>
+<DL>
+</DL>
+<HR>
+<A NAME="setSet.c"><H1>setSet.c</H1></A>
+Generic Set Data Structure <P>
+<B>By: Marco Roveri, Roberto Cavada</B><P>
+This package provides an implementation of sets. Sets
+  are ordered, meaning that elements can be traversed in the same
+  chronological order they have been added. Uniqueness is not assured,
+  meaning that you might have to idential sets that are stored into
+  two different structures. This means that you cannot compare two
+  sets by comparing their sets. For further details see the
+  description about the Set_t structure <P>
+<DL>
+ <DT> <A HREF="setAllDet.html#set_pkg_init" TARGET="MAIN"><CODE>set_pkg_init()</CODE></A>
+ <DD> Initializes the set package
+
+ <DT> <A HREF="setAllDet.html#set_pkg_quit" TARGET="MAIN"><CODE>set_pkg_quit()</CODE></A>
+ <DD> De-Initializes the set package
+
+ <DT> <A HREF="setAllDet.html#Set_MakeEmpty" TARGET="MAIN"><CODE>Set_MakeEmpty()</CODE></A>
+ <DD> Create a generic empty set
+
+ <DT> <A HREF="setAllDet.html#Set_Make" TARGET="MAIN"><CODE>Set_Make()</CODE></A>
+ <DD> Given a list, builds a corresponding set
+
+ <DT> <A HREF="setAllDet.html#Set_MakeSingleton" TARGET="MAIN"><CODE>Set_MakeSingleton()</CODE></A>
+ <DD> Creates a Singleton
+
+ <DT> <A HREF="setAllDet.html#Set_MakeFromUnion" TARGET="MAIN"><CODE>Set_MakeFromUnion()</CODE></A>
+ <DD> Given an union node, builds a corresponding set
+
+ <DT> <A HREF="setAllDet.html#Set_Copy" TARGET="MAIN"><CODE>Set_Copy()</CODE></A>
+ <DD> Returns the independent copy of a set
+
+ <DT> <A HREF="setAllDet.html#Set_ReleaseSet" TARGET="MAIN"><CODE>Set_ReleaseSet()</CODE></A>
+ <DD> Frees a set
+
+ <DT> <A HREF="setAllDet.html#Set_ReleaseSetOfSet" TARGET="MAIN"><CODE>Set_ReleaseSetOfSet()</CODE></A>
+ <DD> Frees a set of sets
+
+ <DT> <A HREF="setAllDet.html#Set_IsEmpty" TARGET="MAIN"><CODE>Set_IsEmpty()</CODE></A>
+ <DD> Set Emptiness
+
+ <DT> <A HREF="setAllDet.html#Set_IsMember" TARGET="MAIN"><CODE>Set_IsMember()</CODE></A>
+ <DD> Set memberships
+
+ <DT> <A HREF="setAllDet.html#Set_GiveCardinality" TARGET="MAIN"><CODE>Set_GiveCardinality()</CODE></A>
+ <DD> Set Cardinality
+
+ <DT> <A HREF="setAllDet.html#Set_AddMember" TARGET="MAIN"><CODE>Set_AddMember()</CODE></A>
+ <DD> Adds a new element to the set
+
+ <DT> <A HREF="setAllDet.html#Set_RemoveMember" TARGET="MAIN"><CODE>Set_RemoveMember()</CODE></A>
+ <DD> Removes the given element from the set, if found
+
+ <DT> <A HREF="setAllDet.html#Set_AddMembersFromList" TARGET="MAIN"><CODE>Set_AddMembersFromList()</CODE></A>
+ <DD> Adds all new elements found in list
+
+ <DT> <A HREF="setAllDet.html#Set_Contains" TARGET="MAIN"><CODE>Set_Contains()</CODE></A>
+ <DD> Checks if set1 contains set2
+
+ <DT> <A HREF="setAllDet.html#Set_Equals" TARGET="MAIN"><CODE>Set_Equals()</CODE></A>
+ <DD> Checks if set1 = set2
+
+ <DT> <A HREF="setAllDet.html#Set_Intersects" TARGET="MAIN"><CODE>Set_Intersects()</CODE></A>
+ <DD> Checks set1 and set2 has at least one common element
+
+ <DT> <A HREF="setAllDet.html#Set_Union" TARGET="MAIN"><CODE>Set_Union()</CODE></A>
+ <DD> Set Union
+
+ <DT> <A HREF="setAllDet.html#Set_Intersection" TARGET="MAIN"><CODE>Set_Intersection()</CODE></A>
+ <DD> Set intersection
+
+ <DT> <A HREF="setAllDet.html#Set_Difference" TARGET="MAIN"><CODE>Set_Difference()</CODE></A>
+ <DD> Set Difference
+
+ <DT> <A HREF="setAllDet.html#Set_GetRest" TARGET="MAIN"><CODE>Set_GetRest()</CODE></A>
+ <DD> Returns the rest of a set from a starting point
+
+ <DT> <A HREF="setAllDet.html#Set_Freeze" TARGET="MAIN"><CODE>Set_Freeze()</CODE></A>
+ <DD> Freezes a set
+
+ <DT> <A HREF="setAllDet.html#Set_GetFirstIter" TARGET="MAIN"><CODE>Set_GetFirstIter()</CODE></A>
+ <DD> Provides an iterator to the "first" element of the set
+
+ <DT> <A HREF="setAllDet.html#Set_GetNextIter" TARGET="MAIN"><CODE>Set_GetNextIter()</CODE></A>
+ <DD> Given an itarator of a set, returns the iterator pointing
+  to the next chronological element in that set.
+
+ <DT> <A HREF="setAllDet.html#Set_IsEndIter" TARGET="MAIN"><CODE>Set_IsEndIter()</CODE></A>
+ <DD> Returns true if the set iterator is at the end of the
+  iteration
+
+ <DT> <A HREF="setAllDet.html#Set_GetMember" TARGET="MAIN"><CODE>Set_GetMember()</CODE></A>
+ <DD> Returns the element at given iterator
+
+ <DT> <A HREF="setAllDet.html#Set_Set2List" TARGET="MAIN"><CODE>Set_Set2List()</CODE></A>
+ <DD> Given a set, returns the corresponding list
+
+ <DT> <A HREF="setAllDet.html#" TARGET="MAIN"><CODE>()</CODE></A>
+ <DD> Prints a set
+
+ <DT> <A HREF="setAllDet.html#set_create" TARGET="MAIN"><CODE>set_create()</CODE></A>
+ <DD> Internal constructor
+
+ <DT> <A HREF="setAllDet.html#set_copy" TARGET="MAIN"><CODE>set_copy()</CODE></A>
+ <DD> Internal copy constructor
+
+ <DT> <A HREF="setAllDet.html#set_copy_actual" TARGET="MAIN"><CODE>set_copy_actual()</CODE></A>
+ <DD> Internal copy constructor
+
+ <DT> <A HREF="setAllDet.html#set_destroy" TARGET="MAIN"><CODE>set_destroy()</CODE></A>
+ <DD> Internal destructor
+
+ <DT> <A HREF="setAllDet.html#set_check_frozen" TARGET="MAIN"><CODE>set_check_frozen()</CODE></A>
+ <DD> This methods checks family counter and returns either a 
+  new instance of self
+
+ <DT> <A HREF="setAllDet.html#set_check_list" TARGET="MAIN"><CODE>set_check_list()</CODE></A>
+ <DD> Fix the internal list if used actually
+
+ <DT> <A HREF="setAllDet.html#set_union_to_set_aux" TARGET="MAIN"><CODE>set_union_to_set_aux()</CODE></A>
+ <DD> Given a node (possibly a UNION node) returns the 
+  corresponding set
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

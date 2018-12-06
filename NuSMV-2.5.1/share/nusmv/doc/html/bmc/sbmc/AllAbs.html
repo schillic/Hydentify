@@ -1,0 +1,485 @@
+<HTML>
+<HEAD><TITLE> package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="AllDet.html#AtMostOnce" TARGET="MAIN"><CODE>AtMostOnce()</CODE></A>
+<DD> Creates an expression which allows at most one el_i to
+                      be true
+
+<DT> <A HREF="AllDet.html#BmcInt_SBMCTableau_GetAtTime" TARGET="MAIN"><CODE>BmcInt_SBMCTableau_GetAtTime()</CODE></A>
+<DD> Given a wff expressed in ltl builds the model-independent
+  tableau at 'time' of a path formula bounded by [k, l]
+
+<DT> <A HREF="AllDet.html#Bmc_Gen_SBMCProblem" TARGET="MAIN"><CODE>Bmc_Gen_SBMCProblem()</CODE></A>
+<DD> Returns the LTL problem at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+
+<DT> <A HREF="AllDet.html#Bmc_Hash_delete_table" TARGET="MAIN"><CODE>Bmc_Hash_delete_table()</CODE></A>
+<DD> Delete the table
+
+<DT> <A HREF="AllDet.html#Bmc_Hash_find" TARGET="MAIN"><CODE>Bmc_Hash_find()</CODE></A>
+<DD> Find a node in the table
+
+<DT> <A HREF="AllDet.html#Bmc_Hash_insert" TARGET="MAIN"><CODE>Bmc_Hash_insert()</CODE></A>
+<DD> Insert an element in the table
+
+<DT> <A HREF="AllDet.html#Bmc_Hash_new_htable" TARGET="MAIN"><CODE>Bmc_Hash_new_htable()</CODE></A>
+<DD> Create a new hash_table
+
+<DT> <A HREF="AllDet.html#Bmc_Hash_size" TARGET="MAIN"><CODE>Bmc_Hash_size()</CODE></A>
+<DD> Return the number of occupied slots
+
+<DT> <A HREF="AllDet.html#Bmc_SBMCGenSolveLtl" TARGET="MAIN"><CODE>Bmc_SBMCGenSolveLtl()</CODE></A>
+<DD> Given a LTL property generates and solve the problems
+  for all Ki (k_min<=i<=k_max). If bIncreaseK is 0 then k_min==k_max==k and
+  only one problem is generated. If bIncreaseK is 1 then k_min == 0 and
+  k_max == k.
+  Each problem Ki takes into account of all possible loops from k_min to Ki
+  if loopback is '*' (BMC_ALL_LOOPS). <BR>
+  Also see the Bmc_GenSolve_Action possible values
+
+<DT> <A HREF="AllDet.html#Bmc_SBMCTableau_GetAllLoops" TARGET="MAIN"><CODE>Bmc_SBMCTableau_GetAllLoops()</CODE></A>
+<DD> Builds tableau for all possible loops in [l, k[,
+  taking into account of fairness using Kepa/Timo method
+
+<DT> <A HREF="AllDet.html#Bmc_SBMCTableau_GetLoopCondition" TARGET="MAIN"><CODE>Bmc_SBMCTableau_GetLoopCondition()</CODE></A>
+<DD> Builds a tableau that constraints state k to be equal to
+                      state l. This is the condition for a path of length (k+1)
+                      to represent a (k-l)loop (new semantics).
+
+<DT> <A HREF="AllDet.html#Bmc_SBMCTableau_GetNoLoop" TARGET="MAIN"><CODE>Bmc_SBMCTableau_GetNoLoop()</CODE></A>
+<DD> Builds tableau without loop
+
+<DT> <A HREF="AllDet.html#Bmc_SBMCTableau_GetSingleLoop" TARGET="MAIN"><CODE>Bmc_SBMCTableau_GetSingleLoop()</CODE></A>
+<DD> Builds tableau for a single loop. This function takes
+                      into account of fairness
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_delete" TARGET="MAIN"><CODE>Bmc_Stack_delete()</CODE></A>
+<DD> Delete the stack
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_new_stack" TARGET="MAIN"><CODE>Bmc_Stack_new_stack()</CODE></A>
+<DD> Create a new stack
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_pop" TARGET="MAIN"><CODE>Bmc_Stack_pop()</CODE></A>
+<DD> Pop an element from the stack
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_push" TARGET="MAIN"><CODE>Bmc_Stack_push()</CODE></A>
+<DD> Push a node unto the stack
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_size" TARGET="MAIN"><CODE>Bmc_Stack_size()</CODE></A>
+<DD> Return the number of occupied slots
+
+<DT> <A HREF="AllDet.html#Bmc_Stack_top" TARGET="MAIN"><CODE>Bmc_Stack_top()</CODE></A>
+<DD> Return the top element of the stack
+
+<DT> <A HREF="AllDet.html#Loop" TARGET="MAIN"><CODE>Loop()</CODE></A>
+<DD> Creates the expression: wedge_{i=0}^{k-1} el_i =>
+                      (s_i <=> s_k)
+
+<DT> <A HREF="AllDet.html#SBmc_AddCmd" TARGET="MAIN"><CODE>SBmc_AddCmd()</CODE></A>
+<DD> Adds all bmc-related commands to the interactive shell
+
+<DT> <A HREF="AllDet.html#SBmc_Init" TARGET="MAIN"><CODE>SBmc_Init()</CODE></A>
+<DD> Initializes the SBMC sub package
+
+<DT> <A HREF="AllDet.html#SBmc_Quit" TARGET="MAIN"><CODE>SBmc_Quit()</CODE></A>
+<DD> Frees all resources allocated for SBMC
+
+<DT> <A HREF="AllDet.html#Sbmc_CommandCheckLtlSpecSBmc" TARGET="MAIN"><CODE>Sbmc_CommandCheckLtlSpecSBmc()</CODE></A>
+<DD> Uses Kepa's and Timo's method for doing bmc
+
+<DT> <A HREF="AllDet.html#Sbmc_CommandGenLtlSpecSBmc" TARGET="MAIN"><CODE>Sbmc_CommandGenLtlSpecSBmc()</CODE></A>
+<DD> Generate length_max+1 problems iterating the problem
+  bound from zero to length_max, and dumps each problem to a dimacs file.
+  Uses Kepa's and Timo's method for doing bmc
+
+<DT> <A HREF="AllDet.html#Sbmc_CommandLTLCheckZigzagInc" TARGET="MAIN"><CODE>Sbmc_CommandLTLCheckZigzagInc()</CODE></A>
+<DD> Uses Kepa's and Timo's method for doing incremental bmc
+
+<DT> <A HREF="AllDet.html#Sbmc_Utils_generate_and_print_cntexample" TARGET="MAIN"><CODE>Sbmc_Utils_generate_and_print_cntexample()</CODE></A>
+<DD> Extracts a trace from a sat assignment, and prints it.
+
+<DT> <A HREF="AllDet.html#Sbmc_Utils_generate_cntexample" TARGET="MAIN"><CODE>Sbmc_Utils_generate_cntexample()</CODE></A>
+<DD> Extracts a trace from a sat assignment.
+
+<DT> <A HREF="AllDet.html#Sbmc_check_psl_property" TARGET="MAIN"><CODE>Sbmc_check_psl_property()</CODE></A>
+<DD> Top-level function for bmc of PSL properties
+
+<DT> <A HREF="AllDet.html#bmcSBMC_tableau_GF_FG_last" TARGET="MAIN"><CODE>bmcSBMC_tableau_GF_FG_last()</CODE></A>
+<DD> Construct f(k) att full pastdepth for the GF-,F-,FG-, or G-operator
+
+<DT> <A HREF="AllDet.html#bmc_cache_delete" TARGET="MAIN"><CODE>bmc_cache_delete()</CODE></A>
+<DD> Frees the arrays used by the cache
+
+<DT> <A HREF="AllDet.html#bmc_cache_init" TARGET="MAIN"><CODE>bmc_cache_init()</CODE></A>
+<DD> Initialises the chache used to store f_i(time) and g_(time) 
+                      values.
+
+<DT> <A HREF="AllDet.html#bmc_expandFilename" TARGET="MAIN"><CODE>bmc_expandFilename()</CODE></A>
+<DD> This is only a useful wrapper for easily call
+  Bmc_Utils_ExpandMacrosInFilename
+
+<DT> <A HREF="AllDet.html#bmc_past_depth" TARGET="MAIN"><CODE>bmc_past_depth()</CODE></A>
+<DD> Computes the maximum nesting depth of past operators in PLTL formula
+
+<DT> <A HREF="AllDet.html#bmc_tableauGetEventuallyIL_opt" TARGET="MAIN"><CODE>bmc_tableauGetEventuallyIL_opt()</CODE></A>
+<DD> Returns an expression which initialises f(k+1) for 
+                      an F or an GF formula when we use the il-optimisation.
+
+<DT> <A HREF="AllDet.html#bmc_tableauGetGloballyIL_opt" TARGET="MAIN"><CODE>bmc_tableauGetGloballyIL_opt()</CODE></A>
+<DD> Returns an expression which initialises f(k+1) for 
+                      a 'globally' or an FG formula when we use the il-optimisation.
+
+<DT> <A HREF="AllDet.html#find" TARGET="MAIN"><CODE>find()</CODE></A>
+<DD> Return index of node, a free index if the node is not in the table
+
+<DT> <A HREF="AllDet.html#formulaMap" TARGET="MAIN"><CODE>formulaMap()</CODE></A>
+<DD> Map temporal subformulas to an integer, returns the
+                      number subformulas with temporal connectives
+
+<DT> <A HREF="AllDet.html#get_Eventually_at_time" TARGET="MAIN"><CODE>get_Eventually_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+formula ltl_wff is true at time, handles the FINALLY 
+operator
+
+<DT> <A HREF="AllDet.html#get_Globally_at_time" TARGET="MAIN"><CODE>get_Globally_at_time()</CODE></A>
+<DD> Generates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the GLOBALLY 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_Historically_at_time" TARGET="MAIN"><CODE>get_Historically_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the HISTORICALLY
+                      operator
+
+<DT> <A HREF="AllDet.html#get_Once_at_time" TARGET="MAIN"><CODE>get_Once_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the ONCE 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_Since_at_time" TARGET="MAIN"><CODE>get_Since_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the SINCE 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_Trigger_at_time" TARGET="MAIN"><CODE>get_Trigger_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the TRIGGER 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_Until_at_time" TARGET="MAIN"><CODE>get_Until_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the UNTIL 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_V_at_time" TARGET="MAIN"><CODE>get_V_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time, handles the RELEASE 
+                      operator
+
+<DT> <A HREF="AllDet.html#get_el_at_time" TARGET="MAIN"><CODE>get_el_at_time()</CODE></A>
+<DD> Returns a pointer to the el(time) variable
+
+<DT> <A HREF="AllDet.html#get_f_at_time" TARGET="MAIN"><CODE>get_f_at_time()</CODE></A>
+<DD> Genrates a boolean expression which is true iff the ltl
+                      formula ltl_wff is true at time
+
+<DT> <A HREF="AllDet.html#get_g_at_time" TARGET="MAIN"><CODE>get_g_at_time()</CODE></A>
+<DD> 
+
+<DT> <A HREF="AllDet.html#get_il_at_time" TARGET="MAIN"><CODE>get_il_at_time()</CODE></A>
+<DD> Returns a pointer to the il(time) variable
+
+<DT> <A HREF="AllDet.html#get_loop_exists" TARGET="MAIN"><CODE>get_loop_exists()</CODE></A>
+<DD> Returns a pointer to the le variable
+
+<DT> <A HREF="AllDet.html#last_f" TARGET="MAIN"><CODE>last_f()</CODE></A>
+<DD> Generate f(k,pastdepth) when pastdepth is less than
+  maximum pastdepth, except for OP_NEXT where pastdepth can also
+  be the maximum.
+
+<DT> <A HREF="AllDet.html#last_g" TARGET="MAIN"><CODE>last_g()</CODE></A>
+<DD> Generate the last f(k) for operators that use the 
+  auxillary encoding g.
+
+<DT> <A HREF="AllDet.html#sbmc_1_fresh_state_var" TARGET="MAIN"><CODE>sbmc_1_fresh_state_var()</CODE></A>
+<DD> Creates a new fresh state variable.
+
+<DT> <A HREF="AllDet.html#sbmc_E_state" TARGET="MAIN"><CODE>sbmc_E_state()</CODE></A>
+<DD> Routines for the state indexing scheme
+
+<DT> <A HREF="AllDet.html#sbmc_L_state" TARGET="MAIN"><CODE>sbmc_L_state()</CODE></A>
+<DD> Routines for the state indexing scheme
+
+<DT> <A HREF="AllDet.html#sbmc_MS_create_volatile_group" TARGET="MAIN"><CODE>sbmc_MS_create_volatile_group()</CODE></A>
+<DD> Create the volatile group in the meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_create" TARGET="MAIN"><CODE>sbmc_MS_create()</CODE></A>
+<DD> Creates a meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_destroy_volatile_group" TARGET="MAIN"><CODE>sbmc_MS_destroy_volatile_group()</CODE></A>
+<DD> Destroy the volatile group of the meta solver wrapper and
+  force use of the permanent one
+
+<DT> <A HREF="AllDet.html#sbmc_MS_destroy" TARGET="MAIN"><CODE>sbmc_MS_destroy()</CODE></A>
+<DD> Destroy a meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_force_constraint_list" TARGET="MAIN"><CODE>sbmc_MS_force_constraint_list()</CODE></A>
+<DD> Forces a list of BEs to be true in the solver.
+
+<DT> <A HREF="AllDet.html#sbmc_MS_force_true" TARGET="MAIN"><CODE>sbmc_MS_force_true()</CODE></A>
+<DD> Forces a BE to be true in the solver.
+
+<DT> <A HREF="AllDet.html#sbmc_MS_get_conflicts" TARGET="MAIN"><CODE>sbmc_MS_get_conflicts()</CODE></A>
+<DD> Returns the underlying solver
+
+<DT> <A HREF="AllDet.html#sbmc_MS_get_model" TARGET="MAIN"><CODE>sbmc_MS_get_model()</CODE></A>
+<DD> Returns the model (of previous solving)
+
+<DT> <A HREF="AllDet.html#sbmc_MS_get_solver" TARGET="MAIN"><CODE>sbmc_MS_get_solver()</CODE></A>
+<DD> Returns the underlying solver
+
+<DT> <A HREF="AllDet.html#sbmc_MS_goto_permanent_group" TARGET="MAIN"><CODE>sbmc_MS_goto_permanent_group()</CODE></A>
+<DD> Destroy the volatile group of the meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_goto_volatile_group" TARGET="MAIN"><CODE>sbmc_MS_goto_volatile_group()</CODE></A>
+<DD> Create and force use of the volatile group of
+  the meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_solve_assume" TARGET="MAIN"><CODE>sbmc_MS_solve_assume()</CODE></A>
+<DD> Solves all groups belonging to the solver assuming
+  the CNF assumptions and returns the flag.
+
+<DT> <A HREF="AllDet.html#sbmc_MS_solve" TARGET="MAIN"><CODE>sbmc_MS_solve()</CODE></A>
+<DD> Solves all groups belonging to the solver and
+  returns the flag.
+
+<DT> <A HREF="AllDet.html#sbmc_MS_switch_to_permanent_group" TARGET="MAIN"><CODE>sbmc_MS_switch_to_permanent_group()</CODE></A>
+<DD> Force use of the permanent group of
+  the meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_MS_switch_to_volatile_group" TARGET="MAIN"><CODE>sbmc_MS_switch_to_volatile_group()</CODE></A>
+<DD> Force use of the volatile group of
+  the meta solver wrapper
+
+<DT> <A HREF="AllDet.html#sbmc_SimplePaths" TARGET="MAIN"><CODE>sbmc_SimplePaths()</CODE></A>
+<DD> Build SimplePath_{i,k} for each 0<=i<k
+
+<DT> <A HREF="AllDet.html#sbmc_add_loop_variable" TARGET="MAIN"><CODE>sbmc_add_loop_variable()</CODE></A>
+<DD> Declares a new layer to contain the loop variable.
+
+<DT> <A HREF="AllDet.html#sbmc_add_new_state_variable" TARGET="MAIN"><CODE>sbmc_add_new_state_variable()</CODE></A>
+<DD> Declare a new boolean state variable in the layer.
+
+<DT> <A HREF="AllDet.html#sbmc_alloc_node_info" TARGET="MAIN"><CODE>sbmc_alloc_node_info()</CODE></A>
+<DD> Creates an empty structure to hold information
+  associated to each subformula.
+
+<DT> <A HREF="AllDet.html#sbmc_allocate_trans_vars" TARGET="MAIN"><CODE>sbmc_allocate_trans_vars()</CODE></A>
+<DD> Creates info->pastdepth+1 new state variables
+  for the main translation in info->trans_vars.
+
+<DT> <A HREF="AllDet.html#sbmc_build_InLoop_i" TARGET="MAIN"><CODE>sbmc_build_InLoop_i()</CODE></A>
+<DD> Build InLoop_i
+
+<DT> <A HREF="AllDet.html#sbmc_cmd_options_handling" TARGET="MAIN"><CODE>sbmc_cmd_options_handling()</CODE></A>
+<DD> Sbmc commands options handling for commands (optionally)
+  acceping options -k -l -o -p -n -N -c
+
+<DT> <A HREF="AllDet.html#sbmc_dependent" TARGET="MAIN"><CODE>sbmc_dependent()</CODE></A>
+<DD> required
+
+<DT> <A HREF="AllDet.html#sbmc_equal_vectors_formula" TARGET="MAIN"><CODE>sbmc_equal_vectors_formula()</CODE></A>
+<DD> Makes the BE formula "land_{v in vars} s_i = s_j"
+
+<DT> <A HREF="AllDet.html#sbmc_find_formula_vars" TARGET="MAIN"><CODE>sbmc_find_formula_vars()</CODE></A>
+<DD> Compute the variables that occur in the formula ltlspec.
+
+<DT> <A HREF="AllDet.html#sbmc_find_relevant_vars" TARGET="MAIN"><CODE>sbmc_find_relevant_vars()</CODE></A>
+<DD> Find state and input variables that occurr in the formula.
+
+<DT> <A HREF="AllDet.html#sbmc_formula_dependent" TARGET="MAIN"><CODE>sbmc_formula_dependent()</CODE></A>
+<DD> Create the formula specific k-dependent constraints.
+
+<DT> <A HREF="AllDet.html#sbmc_init_LTL_info" TARGET="MAIN"><CODE>sbmc_init_LTL_info()</CODE></A>
+<DD> Associates each subformula node of ltlspec with
+  a sbmc_LTL_info.
+
+<DT> <A HREF="AllDet.html#sbmc_init_state_vector" TARGET="MAIN"><CODE>sbmc_init_state_vector()</CODE></A>
+<DD> Initialize trans_bes[i
+
+<DT> <A HREF="AllDet.html#sbmc_loop_var_name_get" TARGET="MAIN"><CODE>sbmc_loop_var_name_get()</CODE></A>
+<DD> Gets the name of the loop variable.
+
+<DT> <A HREF="AllDet.html#sbmc_loop_var_name_set" TARGET="MAIN"><CODE>sbmc_loop_var_name_set()</CODE></A>
+<DD> Sets the name of the loop variable.
+
+<DT> <A HREF="AllDet.html#sbmc_make_boolean_formula" TARGET="MAIN"><CODE>sbmc_make_boolean_formula()</CODE></A>
+<DD> Takes a property and return the negation of the
+  property conjoined with the big and of fairness conditions.
+
+<DT> <A HREF="AllDet.html#sbmc_model_k" TARGET="MAIN"><CODE>sbmc_model_k()</CODE></A>
+<DD> Routines for the state indexing scheme
+
+<DT> <A HREF="AllDet.html#sbmc_n_fresh_state_vars" TARGET="MAIN"><CODE>sbmc_n_fresh_state_vars()</CODE></A>
+<DD> Creates N new fresh state variables.
+
+<DT> <A HREF="AllDet.html#sbmc_node_info_assoc_create" TARGET="MAIN"><CODE>sbmc_node_info_assoc_create()</CODE></A>
+<DD> Creates an asociative list for pairs node_ptr
+  sbmc_node_info *
+
+<DT> <A HREF="AllDet.html#sbmc_node_info_assoc_find" TARGET="MAIN"><CODE>sbmc_node_info_assoc_find()</CODE></A>
+<DD> Return the information associated to a
+  subformula if any.
+
+<DT> <A HREF="AllDet.html#sbmc_node_info_assoc_free" TARGET="MAIN"><CODE>sbmc_node_info_assoc_free()</CODE></A>
+<DD> Creates an asociative list for pairs node_ptr
+  sbmc_node_info *
+
+<DT> <A HREF="AllDet.html#sbmc_node_info_assoc_insert" TARGET="MAIN"><CODE>sbmc_node_info_assoc_insert()</CODE></A>
+<DD> Insert in the assoc table the infomrnation for
+  the subformula.
+
+<DT> <A HREF="AllDet.html#sbmc_node_info_free" TARGET="MAIN"><CODE>sbmc_node_info_free()</CODE></A>
+<DD> Frees a structure to hold information
+  associated to each subformula.
+
+<DT> <A HREF="AllDet.html#sbmc_print_Fvarmap" TARGET="MAIN"><CODE>sbmc_print_Fvarmap()</CODE></A>
+<DD> Prints some of the information associated to a F
+  formula
+
+<DT> <A HREF="AllDet.html#sbmc_print_Gvarmap" TARGET="MAIN"><CODE>sbmc_print_Gvarmap()</CODE></A>
+<DD> Prints some of the information associated to a G
+  formula
+
+<DT> <A HREF="AllDet.html#sbmc_print_node_list" TARGET="MAIN"><CODE>sbmc_print_node_list()</CODE></A>
+<DD> Prints a lsList of node_ptr
+
+<DT> <A HREF="AllDet.html#sbmc_print_node" TARGET="MAIN"><CODE>sbmc_print_node()</CODE></A>
+<DD> Print a node_ptr expression by prefixing and
+  suffixing it.
+
+<DT> <A HREF="AllDet.html#sbmc_print_varmap" TARGET="MAIN"><CODE>sbmc_print_varmap()</CODE></A>
+<DD> Prints some of the information associated to a
+  subformula
+
+<DT> <A HREF="AllDet.html#sbmc_real_k_string" TARGET="MAIN"><CODE>sbmc_real_k_string()</CODE></A>
+<DD> Routines for the state indexing scheme
+
+<DT> <A HREF="AllDet.html#sbmc_real_k" TARGET="MAIN"><CODE>sbmc_real_k()</CODE></A>
+<DD> Routines for the state indexing scheme
+
+<DT> <A HREF="AllDet.html#sbmc_remove_loop_variable" TARGET="MAIN"><CODE>sbmc_remove_loop_variable()</CODE></A>
+<DD> Remove the new layer to contain the loop variable.
+
+<DT> <A HREF="AllDet.html#sbmc_set_create" TARGET="MAIN"><CODE>sbmc_set_create()</CODE></A>
+<DD> Creates an associtative list to avoid duplicates
+  of node_ptr
+
+<DT> <A HREF="AllDet.html#sbmc_set_destroy" TARGET="MAIN"><CODE>sbmc_set_destroy()</CODE></A>
+<DD> Destroy an associative list used to avoid
+  duplicates of node_ptr.
+
+<DT> <A HREF="AllDet.html#sbmc_set_insert" TARGET="MAIN"><CODE>sbmc_set_insert()</CODE></A>
+<DD> Insert a node in the hash
+
+<DT> <A HREF="AllDet.html#sbmc_set_is_in" TARGET="MAIN"><CODE>sbmc_set_is_in()</CODE></A>
+<DD> Checks if a node_ptr was already inserted.
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_create" TARGET="MAIN"><CODE>sbmc_state_vars_create()</CODE></A>
+<DD> Creates an empty state_vars_struct
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_destroy" TARGET="MAIN"><CODE>sbmc_state_vars_destroy()</CODE></A>
+<DD> state_vars_struct destroyer
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_LastState_var" TARGET="MAIN"><CODE>sbmc_state_vars_get_LastState_var()</CODE></A>
+<DD> getter for field "LastState_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_LoopExists_var" TARGET="MAIN"><CODE>sbmc_state_vars_get_LoopExists_var()</CODE></A>
+<DD> getter for field "LoopExists_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_formula_input_vars" TARGET="MAIN"><CODE>sbmc_state_vars_get_formula_input_vars()</CODE></A>
+<DD> getter for field "formula_input_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_formula_state_vars" TARGET="MAIN"><CODE>sbmc_state_vars_get_formula_state_vars()</CODE></A>
+<DD> getter for field "formula_state_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_l_var" TARGET="MAIN"><CODE>sbmc_state_vars_get_l_var()</CODE></A>
+<DD> getter for field "l_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_simple_path_system_vars" TARGET="MAIN"><CODE>sbmc_state_vars_get_simple_path_system_vars()</CODE></A>
+<DD> getter for field "simple_path_system_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_trans_state_vars" TARGET="MAIN"><CODE>sbmc_state_vars_get_trans_state_vars()</CODE></A>
+<DD> getter for field "trans_state_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_translation_vars_aux" TARGET="MAIN"><CODE>sbmc_state_vars_get_translation_vars_aux()</CODE></A>
+<DD> getter for field "translation_vars_aux"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_translation_vars_pd0" TARGET="MAIN"><CODE>sbmc_state_vars_get_translation_vars_pd0()</CODE></A>
+<DD> getter for field "translation_vars_pd0"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_get_translation_vars_pdx" TARGET="MAIN"><CODE>sbmc_state_vars_get_translation_vars_pdx()</CODE></A>
+<DD> getter for field "translation_vars_pdx"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_print" TARGET="MAIN"><CODE>sbmc_state_vars_print()</CODE></A>
+<DD> Print a state_vars_struct
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_LastState_var" TARGET="MAIN"><CODE>sbmc_state_vars_set_LastState_var()</CODE></A>
+<DD> setter for field "LastState_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_LoopExists_var" TARGET="MAIN"><CODE>sbmc_state_vars_set_LoopExists_var()</CODE></A>
+<DD> setter for field "LoopExists_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_formula_input_vars" TARGET="MAIN"><CODE>sbmc_state_vars_set_formula_input_vars()</CODE></A>
+<DD> setter for field "formula_input_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_formula_state_vars" TARGET="MAIN"><CODE>sbmc_state_vars_set_formula_state_vars()</CODE></A>
+<DD> setter for field "formula_state_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_l_var" TARGET="MAIN"><CODE>sbmc_state_vars_set_l_var()</CODE></A>
+<DD> setter for field "l_var"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_simple_path_system_vars" TARGET="MAIN"><CODE>sbmc_state_vars_set_simple_path_system_vars()</CODE></A>
+<DD> setter for field "simple_path_system_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_trans_state_vars" TARGET="MAIN"><CODE>sbmc_state_vars_set_trans_state_vars()</CODE></A>
+<DD> setter for field "transition_state_vars"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_translation_vars_aux" TARGET="MAIN"><CODE>sbmc_state_vars_set_translation_vars_aux()</CODE></A>
+<DD> setter for field "translation_vars_aux"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_translation_vars_pd0" TARGET="MAIN"><CODE>sbmc_state_vars_set_translation_vars_pd0()</CODE></A>
+<DD> setter for field "translation_state_vars_pd0"
+
+<DT> <A HREF="AllDet.html#sbmc_state_vars_set_translation_vars_pdx" TARGET="MAIN"><CODE>sbmc_state_vars_set_translation_vars_pdx()</CODE></A>
+<DD> setter for field "translation_vars_pdx"
+
+<DT> <A HREF="AllDet.html#sbmc_unroll_base" TARGET="MAIN"><CODE>sbmc_unroll_base()</CODE></A>
+<DD> Creates the BASE constraints.
+
+<DT> <A HREF="AllDet.html#sbmc_unroll_invariant_f" TARGET="MAIN"><CODE>sbmc_unroll_invariant_f()</CODE></A>
+<DD> Create the k-invariant constraints for propositional and
+  future temporal operators at time i.
+
+<DT> <A HREF="AllDet.html#sbmc_unroll_invariant_propositional" TARGET="MAIN"><CODE>sbmc_unroll_invariant_propositional()</CODE></A>
+<DD> Create the k-invariant constraints for
+  propositional operators at time i.
+
+<DT> <A HREF="AllDet.html#sbmc_unroll_invariant_p" TARGET="MAIN"><CODE>sbmc_unroll_invariant_p()</CODE></A>
+<DD> Create the k-invariant constraints at time i.
+
+<DT> <A HREF="AllDet.html#sbmc_unroll_invariant" TARGET="MAIN"><CODE>sbmc_unroll_invariant()</CODE></A>
+<DD> Unroll future and past fragment from
+  previous_k+1 upto and including new_k.
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

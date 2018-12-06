@@ -1,0 +1,55 @@
+<html>
+<head><title>history</title></head>
+<body>
+
+<h3>history - list previous commands and their event numbers</h3>
+<hr>
+<code>history [-h] [&lt;num&gt;]</code><p>
+Lists previous commands and their event numbers.
+  This is a UNIX-like history mechanism inside the NuSMV shell.<p>
+  Command options:<p>
+  <dl>
+     <dt> &lt;num&gt;
+         <dd> Lists the last &lt;num&gt; events.  Lists the last 30
+              events if &lt;num&gt; is not specified.
+  </dl><p>
+
+  History Substitution:<p>
+
+  The history substitution mechanism is a simpler version of the csh history
+  substitution mechanism.  It enables you to reuse words from previously typed
+  commands.<p>
+
+  The default history substitution character is the `%' (`!' is default for
+  shell escapes, and `#' marks the beginning of a comment). This can be changed
+  using the "set" command. In this description '%' is used as the history_char.
+  The `%' can appear anywhere in a line.  A line containing a history
+  substitution is echoed to the screen after the substitution takes place.
+  `%' can be preceded by a `\' in order to escape the substitution,
+  for example, to enter a `%' into an alias or to set the prompt.<br><p>
+
+  Each valid line typed at the prompt is saved.  If the "history" variable
+  is set (see help page for "set"), each line is also echoed to the history
+  file.  You can use the "history" command to list the previously typed
+  commands. <p>
+
+  Substitutions: <p>
+
+  At any point in a line these history substitutions are
+  available.<p>
+        <dl><dt>%:0   <dd>  Initial word of last command.</dl>
+        <dl><dt>%:n   <dd>   n-th argument of last command.</dl>
+        <dl><dt>%$    <dd>   Last argument of last command.</dl>
+        <dl><dt>%*    <dd>   All but initial word of last command.</dl>
+
+        <dl><dt>%%    <dd>   Last command.</dl>
+        <dl><dt>%stuf <dd>   Last command beginning with "stuf".</dl>
+        <dl><dt>%n    <dd>   Repeat the n-th command.</dl>
+        <dl><dt>%-n   <dd>   Repeat the n-th previous command.</dl>
+        <dl><dt>^old^new  <dd>       Replace "old" with "new" in previous command.
+        Trailing spaces are significant during substitution.
+        Initial spaces are not significant.</dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

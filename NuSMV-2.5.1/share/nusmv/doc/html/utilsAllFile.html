@@ -1,0 +1,79 @@
+<HTML>
+<HEAD><TITLE>The utils package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#utils.h"><CODE>utils.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#utils.c"><CODE>utils.c</CODE></A>
+ <DD> Contains useful functions and structures
+ <DT> <A HREF="#utils_io.c"><CODE>utils_io.c</CODE></A>
+ <DD> Simple pretty printing
+</DL><HR>
+<A NAME="utils.h"><H1>utils.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="utils.c"><H1>utils.c</H1></A>
+Contains useful functions and structures <P>
+<B>By: Roberto Cavada</B><P>
+<DL>
+ <DT> <A HREF="utilsAllDet.html#Utils_pkg_init" TARGET="MAIN"><CODE>Utils_pkg_init()</CODE></A>
+ <DD> Initializes the utils package
+
+ <DT> <A HREF="utilsAllDet.html#Utils_pkg_quit" TARGET="MAIN"><CODE>Utils_pkg_quit()</CODE></A>
+ <DD> De-initializes the utils package
+
+ <DT> <A HREF="utilsAllDet.html#Utils_StripPath" TARGET="MAIN"><CODE>Utils_StripPath()</CODE></A>
+ <DD> Returns pathname without path prefix
+
+ <DT> <A HREF="utilsAllDet.html#Utils_StripPathNoExtension" TARGET="MAIN"><CODE>Utils_StripPathNoExtension()</CODE></A>
+ <DD> Returns filename without path and extension
+
+ <DT> <A HREF="utilsAllDet.html#Utils_StripPathNoFilenameNoExtension" TARGET="MAIN"><CODE>Utils_StripPathNoFilenameNoExtension()</CODE></A>
+ <DD> Returns directory part of fpathname without filename and
+                      extension
+
+ <DT> <A HREF="utilsAllDet.html#Utils_FreeListOfLists" TARGET="MAIN"><CODE>Utils_FreeListOfLists()</CODE></A>
+ <DD> Destroys a list of list
+
+ <DT> <A HREF="utilsAllDet.html#Utils_get_temp_filename_in_dir" TARGET="MAIN"><CODE>Utils_get_temp_filename_in_dir()</CODE></A>
+ <DD> Return a string to be used as temporary file
+
+ <DT> <A HREF="utilsAllDet.html#Utils_file_exists_in_paths" TARGET="MAIN"><CODE>Utils_file_exists_in_paths()</CODE></A>
+ <DD> Checks a list of directories for a given file.
+
+ <DT> <A HREF="utilsAllDet.html#Utils_file_exists_in_directory" TARGET="MAIN"><CODE>Utils_file_exists_in_directory()</CODE></A>
+ <DD> Checks for the existence of a file within a directory.
+
+ <DT> <A HREF="utilsAllDet.html#Utils_strcasecmp" TARGET="MAIN"><CODE>Utils_strcasecmp()</CODE></A>
+ <DD> An abstraction over BSD strcasecmp
+
+ <DT> <A HREF="utilsAllDet.html#Utils_start_timer" TARGET="MAIN"><CODE>Utils_start_timer()</CODE></A>
+ <DD> Starts a timer whose name is given
+
+ <DT> <A HREF="utilsAllDet.html#Utils_stop_timer" TARGET="MAIN"><CODE>Utils_stop_timer()</CODE></A>
+ <DD> Stops a timer whose name is given
+
+ <DT> <A HREF="utilsAllDet.html#Utils_reset_timer" TARGET="MAIN"><CODE>Utils_reset_timer()</CODE></A>
+ <DD> Resets a timer whose name is given
+
+ <DT> <A HREF="utilsAllDet.html#Utils_print_timer" TARGET="MAIN"><CODE>Utils_print_timer()</CODE></A>
+ <DD> prints info about a timer whose name is given
+
+ <DT> <A HREF="utilsAllDet.html#freeListOfLists_aux" TARGET="MAIN"><CODE>freeListOfLists_aux()</CODE></A>
+ <DD> Private service for Utils_FreeListOfLists
+
+</DL>
+<HR>
+<A NAME="utils_io.c"><H1>utils_io.c</H1></A>
+Simple pretty printing <P>
+<B>By: Marco Roveri</B><P>
+Routines that provides some simple pretty printing routines. <P>
+<DL>
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

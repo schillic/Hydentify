@@ -1,0 +1,2430 @@
+<HTML>
+<HEAD><TITLE>The bmc package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Bmc_AddCmd"></A>
+void <I></I>
+<B>Bmc_AddCmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Adds all bmc-related commands to the interactive shell
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Sm_Init">Sm_Init</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CheckFairnessListForPropositionalFormulae"></A>
+node_ptr <I></I>
+<B>Bmc_CheckFairnessListForPropositionalFormulae</B>(
+  node_ptr  <b>wffList</b> <i></i>
+)
+</pre>
+<dd> Helper function to simplify calling to 
+  'bmc_check_wff_list' for searching of propositional wff only.  
+  Returns a new list of wffs which contains legal wffs only
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_check_wff_list">bmc_check_wff_list</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandBmcIncSimulate"></A>
+int <I></I>
+<B>Bmc_CommandBmcIncSimulate</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Bmc_CommandBmcIncSimulate does incremental
+  simulation of the model starting from an initial state.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_CommandBmcPickState"></A>
+int <I></I>
+<B>Bmc_CommandBmcPickState</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Picks a state from the set of initial states
+<p>
+
+<dd> <b>Side Effects</b> The state chosen is stored in the traces_hash table as
+  the first state of a new trace
+<p>
+
+<dt><pre>
+<A NAME="Bmc_CommandBmcSetup"></A>
+int <I></I>
+<B>Bmc_CommandBmcSetup</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Initializes the bmc sub-system, and builds the model in
+  a Boolean Expression format
+<p>
+
+<dd> <b>Side Effects</b> Overall the bmc system
+<p>
+
+<dt><pre>
+<A NAME="Bmc_CommandBmcSimulateCheckFeasibleConstraints"></A>
+int <I></I>
+<B>Bmc_CommandBmcSimulateCheckFeasibleConstraints</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Checks feasibility of a list of constraints for the
+  simulation
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_CommandBmcSimulate"></A>
+int <I></I>
+<B>Bmc_CommandBmcSimulate</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Bmc_CommandBmcSimulate does not require a specification
+  to build the problem, because only the model is used to build it.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_CommandCheckInvarBmcInc"></A>
+int <I></I>
+<B>Bmc_CommandCheckInvarBmcInc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> The function is compiled only if there is at least
+  one incremental SAT solver
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandCheckInvarBmc">Bmc_CommandCheckInvarBmc</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandCheckInvarBmc"></A>
+int <I></I>
+<B>Bmc_CommandCheckInvarBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> After command line processing calls Bmc_GenSolveInvar
+  to solve and eventually dump the generated invariant problem. If you specify
+  the <i>-o "filename"</i> option a dimacs file will be generated, otherwise
+  no dimacs dump will be performed
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_GenSolveInvar">Bmc_GenSolveInvar</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandCheckLtlSpecBmcInc"></A>
+int <I></I>
+<B>Bmc_CommandCheckLtlSpecBmcInc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Parameters are the maximum length and the loopback
+  values. The function is compiled only if there is at least
+  one incremental SAT solver
+<p>
+
+<dd> <b>Side Effects</b> Properties database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandCheckLtlSpecBmcOnePb">Bmc_CommandCheckLtlSpecBmcOnePb</a>
+<a href="#Bmc_CommandCheckLtlSpecBmc">Bmc_CommandCheckLtlSpecBmc</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandCheckLtlSpecBmcOnePb"></A>
+int <I></I>
+<B>Bmc_CommandCheckLtlSpecBmcOnePb</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> After command line processing this function calls
+  the Bmc_GenSolveLtl which generates and solve the singleton
+  problem with bound k and loopback l. <BR>
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandCheckLtlSpecBmc">Bmc_CommandCheckLtlSpecBmc</a>
+<a href="#Bmc_GenSolveLtl">Bmc_GenSolveLtl</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandCheckLtlSpecBmc"></A>
+int <I></I>
+<B>Bmc_CommandCheckLtlSpecBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> After command line processing this function calls
+  the Bmc_GenSolveLtl to generate and solve all problems from 0 to k.
+  Parameters are the maximum length and the loopback values.
+<p>
+
+<dd> <b>Side Effects</b> Properties database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandCheckLtlSpecBmcOnePb">Bmc_CommandCheckLtlSpecBmcOnePb</a>
+<a href="#Bmc_GenSolveLtl">Bmc_GenSolveLtl</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandGenInvarBmc"></A>
+int <I></I>
+<B>Bmc_CommandGenInvarBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> After command line processing calls Bmc_GenSolveInvar
+  to dump the generated invariant problem.
+  If you specify the <i>-o "filename"</i> option a dimacs file named
+  "filename" will be created, otherwise the environment variable
+  <i>bmc_invar_dimacs_filename</i> value will be considered.
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_GenSolveInvar">Bmc_GenSolveInvar</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandGenLtlSpecBmcOnePb"></A>
+int <I></I>
+<B>Bmc_CommandGenLtlSpecBmcOnePb</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> After command line processing it calls
+  the function Bmc_GenSolveLtl to generate and dump the single problem.
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandGenLtlSpecBmc">Bmc_CommandGenLtlSpecBmc</a>
+<a href="#Bmc_GenSolveLtl">Bmc_GenSolveLtl</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_CommandGenLtlSpecBmc"></A>
+int <I></I>
+<B>Bmc_CommandGenLtlSpecBmc</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Each problem is dumped for the given LTL specification,
+  or for all LTL specifications if no formula is given.
+  Generation parameters are the maximum bound and the loopback values. <BR>
+  After command line processing it calls the function Bmc_GenSolveLtl
+  to generate and dump all problems from zero to k.
+<p>
+
+<dd> <b>Side Effects</b> Property database may change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CommandGenLtlSpecBmcOnePb">Bmc_CommandGenLtlSpecBmcOnePb</a>
+<a href="#Bmc_GenSolveLtl">Bmc_GenSolveLtl</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Conv_Be2Bexp"></A>
+node_ptr <I></I>
+<B>Bmc_Conv_Be2Bexp</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  be_ptr  <b>be</b> <i></i>
+)
+</pre>
+<dd> Descends the structure of the BE with dag-level 
+  primitives. Uses the be encoding to perform all time-related operations.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_Bexp2Be"></A>
+be_ptr <I></I>
+<B>Bmc_Conv_Bexp2Be</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  node_ptr  <b>bexp</b> <i></i>
+)
+</pre>
+<dd> Uses the be encoding to perform all 
+  time-related operations.
+<p>
+
+<dd> <b>Side Effects</b> be hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_BexpList2BeList"></A>
+node_ptr <I></I>
+<B>Bmc_Conv_BexpList2BeList</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  node_ptr  <b>bexp_list</b> <i></i>
+)
+</pre>
+<dd> <b>Converts</b> given <b>boolean expressions list </b> 
+  into correspondent <b>reduced boolean circuits list</b>
+<p>
+
+<dd> <b>Side Effects</b> be hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_cleanup_cached_entries_about"></A>
+void <I></I>
+<B>Bmc_Conv_cleanup_cached_entries_about</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  NodeList_ptr  <b>symbs</b> <i></i>
+)
+</pre>
+<dd> Called by the BeEnc when removing a layer, to make safe
+  later declaration of symbols with the same name but different
+  semantics.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_get_BeModel2SymbModel"></A>
+void <I></I>
+<B>Bmc_Conv_get_BeModel2SymbModel</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const Slist_ptr  <b>be_model</b>, <i></i>
+  int  <b>k</b>, <i></i>
+  boolean  <b>convert_to_scalars</b>, <i></i>
+  node_ptr* <b>frozen</b>, <i></i>
+  array_t** <b>states</b>, <i></i>
+  array_t** <b>inputs</b> <i></i>
+)
+</pre>
+<dd> be_model is the model which will be transformed, i.e llList of
+  BE literal. 
+
+  k is the number of steps (i.e. times+1) in the model.
+  
+  The returned results will be provided in:
+  *frozen will point to expression over frozen variables,
+  *states will point to an array of size k+1 to expressions over state vars.
+  *inputs will point to an array of size k+1 to expressions over input vars.
+
+  In arrays every index corresponds to the corresponding time,
+  beginning from 0 for initial state.
+
+  Every expressions is a list with AND used as connection and Nil at
+  the end, i.e. it can be used as a list and as an expression.
+  Every element of the list can have form:
+  1) "var" or "!var" (if parameter convert_to_scalars is false)
+  2) "var=const" (if parameter convert_to_scalar is true).
+
+  By default BE literals are converted to bits of symbolic
+  variables. With parameter convert_to_scalars set up the bits are
+  converted to actual symbolic variables and scalar/word/etc
+  values. Note however that if BE model does not provide a value for
+  particular BE index then the corresponding bit may not be presented
+  in the result expressions or may be given some random value
+  (sometimes with convert_to_scalars set up). Note that in both cases
+  the returned assignments may be incomplete.
+
+  It is the responsibility of the invoker to free all arrays and the
+  lists of expressions (i.e. run free_list on *frozen and every
+  element of arrays returned).  EQUAL nodes (when convert_to_scalars
+  is set up) are created with find_nodes, i.e. no freeing is need.
+
+  No caching or other side-effect are applied
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_init_cache"></A>
+void <I></I>
+<B>Bmc_Conv_init_cache</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This package function is called by bmcPkg module
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Conv_quit_cache"></A>
+void <I></I>
+<B>Bmc_Conv_quit_cache</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This package function is called by bmcPkg module
+<p>
+
+<dt><pre>
+<A NAME="Bmc_GenSolveInvarDual"></A>
+int <I></I>
+<B>Bmc_GenSolveInvarDual</B>(
+  Prop_ptr  <b>invarprop</b>, <i></i>
+  const int  <b>max_k</b>, <i></i>
+  bmc_invar_closure_strategy  <b>strategy</b> <i></i>
+)
+</pre>
+<dd> The function tries to solve the problem
+  with not more then max_k transitions. If the problem is not
+  solved after max_k transition then the function returns 0.
+
+  If the no_closure flag is true, only the "base" encoding is used
+<p>
+
+<dt><pre>
+<A NAME="Bmc_GenSolveInvarFalsification"></A>
+int <I></I>
+<B>Bmc_GenSolveInvarFalsification</B>(
+  Prop_ptr  <b>invarprop</b>, <i></i>
+  const int  <b>max_k</b> <i></i>
+)
+</pre>
+<dd> The function tries to solve the problem
+  with not more then max_k transitions. If the problem is not
+  solved after max_k transition then the function returns 0.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_GenSolveInvarZigzag"></A>
+int <I></I>
+<B>Bmc_GenSolveInvarZigzag</B>(
+  Prop_ptr  <b>invarprop</b>, <i></i>
+  const int  <b>max_k</b> <i></i>
+)
+</pre>
+<dd> The function will run not more then max_k transitions,
+  then if the problem is not proved the function just returns 0
+<p>
+
+<dt><pre>
+<A NAME="Bmc_GenSolveLtlInc"></A>
+int <I></I>
+<B>Bmc_GenSolveLtlInc</B>(
+  Prop_ptr  <b>ltlprop</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>relative_loop</b>, <i></i>
+  const boolean  <b>must_inc_length</b> <i></i>
+)
+</pre>
+<dd> Solves LTL problem the same way as the original
+  Bmc_GenSolveLtl but just adds BE representing the path incrementaly.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_GenSolve_Action">Bmc_GenSolve_Action</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Gen_InvarBaseStep"></A>
+be_ptr <I></I>
+<B>Bmc_Gen_InvarBaseStep</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>wff</b> <i></i>
+)
+</pre>
+<dd> Returns I0 -> P0, where I0 is the init and
+  invar at time 0, and P0 is the given formula at time 0
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Gen_InvarInductStep">Bmc_Gen_InvarInductStep</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Gen_InvarInductStep"></A>
+be_ptr <I></I>
+<B>Bmc_Gen_InvarInductStep</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>wff</b> <i></i>
+)
+</pre>
+<dd> Returns (P0 and R01) -> P1, where P0 is the formula
+  at time 0, R01 is the transition (without init) from time 0 to 1,
+  and P1 is the formula at time 1
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Gen_InvarBaseStep">Bmc_Gen_InvarBaseStep</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Gen_InvarProblem"></A>
+be_ptr <I></I>
+<B>Bmc_Gen_InvarProblem</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>wff</b> <i></i>
+)
+</pre>
+<dd> Builds the negation of
+                     (I0 imp P0) and ((P0 and R01) imp P1)
+		     that must be unsatisfiable.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Gen_InvarBaseStep">Bmc_Gen_InvarBaseStep</a>
+<a href="#Bmc_Gen_InvarInductStep">Bmc_Gen_InvarInductStep</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Gen_LtlProblem"></A>
+be_ptr <I></I>
+<B>Bmc_Gen_LtlProblem</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns the LTL problem at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+<p>
+
+<dt><pre>
+<A NAME="Bmc_GetTestTableau"></A>
+be_ptr <I></I>
+<B>Bmc_GetTestTableau</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Init"></A>
+void <I></I>
+<B>Bmc_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> It builds the vars manager, initializes the package and
+  all sub packages, but only if not previously called.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_IsPropositionalFormula"></A>
+boolean <I></I>
+<B>Bmc_IsPropositionalFormula</B>(
+  node_ptr  <b>wff</b> <i></i>
+)
+</pre>
+<dd> Given a wff returns 1 if wff is a propositional formula,
+  zero (0) otherwise.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetFairness"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetFairness</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Uses bmc_model_getFairness_aux which recursively calls
+  itself to conjuctive all fairnesses by constructing a top-level 'and'
+  operation.
+  Moreover bmc_model_getFairness_aux calls the recursive function
+  bmc_model_getSingleFairness, which resolves a single fairness as
+  a disjunctioned expression in which each ORed element is a shifting of
+  the single fairness across [l, k] if a loop exists.
+  If no loop exists, nothing can be issued, so a falsity value is returned
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_model_getFairness_aux">bmc_model_getFairness_aux</a>
+<a href="#bmc_model_getSingleFairness">bmc_model_getSingleFairness</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetInit0"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetInit0</B>(
+  const BeFsm_ptr  <b>be_fsm</b> <i></i>
+)
+</pre>
+<dd> Use this function instead of explicitly get the init
+  from the fsm and shift them at time 0 using the vars manager layer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetInvarAtTime">Bmc_Model_GetInvarAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetInitI"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetInitI</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Use this function instead of explicitly get the init
+  from the fsm and shift them at time i using the vars manager layer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetInvarAtTime">Bmc_Model_GetInvarAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetInvarAtTime"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetInvarAtTime</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Use this function instead of explicitly get the invar
+  from the fsm and shift them at the requested time using the vars
+  manager layer.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetInit0">Bmc_Model_GetInit0</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetPathNoInit"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetPathNoInit</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returns the path for the model from 0 to k,
+  taking into account the invariants (and no init)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetPathWithInit">Bmc_Model_GetPathWithInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetPathWithInit"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetPathWithInit</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returns the path for the model from 0 to k,
+  taking into account initial conditions and invariants
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetPathNoInit">Bmc_Model_GetPathNoInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetTransAtTime"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetTransAtTime</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Use this function instead of explicitly get the trans
+                      from the fsm and shift it at the requested
+                      time using the vars manager layer
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Model_GetUnrolling"></A>
+be_ptr <I></I>
+<B>Bmc_Model_GetUnrolling</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const int  <b>j</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Using of invars over next variables instead of the
+  previuos variables is a specific implementation aspect
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Model_GetPathWithInit">Bmc_Model_GetPathWithInit</a>
+<a href="#Bmc_Model_GetPathNoInit">Bmc_Model_GetPathNoInit</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Model_Invar_Dual_forward_unrolling"></A>
+be_ptr <I></I>
+<B>Bmc_Model_Invar_Dual_forward_unrolling</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const be_ptr  <b>invarspec</b>, <i></i>
+  int  <b>i</b> <i></i>
+)
+</pre>
+<dd> Using of invars over previous variables instead of the
+                      next variables is a specific implementation aspect
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Quit"></A>
+void <I></I>
+<B>Bmc_Quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Frees all resources allocated for the BMC model manager
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Simulate"></A>
+int <I></I>
+<B>Bmc_Simulate</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const boolean  <b>print_trace</b>, <i></i>
+  const boolean  <b>changes_only</b> <i></i>
+)
+</pre>
+<dd> Generate a problem with no property, and search for a
+   solution, appending it to the current simulation trace.
+   Returns 1 if solver could not be created, 0 if everything went smooth
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_StepWiseSimulation"></A>
+int <I></I>
+<B>Bmc_StepWiseSimulation</B>(
+  BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  TraceManager_ptr  <b>trace_manager</b>, <i></i>
+  int  <b>target_steps</b>, <i></i>
+  be_ptr  <b>constraints</b>, <i></i>
+  boolean  <b>verbose</b>, <i></i>
+  boolean  <b>enable_defines</b> <i></i>
+)
+</pre>
+<dd> This function performs incremental sat based
+  simulation up to <tt>target_steps</tt>.
+
+  Simulation starts from an initial state internally selected.
+
+  It accepts a constraint to direct the simulation to paths satisfying
+  such constraints. The constraints is assumed to be over state, input
+  and next state variables. Thus, please carefully consider this
+  information while providing constraints to this routine.
+
+  The simulation stops if either the <tt>target_steps</tt> steps of
+  simulation have been performed, or the simulation bumped in a
+  deadlock (that might be due to the constraints that are too strong).
+
+  Parameters:
+  'enable_defines' make the trace create/compute
+           defines in the trace (additionally to variables).
+<p>
+
+<dd> <b>Side Effects</b> The possibly partial generated simulaiton trace
+  is added to the trace manager for possible reuse.
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<dt><pre>
+<A NAME="Bmc_TableauLTL_GetAllLoopsDepth1"></A>
+be_ptr <I></I>
+<B>Bmc_TableauLTL_GetAllLoopsDepth1</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau in the case depth==1 as suggested
+  by R. Sebastiani
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauLTL_GetAllLoops"></A>
+be_ptr <I></I>
+<B>Bmc_TableauLTL_GetAllLoops</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Each tableau takes into account of fairnesses relative
+  to its step. All tableau are collected together into a disjunctive form.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauLTL_GetNoLoop"></A>
+be_ptr <I></I>
+<B>Bmc_TableauLTL_GetNoLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Fairness evaluate to true if there are not fairness
+  in the model, otherwise them evaluate to false because of no loop
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauLTL_GetSingleLoopWithFairness"></A>
+be_ptr <I></I>
+<B>Bmc_TableauLTL_GetSingleLoopWithFairness</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau at time zero. Loop is allowed,
+  fairness are taken into account
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BmcInt_Tableau_GetAtTime">BmcInt_Tableau_GetAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_TableauLTL_GetSingleLoop"></A>
+be_ptr <I></I>
+<B>Bmc_TableauLTL_GetSingleLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau at time zero. Loop is allowed,
+  fairness are taken into account
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BmcInt_Tableau_GetAtTime">BmcInt_Tableau_GetAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetAllLoopsDepth1"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetAllLoopsDepth1</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>pltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau in the case depth==1 as suggested
+                      by R. Sebastiani.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetAllLoops"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetAllLoops</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>startFromL</b> <i></i>
+)
+</pre>
+<dd> Returns the conjunction of the single-loop tableaux for
+                      all possible (k,l)-loops for a fixed k. Each single-loop
+                      tableau takes into account of both fairness constraints
+                      and loop condition.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetAllTimeTableau"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetAllTimeTableau</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>pltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> This function is a special case of "evaluateOn", thus it
+                computes its answer by calling "evaluateOn" with some specifc
+                arguments. The only use of this function is in constructing
+                optimized tableaux for those depth-one formulas where
+                "RELEASES" is the unique operator.
+<p>
+
+<dd> <b>See Also</b> <code>evaluateOn
+</code>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetNoLoop"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetNoLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Returns the tableau for a PLTL formula on a bounded path
+                      of length k, reasoning on fairness conditions as well.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetSingleLoop"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetSingleLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns the tableau for a PLTL formula on a (k,l)-loop,
+                      conjuncted with both fairness conditions and the loop
+                      condition on time steps k and l.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TableauPLTL_GetTableau"></A>
+be_ptr <I></I>
+<B>Bmc_TableauPLTL_GetTableau</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>pltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds both the bounded-tableau and the loop-tableau for a PLTL
+                formula "pltl_wff" (depending on the value of l). The time
+                the tableau refers to is (implicitly) time zero.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#getTableauAtTime">getTableauAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetAllLoopsDepth1"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetAllLoopsDepth1</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau in the case depth==1 as suggested
+  by R. Sebastiani
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetAllLoopsDisjunction"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetAllLoopsDisjunction</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Builds a formula which is a disjunction over all the
+                      loop conditions on k-loops, with l=0,1,...,k-1.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Tableau_GetLoopCondition">Bmc_Tableau_GetLoopCondition</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetAllLoops"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetAllLoops</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Each tableau takes into account of fairnesses relative
+  to its step. All tableau are collected together into a disjunctive form.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetLoopCondition"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetLoopCondition</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> State l and state k are forced to represent the same
+                      state by conjuncting the if-and-only-if conditions
+                      {Vil<->Vik} between Vil (variable i at time l) and Vik
+                      (variable i at time k) for each state variable Vi.
+                      Note:frozen vars do not participate in this conjunct,
+                      since they are implicitly keep their valus over all states
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Tableau_GetAllLoopsDisjunction">Bmc_Tableau_GetAllLoopsDisjunction</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetLtlTableau"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetLtlTableau</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds a tableau for the LTL at length k with loopback l
+  (single loop, no loop and all loopbacks are allowed)
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetNoLoop"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetNoLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Fairness evaluate to true if there are not fairness
+  in the model, otherwise them evaluate to false because of no loop
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Tableau_GetSingleLoop"></A>
+be_ptr <I></I>
+<B>Bmc_Tableau_GetSingleLoop</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Builds the tableau in the case depth==1 as suggested
+  by R. Sebastiani
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TestReset"></A>
+void <I></I>
+<B>Bmc_TestReset</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Call this function to reset the test sub-package (into
+  the reset command for example)
+<p>
+
+<dt><pre>
+<A NAME="Bmc_TestTableau"></A>
+int <I></I>
+<B>Bmc_TestTableau</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> If you call this command with a loopback set to
+  BMC_ALL_LOOPS you command execution is aborted.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_Check_k_l"></A>
+outcome <I></I>
+<B>Bmc_Utils_Check_k_l</B>(
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns SUCCESS if k and l are compatible, otherwise
+               return GENERIC_ERROR
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_ConvertLoopFromInteger"></A>
+void <I></I>
+<B>Bmc_Utils_ConvertLoopFromInteger</B>(
+  const int  <b>iLoopback</b>, <i></i>
+  char* <b>szLoopback</b>, <i></i>
+  const int  <b>_bufsize</b> <i></i>
+)
+</pre>
+<dd> Inverse semantic of
+               Bmc_Utils_ConvertLoopFromString. bufsize is the maximum
+               buffer size
+<p>
+
+<dd> <b>Side Effects</b> String buffer passed as argument will change
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Utils_ConvertLoopFromString">Bmc_Utils_ConvertLoopFromString</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Utils_ConvertLoopFromString"></A>
+int <I></I>
+<B>Bmc_Utils_ConvertLoopFromString</B>(
+  const char* <b>strValue</b>, <i></i>
+  outcome* <b>result</b> <i></i>
+)
+</pre>
+<dd> Use this function to correctly convert a string
+               containing a loopback user-side value to the internal
+               representation of the same loopback value
+<p>
+
+<dd> <b>Side Effects</b> result will change if supplied
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_ExpandMacrosInFilename"></A>
+void <I></I>
+<B>Bmc_Utils_ExpandMacrosInFilename</B>(
+  const char* <b>filename_to_be_expanded</b>, <i></i>
+  const SubstString* <b>table_ptr</b>, <i></i>
+  const size_t  <b>table_len</b>, <i></i>
+  char* <b>filename_expanded</b>, <i></i>
+  size_t  <b>buf_len</b> <i></i>
+)
+</pre>
+<dd> This function is used in order to perform the macro
+               expansion of filenames. table_ptr is the pointer to a
+               previously prepared table which fixes any
+               corrispondence from symbol to strings to be
+               substituited from.  table_len is the number of rows in
+               the table (i.e. the number of symbols to search for.)
+<p>
+
+<dd> <b>Side Effects</b> filename_expanded string data will change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_GetAllLoopbacksString"></A>
+const char* <I></I>
+<B>Bmc_Utils_GetAllLoopbacksString</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns a constant string which represents the "all loops"
+               semantic.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_GetAllLoopbacks"></A>
+int <I></I>
+<B>Bmc_Utils_GetAllLoopbacks</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the integer value which represents the "all loops"
+               semantic
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_GetNoLoopback"></A>
+int <I></I>
+<B>Bmc_Utils_GetNoLoopback</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the integer value which represents the "no loop"
+               semantic
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_GetSuccTime"></A>
+int <I></I>
+<B>Bmc_Utils_GetSuccTime</B>(
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Given time<=k and a [l, k] interval, returns next time,
+               or BMC_NO_LOOP if time is equal to k and there is no
+               loop
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_IsAllLoopbacksString"></A>
+boolean <I></I>
+<B>Bmc_Utils_IsAllLoopbacksString</B>(
+  const char* <b>str</b> <i></i>
+)
+</pre>
+<dd> This is supplied in order to hide the internal value of
+               loopback which corresponds to the "all loops"
+               semantic.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_IsAllLoopbacks"></A>
+boolean <I></I>
+<B>Bmc_Utils_IsAllLoopbacks</B>(
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> This is supplied in order to hide the internal value of
+               loopback which corresponds to the "all loops"
+               semantic.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_IsNoLoopbackString"></A>
+boolean <I></I>
+<B>Bmc_Utils_IsNoLoopbackString</B>(
+  const char* <b>str</b> <i></i>
+)
+</pre>
+<dd> This is supplied in order to hide the internal value of
+               loopback which corresponds to the "no loop" semantic.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_IsNoLoopback"></A>
+boolean <I></I>
+<B>Bmc_Utils_IsNoLoopback</B>(
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> This is supplied in order to hide the internal value of
+               loopback which corresponds to the "no loop" semantic.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_IsSingleLoopback"></A>
+boolean <I></I>
+<B>Bmc_Utils_IsSingleLoopback</B>(
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Both cases "no loop" and "all loops" make this function
+               returning false, since these values are not single
+               loops.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_RelLoop2AbsLoop"></A>
+int <I></I>
+<B>Bmc_Utils_RelLoop2AbsLoop</B>(
+  const int  <b>upov_loop</b>, <i></i>
+  const int  <b>k</b> <i></i>
+)
+</pre>
+<dd> For example the -4 value when k is 10 is the value 6,
+               but the value 4 (absolute loop value) is still 4
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_apply_inlining4inc"></A>
+be_ptr <I></I>
+<B>Bmc_Utils_apply_inlining4inc</B>(
+  Be_Manager_ptr  <b>be_mgr</b>, <i></i>
+  be_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Applies inlining forcing inclusion of the conjunct
+               set. Useful in the incremental SAT applications to
+               guarantee soundness
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_apply_inlining"></A>
+be_ptr <I></I>
+<B>Bmc_Utils_apply_inlining</B>(
+  Be_Manager_ptr  <b>be_mgr</b>, <i></i>
+  be_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> Applies inlining taking into account of current user
+               settings
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_generate_and_print_cntexample"></A>
+Trace_ptr <I></I>
+<B>Bmc_Utils_generate_and_print_cntexample</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  be_ptr  <b>be_prob</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const char* <b>trace_name</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> A trace is generated and printed using the currently
+               selected plugin. Generated trace is returned, in order
+               to make possible for the caller to do some other
+               operation, like association with the checked
+               property. Returned trace object *cannot* be destroyed
+               by the caller.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_generate_cntexample"></A>
+Trace_ptr <I></I>
+<B>Bmc_Utils_generate_cntexample</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  be_ptr  <b>be_prob</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const char* <b>trace_name</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Generated trace is returned, in order to make possible
+               for the caller to do some other operation, like
+               association with the checked property. Returned trace
+               object *cannot* be destroyed by the caller.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_get_vars_list_for_uniqueness_fsm"></A>
+lsList <I></I>
+<B>Bmc_Utils_get_vars_list_for_uniqueness_fsm</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  SexpFsm_ptr  <b>bool_sexp_fsm</b> <i></i>
+)
+</pre>
+<dd> If coi is enabled, than the returned list will contain
+               only those boolean state variable the given property
+               actually depends on.  Otherwise the full set of state
+               boolean vars will occur in the list.  Frozen variables
+               are not required, since they do not change from state
+               to state, thus, cannot make a state distinguishable
+               from other states.
+
+               Returned list must be destroyed by the called.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_get_vars_list_for_uniqueness"></A>
+lsList <I></I>
+<B>Bmc_Utils_get_vars_list_for_uniqueness</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  Prop_ptr  <b>invarprop</b> <i></i>
+)
+</pre>
+<dd> If coi is enabled, than the returned list will contain
+               only those boolean state variable the given property
+               actually depends on.  Otherwise the full set of state
+               boolean vars will occur in the list.  Frozen variables
+               are not required, since they do not change from state
+               to state, thus, cannot make a state distinguishable
+               from other states.
+
+               Returned list must be destroyed by the called.
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Utils_next_costraint_from_string"></A>
+be_ptr <I></I>
+<B>Bmc_Utils_next_costraint_from_string</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  Expr_ptr* <b>node_expr</b> <i></i>
+)
+</pre>
+<dd> Reads a next expression and builds the corresponding BE
+               formula. Exceptions are raised if the expression cannot
+               be parsed or has type errors. If node_expr is not NULL,
+               it will be set to the parsed expression.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Utils_simple_costraint_from_string">Bmc_Utils_simple_costraint_from_string</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_Utils_simple_costraint_from_string"></A>
+be_ptr <I></I>
+<B>Bmc_Utils_simple_costraint_from_string</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  Expr_ptr* <b>node_expr</b> <i></i>
+)
+</pre>
+<dd> Reads a simple expression and builds the corresponding
+               BE formula. Exceptions are raised if the expression
+               cannot be parsed or has type errors.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Utils_next_costraint_from_string">Bmc_Utils_next_costraint_from_string</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_WffListMatchProperty"></A>
+int <I></I>
+<B>Bmc_WffListMatchProperty</B>(
+  node_ptr  <b>wffList</b>, <i></i>
+  BMC_PF_MATCH  <b>pCheck</b>, <i></i>
+  void* <b>pCheckOptArgument</b>, <i></i>
+  int  <b>iMaxMatches</b>, <i></i>
+  unsigned int* <b>aiMatchedIndexes</b>, <i></i>
+  BMC_PF_MATCH_ANSWER  <b>pAnswer</b>, <i></i>
+  void* <b>pAnswerOptArgument</b> <i></i>
+)
+</pre>
+<dd> This is a generic searching function for a property
+  across a list of wffs. <i>Please note that searching is specific for a list
+  of wffs, but the searching semantic and behaviour are generic and
+  customizable.</i><br>
+  Searching may be stopped after the Nth match, or can be continued till all
+  list elements have been checked (specify <B>-1</B> in this case).
+  In any case searching cannot be carried out over the <I>MAX_MATCHES</I>
+  value.<br><br>
+  <TABLE BORDER>
+  <CAPTION> <B>Arguments:</B> </CAPTION>
+  <TR> <TH> Parameter name </TH>  <TH> Description </TH> </TR>
+  <TR> <TD> wffList </TD>         <TD> A list of wffs to iterate in </TD> </TR>
+  <TR> <TD> pCheck  </TD>         <TD> Pointer to matching function.
+   The checking function type is <B>BMC_PF_MATCH</B>, and has three
+   parameters: <BR>
+   <B> wff </B> the formula to check for <BR>
+   <B> index </B> index of wff into list <BR>
+   <B> pOpt </B> generic pointer to custom structure (optional) </TD> </TR>
+
+  <TR> <TD> pCheckOptArgument </TD> <TD> Argument passed to pCheck
+  (specify <B>NULL</B> if you do not use it.) </TD> </TR>
+
+  <TR> <TD> iMaxMatches </TD>       <TD> Maximum number of matching to be
+  found before return. This must be less of <I>MAX_MATCHES</I>.<BR>
+  Specify <B>-1</B> to iterate across the entire list. </TD> </TR>
+
+  <TR> <TD> aiMatchedIndexes </TD>  <TD> Optional <B>int</B> array which
+  will contain all match indexes. <BR>
+  Specify <B>NULL</B> if you do not need this functionality.
+  Array size must be less of <I>MAX_MATCHES</I>. </TD> </TR>
+
+  <TR> <TD> pAnswer </TD>           <TD> Pointer to answer function
+  of type <B>BMC_PF_MATCH_ANSWER</B>. This function is called everytime
+  a match is found. <BR>
+  Specify <B>NULL</B> if you do not need for this functionality.
+  The answer function has the following prototype: <BR>
+  <I>void answer(node_ptr wff, int index, void* pOpt)</I> <BR>
+  where:<BR>
+
+  <B> wff </B> the formula that matches the criteria <BR>
+  <B> index </B> is the index of wff into the list
+  <B> pOpt  </B> pointer to generic & customizable structure
+  (see <I>pAnswerOptArgument</I> below)
+
+  <B> pAnswerOptArgument </B> optional parameter for pAnswer function,
+  in order to ensure more flexibility. Specify <B>NULL</B> if you do not need
+  for this functionality.) </TD> </TR>
+  </TABLE>
+<p>
+
+<dd> <b>Side Effects</b> Given aiMatchedIndexes array changes if at least one
+  match has found out
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_GetDepth"></A>
+int <I></I>
+<B>Bmc_Wff_GetDepth</B>(
+  node_ptr  <b>ltl_wff</b> <i></i>
+)
+</pre>
+<dd> Returns 0 for propositional formulae, 1 or more for
+  temporal formulae
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkAnd"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkAnd</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>and</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkEventually"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkEventually</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>eventually</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkFalsity"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkFalsity</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Makes a <i>false</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkGlobally"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkGlobally</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>globally</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkHistorically"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkHistorically</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>historically</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkIff"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkIff</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>iff</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkImplies"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkImplies</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>implies</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkNext"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkNext</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>next</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkNnf"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkNnf</B>(
+  node_ptr  <b>wff</b> <i></i>
+)
+</pre>
+<dd> A positive (1) polarity will not negate entire formula
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkNot"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkNot</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>not</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkOnce"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkOnce</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>once</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkOpNext"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkOpNext</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>op_next</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkOpNotPrecNot"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkOpNotPrecNot</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>op_next</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkOpPrec"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkOpPrec</B>(
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>op_next</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkOr"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkOr</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>or</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkReleases"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkReleases</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>releases</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkSince"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkSince</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>since</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkTriggered"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkTriggered</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes a <i>triggered</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkTruth"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkTruth</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Makes a <i>truth</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkUntil"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkUntil</B>(
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes an <i>until</i> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_Wff_MkXopNext"></A>
+node_ptr <I></I>
+<B>Bmc_Wff_MkXopNext</B>(
+  node_ptr  <b>arg</b>, <i></i>
+  int  <b>x</b> <i></i>
+)
+</pre>
+<dd> Applies <i>op_next</i> x times
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_check_if_model_was_built"></A>
+int <I></I>
+<B>Bmc_check_if_model_was_built</B>(
+  FILE* <b>err</b>, <i></i>
+  boolean  <b>forced</b> <i></i>
+)
+</pre>
+<dd> If coi is not enabled than bmc must be set up,
+  otherwise it is only required bmc to have initialized. Returns 1 if
+  the execution should be stopped, and prints an error message if it
+  is the case (to the given optional file). If everything is fine,
+  returns 0 and prints nothing. If 'forced' is true, than the model is
+  required to be built even if coi is enabled, and a message is
+  printed accordingly (used by the commands that always require that
+  the model is built (e.g. bmc_simulate).
+<p>
+
+<dt><pre>
+<A NAME="Bmc_check_psl_property"></A>
+int <I></I>
+<B>Bmc_check_psl_property</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  boolean  <b>dump_prob</b>, <i></i>
+  boolean  <b>inc_sat</b>, <i></i>
+  boolean  <b>single_prob</b>, <i></i>
+  int  <b>k</b>, <i></i>
+  int  <b>rel_loop</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+  - prop is the PSL property to be checked
+  - dump_prob is true if the problem must be dumped as DIMACS file (default filename
+  from system corresponding variable)
+  - inc_sat is true if incremental sat must be used. If there is no
+  support for inc sat, an internal error will occur.
+  - single_prob is true if k must be not incremented from 0 to k_max
+    (single problem)
+  - k and rel_loop are the bmc parameters.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Bmc_cmd_options_handling"></A>
+outcome <I></I>
+<B>Bmc_cmd_options_handling</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b>, <i></i>
+  Prop_Type  <b>prop_type</b>, <i></i>
+  Prop_ptr* <b>res_prop</b>, <i></i>
+  int* <b>res_k</b>, <i></i>
+  int* <b>res_l</b>, <i></i>
+  char** <b>res_a</b>, <i></i>
+  char** <b>res_s</b>, <i></i>
+  char** <b>res_o</b> <i></i>
+)
+</pre>
+<dd> Output variables called res_* are pointers to
+  variables that will be changed if the user specified a value for the
+  corresponding option. For example if the user specified "-k 2", then
+  *res_k will be assigned to 2. The caller can selectively choose which
+  options can be specified by the user, by passing either a valid pointer
+  as output parameter, or NULL to disable the corresponding option.
+  For example by passing NULL as actual parameter of res_l, option -l will
+  be not accepted.
+
+  If both specified, k and l will be checked for mutual consistency.
+  Loop will contain a relative value, like the one the user specified.
+
+  prop_type is the expected property type, if specified.
+
+  All integers values will not be changed if the corresponding options
+  had not be specified by the user, so the caller might assign them to
+  default values before calling this function.
+
+  All strings will be allocated by the function if the corresponding
+  options had been used by the user. In this case it is responsability
+  of the caller to free them. Strings will be assigned to NULL if the
+  user had not specified any corresponding option.
+
+  Returns GENERIC_ERROR if an error has occurred;
+  Returns SUCCESS_REQUIRED_HELP if -h options had been specified;
+  Returns SUCCESS in all other cases.
+<p>
+
+<dd> <b>Side Effects</b> Result parameters might change
+<p>
+
+<dt><pre>
+<A NAME="Bmc_create_trace_from_cnf_model"></A>
+Trace_ptr <I></I>
+<B>Bmc_create_trace_from_cnf_model</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b>, <i></i>
+  const char* <b>desc</b>, <i></i>
+  const TraceType  <b>type</b>, <i></i>
+  const Slist_ptr  <b>cnf_model</b>, <i></i>
+  int  <b>k</b> <i></i>
+)
+</pre>
+<dd> Creates a complete, k steps long trace in the language
+                 of "symbols" out a cnf model from a sat solver.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trace_create">Trace_create</a>
+<a href="#Mc_create_trace_from_bdd_input_list">Mc_create_trace_from_bdd_input_list</a>
+</code>
+
+<dt><pre>
+<A NAME="Bmc_pick_state_from_constr"></A>
+int <I></I>
+<B>Bmc_pick_state_from_constr</B>(
+  BeFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  be_ptr  <b>constr</b> <i></i>
+)
+</pre>
+<dd> The trace is added into the trace manager.
+                     Returns the index of the added trace, or -1 if
+                     no trace was created.
+<p>
+
+<dd> <b>Side Effects</b> A new trace possibly created into the trace manager
+<p>
+
+<dt><pre>
+<A NAME="Bmc_rewrite_cleanup"></A>
+void <I></I>
+<B>Bmc_rewrite_cleanup</B>(
+  Prop_ptr  <b>rewritten_prop</b>, <i></i>
+  const BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Crean up the memory after the rewritten property check
+<p>
+
+<dt><pre>
+<A NAME="Bmc_rewrite_invar"></A>
+Prop_ptr <I></I>
+<B>Bmc_rewrite_invar</B>(
+  const Prop_ptr  <b>prop</b>, <i></i>
+  const BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Returns a rewrited property
+<p>
+
+<dt><pre>
+<A NAME="Bmc_simulate_check_feasible_constraints"></A>
+Olist_ptr <I></I>
+<B>Bmc_simulate_check_feasible_constraints</B>(
+  BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  Olist_ptr  <b>constraints</b>, <i></i>
+  be_ptr  <b>from_state</b> <i></i>
+)
+</pre>
+<dd> Given a list of constraints (next-expressions as be_ptr),
+                      checks which (flattened) constraints are
+                      satisfiable from a given state. Iff
+                      from_state is NULL (and not TRUE), the
+                      initial state of the fsm is
+                      considered. Returned list contains values in
+                      {0,1}, and has to be freed.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="bmc_add_be_into_solver_positively"></A>
+inline static void <I></I>
+<B>bmc_add_be_into_solver_positively</B>(
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b>, <i></i>
+  be_ptr  <b>prob</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b> <i></i>
+)
+</pre>
+<dd> Outputs into nusmv_stdout the total time
+  of conversion, adding, setting polarity and destroying BE.
+<p>
+
+<dt><pre>
+<A NAME="bmc_add_be_into_solver"></A>
+inline static Be_Cnf_ptr <I></I>
+<B>bmc_add_be_into_solver</B>(
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b>, <i></i>
+  be_ptr  <b>prob</b>, <i></i>
+  int  <b>polarity</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b> <i></i>
+)
+</pre>
+<dd> Outputs into nusmv_stdout the total time
+  of conversion and adding BE to solver. It is resposibility of the invoker
+  to destroy returned CNF (with Be_Cnf_Delete)
+<p>
+
+<dd> <b>Side Effects</b> creates an instance of CNF formula. (do not forget to
+  delete it)
+<p>
+
+<dt><pre>
+<A NAME="bmc_add_valid_wff_to_list"></A>
+void <I></I>
+<B>bmc_add_valid_wff_to_list</B>(
+  node_ptr  <b>wff</b>, <i></i>
+  int  <b>index</b>, <i></i>
+  void* <b>_pList</b> <i></i>
+)
+</pre>
+<dd> private service for
+  Bmc_CheckFairnessListForPropositionalFormulae
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CheckFairnessListForPropositionalFormulae">Bmc_CheckFairnessListForPropositionalFormulae</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_build_master_be_fsm"></A>
+void <I></I>
+<B>bmc_build_master_be_fsm</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates the BE fsm from the Sexpr FSM. Currently the be
+  enc is a singleton global private variable which is shared between
+  all the BE FSMs. If not previoulsy committed (because a boolean
+  encoder was not available at the time due to the use of coi) the
+  determinization layer will be committed to the be encoder
+<p>
+
+<dt><pre>
+<A NAME="bmc_build_uniqueness"></A>
+be_ptr <I></I>
+<B>bmc_build_uniqueness</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const lsList  <b>state_vars</b>, <i></i>
+  const int  <b>init_state</b>, <i></i>
+  const int  <b>last_state</b> <i></i>
+)
+</pre>
+<dd> Builds the uniqueness contraint for dual and zigzag
+                      algorithms
+<p>
+
+<dt><pre>
+<A NAME="bmc_check_if_wff_is_valid"></A>
+int <I></I>
+<B>bmc_check_if_wff_is_valid</B>(
+  node_ptr  <b>wff</b>, <i></i>
+  int  <b>index</b>, <i></i>
+  void* <b>_aiIndexes</b> <i></i>
+)
+</pre>
+<dd> private service for
+  Bmc_CheckFairnessListForPropositionalFormulae
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CheckFairnessListForPropositionalFormulae">Bmc_CheckFairnessListForPropositionalFormulae</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_conv_bexp2be_recur"></A>
+be_ptr <I></I>
+<B>bmc_conv_bexp2be_recur</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  node_ptr  <b>bexp</b> <i></i>
+)
+</pre>
+<dd> Recursive service for Bmc_Conv_Bexp2Be, with caching of
+  results
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_Conv_Bexp2Be">Bmc_Conv_Bexp2Be</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_conv_query_cache"></A>
+be_ptr <I></I>
+<B>bmc_conv_query_cache</B>(
+  node_ptr  <b>bexp</b> <i></i>
+)
+</pre>
+<dd> Return NULL if association not found
+<p>
+
+<dt><pre>
+<A NAME="bmc_conv_set_cache"></A>
+void <I></I>
+<B>bmc_conv_set_cache</B>(
+  node_ptr  <b>bexp</b>, <i></i>
+  be_ptr  <b>be</b> <i></i>
+)
+</pre>
+<dd> Update the bexpr -> be cache
+<p>
+
+<dt><pre>
+<A NAME="bmc_is_propositional_formula_aux"></A>
+int <I></I>
+<B>bmc_is_propositional_formula_aux</B>(
+  node_ptr  <b>wff</b>, <i></i>
+  int  <b>index</b>, <i></i>
+  void* <b>pOpt</b> <i></i>
+)
+</pre>
+<dd> Wrapper that makes
+  Bmc_CheckFairnessListForPropositionalFormulae able to call
+  Bmc_IsPropositionalFormula with a mode generic interface.
+  Arguments 2 and 3 are practically unused, supplied to respect the generic
+  interface only.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bmc_CheckFairnessListForPropositionalFormulae">Bmc_CheckFairnessListForPropositionalFormulae</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_simulate_add_be_into_inc_solver_positively"></A>
+void <I></I>
+<B>bmc_simulate_add_be_into_inc_solver_positively</B>(
+  SatIncSolver_ptr  <b>solver</b>, <i></i>
+  SatSolverGroup  <b>group</b>, <i></i>
+  be_ptr  <b>prob</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b> <i></i>
+)
+</pre>
+<dd> Outputs into nusmv_stdout the total time of conversion,
+                 adding, setting polarity and destroying BE.
+<p>
+
+<dt><pre>
+<A NAME="bmc_simulate_add_be_into_non_inc_solver_positively"></A>
+void <I></I>
+<B>bmc_simulate_add_be_into_non_inc_solver_positively</B>(
+  SatSolver_ptr  <b>solver</b>, <i></i>
+  be_ptr  <b>prob</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b> <i></i>
+)
+</pre>
+<dd> Outputs into nusmv_stdout the total time of conversion,
+                 adding, setting polarity and destroying BE.
+<p>
+
+<dt><pre>
+<A NAME="bmc_simulate_set_curr_sim_trace"></A>
+void <I></I>
+<B>bmc_simulate_set_curr_sim_trace</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  int  <b>idx</b> <i></i>
+)
+</pre>
+<dd> Internal function used during the simulation to set the
+  current simulation trace
+<p>
+
+<dt><pre>
+<A NAME="bmc_tableauGetEventuallyAtTime"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetEventuallyAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>intime</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> ltl_wff is the 'p' part in 'F p'.
+  If intime<=k is out of [l, k] or if there is no loop,
+  iterates from intime to k, otherwise iterates from l to k
+<p>
+
+<dt><pre>
+<A NAME="bmc_tableauGetGloballyAtTime"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetGloballyAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>intime</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> ltl_wff is the 'p' part in 'G p'
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_tableauGetEventuallyAtTime">bmc_tableauGetEventuallyAtTime</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_tableauGetNextAtTime"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetNextAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>ltl_wff</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns a falsity constants if the next operator leads
+  out of [l, k] and there is no loop
+<p>
+
+<dt><pre>
+<A NAME="bmc_tableauGetReleasesAtTime_aux"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetReleasesAtTime_aux</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>p</b>, <i></i>
+  const node_ptr  <b>q</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const int  <b>steps</b> <i></i>
+)
+</pre>
+<dd> Builds the release operator expression
+<p>
+
+<dt><pre>
+<A NAME="bmc_tableauGetReleasesAtTime"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetReleasesAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>p</b>, <i></i>
+  const node_ptr  <b>q</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Carries out the steps number to be performed, depending
+  on l,k and time, then calls bmc_tableauGetReleasesAtTime_aux
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_tableauGetReleasesAtTime_aux">bmc_tableauGetReleasesAtTime_aux</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_tableauGetUntilAtTime_aux"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetUntilAtTime_aux</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>p</b>, <i></i>
+  const node_ptr  <b>q</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  const int  <b>steps</b> <i></i>
+)
+</pre>
+<dd> auxiliary part of bmc_tableauGetUntilAtTime
+<p>
+
+<dt><pre>
+<A NAME="bmc_tableauGetUntilAtTime"></A>
+be_ptr <I></I>
+<B>bmc_tableauGetUntilAtTime</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const node_ptr  <b>p</b>, <i></i>
+  const node_ptr  <b>q</b>, <i></i>
+  const int  <b>time</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> Carries out the steps number to be performed, depending
+  on l,k and time, then calls bmc_tableauGetUntilAtTime_aux
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bmc_tableauGetUntilAtTime_aux">bmc_tableauGetUntilAtTime_aux</a>
+</code>
+
+<dt><pre>
+<A NAME="bmc_test_bexpr_output"></A>
+void <I></I>
+<B>bmc_test_bexpr_output</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  FILE* <b>f</b>, <i></i>
+  const node_ptr  <b>bexp</b>, <i></i>
+  const int  <b>output_type</b> <i></i>
+)
+</pre>
+<dd> <b>Write</b> to specified FILE stream given node_ptr
+  <b>formula</b> with specified <tt>output_type</tt> format. There are
+  follow formats: <tt>BMC_BEXP_OUTPUT_SMV, BMC_BEXP_OUTPUT_LB</tt>
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="bmc_test_gen_tableau"></A>
+node_ptr <I></I>
+<B>bmc_test_gen_tableau</B>(
+  const BeFsm_ptr  <b>be_fsm</b>, <i></i>
+  const node_ptr  <b>ltl_nnf_wff</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b>, <i></i>
+  boolean  <b>usePastOperators</b> <i></i>
+)
+</pre>
+<dd> This function is used to test tableau formulae
+<p>
+
+<dt><pre>
+<A NAME="bmc_test_gen_wff"></A>
+node_ptr <I></I>
+<B>bmc_test_gen_wff</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  int  <b>max_depth</b>, <i></i>
+  int  <b>max_conns</b>, <i></i>
+  boolean  <b>usePastOperators</b> <i></i>
+)
+</pre>
+<dd> Builds a <b>random LTL WFF</b> with specified
+  <tt>max</tt> depth and <tt>max</tt> connectives.
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="bmc_test_mk_loopback_ltl"></A>
+node_ptr <I></I>
+<B>bmc_test_mk_loopback_ltl</B>(
+  const BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const int  <b>k</b>, <i></i>
+  const int  <b>l</b> <i></i>
+)
+</pre>
+<dd> In the following example we suppose the loop starts
+  from 2 and finishes to 6 (the bound).
+
+  <PRE>
+        ,-----------.
+        V           |
+  o--o--o--o--o--o--o--o--o--o--o--o--o- (...continues indefinitely)
+  0  1  2  3  4  5  6  7  8  9  10 11 12
+
+  </PRE>
+
+
+  In general all state variables in time 2 must be forced to be equivalent
+  to the corresponding variables timed in 6, the variables in 3 to 7,
+  and so on up to the variables in 6 (equivalent to variables in
+  10). Then variables in 7 (or 3 again) must be forced to be equivalent
+  to the varaibles in 11, and so on indefinitely.
+  <BR><BR>
+  In formula (let suppose we have only one boolean variable):
+  <BR>
+  (p2 <-> p6) && (p6 <-> p10) ...
+  <BR><BR>
+  In a more compact (and finite!) form, related to this example:
+  XX(G (p <-> XXXX(p)))
+
+  The first two neXtes force the formula to be effective only from the loop
+  starting point.
+  The generic formula implemented in the code is the following one:
+  <PRE>
+  X^(l) (G ((p0 <-> X^(k-l)(p0)) &&
+            (p1 <-> X^(k-l)(p1)) &&
+	                .
+                        .
+                        .
+            (pn <-> X^(k-l)(pn)))
+        )
+  </PRE>
+ where:
+   p0..pn are all boolean variables into the model
+   X^(n) is expanded to XXX..X n-times.
+ Note that frozen vars can be ignored since they are always equal to their previous
+ values
+<p>
+
+<dt><pre>
+<A NAME="bmc_trace_utils_append_input_state"></A>
+void <I></I>
+<B>bmc_trace_utils_append_input_state</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  const Slist_ptr  <b>cnf_model</b> <i></i>
+)
+</pre>
+<dd> This is a private service of BmcStepWise_Simulation
+<p>
+
+<dt><pre>
+<A NAME="bmc_trace_utils_complete_trace"></A>
+void <I></I>
+<B>bmc_trace_utils_complete_trace</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  const BoolEnc_ptr  <b>bool_enc</b> <i></i>
+)
+</pre>
+<dd> Populates trace with valid defaults assignments.
+
+               The trace can be safely considered complete when this
+               function returns.  Existing assignments will not be
+               affected.
+<p>
+
+<dd> <b>Side Effects</b> Trace is populated with default values
+<p>
+
+<dt><pre>
+<A NAME="bmc_utils_costraint_from_string"></A>
+be_ptr <I></I>
+<B>bmc_utils_costraint_from_string</B>(
+  BeEnc_ptr  <b>be_enc</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const char* <b>str</b>, <i></i>
+  boolean  <b>accept_next_expr</b>, <i></i>
+  Expr_ptr* <b>node_expr</b> <i></i>
+)
+</pre>
+<dd> Reads a either simple or next expression and builds the
+               corresponding BE formula. Exceptions are raised if the
+               expression cannot be parsed or has type
+               errors. Internal service.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="bmc_wff_mkBinary"></A>
+node_ptr <I></I>
+<B>bmc_wff_mkBinary</B>(
+  int  <b>type</b>, <i></i>
+  node_ptr  <b>arg1</b>, <i></i>
+  node_ptr  <b>arg2</b> <i></i>
+)
+</pre>
+<dd> Makes a <b>binary</b> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="bmc_wff_mkConst"></A>
+node_ptr <I></I>
+<B>bmc_wff_mkConst</B>(
+  int  <b>type</b> <i></i>
+)
+</pre>
+<dd> Makes a <b>constant</b> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+<dt><pre>
+<A NAME="bmc_wff_mkUnary"></A>
+node_ptr <I></I>
+<B>bmc_wff_mkUnary</B>(
+  int  <b>type</b>, <i></i>
+  node_ptr  <b>arg</b> <i></i>
+)
+</pre>
+<dd> Makes a <b>unary</b> WFF
+<p>
+
+<dd> <b>Side Effects</b> node hash may change
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

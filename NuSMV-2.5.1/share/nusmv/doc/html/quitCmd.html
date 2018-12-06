@@ -1,0 +1,24 @@
+<html>
+<head><title>quit</title></head>
+<body>
+
+<h3>quit - exits NuSMV</h3>
+<hr>
+<code>quit [-h] [-s] [-x]</code><p>
+Stops the program.  Does not save the current network
+  before exiting.<p>
+
+  Command options:<p>
+  <dl>
+     <dt> -s
+     <dd> Frees all the used memory before quitting.
+          This is slower, and it is used for finding memory leaks.
+     <dt> -x
+     <dd> Leave immediately. Skip all the cleanup code, leave it to
+          the OS. This can save quite a long time.
+
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

@@ -1,0 +1,18 @@
+  print_fair_states - Prints out information about fair states
+
+   --------------------------------------------------------------------------
+
+   print_fair_states [-h] [-v]
+
+   This command provides information about the fair states of the current
+   model.number of fair states. In verbose mode, prints also the list of fair
+   states.
+
+   Command Options:
+
+   -v
+           Verbosely prints the list of fair states.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

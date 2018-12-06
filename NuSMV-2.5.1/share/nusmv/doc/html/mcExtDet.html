@@ -1,0 +1,334 @@
+<HTML>
+<HEAD><TITLE>The mc package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Mc_CheckAGOnlySpec"></A>
+void <I></I>
+<B>Mc_CheckAGOnlySpec</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> The implicit assumption is that "spec" must be an AG
+  formula (i.e. it must contain only conjunctions and AG's).  No attempt
+  is done to normalize the formula (e.g. push negations). The AG mode
+  relies on the previous computation and storage of the reachable
+  state space (<tt>reachable_states_layers</tt>), they are used in
+  counterexample computation.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_CheckCTLSpec"></A>
+void <I></I>
+<B>Mc_CheckCTLSpec</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= alpha using the fair CTL model checking.
+<p>
+
+<dt><pre>
+<A NAME="Mc_CheckCompute"></A>
+void <I></I>
+<B>Mc_CheckCompute</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Compute the given quantitative characteristics on the model.
+<p>
+
+<dt><pre>
+<A NAME="Mc_CheckInvarSilently"></A>
+void <I></I>
+<B>Mc_CheckInvarSilently</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  Trace_ptr* <b>trace</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy read from the option variable.
+
+   If opt_counter_examples is setted and trace is not null, then a
+   trace is stored (and must be released by caller) in trace
+   parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar_With_Strategy">Mc_CheckInvar_With_Strategy</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_CheckInvar_With_Strategy"></A>
+void <I></I>
+<B>Mc_CheckInvar_With_Strategy</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  Check_Strategy  <b>strategy</b>, <i></i>
+  Trace_ptr* <b>output_trace</b>, <i></i>
+  boolean  <b>silent</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy given in input
+
+   If opt_counter_examples is setted and trace is not null, then a
+   trace is stored (and must be released by caller) in trace
+   parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar">Mc_CheckInvar</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_CheckInvar"></A>
+void <I></I>
+<B>Mc_CheckInvar</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy read from the option variable.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar_With_Strategy">Mc_CheckInvar_With_Strategy</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_CheckLanguageEmptiness"></A>
+void <I></I>
+<B>Mc_CheckLanguageEmptiness</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> Checks whether the language is empty. Basically just a
+  wrapper function that calls the language emptiness algorithm given
+  by the value of the oreg_justice_emptiness_bdd_algorithm option.
+
+  If <tt>allinit</tt> is <tt>true</tt> the check is performed by
+  verifying whether all initial states are included in the set of fair
+  states. If it is the case from all initial states there exists a
+  fair path and thus the language is not empty. On the other hand, if
+  <tt>allinit</tt> is false, the check is performed by verifying
+  whether there exists at least one initial state that is also a fair
+  state. In this case there is an initial state from which it starts a
+  fair path and thus the lnaguage is not empty. <tt>allinit</tt> is
+  not supported for forward Emerson-Lei.
+
+  Depending on the global option use_reachable_states the set of fair
+  states computed can be restricted to reachable states only. In this
+  latter case the check can be further simplified. Forward Emerson-Lei
+  requires forward_search and use_reachable_states to be enabled.
+  
+  If <tt>verbose</tt> is true, then some information on the set of
+  initial states is printed out too. <tt> verbose</tt> is ignored for
+  forward Emerson-Lei.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#mc_check_language_emptiness_el_bwd">mc_check_language_emptiness_el_bwd</a>
+<a href="#mc_check_language_emptiness_el_fwd">mc_check_language_emptiness_el_fwd</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_End"></A>
+void <I></I>
+<B>Mc_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quit the mc package
+<p>
+
+<dt><pre>
+<A NAME="Mc_Init"></A>
+void <I></I>
+<B>Mc_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the mc package.
+<p>
+
+<dt><pre>
+<A NAME="Mc_check_psl_property"></A>
+int <I></I>
+<B>Mc_check_psl_property</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+  - prop is the PSL property to be checked
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Mc_create_trace_from_bdd_state_input_list"></A>
+Trace_ptr <I></I>
+<B>Mc_create_trace_from_bdd_state_input_list</B>(
+  const BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b>, <i></i>
+  const char* <b>desc</b>, <i></i>
+  const TraceType  <b>type</b>, <i></i>
+  node_ptr  <b>path</b> <i></i>
+)
+</pre>
+<dd> Creates a trace out of a < S (i, S)* >  bdd list
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trace_create">Trace_create</a>
+<a href="#Bmc_create_trace_from_cnf_model">Bmc_create_trace_from_cnf_model</a>
+</code>
+
+<dt><pre>
+<A NAME="Mc_fair_si_iteration"></A>
+bdd_ptr <I></I>
+<B>Mc_fair_si_iteration</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStatesInputs  <b>states</b>, <i></i>
+  BddStatesInputs  <b>subspace</b> <i></i>
+)
+</pre>
+<dd> Perform one iteration over the list of fairness
+  conditions (order is statically determined). Compute states that are
+  backward reachable from each of the fairness conditions.
+
+  MAP( ApplicableStatesInputs ) over Fairness constraints
+
+  (Q / ex_si ( Z / AND_i eu_si(Z, (Z/ StatesInputFC_i))))
+<p>
+
+<dt><pre>
+<A NAME="Mc_get_fair_si_subset"></A>
+BddStatesInputs <I></I>
+<B>Mc_get_fair_si_subset</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> Returns the set of state-input pairs in si that are
+  fair, i.e. beginning of a fair path.
+<p>
+
+<dt><pre>
+<A NAME="Mc_rewrite_invar_get_sexp_fsm"></A>
+SexpFsm_ptr <I></I>
+<B>Mc_rewrite_invar_get_sexp_fsm</B>(
+  const Prop_ptr  <b>prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr* <b>created_var</b> <i></i>
+)
+</pre>
+<dd> Returns the scalar fsm and the third argument will
+   be filled with the name of the monitor variable
+<p>
+
+<dt><pre>
+<A NAME="Mc_trace_step_put_input_from_bdd"></A>
+void <I></I>
+<B>Mc_trace_step_put_input_from_bdd</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  bdd_ptr  <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Populates a trace step with input assignments
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Mc_trace_step_put_state_from_bdd"></A>
+void <I></I>
+<B>Mc_trace_step_put_state_from_bdd</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  bdd_ptr  <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Populates a trace step with state assignments
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="mc_check_language_emptiness_el_bwd"></A>
+void <I></I>
+<B>mc_check_language_emptiness_el_bwd</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> See Mc_CheckLanguageEmptiness.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_fair_states">BddFsm_get_fair_states</a>
+</code>
+
+<dt><pre>
+<A NAME="mc_check_language_emptiness_el_fwd"></A>
+void <I></I>
+<B>mc_check_language_emptiness_el_fwd</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> See Mc_CheckLanguageEmptiness.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_revfair_states">BddFsm_get_revfair_states</a>
+</code>
+
+<dt><pre>
+<A NAME="mc_rewrite_cleanup"></A>
+void <I></I>
+<B>mc_rewrite_cleanup</B>(
+  Prop_ptr  <b>rewritten_prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Crean up the memory after the rewritten property check
+<p>
+
+<dt><pre>
+<A NAME="mc_rewrite_invar"></A>
+Prop_ptr <I></I>
+<B>mc_rewrite_invar</B>(
+  const Prop_ptr  <b>prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Returns a rewrited property
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,4398 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="SymbCache_create"></A>
+SymbCache_ptr <I></I>
+<B>SymbCache_create</B>(
+  SymbTable_ptr  <b>symb_table</b> <i></i>
+)
+</pre>
+<dd> Callable only by the SymbTable instance that owns self.
+  The caller keeps the ownership of given SymbTable instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_destroy"></A>
+void <I></I>
+<B>SymbCache_destroy</B>(
+  SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Callable only by the SymbTable instance that owns self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_actual_parameter_context"></A>
+node_ptr <I></I>
+<B>SymbCache_get_actual_parameter_context</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the actual parameter associated
+  with the given formal parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_actual_parameter"></A>
+node_ptr <I></I>
+<B>SymbCache_get_actual_parameter</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the actual param of the given formal parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_array_define_body"></A>
+node_ptr <I></I>
+<B>SymbCache_get_array_define_body</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the body of the given define array name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_array_define_context"></A>
+node_ptr <I></I>
+<B>SymbCache_get_array_define_context</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the given define array name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_array_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_array_defines</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_constants"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_constants</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_define_body"></A>
+node_ptr <I></I>
+<B>SymbCache_get_define_body</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the body of the given DEFINE name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_define_context"></A>
+node_ptr <I></I>
+<B>SymbCache_get_define_context</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the given DEFINE name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_define_flatten_body"></A>
+node_ptr <I></I>
+<B>SymbCache_get_define_flatten_body</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the flattenized body of the given DEFINE name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_defines</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_flatten_actual_parameter"></A>
+node_ptr <I></I>
+<B>SymbCache_get_flatten_actual_parameter</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the flattenized actual parameter of the given
+  formal parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_frozen_vars</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_function_context"></A>
+node_ptr <I></I>
+<B>SymbCache_get_function_context</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the given NFunction
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_functions"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_functions</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_function"></A>
+NFunction_ptr <I></I>
+<B>SymbCache_get_function</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the NFunction instance of the given
+                      function name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_i_symbols</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only input variables and DEFINEs can occur within the
+  returned list. Returned list belongs to self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_input_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_input_vars</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_parameters"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_parameters</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_sf_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_sf_i_symbols</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only DEFINEs whose body contains both state(or frozen) and input
+  vars can occur within the returned list. Returned list belongs to
+  self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_sf_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_sf_symbols</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only state and frozen variables and DEFINEs can occur within the
+  returned list. Returned list belongs to self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_state_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_state_frozen_vars</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it.
+  This list is just a concatenation of SymbCache_get_frozen_vars(self)
+  and SymbCache_get_state_vars(self).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_state_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_state_vars</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_var_type"></A>
+SymbType_ptr <I></I>
+<B>SymbCache_get_var_type</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the type of a given variable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_variable_array_type"></A>
+SymbType_ptr <I></I>
+<B>SymbCache_get_variable_array_type</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the type of array variable, i.e. of variable_array
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_variable_arrays"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_variable_arrays</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_get_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbCache_get_vars</B>(
+  const SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_array_define"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_array_define</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  define array
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_constant"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_constant</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  constant
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_declared"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_declared</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is declared
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_define"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_define</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  DEFINE
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_frozen_var"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_frozen_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> A variable is frozen if it is known that the var cannot
+  change its value during transitions.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_function"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_function</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+                      NFunction
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_input_var"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_input_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is an input
+  variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_parameter"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_parameter</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared formal
+  parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_state_frozen_var"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_state_frozen_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the variable is a frozen or a state
+  variable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_state_var"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_state_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a state variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_variable_array"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_variable_array</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  array variable, i.e symbol type
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_is_symbol_var"></A>
+boolean <I></I>
+<B>SymbCache_is_symbol_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is either a state, a frozen or
+  an input variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_list_contains_input_var"></A>
+boolean <I></I>
+<B>SymbCache_list_contains_input_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> The given list of variables is traversed until an input
+  variable is found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_list_contains_state_frozen_var"></A>
+boolean <I></I>
+<B>SymbCache_list_contains_state_frozen_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> The given list of variables is traversed until
+  a state or frozen variable is found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_list_contains_undef_var"></A>
+boolean <I></I>
+<B>SymbCache_list_contains_undef_var</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> Iterates through the elements in var_list
+  checking each one to see if it is one undeclared variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_array_define"></A>
+void <I></I>
+<B>SymbCache_new_array_define</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>ctx</b>, <i></i>
+  node_ptr  <b>definition</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+  Internally we use ARRAY_DEF node to recognize a define array.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_constant"></A>
+void <I></I>
+<B>SymbCache_new_constant</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted. Multiple-time
+  declared constant are accepted, and a reference count is kept to deal with
+  them
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_define"></A>
+void <I></I>
+<B>SymbCache_new_define</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>ctx</b>, <i></i>
+  node_ptr  <b>definition</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_frozen_var"></A>
+void <I></I>
+<B>SymbCache_new_frozen_var</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbCache_redeclare_state_as_frozen_var">SymbCache_redeclare_state_as_frozen_var</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_function"></A>
+void <I></I>
+<B>SymbCache_new_function</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>ctx</b>, <i></i>
+  NFunction_ptr  <b>fun</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_input_var"></A>
+void <I></I>
+<B>SymbCache_new_input_var</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_parameter"></A>
+void <I></I>
+<B>SymbCache_new_parameter</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>formal</b>, <i></i>
+  node_ptr  <b>ctx</b>, <i></i>
+  node_ptr  <b>actual</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_state_var"></A>
+void <I></I>
+<B>SymbCache_new_state_var</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_new_variable_array"></A>
+void <I></I>
+<B>SymbCache_new_variable_array</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_redeclare_state_as_frozen_var"></A>
+void <I></I>
+<B>SymbCache_redeclare_state_as_frozen_var</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> A variable is frozen if it is known that its value cannot
+  be changed during transitions.
+  The given 'name' has to be already declared state variable and not yet
+  redeclared as frozen.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbCache_new_frozen_var">SymbCache_new_frozen_var</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_remove_constant"></A>
+void <I></I>
+<B>SymbCache_remove_constant</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>constant</b> <i></i>
+)
+</pre>
+<dd> Removal is performed taking into account of reference
+  counting, as constants can be shared among several layers. This
+  (private) method can be used only by SymbLayer, otherwise the
+  resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_remove_define"></A>
+void <I></I>
+<B>SymbCache_remove_define</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>define</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_remove_function"></A>
+void <I></I>
+<B>SymbCache_remove_function</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>fun</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by
+                      SymbLayer, otherwise the resulting status
+                      will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_remove_parameter"></A>
+void <I></I>
+<B>SymbCache_remove_parameter</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>formal</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbCache_remove_var"></A>
+void <I></I>
+<B>SymbCache_remove_var</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b> <i></i>
+)
+</pre>
+<dd> This (private) method can be used only by SymbLayer,
+  otherwise the resulting status will be corrupted.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_array_define"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_array_define</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol does not exist within
+  the symbol table which self belongs to. Returns false if the symbol
+  was already declared.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_constant"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_constant</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Since more than one layer can declare the same constants,
+  this method might return true even if another layer already contain the
+  given constant. If the constant had already been declared within self,
+  false is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_define"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_define</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol does not exist within
+  the symbol table which self belongs to. Returns false if the symbol
+  was already declared.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_function"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_function</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Since more than one layer can declare the same NFunctions,
+  this method might return true even if another layer already contain the
+  given NFunction. If the NFunction had already been declared within self,
+  false is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_parameter"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_parameter</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol does not exist within
+  the symbol table which self belongs to. Returns false if the symbol
+  was already declared.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_variable_array"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_variable_array</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol does not exist within
+  the symbol table which self belongs to. Returns false if the symbol
+  was already declared.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_can_declare_var"></A>
+boolean <I></I>
+<B>SymbLayer_can_declare_var</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol does not exist
+  within the symbol table which self belongs to. Returns
+  false if the symbol was already declared.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_committed_to_enc"></A>
+void <I></I>
+<B>SymbLayer_committed_to_enc</B>(
+  SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method is part of a private registration protocol
+  between encodings and layers, and must be considered as a private
+  method.  Every time a layer is registered (committed) within an
+  enconding, the layer is notified with a call to this method from the
+  encoding instance which the layer is committed to. This mechanism
+  helps to detect errors when a layer in use by an encoding is removed
+  and destroyed from within a symbol table. The destructor will always
+  check that self is not in use by any encoding when it is invoked.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#removed_from_enc">removed_from_enc</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_create"></A>
+SymbLayer_ptr <I></I>
+<B>SymbLayer_create</B>(
+  const char* <b>name</b>, <i></i>
+  const LayerInsertPolicy  <b>policy</b>, <i></i>
+  SymbCache_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> name is copied, the caller keeps ownership of cache.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_array_define"></A>
+void <I></I>
+<B>SymbLayer_declare_array_define</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  node_ptr  <b>definition</b> <i></i>
+)
+</pre>
+<dd> A new define array of a given value is created. name must be
+  contestualized, context is provided as a separated information
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_constant"></A>
+void <I></I>
+<B>SymbLayer_declare_constant</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> A new constant is created
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbLayer_can_declare_constant">SymbLayer_can_declare_constant</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_define"></A>
+void <I></I>
+<B>SymbLayer_declare_define</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  node_ptr  <b>definition</b> <i></i>
+)
+</pre>
+<dd> A new DEFINE of a given value is created. name must be
+  contestualized, context is provided as a separated information
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_frozen_var"></A>
+void <I></I>
+<B>SymbLayer_declare_frozen_var</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> A new frozen variable is created of a given type.
+  The variable type can be created with SymbType_create or returned by
+  funtions SymbTablePkg_..._type.
+  The layer is responsible for destroying the variable's type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_function"></A>
+void <I></I>
+<B>SymbLayer_declare_function</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>ctx</b>, <i></i>
+  NFunction_ptr  <b>fun</b> <i></i>
+)
+</pre>
+<dd> A new NFunction is declared within the layer.
+                      Name must be contestualized, context is provided
+                      as a separated information
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbLayer_can_declare_function">SymbLayer_can_declare_function</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_input_var"></A>
+void <I></I>
+<B>SymbLayer_declare_input_var</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> A new input variable is created of a given type.
+  The variable type can be created with SymbType_create or returned by
+  funtions SymbTablePkg_..._type.
+  The layer is responsible for destroying the variable's type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_parameter"></A>
+void <I></I>
+<B>SymbLayer_declare_parameter</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>formal</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  node_ptr  <b>actual</b> <i></i>
+)
+</pre>
+<dd> A new parameter of a given value is created. name must be
+  contestualized, context is provided as a separated information
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_state_var"></A>
+void <I></I>
+<B>SymbLayer_declare_state_var</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> A new state variable is created of a given type.
+  The variable type can be created with SymbType_create or returned by
+  funtions SymbTablePkg_..._type.
+  The layer is responsible for destroying the variable's type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_declare_variable_array"></A>
+void <I></I>
+<B>SymbLayer_declare_variable_array</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> The specified name will be associated to the give array type
+  in the symbols collection
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_destroy"></A>
+void <I></I>
+<B>SymbLayer_destroy</B>(
+  SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class SymbLayer destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_all_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_all_symbols</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_all_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_all_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_array_defines_num"></A>
+int <I></I>
+<B>SymbLayer_get_array_defines_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of define arrays.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_array_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_array_defines</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_frozen_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_bool_frozen_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared boolean frozen variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_bool_frozen_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_input_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_bool_input_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared boolean input variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_input_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_bool_input_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_state_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_bool_state_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared boolean state variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_state_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_bool_state_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_bool_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_bool_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> WARNING: The *caller* is responsible for destroying the
+  returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_constants_num"></A>
+int <I></I>
+<B>SymbLayer_get_constants_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared contants
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_constants"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_constants</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_defines_num"></A>
+int <I></I>
+<B>SymbLayer_get_defines_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of DEFINEs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_defines</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_frozen_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_frozen_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared frozen variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_frozen_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_functions_num"></A>
+int <I></I>
+<B>SymbLayer_get_functions_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of NFunctions.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_functions"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_functions</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_input_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_input_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared input variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_input_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_input_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_insert_policy"></A>
+LayerInsertPolicy <I></I>
+<B>SymbLayer_get_insert_policy</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method is thought to be used exclusively by class
+  SymbTable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_name"></A>
+const char* <I></I>
+<B>SymbLayer_get_name</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned string must not be freed, it belongs to self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_parameters_num"></A>
+int <I></I>
+<B>SymbLayer_get_parameters_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of parameters.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_parameters"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_parameters</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_state_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_state_frozen_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance.
+  Returned list is just a concatenation of SymbLayer_get_frozen_vars(self)
+  and SymbLayer_get__state_vars(self).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_state_vars_num"></A>
+int <I></I>
+<B>SymbLayer_get_state_vars_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of declared state variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_state_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_state_vars</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_variable_arrays_num"></A>
+int <I></I>
+<B>SymbLayer_get_variable_arrays_num</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of Symbol Types.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_get_variable_arrays"></A>
+NodeList_ptr <I></I>
+<B>SymbLayer_get_variable_arrays</B>(
+  const SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self keeps the ownership of the returned instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_is_symbol_in_layer"></A>
+boolean <I></I>
+<B>SymbLayer_is_symbol_in_layer</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the symbol is defined in the layer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_is_variable_in_layer"></A>
+boolean <I></I>
+<B>SymbLayer_is_variable_in_layer</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the variable is defined in the layer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_must_insert_before"></A>
+boolean <I></I>
+<B>SymbLayer_must_insert_before</B>(
+  const SymbLayer_ptr  <b>self</b>, <i></i>
+  const SymbLayer_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> Compares the insertion policies of self and other, and
+  returns true if self must be inserted *before* other.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_redeclare_state_as_frozen_var"></A>
+EXTERN void <I></I>
+<B>SymbLayer_redeclare_state_as_frozen_var</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b> <i></i>
+)
+</pre>
+<dd> A variable is frozen if it is known then the var's value
+  cannot change in transitions.
+  'var' must be a state variable already defined and not redeclared as frozen.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_remove_define"></A>
+void <I></I>
+<B>SymbLayer_remove_define</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> This method can be called only if self is not
+  currently commited to any encoding. It is not allowed to remove
+  symbols from layers that are committed to any encoder. This is
+  required as caches and other mechanisms may fail to work
+  correctly otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_remove_function"></A>
+void <I></I>
+<B>SymbLayer_remove_function</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> This method can be called only if self is not
+  currently commited to any encoding. It is not allowed to remove
+  symbols from layers that are committed to any encoder. This is
+  required as caches and other mechanisms may fail to work
+  correctly otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_remove_var"></A>
+void <I></I>
+<B>SymbLayer_remove_var</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> This method can be called only if self is not
+  currently commited to any encoding. It is not allowed to remove
+  symbols from layers that are committed to any encoder. This is
+  required as caches and other mechanisms may fail to work
+  correctly otherwise.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_removed_from_enc"></A>
+void <I></I>
+<B>SymbLayer_removed_from_enc</B>(
+  SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method is part of a private registration protocol
+  between encodings and layers, and must be considered as a private
+  method.  Every time a layer is removed (uncommitted) from an
+  enconding, the layer is notified with a call to this method from the
+  encoding instance which the layer is being removed from. This mechanism
+  helps to detect errors when a layer in use by an encoding is removed
+  and destroyed from within a symbol table. The destructor will always
+  check that self is not in use by any encoding when it is invoked.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#commit_to_enc">commit_to_enc</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbLayer_set_name"></A>
+void <I></I>
+<B>SymbLayer_set_name</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  const char* <b>new_name</b> <i></i>
+)
+</pre>
+<dd> This method is protected (not usable by users, only
+  used by the symbol table when renaming a layer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_array_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_array_type</B>(
+  SymbType_ptr  <b>subtype</b>, <i></i>
+  int  <b>lower_bound</b>, <i></i>
+  int  <b>upper_bound</b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+  PRECONDITION: subtype has to be created with one of SymbTypePkg_.._type 
+  function.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_boolean_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_boolean_set_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_boolean_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_boolean_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_error_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_error_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_init"></A>
+void <I></I>
+<B>SymbTablePkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This initialisation can be performed only after
+  the Node package and the variable boolean_range have been initialised.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_int_symbolic_enum_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_int_symbolic_enum_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+  Do not access the values contained in the type's body.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_integer_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_integer_set_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_integer_symbolic_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_integer_symbolic_set_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_integer_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_integer_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_no_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_no_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This type is a type of correct expressions
+  which normally do not have any time. 
+  The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_pure_int_enum_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_pure_int_enum_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+  Do not access the values contained in the type's body.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_pure_symbolic_enum_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_pure_symbolic_enum_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+  Do not access the values contained in the type's body.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_quit"></A>
+void <I></I>
+<B>SymbTablePkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> WARNING: the package de-initialisation
+  destroys types created with the function SymbTablePkg_..._type.
+
+  NB: The reason behind this constrain is the following: these functions
+  exploit memory sharing, and this memory is freed during
+  de-initialisation.
+
+  In any case, the de-initialisation is performed by
+  system "reset" command, and this command also frees all node_ptr,
+  so in any case the symbolic types will be unusable, because they 
+  use node_ptr inside. 
+  SO, DESTROY ALL SYMBOLIC TYPES CREATED SO FAR BEFORE THE symb_table
+  PACKAGE DE-INITIALISATION!
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_real_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_real_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_signed_word_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_signed_word_type</B>(
+  int  <b>width</b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_statement_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_statement_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This type is a type of correct expressions which are
+  statements, like assignments, or high-level nodes like TRANS, INIT,
+  etc. The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_string_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_string_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_symbolic_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_symbolic_set_type</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_unsigned_word_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_unsigned_word_type</B>(
+  int  <b>width</b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTablePkg_wordarray_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTablePkg_wordarray_type</B>(
+  int  <b>awidth</b>, <i></i>
+  int  <b>vwidth</b> <i></i>
+)
+</pre>
+<dd> The memory is shared, so you can compare pointers to
+  compare types. The association is done based on the cons of awidth and vwidth.
+  De-initialisation of the package destroys this type.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_copy"></A>
+SymbTable_ptr <I></I>
+<B>SymbTable_copy</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  Set_t  <b>blacklist</b> <i></i>
+)
+</pre>
+<dd> Returned ST is allocated and has to be released by caller.
+                      The copy is performed iterating over each layer in the
+                      Symbol Table. The new ST contains a copy of each layer of
+                      the given Symbol Table
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_create">SymbTable_create</a>
+<a href="#SymbTable_destroy">SymbTable_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_create_layer_class"></A>
+void <I></I>
+<B>SymbTable_create_layer_class</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> This method creates a new class of layers. The
+  class must be not existing. The method can be used to create a
+  class of layers that might be empty. It is not required to
+  create a class before calling methods that use that class, like
+  e.g.  SymbTable_layer_add_to_class that wll create the class
+  when not existing. class_name can be NULL to create the default
+  class (whose name must have been previously specified with
+  SymbTable_set_default_layers_class_name)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_layer_add_to_class">SymbTable_layer_add_to_class</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_create_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_create_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  const LayerInsertPolicy  <b>ins_policy</b> <i></i>
+)
+</pre>
+<dd> The created layer is returned. Do not destroy the
+  layer, since it belongs to self. if layer name is NULL, then a
+  temporary name will be searched and a new layer will be created. To
+  retrieve the layer name, query the returned SymbLayer instance.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#remove_layer">remove_layer</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_create"></A>
+SymbTable_ptr <I></I>
+<B>SymbTable_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Class constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_define_get_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_define_get_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the layer a DEFINE is defined in, NULL
+  if there is no layer containing it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_destroy"></A>
+void <I></I>
+<B>SymbTable_destroy</B>(
+  SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_function_get_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_function_get_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the layer a NFunction is defined in, NULL
+                      if there is no layer containing it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_actual_parameter_context"></A>
+node_ptr <I></I>
+<B>SymbTable_get_actual_parameter_context</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the actual parameter associated
+  with the given formal one
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_actual_parameter"></A>
+node_ptr <I></I>
+<B>SymbTable_get_actual_parameter</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the actual param of the given formal parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_array_define_body"></A>
+node_ptr <I></I>
+<B>SymbTable_get_array_define_body</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the body of the given array define name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_array_define_context"></A>
+node_ptr <I></I>
+<B>SymbTable_get_array_define_context</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the given array define name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_array_define_flatten_body"></A>
+node_ptr <I></I>
+<B>SymbTable_get_array_define_flatten_body</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the flattened body of the given array define name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_array_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_array_defines</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_class_layer_names"></A>
+array_t* <I></I>
+<B>SymbTable_get_class_layer_names</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Specified class must be existing, or if NULL is
+  specified a default class must have been defined. Returned
+  array belongs to self and has NOT to be destroyed or changed by
+  the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_class_of_layer"></A>
+const char* <I></I>
+<B>SymbTable_get_class_of_layer</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b> <i></i>
+)
+</pre>
+<dd> Returns the name of the class in which the given layer is
+               declared or NULL if there is no such a class.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_constants_num"></A>
+int <I></I>
+<B>SymbTable_get_constants_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all declared constants
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_constants"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_constants</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_default_layers_class_name"></A>
+const char* <I></I>
+<B>SymbTable_get_default_layers_class_name</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned string belongs to self, and must be NOT
+  destroyed or changed. Returned string is NULL if not previously set.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_set_default_layers_class_name">SymbTable_set_default_layers_class_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_define_body"></A>
+node_ptr <I></I>
+<B>SymbTable_get_define_body</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the body of the given DEFINE
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_define_context"></A>
+node_ptr <I></I>
+<B>SymbTable_get_define_context</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the given DEFINE name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_define_flatten_body"></A>
+node_ptr <I></I>
+<B>SymbTable_get_define_flatten_body</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the flattenized body of the given
+  define
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_defines"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_defines</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_determinization_var_name"></A>
+node_ptr <I></I>
+<B>SymbTable_get_determinization_var_name</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns a valid name for a new determinization
+                      variable.  Searches in the symbol table for a
+                      variable name which is not declared yet, and
+                      returns it. Warning: This method does not
+                      declare a new variable, it simply finds a
+                      valid name for a new determinization
+                      variable. If the returned variable name is
+                      not used later to declare a new variable,
+                      succeed calls to this method may not return a
+                      valid name.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_table_deinit">symb_table_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_flatten_actual_parameter"></A>
+node_ptr <I></I>
+<B>SymbTable_get_flatten_actual_parameter</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the flattenized actual parameter of the given
+  formal parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_fresh_symbol_name"></A>
+node_ptr <I></I>
+<B>SymbTable_get_fresh_symbol_name</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>tplate</b> <i></i>
+)
+</pre>
+<dd> If tplate is NULL then a valid fresh symbol is choosed.
+  NB: here tplate actually means prefix.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_frozen_vars_num"></A>
+int <I></I>
+<B>SymbTable_get_frozen_vars_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all declared frozen variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_frozen_vars</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_function_context"></A>
+node_ptr <I></I>
+<B>SymbTable_get_function_context</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the context of the NFunction with the given name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_functions_num"></A>
+int <I></I>
+<B>SymbTable_get_functions_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all NFunctions
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_functions"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_functions</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_function"></A>
+NFunction_ptr <I></I>
+<B>SymbTable_get_function</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the NFunction with the given name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_i_symbols</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only input variables and DEFINEs can occur within the
+  returned list. Returned list belongs to self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_input_vars_num"></A>
+int <I></I>
+<B>SymbTable_get_input_vars_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all declared input variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_input_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_input_vars</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_i_symbols</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_i_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_i_vars</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_sf_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_sf_i_symbols</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_sf_i_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_sf_i_vars</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_sf_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_sf_symbols</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller.
+  Note: state symbols include frozen variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers_sf_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers_sf_vars</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b> <i></i>
+)
+</pre>
+<dd> Everytime this method is called, it will create and
+  calculate a new list. layers is an array of strings.
+  WARNING: The returned instance must be destroyed by the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layers"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_layers</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The returned list belongs to self. Do not free or
+                      change it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_get_layer</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b> <i></i>
+)
+</pre>
+<dd> NULL is returned when the layer does not exist within
+  self.  Returned SymbLayer instance belongs to self.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_parameters_num"></A>
+int <I></I>
+<B>SymbTable_get_parameters_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all parameters
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_parameters"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_parameters</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_sf_i_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_sf_i_symbols</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only DEFINEs whose body contains both state (or
+  frozen) and input vars can occur within the returned
+  list. Returned list belongs to self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_sf_symbols"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_sf_symbols</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Only state and frozen variables and DEFINEs can occur within the
+  returned list. Returned list belongs to self, do not destroy it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_simplification_hash"></A>
+hash_ptr <I></I>
+<B>SymbTable_get_simplification_hash</B>(
+  SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> See function Expr_simplify for more details.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_state_frozen_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_state_frozen_vars</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy
+  or change it.  This list is just a concatenation of
+  SymbTable_get_frozen_vars(self) and
+  SymbTable_get_state_vars(self).
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_state_vars_num"></A>
+int <I></I>
+<B>SymbTable_get_state_vars_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all declared state variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_state_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_state_vars</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it. Frozen variables are *not* returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_symbol_category"></A>
+SymbCategory <I></I>
+<B>SymbTable_get_symbol_category</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>symbol</b> <i></i>
+)
+</pre>
+<dd> Possible categories are: state vars, input vars, state
+  only defines, input only defines, state-input defines,
+  state-input-next defines. If a symbol is not properly recognized as
+  one of the above, SYMBOL_INVALID is returned (for constants, for examples).
+
+  An identifier is var or define. It is also allowed to have arrays
+  with constant index, i.e. if V is identifier than V[5
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_type_checker"></A>
+TypeChecker_ptr <I></I>
+<B>SymbTable_get_type_checker</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_var_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTable_get_var_type</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> The type belongs to the layer, do not destroy it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_variable_array_type"></A>
+SymbType_ptr <I></I>
+<B>SymbTable_get_variable_array_type</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the body of the given array define name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_variable_arrays"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_variable_arrays</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_vars_num"></A>
+int <I></I>
+<B>SymbTable_get_vars_num</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the number of all declared variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_get_vars"></A>
+NodeList_ptr <I></I>
+<B>SymbTable_get_vars</B>(
+  const SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self, do not destroy or
+  change it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_layer_in_class"></A>
+boolean <I></I>
+<B>SymbTable_is_layer_in_class</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> If class_name is NULL, the default class will be checked
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_array_define"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_array_define</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  array define
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_bool_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_bool_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a variable of enum type
+  with the values 0 and 1 (boolean)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_constant"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_constant</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Notice that this method will check only symbols
+  defined within self. For example if an integer constant was not
+  declared within self, this method will return false for it. For
+  generic expressions, consider using function
+  node_is_constant which performs a purely-syntactly
+  check.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_declared"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_declared</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is declared
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_define"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_define</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  DEFINE
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_frozen_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_frozen_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a frozen variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_function"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_function</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+                      NFunction
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_input_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_input_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is an input variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_parameter"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_parameter</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  parameter
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_state_frozen_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_state_frozen_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a frozen or a state variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_state_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_state_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a state variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_variable_array"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_variable_array</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is a declared
+  Symbol Type
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_symbol_var"></A>
+boolean <I></I>
+<B>SymbTable_is_symbol_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given symbol is either a state, frozen or
+  an input variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_is_var_finite"></A>
+boolean <I></I>
+<B>SymbTable_is_var_finite</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given variable has a finite domain
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_layer_add_to_class"></A>
+void <I></I>
+<B>SymbTable_layer_add_to_class</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> A new class will be created if given class does not
+  exist yet. The given layer must be existing.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_layer_remove_from_class">SymbTable_layer_remove_from_class</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_layer_class_exists"></A>
+boolean <I></I>
+<B>SymbTable_layer_class_exists</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> This method checks if class 'class_name' has been
+  previously created in the SymbTable.Returns true if the class exists,
+  false otherwise.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_layer_remove_from_class"></A>
+void <I></I>
+<B>SymbTable_layer_remove_from_class</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Given class must be existing, or if NULL default
+  class must be existing. If the layer is not found, nothing happens.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_layer_add_to_class">SymbTable_layer_add_to_class</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_list_contains_input_var"></A>
+boolean <I></I>
+<B>SymbTable_list_contains_input_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> The given list of variables is traversed until an input
+  variable is found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_list_contains_state_frozen_var"></A>
+boolean <I></I>
+<B>SymbTable_list_contains_state_frozen_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> The given list of variables is traversed until
+  a state or frozen variable is found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_list_contains_undef_var"></A>
+boolean <I></I>
+<B>SymbTable_list_contains_undef_var</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const NodeList_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> Iterates through the elements in var_list
+  checking each one to see if it is one undeclared variable.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_remove_layer"></A>
+void <I></I>
+<B>SymbTable_remove_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> The layer must be not in use by any encoding, so remove
+  it from all encodings before calling this method. The removed layer
+  will be no longer available after the invocation of this method.
+
+  If given layer belongs to a set of layer classes, the layer will
+  be removed from the classes as well (meaning that there is no
+  need to remove the layer from the classes it belongs to)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#create_layer">create_layer</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_rename_layer"></A>
+void <I></I>
+<B>SymbTable_rename_layer</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  const char* <b>new_name</b> <i></i>
+)
+</pre>
+<dd> Use to rename an existing layer. Useful for example to
+  substitute an existing layer with another.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_resolve_symbol"></A>
+ResolveSymbol_ptr <I></I>
+<B>SymbTable_resolve_symbol</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Resolves the given symbol in the given context.
+                      This function returns the internal instance of
+                      ResolveSymbol, which must NOT be freed by the
+                      caller. The ResolveSymbol internal instance is
+                      re-populated everytime that this function is
+                      called.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_set_default_layers_class_name"></A>
+void <I></I>
+<B>SymbTable_set_default_layers_class_name</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Given string is duplicated.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_get_default_layers_class_name">SymbTable_get_default_layers_class_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_symbol_get_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_symbol_get_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the layer a symbol is defined in, NULL
+                      if there is no layer containing it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbTable_variable_get_layer"></A>
+SymbLayer_ptr <I></I>
+<B>SymbTable_variable_get_layer</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns the layer a variable is defined in, NULL
+  if there is no layer containing it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_calculate_type_size"></A>
+int <I></I>
+<B>SymbType_calculate_type_size</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This function can be invoked only on finite-precision
+   valid type of variables. This means that such types as no-type or error-type
+   or real or any memory-shared ones should not be given to this function.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_convert_right_to_left"></A>
+SymbType_ptr <I></I>
+<B>SymbType_convert_right_to_left</B>(
+  SymbType_ptr  <b>leftType</b>, <i></i>
+  SymbType_ptr  <b>rightType</b> <i></i>
+)
+</pre>
+<dd> The implicit conversion is performed
+   in accordance to the type order.
+   NOTE: only memory-shared types can be given to this function.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_copy"></A>
+SymbType_ptr <I></I>
+<B>SymbType_copy</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This function takes one type and returns its copy.
+
+   Note: the body of the type is not copied, i.e. just pointer is remembered.
+   See SymbType_create for more info about body.
+
+   Note: the input type should not be a memory-shared type (since there is no
+   meaning in coping a memory sharing type).
+<p>
+
+<dd> <b>Side Effects</b> allocate memory
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_destroy">SymbType_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_create_array"></A>
+SymbType_ptr <I></I>
+<B>SymbType_create_array</B>(
+  SymbType_ptr  <b>subtype</b>, <i></i>
+  int  <b>lower_bound</b>, <i></i>
+  int  <b>upper_bound</b> <i></i>
+)
+</pre>
+<dd> This is specialized version of SymbType_create
+   which is designed for array types only.
+   It is implemented as a special construtor because array types are quite
+   different from all the others.
+
+   Parameter subtype is the subtype of the array type. This type has
+   to be not-memory-shared and its ownership is passed to created
+   type. I.e. subtype will be destroyed when returned type is destroyed.
+
+   lower_bound, upper-bound are the lower and upper bounds,resp, of
+   the array.
+
+   All the constrains about memory, lifetype, etc are the same as for
+   SymbType_create.
+<p>
+
+<dd> <b>Side Effects</b> allocate memory
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_destroy">SymbType_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_create_memory_sharing_array_type"></A>
+SymbType_ptr <I></I>
+<B>SymbType_create_memory_sharing_array_type</B>(
+  SymbType_ptr  <b>subtype</b>, <i></i>
+  int  <b>lower_bound</b>, <i></i>
+  int  <b>upper_bound</b> <i></i>
+)
+</pre>
+<dd> The same as SymbType_create_memory_sharing_type
+   but can be used to create array types.
+   subtype has to be memory shared.
+<p>
+
+<dd> <b>Side Effects</b> allocate memory
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+<a href="#SymbType_destroy_memory_sharing_type">SymbType_destroy_memory_sharing_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_create_memory_sharing_type"></A>
+SymbType_ptr <I></I>
+<B>SymbType_create_memory_sharing_type</B>(
+  SymbTypeTag  <b>tag</b>, <i></i>
+  node_ptr  <b>body</b> <i></i>
+)
+</pre>
+<dd> The difference from the public constructor is that this
+   constructor marks the created type as a memory sharing type. As
+   result the public constructor will not be able to destroy memory
+   sharing instance of a type. Use the private constructor
+   SymbType_destroy_memory_sharing_type to destroy such instances.
+<p>
+
+<dd> <b>Side Effects</b> allocate memory
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+<a href="#SymbType_destroy_memory_sharing_type">SymbType_destroy_memory_sharing_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_create"></A>
+SymbType_ptr <I></I>
+<B>SymbType_create</B>(
+  SymbTypeTag  <b>tag</b>, <i></i>
+  node_ptr  <b>body</b> <i></i>
+)
+</pre>
+<dd> The tag must be a correct tag. The 'body' is the
+   additional info corresponding to a particular kind of the type:
+   * for a enum type the body is the list of values;
+   * for "BOOL", "INT" or "REAL" the body is unused, and set to Nil;
+   * for signed and unsigned "WORD" it is the NUMBER node defining the
+      width of the type;
+   * for "WORDARRAY", the body is a pair of NUMBER nodes, defining
+      the width of the address, and the width of the value.
+   * for everything else body is Nil;
+
+   Note that array types have to be created with
+   SymbType_create_array, not with this constructor.
+
+   Set-types are used with expressions which represent a set values.
+   "NO-TYPE" is used with expressions which normally do not
+        have any type such as assignments.
+   "ERROR" type indicates an error (not an actual type).
+
+   No-type, error-type and all set-types (boolean-set, integer-set,
+   symbolic-set, symbolic-integer-set) should not be created with this
+   constructor, but only with memory-shared function
+   SymbTablePkg_..._type.  The reason behind this constrain is that
+   only expressions (not variables) can have these types, therefore
+   only memory-shared versions of these types are required.
+
+   The constructor does not create a copy of the body, but just remember
+   the pointer.
+
+   NB: system "reset" command destroys all node_ptr objects, including those
+   used in SymbType_ptr. So destroy all symbolic types before the destruction
+   of node_ptr objects, i.e. before or during "reset"
+<p>
+
+<dd> <b>Side Effects</b> allocate memory
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create_array">SymbType_create_array</a>
+<a href="#SymbType_destroy">SymbType_destroy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_destroy_memory_sharing_type"></A>
+void <I></I>
+<B>SymbType_destroy_memory_sharing_type</B>(
+  SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The same as the public destructor SymbType_destroy
+   but 'self' has to be created by private constructor
+   SymbType_create_memory_sharing_type only.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create_memory_sharing_type">SymbType_create_memory_sharing_type</a>
+<a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_destroy"></A>
+void <I></I>
+<B>SymbType_destroy</B>(
+  SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Deallocate the memory. The destructor
+   does not deallocate memory from the type's body (since the
+   constructor did not created the body).
+
+   NOTE: If self is a memory sharing type instance, i.e. a type returned by
+   SymbTablePkg_..._type functions then the destructor will not delete
+   the type.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_equals"></A>
+boolean <I></I>
+<B>SymbType_equals</B>(
+  SymbType_ptr  <b>self</b>, <i></i>
+  SymbType_ptr  <b>oth</b> <i></i>
+)
+</pre>
+<dd> True if and only if the given types are equal, the given
+   types can be memory-sharing or not.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_generate_all_word_values"></A>
+node_ptr <I></I>
+<B>SymbType_generate_all_word_values</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Generates and returns a list of all possible values
+   of a particular Unsigned Word type
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_array_lower_bound"></A>
+int <I></I>
+<B>SymbType_get_array_lower_bound</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Get array lower bound
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_array_subtype"></A>
+SymbType_ptr <I></I>
+<B>SymbType_get_array_subtype</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The returned pointer belongs to the ginven SymbType_ptr
+                        and must not be freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_array_upper_bound"></A>
+int <I></I>
+<B>SymbType_get_array_upper_bound</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Get array upper bound
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_enum_type_values"></A>
+node_ptr <I></I>
+<B>SymbType_get_enum_type_values</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The given type has to be a ENUM type.
+   The return list is a list of all possible values of a enum type. This list
+   was provided during construction.
+
+   NB: Memory sharing types do not have particular values, since they
+   are "simplified".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_greater"></A>
+SymbType_ptr <I></I>
+<B>SymbType_get_greater</B>(
+  const SymbType_ptr  <b>type1</b>, <i></i>
+  const SymbType_ptr  <b>type2</b> <i></i>
+)
+</pre>
+<dd> The implicit conversion is performed
+   in accordance to the type order.
+   NOTE: only memory-shared types can be given to this function.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_minimal_common"></A>
+SymbType_ptr <I></I>
+<B>SymbType_get_minimal_common</B>(
+  SymbType_ptr  <b>type1</b>, <i></i>
+  SymbType_ptr  <b>type2</b> <i></i>
+)
+</pre>
+<dd> The implicit conversion is performed in accordance to
+   the type order.  NOTE: only memory-shared types can be given to this
+   function except for SYMB_TYPE_ARRAY which can be non-memory shared
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_tag"></A>
+SymbTypeTag <I></I>
+<B>SymbType_get_tag</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns the tag (the kind) of the type
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_word_line_number"></A>
+int <I></I>
+<B>SymbType_get_word_line_number</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The body of the type, provided during construction, is
+   a node NUMBER specifying the width of the Word or a node CONS
+   specifying the address-value widths or WordArray.  This node was
+   create during parsing and contains the line number of the type
+   declaration.
+   NB: The type should not be memory-sharing.
+   NB: Virtually this function is used only in TypeChecker_is_type_wellformed
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_word_width"></A>
+int <I></I>
+<B>SymbType_get_word_width</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The given type should be Word and the
+   body of the type (given to the constructor) should be NUMBER node.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_wordarray_awidth"></A>
+int <I></I>
+<B>SymbType_get_wordarray_awidth</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> .
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_get_wordarray_vwidth"></A>
+int <I></I>
+<B>SymbType_get_wordarray_vwidth</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> .
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_array"></A>
+boolean <I></I>
+<B>SymbType_is_array</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true if the type is an array-type, or else returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_back_comp"></A>
+boolean <I></I>
+<B>SymbType_is_back_comp</B>(
+  const SymbType_ptr  <b>type</b> <i></i>
+)
+</pre>
+<dd> We distinguish "old" types because we may want to turn
+   off the type checking on these types for backward
+   compatibility. Integer is also considered as "old", because an enum
+   of integer values is always casted to Integer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_boolean"></A>
+boolean <I></I>
+<B>SymbType_is_boolean</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The kind of enum-type is analysed in the constructor.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_enum"></A>
+boolean <I></I>
+<B>SymbType_is_enum</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true if the type is a enum-type, or else returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_error"></A>
+boolean <I></I>
+<B>SymbType_is_error</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Error type is used to indicate an error
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_infinite_precision"></A>
+boolean <I></I>
+<B>SymbType_is_infinite_precision</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Inifinite-precision types are such as integer and real.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_int_symbolic_enum"></A>
+boolean <I></I>
+<B>SymbType_is_int_symbolic_enum</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The kind of enum-type is analysed in the constructor.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_integer"></A>
+boolean <I></I>
+<B>SymbType_is_integer</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true if the type is a integer-type, or else returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_memory_shared"></A>
+boolean <I></I>
+<B>SymbType_is_memory_shared</B>(
+  SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> True if and only if the given type is memory shared
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_pure_int_enum"></A>
+boolean <I></I>
+<B>SymbType_is_pure_int_enum</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The kind of enum-type is analysed in the constructor.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_pure_symbolic_enum"></A>
+boolean <I></I>
+<B>SymbType_is_pure_symbolic_enum</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The kind of enum-type is analysed in the constructor.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_real"></A>
+boolean <I></I>
+<B>SymbType_is_real</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true if the type is a real-type, or else returns false
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_set"></A>
+boolean <I></I>
+<B>SymbType_is_set</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is one of the set-types, i.e.
+   boolean-set, integer-set, symbolic-set, integer-symbolic-set, and
+   false otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_signed_word"></A>
+boolean <I></I>
+<B>SymbType_is_signed_word</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is a signed Word type
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_statement"></A>
+boolean <I></I>
+<B>SymbType_is_statement</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is a statement-type,
+   and false otherwise.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_string"></A>
+boolean <I></I>
+<B>SymbType_is_string</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is a String type
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_unsigned_word"></A>
+boolean <I></I>
+<B>SymbType_is_unsigned_word</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is an unsigned Word type
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_word_1"></A>
+boolean <I></I>
+<B>SymbType_is_word_1</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is a Unsigned Word type and the width of
+   the word is 1. Otherwise - returns false.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_wordarray"></A>
+boolean <I></I>
+<B>SymbType_is_wordarray</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> .
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_is_word"></A>
+boolean <I></I>
+<B>SymbType_is_word</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns true, if the type is a Word type (signed or unsigned)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_create">SymbType_create</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_make_from_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbType_make_from_set_type</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> More precisely the following conversion takes place:
+   boolean-set -> boolean
+   integer-set ->integer
+   symbolic-set -> symbolic-enum
+   integer-symbolic-set -> integer-symbolic-set
+   another type -> the same type
+
+   The implicit conversion is performed in accordance to the type order.
+   NOTE: only memory-shared types can be given to this function.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_make_set_type">SymbType_make_set_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_make_memory_shared"></A>
+SymbType_ptr <I></I>
+<B>SymbType_make_memory_shared</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The input type should have
+   a corresponding memory shared type. For example, function type
+   and error type do not have memory shared instances.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_make_set_type"></A>
+SymbType_ptr <I></I>
+<B>SymbType_make_set_type</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> The implicit conversion is performed in accordance to the type order.
+   NOTE: only memory-shared types can be given to this function.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_make_type_from_set_type">SymbType_make_type_from_set_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_print"></A>
+void <I></I>
+<B>SymbType_print</B>(
+  const SymbType_ptr  <b>self</b>, <i></i>
+  FILE* <b>output_stream</b> <i></i>
+)
+</pre>
+<dd> This function is made very similar to print_node.
+   If a Enum type was created with SymbType_create then all its values will be
+   printed, otherwise the type was created with SymbTablePkg_..._type
+   and simplified type name (instead of actual type values) is printed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="SymbType_sprint"></A>
+char* <I></I>
+<B>SymbType_sprint</B>(
+  const SymbType_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This function is made very similar to sprint_node.
+                         If an Enum type was created with
+                         SymbType_create then all its values will be
+                         printed, otherwise the type was created with
+                         SymbTablePkg_..._type and simplified type
+                         name (instead of actual type values) is
+                         printed.
+
+                         The returned string must be released by the caller.
+<p>
+
+<dd> <b>Side Effects</b> The returned string is allocated and has to be released
+                        by the caller
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="class_layers_hash_free"></A>
+static assoc_retval <I></I>
+<B>class_layers_hash_free</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Private destructor used by clas destroyer
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_table_deinit">symb_table_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_equal"></A>
+static boolean <I></I>
+<B>node_equal</B>(
+  node_ptr  <b>n1</b>, <i></i>
+  node_ptr  <b>n2</b> <i></i>
+)
+</pre>
+<dd> Equality function for node_ptr, used to compare bodies of
+  types in SymbType_equal.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_equal">SymbType_equal</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="resolve_symbol_resolve_name_recur"></A>
+static node_ptr <I></I>
+<B>resolve_symbol_resolve_name_recur</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> If name is complex and first ATOM is a parameter then the parameter is
+   substituted by its value (in order to pass modules in parameters and
+   access their members).
+   Returns TYPE_ERROR if not resolvable name is provided
+<p>
+
+<dd> <b>See Also</b> <code><a href="#resolve_symbol_resolve_name">resolve_symbol_resolve_name</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ResolveSymbol.c"TARGET="ABSTRACT"><CODE>ResolveSymbol.c</CODE></A>
+
+<dt><pre>
+<A NAME="resolve_symbol_resolve_name"></A>
+static node_ptr <I></I>
+<B>resolve_symbol_resolve_name</B>(
+  const SymbTable_ptr  <b>symb_table</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> The result of this function is a properly formed
+   identifier, find_atom-ed, and suitable to access hash tables such
+   as symbol table, etc.
+
+   An input expression may be a simple or complex (with DOT)
+   identifier, a bit or an array element.
+
+   Note: identifiers are not expanded, i.e. defines and formal parameters
+   are not substituted by the corresponding expressions.
+
+   Nil is returned if the given expression is not syntactically an
+   identifier.
+
+   Currently, arrays are additionally flattened to maintain old code.
+   See the description of compileFlattenSexpRecur for info about ARRAY.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#resolve_symbol_resolve_name_recur">resolve_symbol_resolve_name_recur</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#ResolveSymbol.c"TARGET="ABSTRACT"><CODE>ResolveSymbol.c</CODE></A>
+
+<dt><pre>
+<A NAME="str_print"></A>
+static void <I></I>
+<B>str_print</B>(
+  SymbTypePrinterInfo_ptr  <b>pinfo</b>, <i></i>
+  const char * <b>fmt</b>, <i></i>
+   <b></b> <i></i>
+)
+</pre>
+<dd> This function prints the specified formatted string in
+                       the pinfo
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+<a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_define_to_symbols_lists"></A>
+static void <I></I>
+<B>symb_cache_define_to_symbols_lists</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>define</b> <i></i>
+)
+</pre>
+<dd> This method must be called after all symbols occuring
+  directly or indirectly within its body are all declared. If one or
+  more are undeclared, an internal error occurs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_deinit"></A>
+static void <I></I>
+<B>symb_cache_deinit</B>(
+  SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private deinitializer, called by the destructor
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_cache_init">symb_cache_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_init"></A>
+static void <I></I>
+<B>symb_cache_init</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  SymbTable_ptr  <b>symb_table</b> <i></i>
+)
+</pre>
+<dd> Private initializer, called by the constructor
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_cache_deinit">symb_cache_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_lookup_symbol"></A>
+static node_ptr <I></I>
+<B>symb_cache_lookup_symbol</B>(
+  const SymbCache_ptr  <b>self</b>, <i></i>
+  const node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Returned node can be either VAR, FROZENVAR, IVAR or CONTEXT.
+  Value is searched first in the cache, then in the symbol hash
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_new_symbol"></A>
+static void <I></I>
+<B>symb_cache_new_symbol</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>value</b> <i></i>
+)
+</pre>
+<dd> This takes into account also the caching of last accessed
+  value
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_remove_symbol"></A>
+static void <I></I>
+<B>symb_cache_remove_symbol</B>(
+  SymbCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> A service of the remove_* private methods
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_cache_resolve_pending_defines"></A>
+static void <I></I>
+<B>symb_cache_resolve_pending_defines</B>(
+  SymbCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> If there are pending DEFINEs that wait for an assignment
+  within the lists of state, input and state-input symbols list, they are
+  resolved and assigned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbCache.c"TARGET="ABSTRACT"><CODE>SymbCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_layer_deinit"></A>
+static void <I></I>
+<B>symb_layer_deinit</B>(
+  SymbLayer_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Called by the destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_layer_init"></A>
+static void <I></I>
+<B>symb_layer_init</B>(
+  SymbLayer_ptr  <b>self</b>, <i></i>
+  const char* <b>name</b>, <i></i>
+  const LayerInsertPolicy  <b>policy</b>, <i></i>
+  SymbCache_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Called by the constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbLayer.c"TARGET="ABSTRACT"><CODE>SymbLayer.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_create_layers_class"></A>
+static array_t* <I></I>
+<B>symb_table_create_layers_class</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Returns the array of layer class, creating it when
+  needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_deinit"></A>
+static void <I></I>
+<B>symb_table_deinit</B>(
+  SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private deinitializer, called by the destructor only
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_table_init">symb_table_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_detect_expr_category"></A>
+static SymbCategory <I></I>
+<B>symb_table_detect_expr_category</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns the type of a define, for a discussion on
+               symbol categories look the SymbCategory enum
+               description in SymbTable.h
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_filter_layer_symbols"></A>
+static NodeList_ptr <I></I>
+<B>symb_table_filter_layer_symbols</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> An empty list is returned if the model layer has
+  not been created yet. The caller is responsible for destroying
+  the returned list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_filter_layers_symbols"></A>
+static NodeList_ptr <I></I>
+<B>symb_table_filter_layers_symbols</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const array_t* <b>layer_names</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> The caller is responsible for destroying the
+  returned list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_get_layers_class"></A>
+static array_t* <I></I>
+<B>symb_table_get_layers_class</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Returns the array of layer class, NULL if class does
+  not exist.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_get_layers_from_class"></A>
+static array_t* <I></I>
+<B>symb_table_get_layers_from_class</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b> <i></i>
+)
+</pre>
+<dd> Returns the array of layer class, or NULL when not existing.
+  Resolves NULL class_name to the default class
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_init"></A>
+static void <I></I>
+<B>symb_table_init</B>(
+  SymbTable_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private initializer, called by the constructor only
+<p>
+
+<dd> <b>See Also</b> <code><a href="#symb_table_deinit">symb_table_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_layer_exists"></A>
+static boolean <I></I>
+<B>symb_table_layer_exists</B>(
+  const SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>layer_name</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given name corresponds to an already
+  registered layer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_layer_rename_in_class"></A>
+static void <I></I>
+<B>symb_table_layer_rename_in_class</B>(
+  SymbTable_ptr  <b>self</b>, <i></i>
+  const char* <b>class_name</b>, <i></i>
+  const char* <b>old_layer_name</b>, <i></i>
+  const char* <b>new_layer_name</b> <i></i>
+)
+</pre>
+<dd> Used internally by remove_layer and rename_layer.
+  To remove, pass NULL as new_layer_name
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_table_types_hash_cleaner"></A>
+static enum st_retval <I></I>
+<B>symb_table_types_hash_cleaner</B>(
+  char * <b>c1</b>, <i></i>
+  char * <b>c2</b>, <i></i>
+  char * <b>c3</b> <i></i>
+)
+</pre>
+<dd> The function is used to free the memory from
+  memory-sharing Word/WordArray/Array types stored in the hash table
+  symb_table_..._type_hash. Used in the SymbTablePkg_quit only
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#symb_table.c"TARGET="ABSTRACT"><CODE>symb_table.c</CODE></A>
+
+<dt><pre>
+<A NAME="symb_type_sprint_aux"></A>
+static void <I></I>
+<B>symb_type_sprint_aux</B>(
+  const SymbType_ptr  <b>self</b>, <i></i>
+  SymbTypePrinterInfo_ptr  <b>pinfo</b> <i></i>
+)
+</pre>
+<dd> This is the function that prints the SymbType using the
+                       file stream or the string buffer provided by pinfo
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+<a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Clear the given SymbTypePrinterInfo
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+<a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initialize the given SymbTypePrinterInfo to print on a
+                  file
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+<a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the flattened body of an array define
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbTable_get_array_define_flatten_body">SymbTable_get_array_define_flatten_body</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbTable.c"TARGET="ABSTRACT"><CODE>SymbTable.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The initial buffer size used when printing on a string
+<p>
+
+<dd> <b>See Also</b> <code><a href="#SymbType_print">SymbType_print</a>
+<a href="#SymbType_sprint">SymbType_sprint</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SymbType.c"TARGET="ABSTRACT"><CODE>SymbType.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

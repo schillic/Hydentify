@@ -1,0 +1,1690 @@
+<html>
+<head><title>The mc package: all functions </title></head>
+<body>
+
+Internal header file of the mc package.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Check_TraceList_Sanity"></A>
+void <I></I>
+<B>Check_TraceList_Sanity</B>(
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  const char * <b>varname</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckCompute"></A>
+int <I></I>
+<B>CommandCheckCompute</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs computation of quantitative characteristics
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckCtlSpec"></A>
+int <I></I>
+<B>CommandCheckCtlSpec</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs fair CTL model checking.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckInvar"></A>
+int <I></I>
+<B>CommandCheckInvar</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs model checking of invariants
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckPslSpec"></A>
+int <I></I>
+<B>CommandCheckPslSpec</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Performs fair PSL model checking.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandCheckSpec"></A>
+static int <I></I>
+<B>CommandCheckSpec</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Provided for backward compatibility
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandLanguageEmptiness"></A>
+int <I></I>
+<B>CommandLanguageEmptiness</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Checks for language emptiness.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Extend_trace_with_state_input_pair"></A>
+static node_ptr <I></I>
+<B>Extend_trace_with_state_input_pair</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>starting_state</b>, <i></i>
+  bdd_ptr  <b>next_states</b>, <i></i>
+  const char * <b>comment</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="Extend_trace_with_states_inputs_pair"></A>
+static node_ptr <I></I>
+<B>Extend_trace_with_states_inputs_pair</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>starting_states</b>, <i></i>
+  bdd_ptr  <b>next_states</b>, <i></i>
+  const char * <b>comment</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckAGOnlySpec"></A>
+void <I></I>
+<B>Mc_CheckAGOnlySpec</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> The implicit assumption is that "spec" must be an AG
+  formula (i.e. it must contain only conjunctions and AG's).  No attempt
+  is done to normalize the formula (e.g. push negations). The AG mode
+  relies on the previous computation and storage of the reachable
+  state space (<tt>reachable_states_layers</tt>), they are used in
+  counterexample computation.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcAGonly.c"TARGET="ABSTRACT"><CODE>mcAGonly.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckCTLSpec"></A>
+void <I></I>
+<B>Mc_CheckCTLSpec</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= alpha using the fair CTL model checking.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckCompute"></A>
+void <I></I>
+<B>Mc_CheckCompute</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Compute the given quantitative characteristics on the model.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckInvarSilently"></A>
+void <I></I>
+<B>Mc_CheckInvarSilently</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  Trace_ptr* <b>trace</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy read from the option variable.
+
+   If opt_counter_examples is setted and trace is not null, then a
+   trace is stored (and must be released by caller) in trace
+   parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar_With_Strategy">Mc_CheckInvar_With_Strategy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckInvar_With_Strategy"></A>
+void <I></I>
+<B>Mc_CheckInvar_With_Strategy</B>(
+  Prop_ptr  <b>prop</b>, <i></i>
+  Check_Strategy  <b>strategy</b>, <i></i>
+  Trace_ptr* <b>output_trace</b>, <i></i>
+  boolean  <b>silent</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy given in input
+
+   If opt_counter_examples is setted and trace is not null, then a
+   trace is stored (and must be released by caller) in trace
+   parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar">Mc_CheckInvar</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckInvar"></A>
+void <I></I>
+<B>Mc_CheckInvar</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Verifies that M,s0 |= AG alpha, with alpha propositional.
+   Uses strategy read from the option variable.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+<a href="#check_ltlspec">check_ltlspec</a>
+<a href="#Mc_CheckInvar_With_Strategy">Mc_CheckInvar_With_Strategy</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_CheckLanguageEmptiness"></A>
+void <I></I>
+<B>Mc_CheckLanguageEmptiness</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> Checks whether the language is empty. Basically just a
+  wrapper function that calls the language emptiness algorithm given
+  by the value of the oreg_justice_emptiness_bdd_algorithm option.
+
+  If <tt>allinit</tt> is <tt>true</tt> the check is performed by
+  verifying whether all initial states are included in the set of fair
+  states. If it is the case from all initial states there exists a
+  fair path and thus the language is not empty. On the other hand, if
+  <tt>allinit</tt> is false, the check is performed by verifying
+  whether there exists at least one initial state that is also a fair
+  state. In this case there is an initial state from which it starts a
+  fair path and thus the lnaguage is not empty. <tt>allinit</tt> is
+  not supported for forward Emerson-Lei.
+
+  Depending on the global option use_reachable_states the set of fair
+  states computed can be restricted to reachable states only. In this
+  latter case the check can be further simplified. Forward Emerson-Lei
+  requires forward_search and use_reachable_states to be enabled.
+  
+  If <tt>verbose</tt> is true, then some information on the set of
+  initial states is printed out too. <tt> verbose</tt> is ignored for
+  forward Emerson-Lei.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#mc_check_language_emptiness_el_bwd">mc_check_language_emptiness_el_bwd</a>
+<a href="#mc_check_language_emptiness_el_fwd">mc_check_language_emptiness_el_fwd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcLE.c"TARGET="ABSTRACT"><CODE>mcLE.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_End"></A>
+void <I></I>
+<B>Mc_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quit the mc package
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_Init"></A>
+void <I></I>
+<B>Mc_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the mc package.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_check_psl_property"></A>
+int <I></I>
+<B>Mc_check_psl_property</B>(
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+  - prop is the PSL property to be checked
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcCmd.c"TARGET="ABSTRACT"><CODE>mcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_create_trace_from_bdd_state_input_list"></A>
+Trace_ptr <I></I>
+<B>Mc_create_trace_from_bdd_state_input_list</B>(
+  const BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  const NodeList_ptr  <b>symbols</b>, <i></i>
+  const char* <b>desc</b>, <i></i>
+  const TraceType  <b>type</b>, <i></i>
+  node_ptr  <b>path</b> <i></i>
+)
+</pre>
+<dd> Creates a trace out of a < S (i, S)* >  bdd list
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Trace_create">Trace_create</a>
+<a href="#Bmc_create_trace_from_cnf_model">Bmc_create_trace_from_cnf_model</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcTrace.c"TARGET="ABSTRACT"><CODE>mcTrace.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_fair_si_iteration"></A>
+bdd_ptr <I></I>
+<B>Mc_fair_si_iteration</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStatesInputs  <b>states</b>, <i></i>
+  BddStatesInputs  <b>subspace</b> <i></i>
+)
+</pre>
+<dd> Perform one iteration over the list of fairness
+  conditions (order is statically determined). Compute states that are
+  backward reachable from each of the fairness conditions.
+
+  MAP( ApplicableStatesInputs ) over Fairness constraints
+
+  (Q / ex_si ( Z / AND_i eu_si(Z, (Z/ StatesInputFC_i))))
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_get_fair_si_subset"></A>
+BddStatesInputs <I></I>
+<B>Mc_get_fair_si_subset</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> Returns the set of state-input pairs in si that are
+  fair, i.e. beginning of a fair path.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_rewrite_invar_get_sexp_fsm"></A>
+SexpFsm_ptr <I></I>
+<B>Mc_rewrite_invar_get_sexp_fsm</B>(
+  const Prop_ptr  <b>prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b>, <i></i>
+  node_ptr* <b>created_var</b> <i></i>
+)
+</pre>
+<dd> Returns the scalar fsm and the third argument will
+   be filled with the name of the monitor variable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_trace_step_put_input_from_bdd"></A>
+void <I></I>
+<B>Mc_trace_step_put_input_from_bdd</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  bdd_ptr  <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Populates a trace step with input assignments
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcTrace.c"TARGET="ABSTRACT"><CODE>mcTrace.c</CODE></A>
+
+<dt><pre>
+<A NAME="Mc_trace_step_put_state_from_bdd"></A>
+void <I></I>
+<B>Mc_trace_step_put_state_from_bdd</B>(
+  Trace_ptr  <b>trace</b>, <i></i>
+  TraceIter  <b>step</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  bdd_ptr  <b>bdd</b> <i></i>
+)
+</pre>
+<dd> Populates a trace step with state assignments
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcTrace.c"TARGET="ABSTRACT"><CODE>mcTrace.c</CODE></A>
+
+<dt><pre>
+<A NAME="abu"></A>
+BddStates <I></I>
+<B>abu</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>f</b>, <i></i>
+  BddStates  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying
+                     <i>A[f U^{inf..sup} g]</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#au">au</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="au"></A>
+BddStates <I></I>
+<B>au</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>f</b>, <i></i>
+  BddStates  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>A[f U g]</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ax">ax</a>
+<a href="#af">af</a>
+<a href="#ex">ex</a>
+<a href="#ef">ef</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="backward_heuristic"></A>
+static Step_Direction <I></I>
+<B>backward_heuristic</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>reachable_frontier</b>, <i></i>
+  bdd_ptr  <b>bad_frontier</b>, <i></i>
+  bdd_ptr  <b>reachable_states</b>, <i></i>
+  bdd_ptr  <b>bad_states</b>, <i></i>
+  int  <b>turn</b> <i></i>
+)
+</pre>
+<dd> Constant function to perform backward analysis
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="binary_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>binary_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFDBB  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag1</b>, <i></i>
+  int  <b>argflag2</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  binary operation <code>op</code>. Extracts from <code>n</n> the operands
+  and evaluates them. The binary operator <code>op</code> is then applied
+  to these partial results. The sign of the partial results and of the
+  result depends respectively from the flags <code>argflag1</code>,
+  <code>argflag2</code> and <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unary_bdd_op">unary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="binary_mod_bdd_op_ns"></A>
+static bdd_ptr <I></I>
+<B>binary_mod_bdd_op_ns</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFFBB  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag1</b>, <i></i>
+  int  <b>argflag2</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  binary operation <code>op</code>. Extracts from <code>n</n> the operands
+  and evaluates them. The binary operator <code>op</code> is then applied
+  to these partial results. The sign of the partial results and of the
+  result depends respectively from the flags <code>argflag1</code>,
+  <code>argflag2</code> and <code>resflag</code>.<br>
+  The only difference between this and "binary_mod_bdd_op" is that the
+  result of the application of the operation passed as argument is not
+  referenced. This is used for example in the "minu" and "maxu" operations.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unary_bdd_op">unary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="binary_mod_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>binary_mod_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFFBB  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag1</b>, <i></i>
+  int  <b>argflag2</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  binary operation <code>op</code>. Extracts from <code>n</n> the operands
+  and evaluates them. The binary operator <code>op</code> is then applied
+  to these partial results. The sign of the partial results and of the
+  result depends respectively from the flags <code>argflag1</code>,
+  <code>argflag2</code> and <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unary_bdd_op">unary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="check_AG_only"></A>
+static boolean <I></I>
+<B>check_AG_only</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  Prop_ptr  <b>prop</b>, <i></i>
+  Expr_ptr  <b>spec</b>, <i></i>
+  node_ptr  <b>context</b>, <i></i>
+  NodeList_ptr  <b>symbols</b>, <i></i>
+  Trace_ptr* <b>out_trace</b> <i></i>
+)
+</pre>
+<dd> The implicit assumption is that "spec" must be an AG
+               formula (i.e. it must contain only conjunctions and
+               AG's).  No attempt is done to normalize the formula
+               (e.g. push negations). The AG mode relies on the
+               previous computation and storage of the reachable state
+               space (<tt>reachable_states_layers</tt>), they are used
+               in counterexample computation.
+
+               Returns true iff the property is true.
+<p>
+
+<dd> <b>Side Effects</b> *out_trace contains the counterexample trace (where
+               applicable)
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_spec">check_spec</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcAGonly.c"TARGET="ABSTRACT"><CODE>mcAGonly.c</CODE></A>
+
+<dt><pre>
+<A NAME="check_invariant_forward_backward_with_break"></A>
+int <I></I>
+<B>check_invariant_forward_backward_with_break</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  Prop_ptr  <b>inv_prop</b>, <i></i>
+  heuristic_type  <b>heuristic</b>, <i></i>
+  stopping_heuristic_type  <b>stopping_h</b>, <i></i>
+  NodeList_ptr  <b>symbols</b>, <i></i>
+  Trace_ptr* <b>output_trace</b> <i></i>
+)
+</pre>
+<dd> During the computation of reachable states it
+   checks invariants. If the invariant is not satisfied, then an
+   execution trace leading to a state not satisfing the invariant is
+   printed out. This function differs from check_invariant_forward
+   since it performs backward and forward search.
+
+   NOTE: returns 0 if the property is false, 1 if it is true, 2 if BMC
+   was not able to solve the problem
+
+   If opt_counter_examples is setted and trace is not null, then a
+   trace is stored (and must be released by caller) in trace
+   parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#check_invariant_forward">check_invariant_forward</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="check_invariant"></A>
+static int <I></I>
+<B>check_invariant</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  Prop_ptr  <b>inv_prop</b>, <i></i>
+  Check_Strategy  <b>strategy</b>, <i></i>
+  NodeList_ptr  <b>symbols</b>, <i></i>
+  Trace_ptr* <b>trace</b> <i></i>
+)
+</pre>
+<dd> If opt_counter_examples is setted and trace is not
+   null, then a trace is stored (and must be released by caller) in
+   trace parameter location.
+
+   The result of model checking is stored in the given property.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="complete_bmc_trace_with_bdd"></A>
+static Trace_ptr <I></I>
+<B>complete_bmc_trace_with_bdd</B>(
+  Trace_ptr* <b>trace</b>, <i></i>
+  NodeList_ptr  <b>symbols</b>, <i></i>
+  BddEnc_ptr  <b>bdd_enc</b>, <i></i>
+  BddFsm_ptr  <b>bdd_fsm</b>, <i></i>
+  node_ptr  <b>f_list</b>, <i></i>
+  node_ptr  <b>b_list</b> <i></i>
+)
+</pre>
+<dd> The free of the returned trace is demanded to the caller
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="compute_and_complete_path"></A>
+static Trace_ptr <I></I>
+<B>compute_and_complete_path</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>start_fw_state</b>, <i></i>
+  bdd_ptr  <b>start_bw_state</b>, <i></i>
+  node_ptr  <b>f_list</b>, <i></i>
+  node_ptr  <b>b_list</b>, <i></i>
+  NodeList_ptr  <b>symbols</b>, <i></i>
+  Trace_ptr* <b>middle_trace</b> <i></i>
+)
+</pre>
+<dd> Generates a counterexample from a path forward and a
+   path backward completing the two parts with the specified middle trace if
+   needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="compute_path_fb"></A>
+static Trace_ptr <I></I>
+<B>compute_path_fb</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>target_states</b>, <i></i>
+  node_ptr  <b>f_list</b>, <i></i>
+  node_ptr  <b>b_list</b>, <i></i>
+  NodeList_ptr  <b>symbols</b> <i></i>
+)
+</pre>
+<dd> Generates a counterexample from a path forward and a
+   path backward
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="ebf"></A>
+BddStates <I></I>
+<B>ebf</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying
+                     <i>EF^{inf..sup}(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ef">ef</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="ebg_explain"></A>
+node_ptr <I></I>
+<B>ebg_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> This function finds a path of length
+   <tt>(sup-inf)</tt> that is an example for <i>EG(g)^{sup}_{inf}</i>. 
+   The first element of <code>p</code> is the BDD that represents the
+   first state of the path. It is an initial state from which the
+   example has to be found.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="ebg"></A>
+BddStates <I></I>
+<B>ebg</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying
+                      <i>EG^{inf..sup}(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eg">eg</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="ebu_explain"></A>
+node_ptr <I></I>
+<B>ebu_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> This function finds a path that is a witness
+   for <i>E[f U g]^{sup}_{inf}</i>. The first element of
+   <code>path</code> is a BDD that represents the first state of the
+   path. It is an initial state from which the example can be found.
+   The procedure is to try to execute <code>ebu(f, g, inf, sup)</code>, looking
+   for a path, with length <code>(sup - inf)<code>, from <code>p</code>
+   to a state where <i>g</i> is valid using only transitions from
+   states satisfying <i>f</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="ebu"></A>
+BddStates <I></I>
+<B>ebu</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>f</b>, <i></i>
+  BddStates  <b>g</b>, <i></i>
+  int  <b>inf</b>, <i></i>
+  int  <b>sup</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying
+                      <i>E[f U^{inf..sup} g]</i></i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="ef"></A>
+BddStates <I></I>
+<B>ef</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>EF(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+<a href="#ex">ex</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="eg_explain"></A>
+node_ptr <I></I>
+<B>eg_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>witness_path</b>, <i></i>
+  bdd_ptr  <b>arg_g</b> <i></i>
+)
+</pre>
+<dd> This function finds a path that is an example for
+   <i>EG(g)</i>. The first element <code>p</code> is the BDD that
+   represents the first state of the path. It is an initial state from
+   which the example can be found.<br>
+
+   The procedure is based on the greatest fixed point characterization
+   for the CTL operator <b>EG</b>. The CTL formula <i>EG(g)</i> under
+   fairness constraints means that there exists a path beginning with
+   current state on which <i>g</i> holds globally (invariantly) and
+   each formula in the set of fairness constraints holds infinitely
+   often on the path.  If we denote with <i>EG(g)</i> the set of states
+   that satisfy <i>EG(g)</i> under fairness constraints, we can
+   construct the witness path incrementally by giving a sequence of
+   prefixes of the path of increasing length until a cycle is found. At
+   each step in the construction we must ensure that the current prefix
+   can be extended to a fair path along which each state satisfies
+   <i>EG(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="eg_si"></A>
+bdd_ptr <I></I>
+<B>eg_si</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>g_si</b> <i></i>
+)
+</pre>
+<dd> Set of states-inputs satisfying <i>EG(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+<a href="#ex">ex</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="eg"></A>
+BddStates <I></I>
+<B>eg</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>EG(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+<a href="#ex">ex</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="eu_explain"></A>
+node_ptr <I></I>
+<B>eu_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> This function finds a path that is a witness for
+   <i>E[f U g]</i>.  The first element of <code>path</code> is a BDD
+   <code>p</code> that represents the first state of the witness
+   path. It is an initial state from which the example can be
+   found. The procedure is to try to execute <code>eu(f,g)</code>
+   again, looking for a path from <code>p</code> to a state where
+   <i>g</i> is valid. At each step we generate a set of states
+   <i>s_i</i> that can be reached in one step from <i>s_{i-1}</i>. We
+   extract one minterm form each <i>s_i</i> and we store it in a list.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="eu_si_explain"></A>
+node_ptr <I></I>
+<B>eu_si_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g_si</b>, <i></i>
+  bdd_ptr  <b>hulk</b> <i></i>
+)
+</pre>
+<dd> This function finds a path that is a witness
+   for <i>E[f U g]</i> when g is a set of  state-inputs
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="eu_si"></A>
+BddStatesInputs <I></I>
+<B>eu_si</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of state-input pairs that satisfy
+  E(f U g), with f and g sets of state-input pairs.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="eu"></A>
+BddStates <I></I>
+<B>eu</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>f</b>, <i></i>
+  BddStates  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>E[ f U g ]</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#ebu">ebu</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="eval_compute_recur"></A>
+static int <I></I>
+<B>eval_compute_recur</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Performs the recursive step of <code>eval_compute</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eval_compute">eval_compute</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="eval_compute"></A>
+int <I></I>
+<B>eval_compute</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> This function performs the invocation of the
+  routines to compute the length of the shortest and longest execution
+  path between two set of states s_1 and s_2.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eval_ctl_spec">eval_ctl_spec</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="eval_ctl_spec_recur"></A>
+static bdd_ptr <I></I>
+<B>eval_ctl_spec_recur</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Performs the recursive step of
+  <code>eval_ctl_spec</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eval_ctl_spec">eval_ctl_spec</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="eval_ctl_spec"></A>
+bdd_ptr <I></I>
+<B>eval_ctl_spec</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Compile a CTL formula into BDD and performs
+  Model Checking.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eval_compute">eval_compute</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="eval_formula_list"></A>
+node_ptr <I></I>
+<B>eval_formula_list</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>nodes</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> This function takes as input a list of formulae,
+  and return as output the list of the corresponding BDDs, obtained by
+  evaluating each formula in the given context.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="ex_explain"></A>
+node_ptr <I></I>
+<B>ex_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  bdd_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> This function finds a path that is a witness for
+   <i>EX(f)</i>. <code>path<code> is a BDD which represents the first
+   state of the path. It essentially is an initial state from which the
+   example can be found.  The formula <i>EX(f)</i> holds under
+   fairness constraints in a state <i>s_i</i> iff there is a
+   successor state <i>s_{i+1}</i> such that <i>s_{i+1}</i>
+   satisfies <i>f</i> and </i>s_{i+1}</i> is the beginning of some
+   fair computation path. We look for states that can be reached from
+   the state stored as first element in <code>path</code>, which are fair and
+   in which <i>f</i> is satisfied. The algorithm computes more than
+   one state, in order to have only one state we apply
+   <code>bdd_pick_one_state</code>. The result of this application is
+   then put in AND with <code>path</code> to form the witness.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="ex_si"></A>
+BddStatesInputs <I></I>
+<B>ex_si</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStatesInputs  <b>si</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>EG(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+<a href="#ex">ex</a>
+<a href="#ef">ef</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="explain_and"></A>
+node_ptr <I></I>
+<B>explain_and</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  node_ptr  <b>formula_expr</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Generates a witness path for car(formula) AND cdr(formula)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain_recur">explain_recur</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="explain_eval"></A>
+node_ptr <I></I>
+<B>explain_eval</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  node_ptr  <b>formula_expr</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="explain_recur"></A>
+static node_ptr <I></I>
+<B>explain_recur</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  node_ptr  <b>formula_expr</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Recursively traverse the formula CTL and rewrite
+   it in order to use the base witnesses generator functions.<br>
+   The rewritings performed use the equivalence between CTL formulas,
+   i.e. <i>A[f U g]</i> is equivalent to <i>!(E[!g U (!g & !f)] | EG !g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="explain"></A>
+node_ptr <I></I>
+<B>explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>path</b>, <i></i>
+  node_ptr  <b>spec_formula</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> This function takes as input a CTL formula and
+   returns a witness showing how the given formula does not hold. The
+   result consists of a list of states (i.e. an execution trace) that
+   leads to a state in which the given formula does not hold.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain_recur">explain_recur</a>
+<a href="#ex_explain">ex_explain</a>
+<a href="#eu_explain">eu_explain</a>
+<a href="#eg_explain">eg_explain</a>
+<a href="#ebg_explain">ebg_explain</a>
+<a href="#ebu_explain">ebu_explain</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="ex"></A>
+BddStates <I></I>
+<B>ex</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>g</b> <i></i>
+)
+</pre>
+<dd> Computes the set of states satisfying <i>EX(g)</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eu">eu</a>
+<a href="#ef">ef</a>
+<a href="#eg">eg</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="fairness_explain"></A>
+static node_ptr <I></I>
+<B>fairness_explain</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  node_ptr  <b>witness_path</b>, <i></i>
+  bdd_ptr  <b>hulk_si</b>, <i></i>
+  JusticeList_ptr  <b>fairness_constrainst_list</b> <i></i>
+)
+</pre>
+<dd> In the computation of the witness for the
+   formula <i>EG f</i>, at each step we must ensure that the current
+   prefix can be extended to a fair path along which each state
+   satisfies <i>f</i>. This function performs the inner fixpoint
+   computation for each fairness constraints in the fix point
+   computation of the formula <i>EG(f)<i>. For every constraints
+   <i>h</i>, we obtain an increasing sequence of approximations Q_0^h,
+   Q_1^h, ..., where each Q_i^h is the set of states from which a state
+   in the accumulated set can be reached in <i>i</i> or fewer steps,
+   while satisfying <i>f</i>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#explain">explain</a>
+<a href="#eg_explain">eg_explain</a>
+<a href="#fair_iter">fair_iter</a>
+<a href="#eg">eg</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcExplain.c"TARGET="ABSTRACT"><CODE>mcExplain.c</CODE></A>
+
+<dt><pre>
+<A NAME="forward_backward_heuristic"></A>
+static Step_Direction <I></I>
+<B>forward_backward_heuristic</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>reachable_frontier</b>, <i></i>
+  bdd_ptr  <b>bad_frontier</b>, <i></i>
+  bdd_ptr  <b>reachable_states</b>, <i></i>
+  bdd_ptr  <b>bad_states</b>, <i></i>
+  int  <b>turn</b> <i></i>
+)
+</pre>
+<dd> Heuristic function used to decide the sept to perform
+   in forward-backward analysis
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="forward_heuristic"></A>
+static Step_Direction <I></I>
+<B>forward_heuristic</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>reachable_frontier</b>, <i></i>
+  bdd_ptr  <b>bad_frontier</b>, <i></i>
+  bdd_ptr  <b>reachable_states</b>, <i></i>
+  bdd_ptr  <b>bad_states</b>, <i></i>
+  int  <b>turn</b> <i></i>
+)
+</pre>
+<dd> Constant function to perform forward analysis
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="free_formula_list"></A>
+void <I></I>
+<B>free_formula_list</B>(
+  DdManager* <b>dd</b>, <i></i>
+  node_ptr  <b>formula_list</b> <i></i>
+)
+</pre>
+<dd> Frees a list of BDD as generated by eval_formula_list
+<p>
+
+<dd> <b>See Also</b> <code><a href="#eval_formula_list">eval_formula_list</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="is_AG_only_formula_recur"></A>
+static boolean <I></I>
+<B>is_AG_only_formula_recur</B>(
+  node_ptr  <b>n</b>, <i></i>
+  int* <b>ag_count</b> <i></i>
+)
+</pre>
+<dd> Recursive function that helps is_AG_only_formula.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#is_AG_only_formula">is_AG_only_formula</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcAGonly.c"TARGET="ABSTRACT"><CODE>mcAGonly.c</CODE></A>
+
+<dt><pre>
+<A NAME="is_AG_only_formula"></A>
+static boolean <I></I>
+<B>is_AG_only_formula</B>(
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> returns true , if the formula is AGOnly formula.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#is_AG_only_formula_recur">is_AG_only_formula_recur</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcAGonly.c"TARGET="ABSTRACT"><CODE>mcAGonly.c</CODE></A>
+
+<dt><pre>
+<A NAME="make_AG_counterexample"></A>
+static node_ptr <I></I>
+<B>make_AG_counterexample</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddStates  <b>target_states</b> <i></i>
+)
+</pre>
+<dd> Compute a counterexample starting from a given state.
+  Returned counterexample is a sequence of "state (input, state)*"
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcAGonly.c"TARGET="ABSTRACT"><CODE>mcAGonly.c</CODE></A>
+
+<dt><pre>
+<A NAME="maxu"></A>
+int <I></I>
+<B>maxu</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>f</b>, <i></i>
+  bdd_ptr  <b>g</b> <i></i>
+)
+</pre>
+<dd> This function computes the maximum length of the
+  shortest path from <i>f</i> to <i>g</i>. It starts from !g and
+  proceeds backward until no states in <i>f</i> can be found. In other
+  words, it looks for the maximum length of <i>f->AG!g</i>.
+  Notice that this function works correctly only if <code>-f</code>
+  option is used.
+
+  Returns -1 if infinity, -2 if undefined
+<p>
+
+<dd> <b>See Also</b> <code><a href="#minu">minu</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="mc_check_language_emptiness_el_bwd"></A>
+void <I></I>
+<B>mc_check_language_emptiness_el_bwd</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> See Mc_CheckLanguageEmptiness.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_fair_states">BddFsm_get_fair_states</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcLE.c"TARGET="ABSTRACT"><CODE>mcLE.c</CODE></A>
+
+<dt><pre>
+<A NAME="mc_check_language_emptiness_el_fwd"></A>
+void <I></I>
+<B>mc_check_language_emptiness_el_fwd</B>(
+  const BddFsm_ptr  <b>fsm</b>, <i></i>
+  boolean  <b>allinit</b>, <i></i>
+  boolean  <b>verbose</b> <i></i>
+)
+</pre>
+<dd> See Mc_CheckLanguageEmptiness.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddFsm_get_revfair_states">BddFsm_get_revfair_states</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcLE.c"TARGET="ABSTRACT"><CODE>mcLE.c</CODE></A>
+
+<dt><pre>
+<A NAME="mc_rewrite_cleanup"></A>
+void <I></I>
+<B>mc_rewrite_cleanup</B>(
+  Prop_ptr  <b>rewritten_prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Crean up the memory after the rewritten property check
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="mc_rewrite_invar"></A>
+Prop_ptr <I></I>
+<B>mc_rewrite_invar</B>(
+  const Prop_ptr  <b>prop</b>, <i></i>
+  SymbLayer_ptr  <b>layer</b> <i></i>
+)
+</pre>
+<dd> Returns a rewrited property
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="minu"></A>
+int <I></I>
+<B>minu</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  bdd_ptr  <b>arg_f</b>, <i></i>
+  bdd_ptr  <b>arg_g</b> <i></i>
+)
+</pre>
+<dd> This function computes the minimum length of the
+  shortest path from <i>f</i> to <i>g</i>.<br>
+  Starts from <i>f</i> and proceeds forward until finds a state in <i>g</i>.
+  Notice that this function works correctly only if <code>-f</code>
+  option is used.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#maxu">maxu</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="never_stopping_heuristic"></A>
+static boolean <I></I>
+<B>never_stopping_heuristic</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>reachable_frontier</b>, <i></i>
+  bdd_ptr  <b>bad_frontier</b>, <i></i>
+  bdd_ptr  <b>reachable_states</b>, <i></i>
+  bdd_ptr  <b>bad_states</b>, <i></i>
+  int  <b>turn</b> <i></i>
+)
+</pre>
+<dd> Constant function to perform backward, forward and
+   FB analysis
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_compute"></A>
+void <I></I>
+<B>print_compute</B>(
+  FILE * <b>file</b>, <i></i>
+  Prop_ptr  <b>p</b> <i></i>
+)
+</pre>
+<dd> Prints out a COMPUTE specification
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_invar"></A>
+void <I></I>
+<B>print_invar</B>(
+  FILE * <b>file</b>, <i></i>
+  Prop_ptr  <b>p</b> <i></i>
+)
+</pre>
+<dd> Print an invariant specification
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_result"></A>
+static void <I></I>
+<B>print_result</B>(
+  Prop_ptr  <b>p</b> <i></i>
+)
+</pre>
+<dd> Print an invariant specification check result
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_spec"></A>
+void <I></I>
+<B>print_spec</B>(
+  FILE * <b>file</b>, <i></i>
+  Prop_ptr  <b>prop</b> <i></i>
+)
+</pre>
+<dd> Prints out a CTL specification
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcMc.c"TARGET="ABSTRACT"><CODE>mcMc.c</CODE></A>
+
+<dt><pre>
+<A NAME="quad_mod_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>quad_mod_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFFBBII  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag1</b>, <i></i>
+  int  <b>argflag2</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  quaternary operation <code>op</code>. Extracts from <code>n</n> the operands
+  and evaluates them.<br>
+  The third and fourth arguments have to evaluate to numbers. And
+  <code>op</code> is a function that takes as input two BDD and two integers.
+  The quaternary operator <code>op</code> is then applied to these partial
+  results. The sign of the partial result and of the result depends
+  respectively from the flags <code>argflag1</code>, <code>argflag2</code> and
+  <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unary_bdd_op">unary_bdd_op</a>
+<a href="#binary_bdd_op">binary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="stopping_heuristic"></A>
+static boolean <I></I>
+<B>stopping_heuristic</B>(
+  DdManager* <b>dd</b>, <i></i>
+  bdd_ptr  <b>reachable_frontier</b>, <i></i>
+  bdd_ptr  <b>bad_frontier</b>, <i></i>
+  bdd_ptr  <b>reachable_states</b>, <i></i>
+  bdd_ptr  <b>bad_states</b>, <i></i>
+  int  <b>turn</b> <i></i>
+)
+</pre>
+<dd> True means continue with BDD false means swap to BMC
+<p>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcInvar.c"TARGET="ABSTRACT"><CODE>mcInvar.c</CODE></A>
+
+<dt><pre>
+<A NAME="ternary_mod_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>ternary_mod_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFFBII  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  ternary operation <code>op</code>. Extracts from <code>n</n> the operands
+  and evaluates them.<br>
+  The second and third arguments have to evaluate to numbers. And
+  <code>op</code> is a function that takes as input an BDD an two integers.
+  The ternary operator <code>op</code> is then applied to these partial
+  results. The sign of the partial result and of the result depends
+  respectively from the flags <code>argflag</code> and <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unary_bdd_op">unary_bdd_op</a>
+<a href="#binary_bdd_op">binary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="unary_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>unary_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFDB  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  unary operation <code>op</code>. Evaluates <code>n</n> and applies to this
+  partial result the unary operator <code>op</code>. The sign of the
+  partial result and of the result depends respectively from the flag
+  <code>argflag</code> and <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#binary_bdd_op">binary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+<dt><pre>
+<A NAME="unary_mod_bdd_op"></A>
+static bdd_ptr <I></I>
+<B>unary_mod_bdd_op</B>(
+  BddFsm_ptr  <b>fsm</b>, <i></i>
+  BddEnc_ptr  <b>enc</b>, <i></i>
+  BDDPFFB  <b>op</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>resflag</b>, <i></i>
+  int  <b>argflag</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Takes in input the expression <code>n</code> and a
+  unary operation <code>op</code>. Evaluates <code>n</n> and applies to this
+  partial result the unary operator <code>op</code>. The sign of the
+  partial result and of the result depends respectively from the flag
+  <code>argflag</code> and <code>resflag</code>.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#binary_bdd_op">binary_bdd_op</a>
+<a href="#ternary_bdd_op">ternary_bdd_op</a>
+quaternary_bdd_op
+</code>
+
+<DD> <B>Defined in </B> <A HREF="mcAllFile.html#mcEval.c"TARGET="ABSTRACT"><CODE>mcEval.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

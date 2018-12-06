@@ -1,0 +1,517 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="BddEncCache_clean_evaluation_about"></A>
+void <I></I>
+<B>BddEncCache_clean_evaluation_about</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>symbs</b> <i></i>
+)
+</pre>
+<dd> This is called by the BddEnc class when a layer is
+  begin removed and the cache has to be cleaned up
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_clean_evaluation"></A>
+void <I></I>
+<B>BddEncCache_clean_evaluation</B>(
+  BddEncCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Note that hashed encoding of boolean variables and constants
+  (added by BddEncCache_new_boolean_var and BddEncCache_new_constant, resp.)
+  remains intact.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_create"></A>
+BddEncCache_ptr <I></I>
+<B>BddEncCache_create</B>(
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Class constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_destroy"></A>
+void <I></I>
+<B>BddEncCache_destroy</B>(
+  BddEncCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_get_evaluation"></A>
+AddArray_ptr <I></I>
+<B>BddEncCache_get_evaluation</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> If given symbol has not been evaluated, NULL is returned.
+  If the evaluation is in the process, BDD_ENC_EVALUATING is returned.
+  Otherwise an array of ADD is returned.
+
+  The returned array must be destroyed by the invoker!
+
+  NB: For all expressions except of the Word type the returned 
+  array can contain only one element.
+  NB: If NuSMV option enable_bdd_cache is unset to 0 then the hash
+  may be empty.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_is_boolean_var_encoded"></A>
+boolean <I></I>
+<B>BddEncCache_is_boolean_var_encoded</B>(
+  const BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Returns true whether the given boolean variable has 
+  been encoded
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_is_constant_encoded"></A>
+boolean <I></I>
+<B>BddEncCache_is_constant_encoded</B>(
+  const BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>constant</b> <i></i>
+)
+</pre>
+<dd> Returns true whether the given constant has been encoded
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_lookup_boolean_var"></A>
+add_ptr <I></I>
+<B>BddEncCache_lookup_boolean_var</B>(
+  const BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Returned add is referenced. NULL is returned if the 
+  variable is not encoded.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_lookup_constant"></A>
+add_ptr <I></I>
+<B>BddEncCache_lookup_constant</B>(
+  const BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>constant</b> <i></i>
+)
+</pre>
+<dd> Returned ADD is referenced, NULL is returned if the given 
+  constant is not currently encoded
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_new_boolean_var"></A>
+void <I></I>
+<B>BddEncCache_new_boolean_var</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b>, <i></i>
+  add_ptr  <b>var_add</b> <i></i>
+)
+</pre>
+<dd> Call this to insert the encoding for a given boolean
+  variable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_new_constant"></A>
+void <I></I>
+<B>BddEncCache_new_constant</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>constant</b>, <i></i>
+  add_ptr  <b>constant_add</b> <i></i>
+)
+</pre>
+<dd> This methods adds the given constant only if it 
+  does not exist already, otherwise it only increments a reference counter, 
+  to be used when the constant is removed later.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_remove_boolean_var"></A>
+void <I></I>
+<B>BddEncCache_remove_boolean_var</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Removes the given variable from the internal hash
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_remove_constant"></A>
+void <I></I>
+<B>BddEncCache_remove_constant</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>constant</b> <i></i>
+)
+</pre>
+<dd> Removes the given constant from the internal hash
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_remove_evaluation"></A>
+void <I></I>
+<B>BddEncCache_remove_evaluation</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> If a given node_ptr is associated already with
+  some AddArray then the array is freed. Otherwise nothing happens
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEncCache_set_evaluation"></A>
+void <I></I>
+<B>BddEncCache_set_evaluation</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  AddArray_ptr  <b>add_array</b> <i></i>
+)
+</pre>
+<dd> The provided array of ADD will belong to "self"
+  and will be freed during destruction of the class or setting a new 
+  value for the same node_ptr.
+
+  NOTE: if NuSMV option "enable_bdd_cache" is unset to 0 then no
+  result is kept and the provided add_array is immediately freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEnc_bdd_to_wff"></A>
+node_ptr <I></I>
+<B>BddEnc_bdd_to_wff</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i>variables</i>
+)
+</pre>
+<dd> A new expression is built, that represents the formula
+  given as the input bdd.
+
+  The list of variables is used to compute the scalar essentials. Note
+  that only the following kinds of variables are allowed in this list.
+
+  1. Pure booleans (i.e. not part of an encoding)
+  2. Finite scalars (both ranged and words).
+
+  State, frozen and input variables are all allowed, no NEXT. (It will
+  be part of this function's responsibility to add state variables' NEXTs
+  as needed.
+
+  SideEffects        [none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Bddenc_print_wff_bdd">Bddenc_print_wff_bdd</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEnc_print_bdd_wff"></A>
+void <I></I>
+<B>BddEnc_print_bdd_wff</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  NodeList_ptr  <b>vars</b>, <i></i>
+  boolean  <b>do_sharing</b>, <i></i>
+  boolean  <b>do_indent</b>, <i></i>
+  int  <b>start_at_column</b>, <i></i>
+  FILE* <b>out</b> <i>the stream to write to</i>
+)
+</pre>
+<dd> The bdd representing the formula to be printed is first
+  converted to a wff.
+
+  If sharing is required optimizations are performed on the printout.
+
+  If indentation is required, the start_at_column integer offset is
+  used to determine the starting indenting offset to print the
+  expression.
+<p>
+
+<dd> <b>Side Effects</b> prints the expression on the given stream.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="BddEnc_print_formula_info"></A>
+void <I></I>
+<B>BddEnc_print_formula_info</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  Expr_ptr  <b>formula</b>, <i></i>
+  boolean  <b>print_models</b>, <i></i>
+  boolean  <b>print_formula</b>, <i></i>
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Prints statistical information about a given formula.
+                 It is computed taking care of the encoding and of the
+                 indifferent variables in the encoding.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_bdd_to_wff_rec"></A>
+node_ptr <I></I>
+<B>bdd_enc_bdd_to_wff_rec</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>vars</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  hash_ptr  <b>cache</b> <i>memoization hashtable for DAG traversal</i>
+)
+</pre>
+<dd> This function accepts a list of variables as part of
+its inputs.The present algorithm assumes that a variable in vars list
+is a boolean only in two distinct cases:
+
+1. Pure booleans 
+2. Boolean
+
+variables belonging to words (i.e. Boolean variables belonging to a
+scalar encoding are _not_ allowed in the input list of this
+function. This would invariably cause this implementation to
+fail). This assumptions are enforced by its public top-level caller.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_cache_deinit"></A>
+static void <I></I>
+<B>bdd_enc_cache_deinit</B>(
+  BddEncCache_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private deinitializer, called by the destructor
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_enc_cache_init">bdd_enc_cache_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_cache_init"></A>
+static void <I></I>
+<B>bdd_enc_cache_init</B>(
+  BddEncCache_ptr  <b>self</b>, <i></i>
+  SymbTable_ptr  <b>symb_table</b>, <i></i>
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Private initializer, called by the constructor
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_enc_cache_deinit">bdd_enc_cache_deinit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_debug_bdd_to_wff"></A>
+void <I></I>
+<B>bdd_enc_debug_bdd_to_wff</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Debug code for BddEnc_bdd_to_wff
+<p>
+
+<dd> <b>Side Effects</b> Halts NuSMV if the expression is not a correct
+  representation of bdd.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_get_preprocessed_vars"></A>
+NodeList_ptr <I></I>
+<B>bdd_enc_get_preprocessed_vars</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i>variables to be preprocessed</i>
+)
+</pre>
+<dd> This function is used to preprocess variables list to
+  provide to bddenc_print_wff_bdd. As the algorithm implemented in the
+  latter does not support word variables, word variables (if any)
+  shall be substituted with their bit variables
+  representatives. Moreover, this function takes care of adding NEXT
+  variables for state variables. For this reason no NEXT nor BITS are
+  allowed as input to this function.
+
+  The result NodeList must be destroyed by the caller.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#BddEnc_bdd_to_wff">BddEnc_bdd_to_wff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_get_scalar_essentials"></A>
+bdd_ptr <I></I>
+<B>bdd_enc_get_scalar_essentials</B>(
+  BddEnc_ptr  <b>self</b>, <i></i>
+  bdd_ptr  <b>bdd</b>, <i></i>
+  NodeList_ptr  <b>vars</b> <i>variables</i>
+)
+</pre>
+<dd> Computes the scalar essentials of a bdd, picking
+  identifiers from the variables in vars list. Used as part of
+  bdd_enc_bdd_to_wff_rec implementation.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#bdd_enc_bdd_to_wff">bdd_enc_bdd_to_wff</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="bdd_enc_hash_free_bdd_counted"></A>
+assoc_retval <I></I>
+<B>bdd_enc_hash_free_bdd_counted</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>data</b>, <i></i>
+  char* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Used to deref bdds in the sharing hashtable
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+<dt><pre>
+<A NAME="hash_free_add_array"></A>
+static assoc_retval <I></I>
+<B>hash_free_add_array</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>data</b>, <i></i>
+  char* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Called when pushing the status, and during
+  deinitialization
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="hash_free_add_counted"></A>
+static assoc_retval <I></I>
+<B>hash_free_add_counted</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>data</b>, <i></i>
+  char* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Called when pushing the status, and during
+  deinitialization. The kind of nodes that must be removed here is 
+  CONS(integer, add). Of course it is the add that must be freed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME="hash_free_add"></A>
+static assoc_retval <I></I>
+<B>hash_free_add</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>data</b>, <i></i>
+  char* <b>arg</b> <i></i>
+)
+</pre>
+<dd> Called when pushing the status, and during
+  deinitialization
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncCache.c"TARGET="ABSTRACT"><CODE>BddEncCache.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Builds a node representing the Bool casting of a single
+  word bit.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#BddEncBddPrintWff.c"TARGET="ABSTRACT"><CODE>BddEncBddPrintWff.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

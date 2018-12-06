@@ -1,0 +1,2019 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Expr_and_from_list"></A>
+Expr_ptr <I></I>
+<B>Expr_and_from_list</B>(
+  node_ptr  <b>list</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification.
+  Nil value is considered as true value
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_and_nil"></A>
+Expr_ptr <I></I>
+<B>Expr_and_nil</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_and"></A>
+Expr_ptr <I></I>
+<B>Expr_and</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_attime_get_time"></A>
+int <I></I>
+<B>Expr_attime_get_time</B>(
+  Expr_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Retrieves the time out of an ATTIME node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_attime_get_untimed"></A>
+Expr_ptr <I></I>
+<B>Expr_attime_get_untimed</B>(
+  Expr_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Retrieves the untimed node out of an ATTIME node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_attime"></A>
+Expr_ptr <I></I>
+<B>Expr_attime</B>(
+  Expr_ptr  <b>e</b>, <i></i>
+  int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Creates a ATTIME node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_bool_to_word1"></A>
+Expr_ptr <I></I>
+<B>Expr_bool_to_word1</B>(
+  Expr_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Builds the node for casting boolean to word1.
+
+  Description        [Works with booleans.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_divide"></A>
+Expr_ptr <I></I>
+<B>Expr_divide</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_equal"></A>
+Expr_ptr <I></I>
+<B>Expr_equal</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words. Performs local
+  syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_false"></A>
+Expr_ptr <I></I>
+<B>Expr_false</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the false expression value
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_function"></A>
+Expr_ptr <I></I>
+<B>Expr_function</B>(
+  const Expr_ptr  <b>name</b>, <i></i>
+  const Expr_ptr  <b>params</b> <i></i>
+)
+</pre>
+<dd> Builds an uninterpreted function named "name" with
+                      "params" as parameters. "params" must be a cons
+                      list of expressions (Created with find_node)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_get_time"></A>
+int <I></I>
+<B>Expr_get_time</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Current time is recursively calculated as follows:
+
+                       1. UNTIMED_CURRENT for Nil and leaves;
+                       2. UNTIMED_FROZEN if all vars are frozen;
+                       3. Time specified for an ATTIME node, assuming
+                       that the inner expression is untimed.
+
+                       Nesting of ATTIME nodes is _not_ allowed;
+                       4. Minimum time for left and right children
+                       assuming
+
+                       UNTIMED_CURRENT <
+                       UNTIMED_NEXT <
+                       t, for any t >= 0.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_ge"></A>
+Expr_ptr <I></I>
+<B>Expr_ge</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_gt"></A>
+Expr_ptr <I></I>
+<B>Expr_gt</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_iff"></A>
+Expr_ptr <I></I>
+<B>Expr_iff</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_implies"></A>
+Expr_ptr <I></I>
+<B>Expr_implies</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_is_false"></A>
+boolean <I></I>
+<B>Expr_is_false</B>(
+  const Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checkes whether given value is the false value
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_is_timed"></A>
+boolean <I></I>
+<B>Expr_is_timed</B>(
+  Expr_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Determines whether a formula has ATTIME nodes in it
+                       If cache is not null whenever we encounter a formula in
+                       the cache we simply return the previously computed value,
+                       otherwise an internal and temporary map is used.
+
+                       NOTE: the internal representation of cache is private so
+                             the user should provide only caches generated by
+                             this function!
+<p>
+
+<dd> <b>Side Effects</b> cache can be updated
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_is_true"></A>
+boolean <I></I>
+<B>Expr_is_true</B>(
+  const Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checkes whether given value is the true value
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_ite"></A>
+Expr_ptr <I></I>
+<B>Expr_ite</B>(
+  const Expr_ptr  <b>cond</b>, <i></i>
+  const Expr_ptr  <b>t</b>, <i></i>
+  const Expr_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification. 'cond' is the
+  case/ite condition, 't' is the THEN expression, 'e' is the ELSE
+  expression
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_le"></A>
+Expr_ptr <I></I>
+<B>Expr_le</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_lt"></A>
+Expr_ptr <I></I>
+<B>Expr_lt</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_minus"></A>
+Expr_ptr <I></I>
+<B>Expr_minus</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_mod"></A>
+Expr_ptr <I></I>
+<B>Expr_mod</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_next"></A>
+Expr_ptr <I></I>
+<B>Expr_next</B>(
+  const Expr_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Constructs a NEXT node of given expression
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_notequal"></A>
+Expr_ptr <I></I>
+<B>Expr_notequal</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_not"></A>
+Expr_ptr <I></I>
+<B>Expr_not</B>(
+  const Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_or"></A>
+Expr_ptr <I></I>
+<B>Expr_or</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_plus"></A>
+Expr_ptr <I></I>
+<B>Expr_plus</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_range"></A>
+Expr_ptr <I></I>
+<B>Expr_range</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Makes a TWODOTS node, representing an integer range
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_resolve"></A>
+Expr_ptr <I></I>
+<B>Expr_resolve</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  int  <b>type</b>, <i></i>
+  Expr_ptr  <b>left</b>, <i></i>
+  Expr_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> Given an expression node E (handled at
+  simplifier-level) the simplifier call this function in post order
+  after having simplified car(E) and cdr(E). It calls it by passing
+  node_get_type(E) as type, and simplified sub expressions for left and right.
+  The function Expr_resolve does not traverses further the structures, it simply
+  combine given operation encoded in type with given already simplified
+  operands left and right.
+
+  For example, suppose E is AND(exp1, exp2). The simplifier:
+
+  1. Simplifies recursively exp1 to exp1' and exp2 to exp2' (lazyness
+  might be taken into account if exp1 is found to be a false
+  constant).
+
+  2. Calls in postorder Expr_resolve(AND, exp1', exp2')
+
+  Expr_resolve will simplify sintactically the conjunction of (exp1', exp2')
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Expr_simplify">Expr_simplify</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_setin"></A>
+Expr_ptr <I></I>
+<B>Expr_setin</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Makes a setin node, with possible syntactic
+                      simplification.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_signed_word_to_unsigned"></A>
+Expr_ptr <I></I>
+<B>Expr_signed_word_to_unsigned</B>(
+  Expr_ptr  <b>w</b> <i></i>
+)
+</pre>
+<dd> Builds the node for casting signed words to unsigned
+  words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_equal"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_equal</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words. Performs local
+  syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_ge"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_ge</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_gt"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_gt</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_iff"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_iff</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_le"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_le</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_lt"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_lt</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_notequal"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_notequal</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_word_bit_select"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_word_bit_select</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  const Expr_ptr  <b>w</b>, <i></i>
+  const Expr_ptr  <b>r</b> <i></i>
+)
+</pre>
+<dd> Builds the node for bit selection of words.
+
+  Description        [Works with words. Performs local semantic and syntactic
+                      simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_word_extend"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_word_extend</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>w</b>, <i></i>
+  Expr_ptr  <b>i</b> <i></i>
+)
+</pre>
+<dd> Works with words. Performs local syntactic
+               simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify_word_resize"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify_word_resize</B>(
+  const SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>w</b>, <i></i>
+  Expr_ptr  <b>i</b> <i></i>
+)
+</pre>
+<dd> Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_simplify"></A>
+Expr_ptr <I></I>
+<B>Expr_simplify</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Top-level simplifier that evaluates constants and
+  simplifies syntactically the given expression. Simplification is trivial,
+  no lemma learning nor sintactic implication is carried out at the moment.
+
+  WARNING:
+  the results of simplifications are memoized in a hash stored
+  in the symbol table provided. Be very careful not to free/modify the input
+  expression or make sure that the input expressions are find_node-ed.
+  Otherwise, it is very easy to introduce a bug which will be
+  difficult to catch.
+  The hash in the symbol table is reset when any layer is removed.
+
+  NOTE FOR DEVELOPERS: if you think that memoization the simplification
+  results may cause some bugs you always can try without global
+  memoization. See the function body below for info.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_time_is_current"></A>
+boolean <I></I>
+<B>Expr_time_is_current</B>(
+  int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Returns true if the time (obtained by Expr_get_time) is
+                       current
+<p>
+
+<dd> <b>Side Effects</b> Expr_get_time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_time_is_dont_care"></A>
+boolean <I></I>
+<B>Expr_time_is_dont_care</B>(
+  int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Returns true if the time (obtained by Expr_get_time) is
+                       dont't care
+<p>
+
+<dd> <b>Side Effects</b> Expr_get_time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_time_is_next"></A>
+boolean <I></I>
+<B>Expr_time_is_next</B>(
+  int  <b>time</b> <i></i>
+)
+</pre>
+<dd> Returns true if the time (obtained by Expr_get_time) is
+                       next
+<p>
+
+<dd> <b>Side Effects</b> Expr_get_time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_times"></A>
+Expr_ptr <I></I>
+<B>Expr_times</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_true"></A>
+Expr_ptr <I></I>
+<B>Expr_true</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the true expression value
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_unary_minus"></A>
+Expr_ptr <I></I>
+<B>Expr_unary_minus</B>(
+  const Expr_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Works with boolean, scalar and words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_union"></A>
+Expr_ptr <I></I>
+<B>Expr_union</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Makes a union node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_unsigned_word_to_signed"></A>
+Expr_ptr <I></I>
+<B>Expr_unsigned_word_to_signed</B>(
+  Expr_ptr  <b>w</b> <i></i>
+)
+</pre>
+<dd> Builds the node for casting unsigned words to signed words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_untimed_explicit_time"></A>
+Expr_ptr <I></I>
+<B>Expr_untimed_explicit_time</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>expr</b>, <i></i>
+  int  <b>curr_time</b> <i></i>
+)
+</pre>
+<dd> Returns the untimed version of an expression using the
+                       current time provided as an argument.
+<p>
+
+<dd> <b>Side Effects</b> Expr_get_time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_untimed"></A>
+Expr_ptr <I></I>
+<B>Expr_untimed</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns the untimed version of an expression
+<p>
+
+<dd> <b>Side Effects</b> Expr_get_time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word1_to_bool"></A>
+Expr_ptr <I></I>
+<B>Expr_word1_to_bool</B>(
+  Expr_ptr  <b>w</b> <i></i>
+)
+</pre>
+<dd> Builds the node for casting word1 to boolean.
+
+  Description        [Works with words with width 1.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_bit_select"></A>
+Expr_ptr <I></I>
+<B>Expr_word_bit_select</B>(
+  const Expr_ptr  <b>w</b>, <i></i>
+  const Expr_ptr  <b>r</b> <i></i>
+)
+</pre>
+<dd> Builds the node for bit selection of words.
+
+  Description        [Works with words. Performs local syntactic
+                      simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_concatenate"></A>
+Expr_ptr <I></I>
+<B>Expr_word_concatenate</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Builds the node for word concatenation.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_extend"></A>
+Expr_ptr <I></I>
+<B>Expr_word_extend</B>(
+  Expr_ptr  <b>w</b>, <i></i>
+  Expr_ptr  <b>i</b> <i></i>
+)
+</pre>
+<dd> Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_left_rotate"></A>
+Expr_ptr <I></I>
+<B>Expr_word_left_rotate</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Builds the node left rotation of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_left_shift"></A>
+Expr_ptr <I></I>
+<B>Expr_word_left_shift</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Builds the node left shifting of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_right_rotate"></A>
+Expr_ptr <I></I>
+<B>Expr_word_right_rotate</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Builds the node right rotation of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_word_right_shift"></A>
+Expr_ptr <I></I>
+<B>Expr_word_right_shift</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Builds the node right shifting of words.
+
+  Description        [Works with words.
+  Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_xnor"></A>
+Expr_ptr <I></I>
+<B>Expr_xnor</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="Expr_xor"></A>
+Expr_ptr <I></I>
+<B>Expr_xor</B>(
+  const Expr_ptr  <b>a</b>, <i></i>
+  const Expr_ptr  <b>b</b> <i></i>
+)
+</pre>
+<dd> Performs local syntactic simplification
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_apply_synchronous_product"></A>
+void <I></I>
+<B>SexpFsm_apply_synchronous_product</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  SexpFsm_ptr  <b>other</b> <i></i>
+)
+</pre>
+<dd> The result goes into self, no changes to other.
+<p>
+
+<dd> <b>Side Effects</b> self will change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_copy"></A>
+VIRTUAL SexpFsm_ptr <I></I>
+<B>SexpFsm_copy</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Copy costructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_create_predicate_normalised_copy"></A>
+SexpFsm_ptr <I></I>
+<B>SexpFsm_create_predicate_normalised_copy</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  PredicateNormaliser_ptr  <b>normaliser</b> <i></i>
+)
+</pre>
+<dd> Predicate-normalisations means that an expression is
+  modified in such a way that at the end the subexpressions of a
+  not-boolean expression can be only not-boolean. This is performed by
+  changing boolean expression "exp" (which is a subexpression of a
+  not-boolean expression) to "ITE(exp, 1, 0)", and then pushing all
+  ITE up to the root of not-boolean expressions.
+
+  Constrain: the given Sexp FSM has to be NOT boolean. Otherwise,
+  it is meaningless to apply normalisation functions, since all the exporessions
+  are already boolean.
+<p>
+
+<dd> <b>Side Effects</b> SexpFsm_copy
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_create"></A>
+SexpFsm_ptr <I></I>
+<B>SexpFsm_create</B>(
+  const FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  const Set_t  <b>vars</b> <i></i>
+)
+</pre>
+<dd> Given hierarchy will be copied, so the caller is
+  responsible for its destruction. Vars set is also copied, so the
+  caller is responsible for its destruction (best if frozen)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_destroy"></A>
+VIRTUAL void <I></I>
+<B>SexpFsm_destroy</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_compassion"></A>
+node_ptr <I></I>
+<B>SexpFsm_get_compassion</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Gets the list of sexp expressions defining the set of
+                  compassion constraints for this machine.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_hierarchy"></A>
+FlatHierarchy_ptr <I></I>
+<B>SexpFsm_get_hierarchy</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned hierarchy belongs to self and cannot be
+  freely changed without indirectly modifying self as well. Copy
+  the returned hierarchy before modifying it if you do not want to
+  change self.  Also, notice that the SexpFsm constructor copies
+  the passed hierarchy.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_init"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_init</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns an Expr that collects init states for all
+  variables handled by self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_input"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_input</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns an Expr that collects all input states for all
+  variables handled by self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_invar"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_invar</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns an Expr that collects invar states for all
+  variables handled by self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_justice"></A>
+node_ptr <I></I>
+<B>SexpFsm_get_justice</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Gets the list of sexp expressions defining the set of justice
+                  constraints for this machine.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_symb_table"></A>
+SymbTable_ptr <I></I>
+<B>SexpFsm_get_symb_table</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method can be called only when a valid BddEnc was
+  passed to the class constructor (not NULL). Returned instance do not
+  belongs to the caller and must _not_ be destroyed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_symbols_list"></A>
+NodeList_ptr <I></I>
+<B>SexpFsm_get_symbols_list</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self. Do not change not free it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_trans"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_trans</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returns an Expr that collects all next states for all
+  variables handled by self
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_var_init"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_var_init</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Gets the sexp expression defining the initial state for
+                  the variable "v".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_var_input"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_var_input</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Gets the sexp expression defining the input relation
+                  for the variable "v".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_var_invar"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_var_invar</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Gets the sexp expression defining the state constraints
+                  for the variable "v".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_var_trans"></A>
+Expr_ptr <I></I>
+<B>SexpFsm_get_var_trans</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var_name</b> <i></i>
+)
+</pre>
+<dd> Gets the sexp expression defining the transition relation
+                  for the variable "v".
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_vars_list"></A>
+NodeList_ptr <I></I>
+<B>SexpFsm_get_vars_list</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self. Do not change not free it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_get_vars"></A>
+Set_t <I></I>
+<B>SexpFsm_get_vars</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Returned instance belongs to self. Do not change not free it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_is_boolean"></A>
+boolean <I></I>
+<B>SexpFsm_is_boolean</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Since a BoolSexpFsm derives from SexpFsm, a SexpFsm
+                      is not necessarily a scalar fsm. Use this
+                      method to distinguish scalar from boolean fsm
+                      when dealing with generic SexpFsm pointers.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_is_syntactically_universal"></A>
+boolean <I></I>
+<B>SexpFsm_is_syntactically_universal</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks if the SexpFsm is syntactically universal:
+                       Checks INIT, INVAR, TRANS, INPUT, JUSTICE,
+                       COMPASSION to be empty (ie: True Expr). In this
+                       case returns true, false otherwise
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="SexpFsm_self_check"></A>
+void <I></I>
+<B>SexpFsm_self_check</B>(
+  const SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Self-check for the instance
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="__add_edge_aux"></A>
+static void <I></I>
+<B>__add_edge_aux</B>(
+  hash_ptr  <b>hash</b>, <i></i>
+  node_ptr  <b>from</b>, <i></i>
+  node_ptr  <b>to</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="__free_nodelist"></A>
+static enum st_retval <I></I>
+<B>__free_nodelist</B>(
+  char* <b>key</b>, <i></i>
+  char* <b>val</b>, <i></i>
+  char* <b>data</b> <i></i>
+)
+</pre>
+<dd> private service used as callback by
+  sexp_fsm_destroy_vars_dag
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="__search_equal_eqdef"></A>
+static node_ptr <I></I>
+<B>__search_equal_eqdef</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  node_ptr  <b>name</b> <i></i>
+)
+</pre>
+<dd> Used during inlining. Returns a EQDEF or EQUAL node
+  where on the left
+  you find the var name, and on the right the value for its substitution.
+
+  EQDEF|EQUAL
+    /  \
+  var  subst-expr
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="_subst_expr"></A>
+static node_ptr <I></I>
+<B>_subst_expr</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>subst</b>, <i></i>
+  Set_t* <b>assg</b>, <i></i>
+  boolean  <b>top_level</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="expr_get_curr_time"></A>
+static int <I></I>
+<B>expr_get_curr_time</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Private service of Expr_get_time
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="expr_is_timed_aux"></A>
+static boolean <I></I>
+<B>expr_is_timed_aux</B>(
+  Expr_ptr  <b>expr</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Private service of Expr_is_timed.
+                       To represent 'true' in cache we use the constant 2 for
+                       'false' we use 1 to avoid representation problems wrt Nil
+<p>
+
+<dd> <b>Side Effects</b> cache can be updated
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="expr_timed_to_untimed"></A>
+static Expr_ptr <I></I>
+<B>expr_timed_to_untimed</B>(
+  SymbTable_ptr  <b>st</b>, <i></i>
+  Expr_ptr  <b>expr</b>, <i></i>
+  int  <b>curr_time</b>, <i></i>
+  boolean  <b>in_next</b>, <i></i>
+  hash_ptr  <b>cache</b> <i></i>
+)
+</pre>
+<dd> Converts a timed node into an untimed node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#Expr.c"TARGET="ABSTRACT"><CODE>Expr.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_add_edge"></A>
+static void <I></I>
+<B>sexp_fsm_add_edge</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>from</b>, <i></i>
+  node_ptr  <b>to</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_add_vertices_from_expr"></A>
+static boolean <I></I>
+<B>sexp_fsm_add_vertices_from_expr</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>name</b>, <i></i>
+  node_ptr  <b>expr</b>, <i></i>
+  SymbFilterType  <b>filter</b>, <i></i>
+  boolean  <b>is_invar</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_apply_inlining"></A>
+static node_ptr <I></I>
+<B>sexp_fsm_apply_inlining</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Top level function to apply inlining to the given
+  expression. It has no effects if inlining is not enabled
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_callback_var_fsm_free"></A>
+static assoc_retval <I></I>
+<B>sexp_fsm_callback_var_fsm_free</B>(
+  char * <b>key</b>, <i></i>
+  char * <b>data</b>, <i></i>
+  char * <b>arg</b> <i></i>
+)
+</pre>
+<dd> Private callback that destroys a single variable fsm
+  contained into the var fsm hash
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_conj_equals"></A>
+static node_ptr <I></I>
+<B>sexp_fsm_conj_equals</B>(
+  node_ptr  <b>expr</b>, <i></i>
+  Set_t  <b>assg</b> <i></i>
+)
+</pre>
+<dd> This make the conjunction of the inlined formula and
+  terms that have been used to perform the inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_copy_aux"></A>
+void <I></I>
+<B>sexp_fsm_copy_aux</B>(
+  const SexpFsm_ptr  <b>self</b>, <i></i>
+  SexpFsm_ptr  <b>copy</b> <i></i>
+)
+</pre>
+<dd> private service for copying self to other
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_copy"></A>
+static Object_ptr <I></I>
+<B>sexp_fsm_copy</B>(
+  const Object_ptr  <b>object</b> <i></i>
+)
+</pre>
+<dd> This is called by the virtual copy constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_create_vars_dag"></A>
+static void <I></I>
+<B>sexp_fsm_create_vars_dag</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_dag_get_roots"></A>
+static NodeList_ptr <I></I>
+<B>sexp_fsm_dag_get_roots</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_dag_get_subst_hash"></A>
+static hash_ptr <I></I>
+<B>sexp_fsm_dag_get_subst_hash</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Used during inlining. Returned hash must be NOT freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_deinit"></A>
+void <I></I>
+<B>sexp_fsm_deinit</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Initializes the vars fsm hash
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_destroy_vars_dag"></A>
+static void <I></I>
+<B>sexp_fsm_destroy_vars_dag</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Destroyer for the vars dag, used by inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_finalize"></A>
+static void <I></I>
+<B>sexp_fsm_finalize</B>(
+  Object_ptr  <b>object</b>, <i></i>
+  void* <b>dummy</b> <i></i>
+)
+</pre>
+<dd> Called by the class destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_hash_var_fsm_destroy"></A>
+static void <I></I>
+<B>sexp_fsm_hash_var_fsm_destroy</B>(
+  SexpFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Private method, used internally
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_hash_var_fsm_init"></A>
+static void <I></I>
+<B>sexp_fsm_hash_var_fsm_init</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  hash_ptr  <b>simp_hash</b> <i></i>
+)
+</pre>
+<dd> Formulae are simplified through
+                 sexp_fsm_simplify_expr. For this reason a
+                 simplification hash is required as input
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_hash_var_fsm_insert_var"></A>
+static void <I></I>
+<B>sexp_fsm_hash_var_fsm_insert_var</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b>, <i></i>
+  VarFsm_ptr  <b>varfsm</b> <i></i>
+)
+</pre>
+<dd> Adds a var fsm to the internal hash. Private.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_hash_var_fsm_lookup_var"></A>
+static VarFsm_ptr <I></I>
+<B>sexp_fsm_hash_var_fsm_lookup_var</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>var</b> <i></i>
+)
+</pre>
+<dd> Given a variable name, returns the corresponding variable
+  fsm, or NULL if not found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_init"></A>
+void <I></I>
+<B>sexp_fsm_init</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  const FlatHierarchy_ptr  <b>hierarchy</b>, <i></i>
+  const Set_t  <b>vars_set</b> <i></i>
+)
+</pre>
+<dd> hierarchy is copied into an independent FlatHierarchy
+  instance. If the new sexp must be based only on a set of variables, the
+  hierarchy must be empty
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_remove_dep_dag_node"></A>
+static void <I></I>
+<B>sexp_fsm_remove_dep_dag_node</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  node_ptr  <b>from</b> <i></i>
+)
+</pre>
+<dd> Used during inlining
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="sexp_fsm_simplify_expr"></A>
+static Expr_ptr <I></I>
+<B>sexp_fsm_simplify_expr</B>(
+  SexpFsm_ptr  <b>self</b>, <i></i>
+  hash_ptr  <b>hash</b>, <i></i>
+  Expr_ptr  <b>expr</b>, <i></i>
+  const int  <b>group</b> <i></i>
+)
+</pre>
+<dd> group identifies INVAR, TRANS or INIT group.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="simplifier_hash_add_expr"></A>
+static void <I></I>
+<B>simplifier_hash_add_expr</B>(
+  hash_ptr  <b>hash</b>, <i></i>
+  Expr_ptr  <b>expr</b>, <i></i>
+  const int  <b>group</b> <i></i>
+)
+</pre>
+<dd> group is INIT, INVAR or TRANS
+<p>
+
+<dd> <b>Side Effects</b> The hash can change
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="simplifier_hash_create"></A>
+static hash_ptr <I></I>
+<B>simplifier_hash_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This is used when creating cluster list from vars list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="simplifier_hash_destroy"></A>
+static void <I></I>
+<B>simplifier_hash_destroy</B>(
+  hash_ptr  <b>hash</b> <i></i>
+)
+</pre>
+<dd> Call after sexp_fsm_cluster_hash_create
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="simplifier_hash_query_expr"></A>
+static boolean <I></I>
+<B>simplifier_hash_query_expr</B>(
+  hash_ptr  <b>hash</b>, <i></i>
+  Expr_ptr  <b>expr</b>, <i></i>
+  const int  <b>group</b> <i></i>
+)
+</pre>
+<dd> Queries for an element in the hash, returns True if
+  found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_create"></A>
+static VarFsm_ptr <I></I>
+<B>var_fsm_create</B>(
+  Expr_ptr  <b>init</b>, <i></i>
+  Expr_ptr  <b>invar</b>, <i></i>
+  Expr_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> Creates a var fsm
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_destroy"></A>
+static void <I></I>
+<B>var_fsm_destroy</B>(
+  VarFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> It does not destroy the init, trans and invar nodes.
+  It destroys only the support nodes
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_get_init"></A>
+static Expr_ptr <I></I>
+<B>var_fsm_get_init</B>(
+  VarFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_get_input"></A>
+static Expr_ptr <I></I>
+<B>var_fsm_get_input</B>(
+  VarFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_get_invar"></A>
+static Expr_ptr <I></I>
+<B>var_fsm_get_invar</B>(
+  VarFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_get_next"></A>
+static Expr_ptr <I></I>
+<B>var_fsm_get_next</B>(
+  VarFsm_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> 
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME="var_fsm_synchronous_product"></A>
+static VarFsm_ptr <I></I>
+<B>var_fsm_synchronous_product</B>(
+  VarFsm_ptr  <b>fsm1</b>, <i></i>
+  VarFsm_ptr  <b>fsm2</b> <i></i>
+)
+</pre>
+<dd> Any argument can be Nil. When both are Nil the product
+  has all arguments true.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Use only in debugging mode, as self-checking can be expensive
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#SexpFsm.c"TARGET="ABSTRACT"><CODE>SexpFsm.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

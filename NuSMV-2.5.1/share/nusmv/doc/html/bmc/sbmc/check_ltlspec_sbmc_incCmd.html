@@ -1,0 +1,55 @@
+<html>
+<head><title>check_ltlspec_sbmc_inc</title></head>
+<body>
+
+<h3>check_ltlspec_sbmc_inc - Incremental SBMC LTL model checking</h3>
+<hr>
+<code>check_ltlspec_sbmc_inc [-h | -n idx | -p "formula" [IN context] | -P "name"] [-k max_length] [-c] [-N]</code><p>
+This command generates one or more problems, and calls
+  SAT solver for each one. Each problem is related to a specific problem
+  bound, which increases from zero (0) to the given maximum problem
+  length. Here "<i>length</i>" is the bound of the problem that system
+  is going to generate and/or solve. <BR>
+  In this context the maximum problem bound is represented by the
+  <i>-k</i> command parameter, or by its default value stored in the
+  environment variable <i>bmc_length</i>.<BR>
+  The property to be checked may be specified using the <i>-n idx</i>,
+  <i>-p "formula"</i>, or <i>-P "property_name"</i> options. <BR>
+  Completeness check, although slower, can be used to determine whether
+  the property holds.<BR>
+  <p>
+  Command options:<p>
+  <dl>
+    <dt> <tt>-n <i>index</i></tt>
+       <dd> <i>index</i> is the numeric index of a valid LTL specification
+       formula actually located in the properties database. <BR>
+    <dt> <tt>-p "formula" [IN context]</tt>
+       <dd> Checks the <tt>formula</tt> specified on the command-line. <BR>
+            <tt>context</tt> is the module instance name which the variables
+            in <tt>formula</tt> must be evaluated in.
+    <dt> <tt>-P name</tt>
+       <dd> Checks the LTLSPEC property with name <tt>name</tt> in the property
+            database.
+    <dt> <tt>-k <i>max_length</i></tt>
+       <dd> <i>max_length</i> is the maximum problem bound must be reached.
+       Only natural number are valid values for this option. If no value
+       is given the environment variable <i>bmc_length</i> is considered
+       instead.
+    <dt> <tt>-c</tt>
+       <dd> Performs completeness check at every step. This can be
+       effectively used to determine whether a property holds.</tt>
+    <dt><tt>-N</tt>
+       <dd> Does not perform virtual unrolling.
+  </dl>
+
+  For further information about this implementation see:
+  T. Latvala, A. Biere, K. Heljanko, and T. Junttila. Simple is
+  Better: Efficient Bounded Model Checking for Past LTL. In: R. Cousot
+  (ed.), Verification, Model Checking, and Abstract Interpretation,
+  6th International Conference VMCAI 2005, Paris, France, Volume 3385
+  of LNCS, pp. 380-395, Springer, 2005.  Copyright ©
+  Springer-Verlag.
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

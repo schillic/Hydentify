@@ -1,0 +1,28 @@
+  print_reachable_states - Prints out information about reachable states
+
+   --------------------------------------------------------------------------
+
+   print_reachable_states [-h] [-v] [-f] [-d] [-o filename]
+
+   Prints the number of reachable states of the given model. In verbose mode,
+   prints also the list of all reachable states. The reachable states are
+   computed if needed.
+
+   Command Options:
+
+   -v
+           Verbosely prints the list of reachable states.
+
+   -f
+           Print the list of reachable states as a formula.
+
+   -d
+           Prints the list of reachable states with defines (Requires -v).
+
+   -o filename
+           Prints the result on the specified filename instead of on standard
+           output
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

@@ -1,0 +1,1016 @@
+<html>
+<head><title>The cmd package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CmdAliasFree"></A>
+void <I></I>
+<B>CmdAliasFree</B>(
+  char * <b>value</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdCloseFile"></A>
+void <I></I>
+<B>CmdCloseFile</B>(
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdClosePipe"></A>
+void <I></I>
+<B>CmdClosePipe</B>(
+  FILE* <b>file</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdCommandCopy"></A>
+CommandDescr_t * <I></I>
+<B>CmdCommandCopy</B>(
+  CommandDescr_t * <b>value</b> <i></i>
+)
+</pre>
+<dd> Copies value.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdCommandFree"></A>
+void <I></I>
+<B>CmdCommandFree</B>(
+  char * <b>value</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdFgetsFilec"></A>
+char* <I></I>
+<B>CmdFgetsFilec</B>(
+  char* <b>buf</b>, <i></i>
+  int  <b>size</b>, <i></i>
+  FILE* <b>stream</b>, <i></i>
+  char* <b>prompt</b> <i></i>
+)
+</pre>
+<dd> Input is read from `stream' and returned in `buf'.  Up to
+  `size' bytes will be placed into `buf'.  If `stream' is not stdin, is
+  equivalent to calling fgets(buf, size, stream).
+ 
+  `prompt' is the prompt you want to appear at the beginning of the line.  The
+  caller does not have to print the prompt string before calling this routine.
+  The prompt has to be reprinted if the user hits ^D.
+ 
+  The file completion routines are derived from the source code for csh, which
+  is copyrighted by the Regents of the University of California.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdFgetsFilec"></A>
+char* <I></I>
+<B>CmdFgetsFilec</B>(
+  char* <b>buf</b>, <i></i>
+  int  <b>size</b>, <i></i>
+  FILE* <b>stream</b>, <i></i>
+  char* <b>prompt</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdFreeArgv"></A>
+void <I></I>
+<B>CmdFreeArgv</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdHistorySubstitution"></A>
+char * <I></I>
+<B>CmdHistorySubstitution</B>(
+  char * <b>line</b>, <i></i>
+  int * <b>changed</b> <i></i>
+)
+</pre>
+<dd> Simple history substitution routine. Not, repeat NOT, the
+  complete csh history substitution mechanism.
+
+  In the following ^ is the SUBST character and ! is the HIST character.
+  Deals with:
+ 	!!			last command
+ 	!stuff			last command that began with "stuff"
+ 	!*			all but 0'th argument of last command
+ 	!$			last argument of last command
+ 	!:n			n'th argument of last command
+ 	!n			repeat the n'th command
+ 	!-n			repeat n'th previous command
+ 	^old^new		replace "old" w/ "new" in previous command
+ 
+
+  Trailing spaces are significant. Removes all initial spaces. 
+
+  Returns `line' if no changes were made.  Returns pointer to a static buffer
+  if any changes were made.  Sets `changed' to 1 if a history substitution
+  took place, o/w set to 0.  Returns NULL if error occurred.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdOpenFile"></A>
+FILE* <I></I>
+<B>CmdOpenFile</B>(
+  const char* <b>filename</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CmdOpenPipe"></A>
+FILE* <I></I>
+<B>CmdOpenPipe</B>(
+  int  <b>useMore</b> <i></i>
+)
+</pre>
+<dd> Returns NULL if an error occurs
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_CommandAdd"></A>
+void <I></I>
+<B>Cmd_CommandAdd</B>(
+  char* <b>name</b>, <i></i>
+  PFI  <b>funcFp</b>, <i></i>
+  int  <b>changes</b>, <i></i>
+  boolean  <b>reentrant</b> <i></i>
+)
+</pre>
+<dd> Adds a command to the command table.  If name already defines
+  an existing command, its definition is replaced.  FuncFp is a function
+  pointer to code of the form: <p>
+
+                int <br>
+		CommandTest(argc, argv)<br>
+                  int argc;<br>
+                  char **argv;<br>
+                {<br>
+		    return 0;<br>
+		}<p>
+
+  argv[0] will generally
+  be the command name, and argv[1] ... argv[argc-1] are the arguments for the
+  command.  util_getopt() can be used to parse the arguments, but
+  util_getopt_reset() must be used before calling util_getopt().  The command
+  function should return 0 for normal operation, 1 for any error.  The changes
+  flag is used to automatically save the hmgr before executing the command (in
+  order to support undo).
+  The flag reentrant is true if the command execution can be interrupted without
+  leaving the internal status inconsistent.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_CommandDefined"></A>
+boolean <I></I>
+<B>Cmd_CommandDefined</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> True iff a command named 'name' is defined.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_CommandExecute"></A>
+int <I></I>
+<B>Cmd_CommandExecute</B>(
+  char* <b>command</b> <i></i>
+)
+</pre>
+<dd> Executes a command line.  This is the top-level of the command
+  interpreter, and supports multiple commands (separated by ;), alias
+  substitution, etc.  For many simple operations, Cmd_CommandExecute() is the
+  easiest way to accomplish a given task. For example, to set a variable, use
+  the code: Cmd_CommandExecute("set color blue").
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_CommandRemove"></A>
+boolean <I></I>
+<B>Cmd_CommandRemove</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> Returns true if command was found and removed,
+  false if not found
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_End"></A>
+void <I></I>
+<B>Cmd_End</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Ends the command package. Tables are freed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_Init">Cmd_Init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_FileOpen"></A>
+FILE * <I></I>
+<B>Cmd_FileOpen</B>(
+  char * <b>fileName</b>, <i></i>
+  char * <b>mode</b>, <i></i>
+  char ** <b>realFileName_p</b>, <i></i>
+  int  <b>silent</b> <i></i>
+)
+</pre>
+<dd> Opens the file with the given mode (see fopen()).  Tilde
+  expansion (~user/ or ~/) is performed on the fileName, and "-" is allowed as
+  a synonym for stdin (or stdout, depending on the mode).  If the file cannot
+  be opened, a message is reported using perror(); the silent flag, if true,
+  suppresses this error action.  In either case, A NULL file pointer is
+  returned if any error occurs.  The fileName (after tilde expansion) is
+  returned in the pointer realFileName, if realFileName is non-empty.  This
+  is a pointer which should be free'd when you are done with it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_FlagReadByName"></A>
+char* <I></I>
+<B>Cmd_FlagReadByName</B>(
+  char * <b>flag</b> <i></i>
+)
+</pre>
+<dd> The command parser maintains a table of named values.  These
+  are manipulated using the 'set' and 'unset' commands.  The value of the
+  named flag is returned, or NIL(char) is returned if the flag has not been
+  set.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_Init"></A>
+void <I></I>
+<B>Cmd_Init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the command package.
+<p>
+
+<dd> <b>Side Effects</b> Commands are added to the command table.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_End">Cmd_End</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Cmd_SecureCommandExecute"></A>
+int <I></I>
+<B>Cmd_SecureCommandExecute</B>(
+  char* <b>command</b> <i></i>
+)
+</pre>
+<dd> This version is securly callable from scripting languages. 
+  Do not call Cmd_CommandExecute directly from a scripting language, otherwise
+  the script execution could be aborted without any warning.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandAlias"></A>
+static int <I></I>
+<B>CommandAlias</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the alias command.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unalias">unalias</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandEcho"></A>
+static int <I></I>
+<B>CommandEcho</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the echo command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandHelp"></A>
+static int <I></I>
+<B>CommandHelp</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the help command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandHistory"></A>
+static int <I></I>
+<B>CommandHistory</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the history command.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#set">set</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandMemoryProfile"></A>
+static int <I></I>
+<B>CommandMemoryProfile</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the _memory_profile command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandQuit"></A>
+static int <I></I>
+<B>CommandQuit</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> A return value of -1 indicates a quick quit, -2 return frees
+  the memory, -4 an instant quit
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandShowHelp"></A>
+static int <I></I>
+<B>CommandShowHelp</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the _show_help command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandSource"></A>
+static int <I></I>
+<B>CommandSource</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the source command.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#history">history</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandTime"></A>
+static int <I></I>
+<B>CommandTime</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the time command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandUnalias"></A>
+static int <I></I>
+<B>CommandUnalias</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the unalias command.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#alias">alias</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandUsage"></A>
+static int <I></I>
+<B>CommandUsage</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the usage command.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandWhich"></A>
+static int <I></I>
+<B>CommandWhich</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Implements the which command.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#set">set</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="FlushBuffers"></A>
+static void <I></I>
+<B>FlushBuffers</B>(
+  int  <b>sigtype</b> <i></i>
+)
+</pre>
+<dd> This function is the signal handler for the SIGUSR1
+  signal. Whenever that signal is received, this function is executed and the
+  output channels of NuSMV are flushed.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_Init">Cmd_Init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="apply_alias"></A>
+static int <I></I>
+<B>apply_alias</B>(
+  int * <b>argcp</b>, <i></i>
+  char *** <b>argvp</b>, <i></i>
+  int * <b>loop</b> <i></i>
+)
+</pre>
+<dd> Applies alias.  If perform a history substitution in expanding
+  an alias, remove all the orginal trailing arguments.  For example:<p>
+
+    > alias t rl !:1<br>
+    > t lion.blif  would otherwise expand to   rl lion.blif lion.blif <br>
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="arm_signal_andler"></A>
+static void <I></I>
+<B>arm_signal_andler</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Enable signal trapping depending on the interactive/batch
+  mode.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#com_dispatch">com_dispatch</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="bad_event"></A>
+static char * <I></I>
+<B>bad_event</B>(
+  int  <b>n</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="check_shell_escape"></A>
+static int <I></I>
+<B>check_shell_escape</B>(
+  char* <b>p</b>, <i></i>
+  int* <b>status</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="cmp"></A>
+static int <I></I>
+<B>cmp</B>(
+  char ** <b>s1</b>, <i></i>
+  char ** <b>s2</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="com_dispatch"></A>
+static int <I></I>
+<B>com_dispatch</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="command_alias_help"></A>
+static char * <I></I>
+<B>command_alias_help</B>(
+  char * <b>command</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="command_completion"></A>
+static char ** <I></I>
+<B>command_completion</B>(
+  const char * <b>text</b>, <i></i>
+  int  <b>start</b>, <i></i>
+  int  <b>end</b> <i></i>
+)
+</pre>
+<dd> We use the regular NuSMV command completion function for the
+  		first word on the line, and filename completion for the rest.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#CmdCompletion_Generator">CmdCompletion_Generator</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="disarm_signal_andler"></A>
+static void <I></I>
+<B>disarm_signal_andler</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Enable signal trapping depending on the interactive/batch
+  mode.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#com_dispatch">com_dispatch</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="do_subst"></A>
+static char * <I></I>
+<B>do_subst</B>(
+  char * <b>dest</b>, <i></i>
+  char * <b>new</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="getarg"></A>
+static char * <I></I>
+<B>getarg</B>(
+  char * <b>line</b>, <i></i>
+  int  <b>num</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="getnum"></A>
+static int <I></I>
+<B>getnum</B>(
+  char ** <b>linep</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="match"></A>
+static int <I></I>
+<B>match</B>(
+  char * <b>newmatch</b>, <i></i>
+  char * <b>lastmatch</b>, <i></i>
+  char * <b>actual</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_alias"></A>
+static void <I></I>
+<B>print_alias</B>(
+  char * <b>value</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_prompt"></A>
+static void <I></I>
+<B>print_prompt</B>(
+  char* <b>prompt</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="removeWhiteSpaces"></A>
+static char * <I></I>
+<B>removeWhiteSpaces</B>(
+  char * <b>string</b> <i></i>
+)
+</pre>
+<dd> Removes tabs and spaces from the beginning and end of string.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdFile.c"TARGET="ABSTRACT"><CODE>cmdFile.c</CODE></A>
+
+<dt><pre>
+<A NAME="sigterm"></A>
+static void <I></I>
+<B>sigterm</B>(
+  int  <b>sig</b> <i></i>
+)
+</pre>
+<dd> Signal handler.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#com_dispatch">com_dispatch</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="split_line"></A>
+static char * <I></I>
+<B>split_line</B>(
+  char * <b>command</b>, <i></i>
+  int * <b>argc</b>, <i></i>
+  char *** <b>argv</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="variableInterpolationRecur"></A>
+static char * <I></I>
+<B>variableInterpolationRecur</B>(
+  char * <b>str</b> <i></i>
+)
+</pre>
+<dd> Recursive procedure that expands the interpolation variables.
+  This procedure is designed to handle multiple occurrences of variables
+  in a string and recursive definitions. If the expanded variable has another
+  variable, then the procedure is called recursively. The existence of a
+  variable is identified by the $ sign in the string. But since this may be
+  an environment variable too, the variable is untouched if not found in
+  this table. A sophisticated check can be made to see if this variable
+  exists in the environment, but it is NOT done here. Therefore, detection
+  of bogus values cannot be done. The procedure steps through the string
+  to see if any variables are present. If a termination character (one of
+  :, /) is found after the '$', then the variable
+  is identified and looked up in the flag table. If the returned string again
+  has a dollar, then the procedure is called recursively. If not, the returned
+  value replaces the variable and the stepping through continues. If the
+  variable is not found, then it might be an environment variable.So the
+  procedure leaves the variable there.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="variableInterpolation"></A>
+static void <I></I>
+<B>variableInterpolation</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Allows interpolation of variables. Here it is implemented by
+  allowing variables to be referred to with the prefix of '$'. The variables
+  are set using the "set" command. So for example, the following can be done <p>
+
+  <code>
+  NuSMV> set foo bar <br>
+  NuSMV> echo $foo <br>
+  bar <br>
+  </code>
+  
+  The last line "bar" will the output produced by NuSMV.
+
+  The following can also be done: <p>
+  
+  <code>
+  NuSMV> set foo $foo:foobar <br>
+  NuSMV> echo $foobar <br>
+  bar:foobar <br>
+  </code>
+  The last line will be the output produced by NuSMV. <p>
+
+  These variables can
+  be used in recursive definitions. The following termination characters are
+  recognized for the variables \n, \0, ' ', \t,  :,  ;,  #,  /.
+
+  Although the set command allows the usage of the some of the
+  above termination characters between quotes, 
+  the variable interpolation procedure has the restriction
+  that the two characters ':' and '/' may not be used with quotes.
+  A variable with spaces in it may be used only if it is enclosed
+  within quotes.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Based on the partial input and the list of installed commands
+  		generates the possible completions.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cmd_Completion">Cmd_Completion</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdMisc.c"TARGET="ABSTRACT"><CODE>cmdMisc.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returned value does not belong to caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="cmdAllFile.html#cmdCmd.c"TARGET="ABSTRACT"><CODE>cmdCmd.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

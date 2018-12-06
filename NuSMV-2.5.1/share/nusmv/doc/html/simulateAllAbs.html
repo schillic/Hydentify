@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE>simulate package abstract</TITLE></HEAD>
+<BODY>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<DT> <A HREF="simulateAllDet.html#CommandGotoState" TARGET="MAIN"><CODE>CommandGotoState()</CODE></A>
+<DD> Goes to a given state of a trace
+
+<DT> <A HREF="simulateAllDet.html#CommandPickState" TARGET="MAIN"><CODE>CommandPickState()</CODE></A>
+<DD> Picks a state from the set of initial states
+
+<DT> <A HREF="simulateAllDet.html#CommandPrintCurrentState" TARGET="MAIN"><CODE>CommandPrintCurrentState()</CODE></A>
+<DD> Prints the current state
+
+<DT> <A HREF="simulateAllDet.html#CommandSimulate" TARGET="MAIN"><CODE>CommandSimulate()</CODE></A>
+<DD> Performs a simulation from the current selected state
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_create" TARGET="MAIN"><CODE>SimulateTransSet_create()</CODE></A>
+<DD> Class constructor
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_destroy" TARGET="MAIN"><CODE>SimulateTransSet_destroy()</CODE></A>
+<DD> Class destructor
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_from_state" TARGET="MAIN"><CODE>SimulateTransSet_get_from_state()</CODE></A>
+<DD> Getter for the state the transition set is originating from
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_input_at_state" TARGET="MAIN"><CODE>SimulateTransSet_get_input_at_state()</CODE></A>
+<DD> Returns the Ith input from the set of inputs 
+  going to the Nth state in the set of target states
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_inputs_num_at_state" TARGET="MAIN"><CODE>SimulateTransSet_get_inputs_num_at_state()</CODE></A>
+<DD> Returns the cardinality of the inputs set going to 
+  a given state, represented by its index in the set of target states
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_next_state_num" TARGET="MAIN"><CODE>SimulateTransSet_get_next_state_num()</CODE></A>
+<DD> Returns the cardinality of the target set of states
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_next_state" TARGET="MAIN"><CODE>SimulateTransSet_get_next_state()</CODE></A>
+<DD> Returns the Nth element of the target set of states
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_state_input_at" TARGET="MAIN"><CODE>SimulateTransSet_get_state_input_at()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_state_input_det" TARGET="MAIN"><CODE>SimulateTransSet_get_state_input_det()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_get_state_input_rand" TARGET="MAIN"><CODE>SimulateTransSet_get_state_input_rand()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#SimulateTransSet_print" TARGET="MAIN"><CODE>SimulateTransSet_print()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#Simulate_ChooseOneStateInput" TARGET="MAIN"><CODE>Simulate_ChooseOneStateInput()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#Simulate_ChooseOneState" TARGET="MAIN"><CODE>Simulate_ChooseOneState()</CODE></A>
+<DD> Chooses one state among future states
+
+<DT> <A HREF="simulateAllDet.html#Simulate_CmdPickOneState" TARGET="MAIN"><CODE>Simulate_CmdPickOneState()</CODE></A>
+<DD> required
+
+<DT> <A HREF="simulateAllDet.html#Simulate_End" TARGET="MAIN"><CODE>Simulate_End()</CODE></A>
+<DD> Quits the simulate package
+
+<DT> <A HREF="simulateAllDet.html#Simulate_Init" TARGET="MAIN"><CODE>Simulate_Init()</CODE></A>
+<DD> Initializes the simulate package.
+
+<DT> <A HREF="simulateAllDet.html#Simulate_MultipleSteps" TARGET="MAIN"><CODE>Simulate_MultipleSteps()</CODE></A>
+<DD> Multiple step simulation
+
+<DT> <A HREF="simulateAllDet.html#simulate_accumulate_constraints" TARGET="MAIN"><CODE>simulate_accumulate_constraints()</CODE></A>
+<DD> required
+
+<DT> <A HREF="simulateAllDet.html#simulate_choose_next" TARGET="MAIN"><CODE>simulate_choose_next()</CODE></A>
+<DD> 
+
+<DT> <A HREF="simulateAllDet.html#simulate_get_constraints_from_string" TARGET="MAIN"><CODE>simulate_get_constraints_from_string()</CODE></A>
+<DD> Converts given constraint expression (as a string) to
+                      a bdd
+
+<DT> <A HREF="simulateAllDet.html#simulate_request_constraints" TARGET="MAIN"><CODE>simulate_request_constraints()</CODE></A>
+<DD> required
+
+<DT> <A HREF="simulateAllDet.html#simulate_sigterm" TARGET="MAIN"><CODE>simulate_sigterm()</CODE></A>
+<DD> Signal handler
+
+<DT> <A HREF="simulateAllDet.html#simulate_store_and_print_trace" TARGET="MAIN"><CODE>simulate_store_and_print_trace()</CODE></A>
+<DD> Extends current simulation trace and prints it
+
+</DL>
+
+<HR>
+
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

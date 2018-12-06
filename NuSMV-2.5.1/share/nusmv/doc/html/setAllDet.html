@@ -1,0 +1,572 @@
+<html>
+<head><title>The set package: all functions </title></head>
+<body>
+
+Internal Header for package Set
+<HR>
+<DL>
+<dt><pre>
+<A NAME="Set_AddMembersFromList"></A>
+Set_t <I></I>
+<B>Set_AddMembersFromList</B>(
+  Set_t  <b>set</b>, <i></i>
+  const NodeList_ptr  <b>list</b> <i></i>
+)
+</pre>
+<dd> Add in order (at the end) all new elements. Linear
+  time in the size of list if not frozen, linear time in size of
+  set + size of list if frozen. See description about the structure
+  Set_t for further information
+<p>
+
+<dd> <b>Side Effects</b> If set is not frozen, set is changed internally
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_AddMember"></A>
+Set_t <I></I>
+<B>Set_AddMember</B>(
+  Set_t  <b>set</b>, <i></i>
+  Set_Element_t  <b>el</b> <i></i>
+)
+</pre>
+<dd> Add in order (at the end) a new element. Constant time
+  if not frozen, linear time if frozen. See description about the
+  structure Set_t for further information
+<p>
+
+<dd> <b>Side Effects</b> If set is not frozen, set is changed internally
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Contains"></A>
+boolean <I></I>
+<B>Set_Contains</B>(
+  const Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Returns true iff set2 is a subset of set1. Linear in 
+  the size of set2
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Copy"></A>
+Set_t <I></I>
+<B>Set_Copy</B>(
+  const Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> If the set was frozen, returned set is equal to the set
+  given as input, and its reference counting is incremented. See
+  description about the structure Set_t for further information
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Set_MakeSingleton">Set_MakeSingleton</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Difference"></A>
+Set_t <I></I>
+<B>Set_Difference</B>(
+  Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Computes the Set Difference. Linear time on the
+  cardinality of set1. See description about the structure Set_t for
+  further information
+<p>
+
+<dd> <b>Side Effects</b> If set1 is not frozen, set1 is changed internally. If
+  after difference set1 is empty, it is also released and the empty
+  set is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Equals"></A>
+boolean <I></I>
+<B>Set_Equals</B>(
+  const Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Returns true iff set1 contains the same elements of
+  set2. Linear in the size of set2
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Freeze"></A>
+Set_t <I></I>
+<B>Set_Freeze</B>(
+  Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Use when a set has to be memoized
+  or stored in memory permanently. When frozen, a set content is
+  frozen, meaning that no change can occur later on this set. If the
+  set is tried to be changed later, a new copy will be created and
+  changes will be applied to that copy. When a frozen set is copied, a
+  reference counter is incremented and the same instance is returned
+  in constant time. When a frozen set is destroyed, it is destroyed
+  only when its ref counter reaches 0 (meaning it is the very last
+  instance of that set). Set is also returned for a functional
+  flavour. See description about the structure Set_t for
+  further information
+<p>
+
+<dd> <b>Side Effects</b> set is changed internally if not already frozen
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_GetFirstIter"></A>
+Set_Iterator_t <I></I>
+<B>Set_GetFirstIter</B>(
+  Set_t  <b>set1</b> <i></i>
+)
+</pre>
+<dd> Returns an iterator to the "first" element of the set.
+  Since sets are ordered, iterating through a set means to traverse
+  the elements into the set in the same chronological ordering they
+  have been previoulsy added to the set. If a set is changed, any
+  previous stored iterator on that set might become invalid.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_GetMember"></A>
+Set_Element_t <I></I>
+<B>Set_GetMember</B>(
+  const Set_t  <b>set</b>, <i></i>
+  Set_Iterator_t  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returns the element at given iterator
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_GetNextIter"></A>
+Set_Iterator_t <I></I>
+<B>Set_GetNextIter</B>(
+  Set_Iterator_t  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returns the next iterator.
+  Since sets are ordered, iterating through a set means to traverse
+  the elements into the set in the same chronological ordering they
+  have been previoulsy added to the set. If a set is changed, any
+  previous stored iterator on that set might become invalid.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_GetRest"></A>
+Set_t <I></I>
+<B>Set_GetRest</B>(
+  const Set_t  <b>set</b>, <i></i>
+  Set_Iterator_t  <b>from</b> <i></i>
+)
+</pre>
+<dd> Given a set and an iterator within that set, returns a
+  new set containing all the elements that are found in to the input
+  set from the iterator to then end of the set. Returned set must be
+  disposed by the caller. 
+
+  WARNING!! Deprecated method. This method is provided only for
+  backward compatibility and should be no longer used in new code.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_GiveCardinality"></A>
+int <I></I>
+<B>Set_GiveCardinality</B>(
+  const Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Computes the cardinality of the given set. Constant time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Intersection"></A>
+Set_t <I></I>
+<B>Set_Intersection</B>(
+  Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Computes the Set intersection. Linear time on the
+  cardinality of set1+set2. See description about the structure Set_t for
+  further information
+<p>
+
+<dd> <b>Side Effects</b> If set1 is not frozen, set1 is changed internally. If
+  after intersection set1 is empty, it is also released and the empty
+  set is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Intersects"></A>
+boolean <I></I>
+<B>Set_Intersects</B>(
+  const Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Returns true iff set1 contains at least one element from
+  set2. Linear in the size of set1
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_IsEmpty"></A>
+boolean <I></I>
+<B>Set_IsEmpty</B>(
+  const Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Checks for Set Emptiness. Constant time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_IsEndIter"></A>
+boolean <I></I>
+<B>Set_IsEndIter</B>(
+  Set_Iterator_t  <b>iter</b> <i></i>
+)
+</pre>
+<dd> Returns true if the set iterator is at the end of the
+  iteration
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_IsMember"></A>
+boolean <I></I>
+<B>Set_IsMember</B>(
+  const Set_t  <b>set</b>, <i></i>
+  Set_Element_t  <b>el</b> <i></i>
+)
+</pre>
+<dd> Checks if the given element is a member of the
+  set. It returns <tt>True</tt> if it is a member, <tt>False</tt>
+  otherwise. Constant time
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_MakeEmpty"></A>
+Set_t <I></I>
+<B>Set_MakeEmpty</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This function creates an empty set.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_MakeFromUnion"></A>
+Set_t <I></I>
+<B>Set_MakeFromUnion</B>(
+  node_ptr  <b>_union</b> <i></i>
+)
+</pre>
+<dd> Given an union node, builds a corresponding set
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_MakeSingleton"></A>
+Set_t <I></I>
+<B>Set_MakeSingleton</B>(
+  Set_Element_t  <b>el</b> <i></i>
+)
+</pre>
+<dd> Creates a set with a unique element.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Make"></A>
+Set_t <I></I>
+<B>Set_Make</B>(
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Given a list, builds a corresponding set
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Set_MakeSingleton">Set_MakeSingleton</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_ReleaseSetOfSet"></A>
+void <I></I>
+<B>Set_ReleaseSetOfSet</B>(
+  Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Assuming that an input set consists of elements each of
+  which is also a set this function applies Set_ReleaseSet to the input
+  set and every set in it.
+<p>
+
+<dd> <b>Side Effects</b> Set_ReleaseSet
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_ReleaseSet"></A>
+void <I></I>
+<B>Set_ReleaseSet</B>(
+  Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Releases the memory associated to the given set. If the
+  set was frozen, reference counting is taken into account. See
+  description about the structure Set_t for further information
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_RemoveMember"></A>
+Set_t <I></I>
+<B>Set_RemoveMember</B>(
+  Set_t  <b>set</b>, <i></i>
+  Set_Element_t  <b>el</b> <i></i>
+)
+</pre>
+<dd> The new set is returned. Linear time. See
+  description about the structure Set_t for further information
+<p>
+
+<dd> <b>Side Effects</b> If set is not frozen, set is changed internally. If
+  after removal set is empty, it is also released.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Set2List"></A>
+NodeList_ptr <I></I>
+<B>Set_Set2List</B>(
+  const Set_t  <b>set</b> <i></i>
+)
+</pre>
+<dd> Given a set, returns a corresponding list. Returned
+  list belongs to self and must be NOT freed nor changed by the caller.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Set_MakeSingleton">Set_MakeSingleton</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="Set_Union"></A>
+Set_t <I></I>
+<B>Set_Union</B>(
+  Set_t  <b>set1</b>, <i></i>
+  const Set_t  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Computes the Union of two sets. If set1 is not frozen,
+  set1 is changed by adding members of set2. If set1 is frozen, it is
+  before copied into a new set. 
+
+  If set1 is not frozen, complexity is linear in the cardinality od
+  set2, otherwise it is linear in the cardinality(set1) +
+  cardinality(set2)
+
+  See description about the structure Set_t for further information
+<p>
+
+<dd> <b>Side Effects</b> If set is not frozen, set is changed internally.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_check_frozen"></A>
+Set_t <I></I>
+<B>set_check_frozen</B>(
+  Set_t  <b>self</b> <i></i>
+)
+</pre>
+<dd> Used internally by functions that change the instance
+  to handle frozen set
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_check_list"></A>
+void <I></I>
+<B>set_check_list</B>(
+  Set_t  <b>self</b> <i></i>
+)
+</pre>
+<dd> This method is used internally to allow late allocation
+  of the list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_copy_actual"></A>
+Set_t <I></I>
+<B>set_copy_actual</B>(
+  const Set_t  <b>self</b> <i></i>
+)
+</pre>
+<dd> Internal copy constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_copy"></A>
+Set_t <I></I>
+<B>set_copy</B>(
+  const Set_t  <b>self</b> <i></i>
+)
+</pre>
+<dd> Internal copy constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_create"></A>
+Set_t <I></I>
+<B>set_create</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Internal constructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_destroy"></A>
+void <I></I>
+<B>set_destroy</B>(
+  Set_t  <b>self</b> <i></i>
+)
+</pre>
+<dd> Internal destructor
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_pkg_init"></A>
+void <I></I>
+<B>set_pkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the set package. See also Set_Quit() to
+  deinitialize it
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_pkg_quit"></A>
+void <I></I>
+<B>set_pkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> De-Initializes the set package. Use after Set_init()
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME="set_union_to_set_aux"></A>
+void <I></I>
+<B>set_union_to_set_aux</B>(
+  node_ptr  <b>a</b>, <i></i>
+  Set_t* <b>set</b> <i></i>
+)
+</pre>
+<dd> Auxiliary function for constructor from union nodes
+<p>
+
+<dd> <b>Side Effects</b> Given set will be added of found expressions
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Prints a set to the specified file stream. Third
+  parameter printer is a callback to be used when printing
+  elements. If NULL, elements will be assumed to be node_ptr and
+  print_node is called. printer_arg is an optional argument to be
+  passed to the printer (can be NULL)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#setSet.c"TARGET="ABSTRACT"><CODE>setSet.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> use this to iterate over a set
+<p>
+
+<DD> <B>Defined in </B> <A HREF="setAllFile.html#set.h"TARGET="ABSTRACT"><CODE>set.h</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

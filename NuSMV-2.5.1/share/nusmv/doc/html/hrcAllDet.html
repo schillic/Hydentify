@@ -1,0 +1,519 @@
+<html>
+<head><title>The hrc package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandHrcWriteModel"></A>
+int <I></I>
+<B>CommandHrcWriteModel</B>(
+  int  <b>argc</b>, <i></i>
+  char ** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Writes the SMV model contained in the root node
+  of the hrc structure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcCmd.c"TARGET="ABSTRACT"><CODE>hrcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Hrc_WriteModel"></A>
+void <I></I>
+<B>Hrc_WriteModel</B>(
+  HrcNode_ptr  <b>hrcNode</b>, <i></i>
+  FILE * <b>ofile</b>, <i></i>
+  boolean  <b>append_suffix</b> <i></i>
+)
+</pre>
+<dd> Prints the SMV module for the hrcNode. If the
+  flag append_suffix is true then the suffix HRC_WRITE_MODULE_SUFFIX
+  is appended when a module type is printed. So
+  HRC_WRITE_MODULE_SUFFIX is appended to the module name in module
+  declarations and to the module name in a module instantiation. The
+  feature is needed for testing to avoid name clash among modules
+  names when the original model and the model generated from hrc are
+  merged.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="Hrc_init_cmd"></A>
+void <I></I>
+<B>Hrc_init_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the commands of the hrc package.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcCmd.c"TARGET="ABSTRACT"><CODE>hrcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Hrc_init"></A>
+void <I></I>
+<B>Hrc_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the hrc package. The initialization
+  consists of the allocation of the mainHrcNode global variable and
+  the initialization of the hrc package commands.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TracePkg_quit">TracePkg_quit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrc.c"TARGET="ABSTRACT"><CODE>hrc.c</CODE></A>
+
+<dt><pre>
+<A NAME="Hrc_quit_cmd"></A>
+void <I></I>
+<B>Hrc_quit_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Removes the commands provided by the hrc package.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcCmd.c"TARGET="ABSTRACT"><CODE>hrcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="Hrc_quit"></A>
+void <I></I>
+<B>Hrc_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Quits the hrc package, freeing the global variable
+  mainHrcNode and removing the hrc commands.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#TracePkg_init">TracePkg_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrc.c"TARGET="ABSTRACT"><CODE>hrc.c</CODE></A>
+
+<dt><pre>
+<A NAME="UsageHrcWriteModel"></A>
+static int <I></I>
+<B>UsageHrcWriteModel</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Prints the usage of the command UsageHrcWriteModel
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcCmd.c"TARGET="ABSTRACT"><CODE>hrcCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_add_context"></A>
+node_ptr <I></I>
+<B>hrc_prefix_utils_add_context</B>(
+  node_ptr  <b>context</b>, <i></i>
+  node_ptr  <b>expression</b> <i></i>
+)
+</pre>
+<dd> Build the expression prefixed by context.
+
+  If expression is of DOT or CONTEXT type we cannot build the tree
+  DOT(context, expression). We need to recursively visit expression
+  to build a correct DOT tree.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_assign_module_name"></A>
+node_ptr <I></I>
+<B>hrc_prefix_utils_assign_module_name</B>(
+  HrcNode_ptr  <b>instance</b>, <i></i>
+  node_ptr  <b>instance_name</b> <i></i>
+)
+</pre>
+<dd> Creates a new name for the module instance.
+
+  The generated module name is <module_name>_<module_instance_flattened_name>
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_flatten_instance_name"></A>
+node_ptr <I></I>
+<B>hrc_prefix_utils_flatten_instance_name</B>(
+  HrcNode_ptr  <b>instance</b> <i></i>
+)
+</pre>
+<dd> Given an instance returns its flattened name.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_get_first_subcontext"></A>
+node_ptr <I></I>
+<B>hrc_prefix_utils_get_first_subcontext</B>(
+  node_ptr  <b>symbol</b> <i></i>
+)
+</pre>
+<dd> Get the first subcontext of the given symbol.
+
+  Search the second CONTEXT or DOT node in symbol and returns it. If it
+  is not found then Nil is returned.
+
+  DOT and CONTEXT nodes are always searched in the car node.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_get_prefix_symbols"></A>
+Set_t <I></I>
+<B>hrc_prefix_utils_get_prefix_symbols</B>(
+  Set_t  <b>symbol_set</b>, <i></i>
+  node_ptr  <b>prefix</b> <i></i>
+)
+</pre>
+<dd> Given a set of symbol returns a new set that
+  contains only symbols that have a given prefix.
+
+  The returned set must be destroyed by the caller.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_is_subprefix"></A>
+boolean <I></I>
+<B>hrc_prefix_utils_is_subprefix</B>(
+  node_ptr  <b>subprefix</b>, <i></i>
+  node_ptr  <b>prefix</b> <i></i>
+)
+</pre>
+<dd> Returns true if subprefix is contained in prefix.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_prefix_utils_remove_context"></A>
+node_ptr <I></I>
+<B>hrc_prefix_utils_remove_context</B>(
+  node_ptr  <b>identifier</b>, <i></i>
+  node_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> Removes context from identifier.
+  If context is not
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcPrefixUtils.c"TARGET="ABSTRACT"><CODE>hrcPrefixUtils.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_assign_list"></A>
+boolean <I></I>
+<B>hrc_write_assign_list</B>(
+  FILE* <b>out</b>, <i></i>
+  int  <b>assign_node_type</b>, <i></i>
+  node_ptr  <b>assign_list</b> <i></i>
+)
+</pre>
+<dd> Writes ASSIGN declarations in SMV format on a
+  file.
+
+  Function returns true if at least an assign was written
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_constants"></A>
+boolean <I></I>
+<B>hrc_write_constants</B>(
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>constants_list</b> <i></i>
+)
+</pre>
+<dd> Prints in the output file the SMV
+  representations of constants list.
+
+  Function returns true if at least a constant was printed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_declare_module_variables"></A>
+void <I></I>
+<B>hrc_write_declare_module_variables</B>(
+  FILE * <b>ofile</b>, <i></i>
+  HrcNode_ptr  <b>child</b>, <i></i>
+  st_table* <b>printed_module_map</b>, <i></i>
+  boolean  <b>append_suffix</b> <i></i>
+)
+</pre>
+<dd> Declare a module variables, setting the module
+  to use and the actual parameters.
+<p>
+
+<dd> <b>Side Effects</b> printed_module_map is changed in the recursive
+  calls of the the function.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_expr_split"></A>
+boolean <I></I>
+<B>hrc_write_expr_split</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+  string in SMV format on a file.
+
+  Returns true if at least one expression was printed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_expr"></A>
+void <I></I>
+<B>hrc_write_expr</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b> <i></i>
+)
+</pre>
+<dd> Writes a generic expression prefixed by a given
+  string in SMV format on a file.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_module_instance"></A>
+void <I></I>
+<B>hrc_write_module_instance</B>(
+  FILE * <b>ofile</b>, <i></i>
+  HrcNode_ptr  <b>hrcNode</b>, <i></i>
+  st_table* <b>printed_module_map</b>, <i></i>
+  boolean  <b>append_suffix</b> <i></i>
+)
+</pre>
+<dd> Writes the SMV translation of the instance
+  module contained in hrcNode on file.
+<p>
+
+<dd> <b>Side Effects</b> printed_module_map is changed to keep track of
+  printed modules.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_parameters"></A>
+void <I></I>
+<B>hrc_write_parameters</B>(
+  FILE* <b>ofile</b>, <i></i>
+  node_ptr  <b>parameters_list</b> <i></i>
+)
+</pre>
+<dd> Prints a list of parameters for module
+  declaration or instantiation.
+
+  The parameter list is printed enclosed by brackets, every parameter
+  is separated by colon.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_print_array_defines"></A>
+void <I></I>
+<B>hrc_write_print_array_defines</B>(
+  FILE* <b>out</b>, <i></i>
+  HrcNode_ptr  <b>hrcNode</b> <i></i>
+)
+</pre>
+<dd> Writes the ARRAY DEFINE declarations contained in hrcNode.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_print_assign"></A>
+void <I></I>
+<B>hrc_write_print_assign</B>(
+  FILE * <b>out</b>, <i></i>
+  node_ptr  <b>lhs</b>, <i></i>
+  node_ptr  <b>rhs</b> <i></i>
+)
+</pre>
+<dd> Prints an assignement statement
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_print_defines"></A>
+void <I></I>
+<B>hrc_write_print_defines</B>(
+  FILE* <b>out</b>, <i></i>
+  HrcNode_ptr  <b>hrcNode</b> <i></i>
+)
+</pre>
+<dd> Writes DEFINE declarations in SMV format on a
+  file.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_print_var_list"></A>
+void <I></I>
+<B>hrc_write_print_var_list</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>var_list</b> <i></i>
+)
+</pre>
+<dd> Prints a list of variables.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_print_vars"></A>
+void <I></I>
+<B>hrc_write_print_vars</B>(
+  FILE* <b>out</b>, <i></i>
+  HrcNode_ptr  <b>hrcNode</b> <i></i>
+)
+</pre>
+<dd> Prints the variable of the module contained in
+  hrcNode.
+  The sections printed are VAR, IVAR and FROZENVAR.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_spec_pair_list"></A>
+void <I></I>
+<B>hrc_write_spec_pair_list</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>pair_list</b>, <i></i>
+  char* <b>section_name</b> <i></i>
+)
+</pre>
+<dd> Writes a list of specification that contains
+  pairs in SMV format.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_spec_split"></A>
+boolean <I></I>
+<B>hrc_write_spec_split</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  const char* <b>s</b> <i></i>
+)
+</pre>
+<dd> Writes a specification list prefixed by a given
+  string in SMV format on a file.
+
+  Returns true if at least one specification was printed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_specifications"></A>
+void <I></I>
+<B>hrc_write_specifications</B>(
+  FILE* <b>out</b>, <i></i>
+  HrcNode_ptr  <b>hrcNode</b> <i></i>
+)
+</pre>
+<dd> Writes all the specifications of a module instance.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="hrc_write_spec"></A>
+void <I></I>
+<B>hrc_write_spec</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>spec</b>, <i></i>
+  const char* <b>msg</b> <i></i>
+)
+</pre>
+<dd> Prints in out file the specification.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_scalar_type"></A>
+static void <I></I>
+<B>print_scalar_type</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Prints the scalar type of a variable. The
+  printer takes care of reversing the CONS list that contains the
+  enumeration to preserve the order of the literals in the source
+  model.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#print_variable_type">print_variable_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_variable_type"></A>
+static void <I></I>
+<B>print_variable_type</B>(
+  FILE* <b>out</b>, <i></i>
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Prints the type of a variable. The printers used
+  in compileWrite.c in compile package cannot be used in hrc, unless
+  symbol table is used.
+
+  The printer manages the following types: BOOLEAN, INTEGER, REAL,
+  UNSIGNED_WORD, SIGNED_WORD, SCALAR, WORD_ARRAY and  ARRAY_TYPE.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Suffix used to rename module names and module variables
+<p>
+
+<DD> <B>Defined in </B> <A HREF="hrcAllFile.html#hrcWrite.c"TARGET="ABSTRACT"><CODE>hrcWrite.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

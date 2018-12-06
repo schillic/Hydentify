@@ -1,0 +1,16 @@
+  bmc_setup - Builds the model in a Boolean Epression format.
+
+   --------------------------------------------------------------------------
+
+   bmc_setup [-h] | [-f]
+
+   You must call this command before use any other bmc-related command. Only
+   one call per session is required.
+   Command options:
+
+   -f
+           Forces the BMC model to be built.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

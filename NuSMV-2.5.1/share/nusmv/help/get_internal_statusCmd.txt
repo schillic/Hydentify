@@ -1,0 +1,25 @@
+  get_internal_status - Returns the internal status of the system.
+
+   --------------------------------------------------------------------------
+
+   get_internal_status [-h]
+
+   Prints out the internal status of the system. i.e.
+
+     * -1 : read_model has not yet been executed or an error occurred during
+       its execution.
+     * 0 : flatten_hierarchy has not yet been executed or an error occurred
+       during its execution.
+     * 1 : encode_variables has not yet been executed or an error occurred
+       during its execution.
+     * 2 : build_model has not yet been executed or an error occurred during
+       its execution.
+
+   Command options:
+
+   -h
+           Prints the command usage.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

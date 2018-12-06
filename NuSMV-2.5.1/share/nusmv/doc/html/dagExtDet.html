@@ -1,0 +1,207 @@
+<HTML>
+<HEAD><TITLE>The dag package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Dag_Dfs"></A>
+void <I></I>
+<B>Dag_Dfs</B>(
+  Dag_Vertex_t* <b>dfsRoot</b>, <i></i>
+  Dag_DfsFunctions_t* <b>dfsFun</b>, <i></i>
+  char* <b>dfsData</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+               <ul>
+               <li> dfsRoot, the dag vertex where to start the DFS
+               <li> dfsFun, the functions to perform the DFS steps
+               <li> dfsData, a reference to generic data
+               </ul>
+               The function increments the DFS code for the dag
+               manager owning dfsRoot and starts the DFS. Increment of
+               the code guarantees that each node is visited once and 
+	       only once. dfsFun -> Set() may change the default behaviour by 
+	       forcing to DFS to visit nodes more than once, or by preventing
+	       DFS to do a complete visit.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Dag_ManagerAlloc"></A>
+Dag_Manager_t * <I></I>
+<B>Dag_ManagerAlloc</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates the unique table (vTable) and the free list (gcList).
+               Initializes the counters for various statistics (stats).
+               Returns the pointer to the dag manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerAllocWithParams">Dag_ManagerAllocWithParams</a>
+<a href="#Dag_ManagerFree">Dag_ManagerFree</a>
+</code>
+
+<dt><pre>
+<A NAME="Dag_ManagerFree"></A>
+void <I></I>
+<B>Dag_ManagerFree</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeData</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeGen</b> <i></i>
+)
+</pre>
+<dd> Forces a total garbage collection and then deallocates the
+               dag manager. `freeData' can be used to deallocate `data'
+               fields (user data pointers) in the nodes, while `freeGen' 
+               is applied to `gRef' fields (user generic pointers). 
+               `freeData' and `freeGen' are in the form `void f(char * r)'.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerGC">Dag_ManagerGC</a>
+</code>
+
+<dt><pre>
+<A NAME="Dag_ManagerGC"></A>
+void <I></I>
+<B>Dag_ManagerGC</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeData</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeGen</b> <i></i>
+)
+</pre>
+<dd> Sweeps out useless vertices, i.e., vertices that are not 
+               marked as permanent, that are not descendants
+               of permanent vertices, or whose brother (if any) is neither
+               permanent nor descendant of a permanent vertex.
+               The search starts from vertices that are in the garbage
+               bin and whose mark is 0. 
+               `freeData' can be used to deallocate `data'
+               fields (user data pointers) in the nodes, while `freeGen' 
+               is applied to `gRef' fields (user generic pointers). 
+               `freeData' and `freeGen' are in the form `void f(char * r)'.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerFree">Dag_ManagerFree</a>
+</code>
+
+<dt><pre>
+<A NAME="Dag_PrintStats"></A>
+void <I></I>
+<B>Dag_PrintStats</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>clustSz</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Prints the following:
+               <ul>
+               <li> the number of entries found in every chunk of
+                    `clustSz' bins (if `clustSz' is 1 then the number
+                    of entries per bin is given, if `clustSz' is 0 no
+		    such information is displayed);
+               <li> the number of shared vertices, i.e., the number
+                    of v's such that v -> mark > 1;
+	       <li> the average entries per bin and the variance;
+	       <li> min and max entries per bin.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Dag_VertexInsert"></A>
+Dag_Vertex_t * <I></I>
+<B>Dag_VertexInsert</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>vSymb</b>, <i></i>
+  char * <b>vData</b>, <i></i>
+  Dag_Vertex_t ** <b>vSons</b>, <i></i>
+  unsigned  <b>numSons</b> <i></i>
+)
+</pre>
+<dd> Adds a vertex into the DAG and returns a
+               reference to it:
+               <ul>
+               <li> vSymb is an integer code (vertex label);
+               <li> vData is a generic annotation;
+               <li> vSons must be a list of vertices (the intended sons).
+               </ul>
+               Returns NIL(Dag_vertex_t) if there is no dagManager and
+               if vSymb is negative.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Dag_VertexLookup"></A>
+Dag_Vertex_t * <I></I>
+<B>Dag_VertexLookup</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>vSymb</b>, <i></i>
+  char * <b>vData</b>, <i></i>
+  Dag_Vertex_t** <b>vSons</b>, <i></i>
+  unsigned  <b>numSons</b> <i></i>
+)
+</pre>
+<dd> Uniquely adds a new vertex into the DAG and returns a
+               reference to it:
+               <ul>
+               <li> vSymb is a NON-NEGATIVE  integer (vertex label);
+               <li> vData is a pointer to generic user data;
+               <li> vSons is a list of vertices (possibly NULL).
+               </ul>
+               Returns NIL(Dag_vertex_t) if there is no dagManager and 
+               if vSymb is negative.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Dag_VertexMark"></A>
+void <I></I>
+<B>Dag_VertexMark</B>(
+  Dag_Vertex_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Increments the vertex mark by one, so it cannot be
+               deleted by garbage collection unless unmarked.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dt><pre>
+<A NAME="Dag_VertexUnmark"></A>
+void <I></I>
+<B>Dag_VertexUnmark</B>(
+  Dag_Vertex_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Decrements the vertex mark by one, so it can be
+               deleted by garbage collection when fatherless.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

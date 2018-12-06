@@ -1,0 +1,2661 @@
+<html>
+<head><title>The  package: all functions </title></head>
+<body>
+
+
+<HR>
+<DL>
+<dt><pre>
+<A NAME="PslNode_convert_from_node_ptr"></A>
+PslNode_ptr <I></I>
+<B>PslNode_convert_from_node_ptr</B>(
+  node_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> The returned structure will still contain operators
+in the SMV parser's domain
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_convert_id"></A>
+PslNode_ptr <I></I>
+<B>PslNode_convert_id</B>(
+  PslNode_ptr  <b>id</b>, <i></i>
+  PslOpConvType  <b>type</b> <i></i>
+)
+</pre>
+<dd> Converts an id to a different id type, for example a PSL id
+to a SMV id
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_convert_psl_to_core"></A>
+node_ptr <I></I>
+<B>PslNode_convert_psl_to_core</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> This is the high fcuntion used at system level to convert
+                    PSL expression to equivalent expressions that can
+                    be managed at system level.  Warning: the
+                    resulting expression may have a different
+                    structure, do not refer to its structure to report
+                    errors to the user, use it internally intstead.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_convert_to_node_ptr"></A>
+node_ptr <I></I>
+<B>PslNode_convert_to_node_ptr</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> The returned structure will still contain operators
+in the PSL parser's domain
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_is_handled_psl"></A>
+boolean <I></I>
+<B>PslNode_is_handled_psl</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true iff given expression can be translated
+into LTL.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_is_ltl"></A>
+boolean <I></I>
+<B>PslNode_is_ltl</B>(
+  const PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being an LTL formula
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_is_obe"></A>
+boolean <I></I>
+<B>PslNode_is_obe</B>(
+  const PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being an CTL formula
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_is_propositional"></A>
+boolean <I></I>
+<B>PslNode_is_propositional</B>(
+  const PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being a propositional formula
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_trans_propositional">PslNode_is_trans_propositional</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_is_trans_propositional"></A>
+boolean <I></I>
+<B>PslNode_is_trans_propositional</B>(
+  const PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being a propositional formula,
+                    next operator here leaves the formula propositional
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_propositional">PslNode_is_propositional</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_new_context"></A>
+PslNode_ptr <I></I>
+<B>PslNode_new_context</B>(
+  PslNode_ptr  <b>ctx</b>, <i></i>
+  PslNode_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Creates a psl node that represents a contestualized
+node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_propositional_contains_next"></A>
+boolean <I></I>
+<B>PslNode_propositional_contains_next</B>(
+  const PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being a propositional formula
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_pslltl2ltl"></A>
+PslNode_ptr <I></I>
+<B>PslNode_pslltl2ltl</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslOpConvType  <b>type</b> <i></i>
+)
+</pre>
+<dd> Takes a PSL LTL expression and builds the corresponding
+LTL expression. This ignores SERE that can be easily mapped to the
+corresponding LTL expression.  The parameter replicator_id_stack is
+used to prevent ID duplication of nested forall (replicators).
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_pslobe2ctl"></A>
+PslNode_ptr <I></I>
+<B>PslNode_pslobe2ctl</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslOpConvType  <b>type</b> <i></i>
+)
+</pre>
+<dd> Takes a PSL OBE expression and builds the corresponding
+CTL expression.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_remove_forall_replicators"></A>
+PslNode_ptr <I></I>
+<B>PslNode_remove_forall_replicators</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Takes a PSL expression and expands all forall constructs
+contained in the expression. Visits the syntax tree of the expressions
+and whenever it finds a forall construct it expands the expression in
+its scope.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="PslNode_remove_sere"></A>
+PslNode_ptr <I></I>
+<B>PslNode_remove_sere</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Converts the given expression (possibly containing sere)
+into an equivalent LTL formula
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_conv_op"></A>
+PslOp <I></I>
+<B>psl_conv_op</B>(
+  PslOpConvType  <b>type</b>, <i></i>
+  PslOp  <b>op</b> <i></i>
+)
+</pre>
+<dd> Converts the given operator into either a PSL operator, or
+a SMV operator, depending on the value of 'type'
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>PSL_OP_CONV
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_expr_base_num_to_val"></A>
+static int <I></I>
+<B>psl_expr_base_num_to_val</B>(
+  char* <b>base_num</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslExpr.c"TARGET="ABSTRACT"><CODE>pslExpr.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_expr_check_klass"></A>
+static int <I></I>
+<B>psl_expr_check_klass</B>(
+  const PslExpr  <b>psl</b>, <i></i>
+  SyntaxClass  <b>expected</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslExpr.c"TARGET="ABSTRACT"><CODE>pslExpr.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_expr_is_boolean"></A>
+static int <I></I>
+<B>psl_expr_is_boolean</B>(
+  const PslExpr  <b>psl</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslExpr.c"TARGET="ABSTRACT"><CODE>pslExpr.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_expr_print_klass"></A>
+static void <I></I>
+<B>psl_expr_print_klass</B>(
+  FILE* <b>file</b>, <i></i>
+  SyntaxClass  <b>type</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslExpr.c"TARGET="ABSTRACT"><CODE>pslExpr.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_expr_require_klass"></A>
+static void <I></I>
+<B>psl_expr_require_klass</B>(
+  const PslExpr  <b>psl</b>, <i></i>
+  SyntaxClass  <b>expected</b> <i></i>
+)
+</pre>
+<dd> optional
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslExpr.c"TARGET="ABSTRACT"><CODE>pslExpr.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_new_node"></A>
+PslNode_ptr <I></I>
+<B>psl_new_node</B>(
+  PslOp  <b>op</b>, <i></i>
+  PslNode_ptr  <b>left</b>, <i></i>
+  PslNode_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> WARNING: If this function is being called to build a
+ branch of the parse-tree from a branch coming from the parsing phase
+ (i.e. it is a token, and not a symbol), the token *must* be converted
+ to a PSL node by calling psl_conv_op(TOK2PSL, op)
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_cons_get_element"></A>
+PslNode_ptr <I></I>
+<B>psl_node_cons_get_element</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the currently pointed element of a list
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_cons_get_next"></A>
+PslNode_ptr <I></I>
+<B>psl_node_cons_get_next</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the next element of a list
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_cons_reverse"></A>
+PslNode_ptr <I></I>
+<B>psl_node_cons_reverse</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns a new sequence containing the same
+  elements as 'e' but in reverse order
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_context_to_main_context"></A>
+PslNode_ptr <I></I>
+<B>psl_node_context_to_main_context</B>(
+  PslNode_ptr  <b>context</b> <i></i>
+)
+</pre>
+<dd> This function is used to build the internal structure of
+   the context (e.g. module instance name) from the parse tree. The
+   function is needed since with the grammar it is not possible/simple
+   to build directly the desired structure.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_expand_next_event"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_expand_next_event</B>(
+  PslOp  <b>op</b>, <i></i>
+  PslNode_ptr  <b>f</b>, <i></i>
+  PslNode_ptr  <b>b</b>, <i></i>
+  PslOpConvType  <b>type</b> <i></i>
+)
+</pre>
+<dd> During the conversion to LTL, this function is invoked
+when the expansion of next_event family is required.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_expand_replicator"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_expand_replicator</B>(
+  PslNode_ptr  <b>rep</b>, <i></i>
+  PslNode_ptr  <b>wff</b>, <i></i>
+  PslOp  <b>op</b> <i></i>
+)
+</pre>
+<dd> Wff must not have been converted to smv yet when this
+   function is called. Each replicated expression wff will be joined
+   with the others by using the passed operator op. The result still
+   contains only psl tokens.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_extended_next_get_condition"></A>
+PslNode_ptr <I></I>
+<B>psl_node_extended_next_get_condition</B>(
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> Returns the boolean condition of a next expression node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_extended_next_get_expr"></A>
+PslNode_ptr <I></I>
+<B>psl_node_extended_next_get_expr</B>(
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> Returns the FL expression of a next expression node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_extended_next_get_when"></A>
+PslNode_ptr <I></I>
+<B>psl_node_extended_next_get_when</B>(
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> Returns the when component of a next expression node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_case_cond"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_case_cond</B>(
+  PslNode_ptr  <b>_case</b> <i></i>
+)
+</pre>
+<dd> Returns the condition of the given case node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_case_next"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_case_next</B>(
+  PslNode_ptr  <b>_case</b> <i></i>
+)
+</pre>
+<dd> Returns the next case node of the given case.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_case_then"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_case_then</B>(
+  PslNode_ptr  <b>_case</b> <i></i>
+)
+</pre>
+<dd> Returns the 'then' branch of the given case node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_ite_cond"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_ite_cond</B>(
+  PslNode_ptr  <b>_ite</b> <i></i>
+)
+</pre>
+<dd> Returns the condition of the given ITE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_ite_else"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_ite_else</B>(
+  PslNode_ptr  <b>_ite</b> <i></i>
+)
+</pre>
+<dd> Returns the 'else' branch of the given ITE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_ite_then"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_ite_then</B>(
+  PslNode_ptr  <b>_ite</b> <i></i>
+)
+</pre>
+<dd> Returns the 'then' branch of the given ITE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_left"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_left</B>(
+  PslNode_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Returns the given expression's left branch
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_op"></A>
+PslOp <I></I>
+<B>psl_node_get_op</B>(
+  PslNode_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Returns the given expression's top level operator
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_replicator_id"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_replicator_id</B>(
+  PslNode_ptr  <b>_repl</b> <i></i>
+)
+</pre>
+<dd> Given a replicator, returns the its ID
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_replicator_join_op"></A>
+PslOp <I></I>
+<B>psl_node_get_replicator_join_op</B>(
+  PslNode_ptr  <b>_repl</b> <i></i>
+)
+</pre>
+<dd> Given a replicator, returns the operator joining each
+replicated expression
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_replicator_normalized_value_set"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_replicator_normalized_value_set</B>(
+  PslNode_ptr  <b>rep</b> <i></i>
+)
+</pre>
+<dd> Given a replicator, returns its values set as a list
+of the enumerated values
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_replicator_range"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_replicator_range</B>(
+  PslNode_ptr  <b>_repl</b> <i></i>
+)
+</pre>
+<dd> Given a replicator, returns its range
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_replicator_value_set"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_replicator_value_set</B>(
+  PslNode_ptr  <b>_repl</b> <i></i>
+)
+</pre>
+<dd> Given a replicator, returns the its values set.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_get_right"></A>
+PslNode_ptr <I></I>
+<B>psl_node_get_right</B>(
+  PslNode_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Returns the given expression's right branch
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_insert_inside_holes"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_insert_inside_holes</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  PslNode_ptr  <b>to_be_inserted</b>, <i></i>
+  boolean* <b>inserted</b> <i></i>
+)
+</pre>
+<dd> Service due to way concat_fusion expansion is implemented
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_boolean_type"></A>
+boolean <I></I>
+<B>psl_node_is_boolean_type</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given node is the PSL syntactic type
+'boolean'
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_case"></A>
+boolean <I></I>
+<B>psl_node_is_case</B>(
+  PslNode_ptr  <b>_case</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a case expression
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_cons"></A>
+boolean <I></I>
+<B>psl_node_is_cons</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given node is a list
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_emptystar_free"></A>
+static boolean <I></I>
+<B>psl_node_is_emptystar_free</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is empty star-free
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_equal"></A>
+static boolean <I></I>
+<B>psl_node_is_equal</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  PslNode_ptr  <b>f</b> <i></i>
+)
+</pre>
+<dd> To compare structures like {{a}} and {{{{a}}}} and check
+   whether the innermost {a}'s are actually the same node pointer
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_extended_next"></A>
+boolean <I></I>
+<B>psl_node_is_extended_next</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Given a psl node returns true iff the expression belongs to
+the next operators family.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_false"></A>
+boolean <I></I>
+<B>psl_node_is_false</B>(
+  PslNode_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks if a node is a FALSE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_fl_op"></A>
+static boolean <I></I>
+<B>psl_node_is_fl_op</B>(
+  PslOp  <b>op</b> <i></i>
+)
+</pre>
+<dd> Private service of PslNode_is_handled_psl
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_handled_psl">PslNode_is_handled_psl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_handled_fl_op"></A>
+static boolean <I></I>
+<B>psl_node_is_handled_fl_op</B>(
+  PslOp  <b>op</b> <i></i>
+)
+</pre>
+<dd> Private service of PslNode_is_handled_psl
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_handled_psl">PslNode_is_handled_psl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_handled_next"></A>
+static boolean <I></I>
+<B>psl_node_is_handled_next</B>(
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> Private service of PslNode_is_handled_psl
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_handled_psl">PslNode_is_handled_psl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_handled_sere"></A>
+static boolean <I></I>
+<B>psl_node_is_handled_sere</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean  <b>toplevel</b> <i></i>
+)
+</pre>
+<dd> Private service of PslNode_is_handled_psl
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_handled_psl">PslNode_is_handled_psl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_handled_star"></A>
+boolean <I></I>
+<B>psl_node_is_handled_star</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  boolean  <b>toplevel</b> <i></i>
+)
+</pre>
+<dd> precond: expr must be a repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_id_equal"></A>
+boolean <I></I>
+<B>psl_node_is_id_equal</B>(
+  PslNode_ptr  <b>_id1</b>, <i></i>
+  PslNode_ptr  <b>_id2</b> <i></i>
+)
+</pre>
+<dd> Returns true if two ids are equal
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_id"></A>
+boolean <I></I>
+<B>psl_node_is_id</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> The top level operator of an ID can be DOT,
+ATOM or ARRAY
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_infinite"></A>
+boolean <I></I>
+<B>psl_node_is_infinite</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given node is the PSL syntactic value
+'inf'
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_ite"></A>
+boolean <I></I>
+<B>psl_node_is_ite</B>(
+  PslNode_ptr  <b>_ite</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is If Then Else
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_leaf"></A>
+boolean <I></I>
+<B>psl_node_is_leaf</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given node is a leaf, i.e. PSL_NULL, a
+   number, a boolean constant, or an atom.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_num_equal"></A>
+boolean <I></I>
+<B>psl_node_is_num_equal</B>(
+  PslNode_ptr  <b>_id1</b>, <i></i>
+  PslNode_ptr  <b>_id2</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given numbers are equal
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_number"></A>
+boolean <I></I>
+<B>psl_node_is_number</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is an integer number
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_obe_op"></A>
+static boolean <I></I>
+<B>psl_node_is_obe_op</B>(
+  PslOp  <b>op</b> <i></i>
+)
+</pre>
+<dd> Private service of PslNode_is_handled_psl
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_is_handled_psl">PslNode_is_handled_psl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_propositional"></A>
+static boolean <I></I>
+<B>psl_node_is_propositional</B>(
+  const PslNode_ptr  <b>expr</b>, <i></i>
+  boolean  <b>accept_next</b> <i></i>
+)
+</pre>
+<dd> Checks for a formula being a propositional formula
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_propstar"></A>
+boolean <I></I>
+<B>psl_node_is_propstar</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a propositional
+starred sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_range"></A>
+boolean <I></I>
+<B>psl_node_is_range</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given node is a range
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_repl_prop"></A>
+boolean <I></I>
+<B>psl_node_is_repl_prop</B>(
+  PslNode_ptr  <b>_prop</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a replicated
+property
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_replicator"></A>
+boolean <I></I>
+<B>psl_node_is_replicator</B>(
+  PslNode_ptr  <b>_repl</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression represents a
+replicator.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_sere_compound_binary"></A>
+boolean <I></I>
+<B>psl_node_is_sere_compound_binary</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a sere compound
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_serebrackets"></A>
+boolean <I></I>
+<B>psl_node_is_serebrackets</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a SERE in the form {a}
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_is_sere">psl_node_is_sere</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_sere"></A>
+boolean <I></I>
+<B>psl_node_is_sere</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> A SERE can be in the form {a}, {a};{b}, {a}:{b},
+{a}[*], {a}[+], {a}|{b}, {a}&{a}, {a}&&{b}
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_star_free"></A>
+static boolean <I></I>
+<B>psl_node_is_star_free</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given sere is star-free
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_suffix_implication_strong"></A>
+boolean <I></I>
+<B>psl_node_is_suffix_implication_strong</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a strong suffix
+implication
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_suffix_implication_weak"></A>
+boolean <I></I>
+<B>psl_node_is_suffix_implication_weak</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a weak suffix
+implication
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_suffix_implication"></A>
+boolean <I></I>
+<B>psl_node_is_suffix_implication</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a suffix
+implication
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_true"></A>
+boolean <I></I>
+<B>psl_node_is_true</B>(
+  PslNode_ptr  <b>self</b> <i></i>
+)
+</pre>
+<dd> Checks if a node is a TRUE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_unbound_star_free"></A>
+static boolean <I></I>
+<B>psl_node_is_unbound_star_free</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given sere doesn't contain any unbound
+                    star
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_is_word_number"></A>
+boolean <I></I>
+<B>psl_node_is_word_number</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a word number
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_case"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_case</B>(
+  PslNode_ptr  <b>_cond</b>, <i></i>
+  PslNode_ptr  <b>_then</b>, <i></i>
+  PslNode_ptr  <b>_next</b> <i></i>
+)
+</pre>
+<dd> Maker for a CASE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_cons_new"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_cons_new</B>(
+  PslNode_ptr  <b>elem</b>, <i></i>
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> This gets the element to insert at top level, and
+the list for next
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_cons"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_cons</B>(
+  PslNode_ptr  <b>elem</b>, <i></i>
+  PslNode_ptr  <b>next</b> <i></i>
+)
+</pre>
+<dd> This gets the element to insert at top level, and
+the list for next
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_extended_next"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_extended_next</B>(
+  PslOp  <b>op</b>, <i></i>
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslNode_ptr  <b>when</b>, <i></i>
+  PslNode_ptr  <b>condition</b> <i></i>
+)
+</pre>
+<dd> Warning: the operator must be a symbol, not a token.
+This means that psl_conv_op must be called to convert tokens before.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_failure"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_failure</B>(
+  const char* <b>msg</b>, <i></i>
+  FailureKind  <b>kind</b> <i></i>
+)
+</pre>
+<dd> Maker for a FAILURE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_false"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_false</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates a new FALSE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_number"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_number</B>(
+  int  <b>value</b> <i></i>
+)
+</pre>
+<dd> Maker for a NUMBER node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_sere_2ampersand"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_sere_2ampersand</B>(
+  PslNode_ptr  <b>seq1</b>, <i></i>
+  PslNode_ptr  <b>seq2</b> <i></i>
+)
+</pre>
+<dd> Maker for a && sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_sere_compound"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_sere_compound</B>(
+  PslNode_ptr  <b>seq1</b>, <i></i>
+  PslOp  <b>op</b>, <i></i>
+  PslNode_ptr  <b>seq2</b> <i></i>
+)
+</pre>
+<dd> Warning: the operator must be a symbol, not a token.
+This means that psl_conv_op must be called to convert tokens before.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_sere_concat"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_sere_concat</B>(
+  PslNode_ptr  <b>seq1</b>, <i></i>
+  PslNode_ptr  <b>seq2</b> <i></i>
+)
+</pre>
+<dd> Maker for a concatenation sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_sere_propositional"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_sere_propositional</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Maker for a propositional sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_sere_star"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_sere_star</B>(
+  PslNode_ptr  <b>seq</b> <i></i>
+)
+</pre>
+<dd> Maker for a star sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_make_true"></A>
+PslNode_ptr <I></I>
+<B>psl_node_make_true</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates a new TRUE node
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_number_get_value"></A>
+int <I></I>
+<B>psl_node_number_get_value</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the integer value associated with the given number
+node.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_prune"></A>
+PslNode_ptr <I></I>
+<B>psl_node_prune</B>(
+  PslNode_ptr  <b>tree</b>, <i></i>
+  PslNode_ptr  <b>branch</b> <i></i>
+)
+</pre>
+<dd> Prunes aways the given branch from the given tree
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_pslltl2ltl"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_pslltl2ltl</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslOpConvType  <b>type</b>, <i></i>
+  NodeList_ptr  <b>replicator_id_stack</b> <i></i>
+)
+</pre>
+<dd> Takes a PSL LTL expression and builds the corresponding
+LTL expression. This ignores SERE that can be easily mapped to the
+corresponding LTL expression.  The parameter replicator_id_stack is
+used to prevent ID duplication of nested forall (replicators).
+type can be PSL2SMV or PSL2PSL
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_pslobe2ctl"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_pslobe2ctl</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslOpConvType  <b>type</b>, <i></i>
+  NodeList_ptr  <b>replicator_id_stack</b> <i></i>
+)
+</pre>
+<dd> Private service for high level function PslNode_pslobe2ctl
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_pslobe2ctl">PslNode_pslobe2ctl</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_range_get_high"></A>
+PslNode_ptr <I></I>
+<B>psl_node_range_get_high</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns the high bound of the given range
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_range_get_low"></A>
+PslNode_ptr <I></I>
+<B>psl_node_range_get_low</B>(
+  PslNode_ptr  <b>expr</b> <i></i>
+)
+</pre>
+<dd> Returns the low bound of the given range
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_remove_forall_replicators"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_remove_forall_replicators</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  NodeList_ptr  <b>replicator_id_stack</b> <i></i>
+)
+</pre>
+<dd> Private service for high level function
+             PslNode_remove_forall_replicators. In removing nested
+             forall it takes into accaount possible clashes on the
+             names of the bounded variables.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code><a href="#PslNode_remove_forall_replicators">PslNode_remove_forall_replicators</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_remove_suffix_implication"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_remove_suffix_implication</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Resolves suffix implication
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_repl_prop_get_property"></A>
+PslNode_ptr <I></I>
+<B>psl_node_repl_prop_get_property</B>(
+  PslNode_ptr  <b>_prop</b> <i></i>
+)
+</pre>
+<dd> Given a replicated property, returns the node that contains
+the property.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_repl_prop_get_replicator">psl_node_repl_prop_get_replicator</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_repl_prop_get_replicator"></A>
+PslNode_ptr <I></I>
+<B>psl_node_repl_prop_get_replicator</B>(
+  PslNode_ptr  <b>_prop</b> <i></i>
+)
+</pre>
+<dd> Given a replicated property, returns the node that contains
+the replicator.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_repl_prop_get_property">psl_node_repl_prop_get_property</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_compound_get_left"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_compound_get_left</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the left operand of a compound sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_compound_get_right"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_compound_get_right</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the right operand of a compound sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_cut_leftmost"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_concat_cut_leftmost</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Cuts the leftmost element of a concat sere
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_fusion2ltl"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_concat_fusion2ltl</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  PslNode_ptr  <b>phi</b> <i></i>
+)
+</pre>
+<dd> This function assumes that expression is a concat/fusion
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_get_leftmost"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_concat_get_leftmost</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the leftmost element of a concat sere
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_get_left"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_concat_get_left</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the left operand of a concat.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_get_rightmost"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_concat_get_rightmost</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the rightmost element of a concat sere
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_concat_get_right"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_concat_get_right</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the right operand of a concat.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_distrib_disj"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_distrib_disj</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean * <b>modified</b> <i></i>
+)
+</pre>
+<dd> Distributes the disjunction among SEREs
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_fusion_get_left"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_fusion_get_left</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the left operand of a fusion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_fusion_get_right"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_fusion_get_right</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the right operand of a fusion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_get_leftmost"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_get_leftmost</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the leftmost element of e that is not a SERE
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_get_rightmost"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_get_rightmost</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the rightmost element of e that is not a SERE
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_2ampersand"></A>
+boolean <I></I>
+<B>psl_node_sere_is_2ampersand</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a sere in the form
+{ s2 && s1 }
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_ampersand"></A>
+static boolean <I></I>
+<B>psl_node_sere_is_ampersand</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given SERE is in the form {a} & {b}
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_concat_fusion_holes_free"></A>
+boolean <I></I>
+<B>psl_node_sere_is_concat_fusion_holes_free</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> [Returns true if there are no holes in the given
+fusion/concat sere to be filled in.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_concat_fusion"></A>
+boolean <I></I>
+<B>psl_node_sere_is_concat_fusion</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a concat or fusion
+sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_concat_holes_free"></A>
+boolean <I></I>
+<B>psl_node_sere_is_concat_holes_free</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if there are no holes in the given concat sere
+to be filled in.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_concat"></A>
+boolean <I></I>
+<B>psl_node_sere_is_concat</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the top level operator is a concat.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_sere_is_concat_fusion">psl_node_sere_is_concat_fusion</a>
+<a href="#psl_node_sere_is_fusion">psl_node_sere_is_fusion</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_disj"></A>
+static boolean <I></I>
+<B>psl_node_sere_is_disj</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression is a disjunction of SEREs.
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_fusion"></A>
+boolean <I></I>
+<B>psl_node_sere_is_fusion</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the top level operator is a fusion.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_sere_is_concat_fusion">psl_node_sere_is_concat_fusion</a>
+<a href="#psl_node_sere_is_concat">psl_node_sere_is_concat</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_or"></A>
+boolean <I></I>
+<B>psl_node_sere_is_or</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Duplicate of psl_node_sere_is_disj.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#psl_node_sere_is_disj">psl_node_sere_is_disj</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_plus"></A>
+boolean <I></I>
+<B>psl_node_sere_is_plus</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expression a plus repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_propositional"></A>
+boolean <I></I>
+<B>psl_node_sere_is_propositional</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given sere contains a single
+propositional expression
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_repeated"></A>
+boolean <I></I>
+<B>psl_node_sere_is_repeated</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is a repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_standalone_plus"></A>
+boolean <I></I>
+<B>psl_node_sere_is_standalone_plus</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given repeated sere is in the form
+<empty>[+]
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_standalone_star"></A>
+boolean <I></I>
+<B>psl_node_sere_is_standalone_star</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is in the form <empty>[*],
+with or without a counter.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_star_count_zero"></A>
+boolean <I></I>
+<B>psl_node_sere_is_star_count_zero</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is a star sere with
+count zero
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_star_count"></A>
+boolean <I></I>
+<B>psl_node_sere_is_star_count</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given starred repeated sere as also
+a counter
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_stareq"></A>
+boolean <I></I>
+<B>psl_node_sere_is_stareq</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is a starred-eq repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_starminusgt"></A>
+boolean <I></I>
+<B>psl_node_sere_is_starminusgt</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is a starred-minusgt repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_is_star"></A>
+boolean <I></I>
+<B>psl_node_sere_is_star</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns true if the given expr is a starred repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_propositional_get_expr"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_propositional_get_expr</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the expression in a propositional sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_2ampersand"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_2ampersand</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean * <b>modified</b> <i></i>
+)
+</pre>
+<dd> Resolves {a} && {a}
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_ampersand"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_ampersand</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean* <b>modified</b> <i></i>
+)
+</pre>
+<dd> Resolves {a}&{a}
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_disj"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_disj</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> This function assumes that expression is a disjunction
+of concat/fusion
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_fusion"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_fusion</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean * <b>modified</b> <i></i>
+)
+</pre>
+<dd> Resolves {a}:{a}
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_plus"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_plus</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean  <b>toplevel</b> <i></i>
+)
+</pre>
+<dd> Resolve SERE [+]
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_star_count"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_star_count</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Resolves starred SEREs
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_star"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_star</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean  <b>toplevel</b>, <i></i>
+  boolean* <b>modified</b> <i></i>
+)
+</pre>
+<dd> Resolves starred SEREs
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_trailing_plus"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_trailing_plus</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Resolves the last trailing standalone plus
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_remove_trailing_star"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_remove_trailing_star</B>(
+  PslNode_ptr  <b>e</b>, <i></i>
+  boolean* <b>modified</b> <i></i>
+)
+</pre>
+<dd> Resolves trailing standalone stars
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_repeated_get_count"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_repeated_get_count</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the count associated to the repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_repeated_get_expr"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_repeated_get_expr</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the repeated expression associated to the repeated
+sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_repeated_get_op"></A>
+PslOp <I></I>
+<B>psl_node_sere_repeated_get_op</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the count associated to the repeated sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_star_get_count"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_star_get_count</B>(
+  const PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returned value can be either a positive integer value, or
+the constant PSL_EMPTYSTAR to represent an empty starred sere.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_star_get_starred"></A>
+PslNode_ptr <I></I>
+<B>psl_node_sere_star_get_starred</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Getter for a star sere
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_sere_translate"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_sere_translate</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> High-level service of exported function PslNode_remove_sere
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_set_left"></A>
+void <I></I>
+<B>psl_node_set_left</B>(
+  PslNode_ptr  <b>n</b>, <i></i>
+  PslNode_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Sets the given expression's left branch
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_set_right"></A>
+void <I></I>
+<B>psl_node_set_right</B>(
+  PslNode_ptr  <b>n</b>, <i></i>
+  PslNode_ptr  <b>r</b> <i></i>
+)
+</pre>
+<dd> Sets the given expression's right branch
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_subst_id"></A>
+static PslNode_ptr <I></I>
+<B>psl_node_subst_id</B>(
+  PslNode_ptr  <b>expr</b>, <i></i>
+  PslNode_ptr  <b>id</b>, <i></i>
+  PslNode_ptr  <b>v</b>, <i></i>
+  boolean  <b>is_top_level</b> <i></i>
+)
+</pre>
+<dd> This is used to rename IDs occurring in the tree, when
+the replicator 'foreach' statement is resolved
+<p>
+
+<dd> <b>Side Effects</b> required
+<p>
+
+<dd> <b>See Also</b> <code>optional
+</code>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_suffix_implication_get_consequence"></A>
+PslNode_ptr <I></I>
+<B>psl_node_suffix_implication_get_consequence</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the consequence of the given suffix implication
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME="psl_node_suffix_implication_get_premise"></A>
+PslNode_ptr <I></I>
+<B>psl_node_suffix_implication_get_premise</B>(
+  PslNode_ptr  <b>e</b> <i></i>
+)
+</pre>
+<dd> Returns the premise of the given suffix implication
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslNode.c"TARGET="ABSTRACT"><CODE>pslNode.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Define to optimize the convertion of next
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This is used by the function that converts the operators, as
+  a shortcut for PSL_OP_CONV3(tok, X, X)
+<p>
+
+<DD> <B>Defined in </B> <A HREF="AllFile.html#pslConv.c"TARGET="ABSTRACT"><CODE>pslConv.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

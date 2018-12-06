@@ -1,0 +1,482 @@
+<HTML>
+<HEAD><TITLE>The dd package: files</TITLE></HEAD>
+<BODY>
+
+<DL>
+ <DT> <A HREF="#dd.h"><CODE>dd.h</CODE></A>
+ <DD> External header file
+ <DT> <A HREF="#ddInt.h"><CODE>ddInt.h</CODE></A>
+ <DD> Internal header file
+ <DT> <A HREF="#dd.c"><CODE>dd.c</CODE></A>
+ <DD> NuSMV interface to the Decision Diagram Package of the
+  University of Colorado.
+ <DT> <A HREF="#ddCmd.c"><CODE>ddCmd.c</CODE></A>
+ <DD> The shell interface of the DD package
+</DL><HR>
+<A NAME="dd.h"><H1>dd.h</H1></A>
+External header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="ddInt.h"><H1>ddInt.h</H1></A>
+Internal header file <P>
+<B>By: Marco Roveri</B><P>
+<DL>
+</DL>
+<HR>
+<A NAME="dd.c"><H1>dd.c</H1></A>
+NuSMV interface to the Decision Diagram Package of the
+  University of Colorado. <P>
+<B>By: Marco Roveri</B><P>
+This file implements the interface between the NuSMV
+  system and the California University Decision Diagram (henceforth
+  referred as CUDD). The CUDD package is a generic implementation of a
+  decision diagram data structure. For the time being, only Boole
+  expansion is implemented and the leaves in the in the nodes can be
+  the constants zero, one or any arbitrary value. A coding standard
+  has been defined. I.e all the functions acting on BDD and ADD have
+  "bdd" and "add" respectively as prefix.
+  <p><br>
+  The BDD or ADD returned as a result of an operation are always
+  referenced (see the CUDD User Manual for more details about this),
+  and need to be dereferenced when the result is no more necessary to
+  computation, in order to release the memory associated to it when
+  garbage collection occurs.
+  All the functions takes as first argument the decision diagram
+  manager (henceforth referred as DdManager). <P>
+<DL>
+ <DT> <A HREF="ddAllDet.html#init_dd_package" TARGET="MAIN"><CODE>init_dd_package()</CODE></A>
+ <DD> Creates a new DD manager.
+
+ <DT> <A HREF="ddAllDet.html#quit_dd_package" TARGET="MAIN"><CODE>quit_dd_package()</CODE></A>
+ <DD> Deletes resources associated with a DD manager.
+
+ <DT> <A HREF="ddAllDet.html#dd_checkzeroref" TARGET="MAIN"><CODE>dd_checkzeroref()</CODE></A>
+ <DD> Checks the unique table for nodes with non-zero reference
+  counts.
+
+ <DT> <A HREF="ddAllDet.html#get_dd_nodes_allocated" TARGET="MAIN"><CODE>get_dd_nodes_allocated()</CODE></A>
+ <DD> Returns the number of nodes in the unique table.
+
+ <DT> <A HREF="ddAllDet.html#map_dd" TARGET="MAIN"><CODE>map_dd()</CODE></A>
+ <DD> Applies function <code>f</code> to the list of BDD/ADD <code>l</code>.
+
+ <DT> <A HREF="ddAllDet.html#walk_dd" TARGET="MAIN"><CODE>walk_dd()</CODE></A>
+ <DD> Applies function <code>f</code> to the list of BDD/ADD <code>l</code>.
+
+ <DT> <A HREF="ddAllDet.html#dd_print_stats" TARGET="MAIN"><CODE>dd_print_stats()</CODE></A>
+ <DD> Prints out statistic and setting of the DD manager.
+
+ <DT> <A HREF="ddAllDet.html#dd_new_var_block" TARGET="MAIN"><CODE>dd_new_var_block()</CODE></A>
+ <DD> Builds a group of variables that should stay adjacent
+  during reordering.
+
+ <DT> <A HREF="ddAllDet.html#dd_free_var_block" TARGET="MAIN"><CODE>dd_free_var_block()</CODE></A>
+ <DD> Dissolves a group previously created by dd_new_var_block
+
+ <DT> <A HREF="ddAllDet.html#dd_get_index_at_level" TARGET="MAIN"><CODE>dd_get_index_at_level()</CODE></A>
+ <DD> Returns the index of the variable currently in the i-th
+  position of the order.
+
+ <DT> <A HREF="ddAllDet.html#dd_get_level_at_index" TARGET="MAIN"><CODE>dd_get_level_at_index()</CODE></A>
+ <DD> Returns the current position of the i-th variable in the
+  order.
+
+ <DT> <A HREF="ddAllDet.html#dd_get_size" TARGET="MAIN"><CODE>dd_get_size()</CODE></A>
+ <DD> Returns the number of BDD variables in existance.
+
+ <DT> <A HREF="ddAllDet.html#dd_set_order" TARGET="MAIN"><CODE>dd_set_order()</CODE></A>
+ <DD> Reorders variables according to given permutation.
+
+ <DT> <A HREF="ddAllDet.html#dd_autodyn_enable" TARGET="MAIN"><CODE>dd_autodyn_enable()</CODE></A>
+ <DD> Enables automatic dynamic reordering of BDDs and ADDs.
+
+ <DT> <A HREF="ddAllDet.html#dd_autodyn_disable" TARGET="MAIN"><CODE>dd_autodyn_disable()</CODE></A>
+ <DD> Disables automatic dynamic reordering of BDD and ADD.
+
+ <DT> <A HREF="ddAllDet.html#dd_reordering_status" TARGET="MAIN"><CODE>dd_reordering_status()</CODE></A>
+ <DD> Reports the status of automatic dynamic reordering of BDDs
+  and ADDs.
+
+ <DT> <A HREF="ddAllDet.html#dd_reorder" TARGET="MAIN"><CODE>dd_reorder()</CODE></A>
+ <DD> Main dynamic reordering routine.
+
+ <DT> <A HREF="ddAllDet.html#dd_get_reorderings" TARGET="MAIN"><CODE>dd_get_reorderings()</CODE></A>
+ <DD> Returns the number of times reordering has occurred.
+
+ <DT> <A HREF="ddAllDet.html#dd_get_ordering_method" TARGET="MAIN"><CODE>dd_get_ordering_method()</CODE></A>
+ <DD> Gets the internal reordering method used.
+
+ <DT> <A HREF="ddAllDet.html#StringConvertToDynOrderType" TARGET="MAIN"><CODE>StringConvertToDynOrderType()</CODE></A>
+ <DD> Converts a string to a dynamic ordering method type.
+
+ <DT> <A HREF="ddAllDet.html#DynOrderTypeConvertToString" TARGET="MAIN"><CODE>DynOrderTypeConvertToString()</CODE></A>
+ <DD> Converts a dynamic ordering method type to a string.
+
+ <DT> <A HREF="ddAllDet.html#dd_set_parameters" TARGET="MAIN"><CODE>dd_set_parameters()</CODE></A>
+ <DD> Sets the internal parameters of the package to the given values.
+
+ <DT> <A HREF="ddAllDet.html#dd_printminterm" TARGET="MAIN"><CODE>dd_printminterm()</CODE></A>
+ <DD> Prints a disjoint sum of products.
+
+ <DT> <A HREF="ddAllDet.html#dd_dump_dot" TARGET="MAIN"><CODE>dd_dump_dot()</CODE></A>
+ <DD> Writes a dot file representing the argument DDs.
+
+ <DT> <A HREF="ddAllDet.html#dd_dump_davinci" TARGET="MAIN"><CODE>dd_dump_davinci()</CODE></A>
+ <DD> Writes a daVnci file representing the argument DDs.
+
+ <DT> <A HREF="ddAllDet.html#add_true" TARGET="MAIN"><CODE>add_true()</CODE></A>
+ <DD> Reads the constant TRUE ADD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#add_then" TARGET="MAIN"><CODE>add_then()</CODE></A>
+ <DD> Returns the then child of an internal node.
+
+ <DT> <A HREF="ddAllDet.html#add_index" TARGET="MAIN"><CODE>add_index()</CODE></A>
+ <DD> Returns the index of the node.
+
+ <DT> <A HREF="ddAllDet.html#add_else" TARGET="MAIN"><CODE>add_else()</CODE></A>
+ <DD> Returns the else child of an internal node.
+
+ <DT> <A HREF="ddAllDet.html#add_false" TARGET="MAIN"><CODE>add_false()</CODE></A>
+ <DD> Reads the constant FALSE ADD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#add_is_true" TARGET="MAIN"><CODE>add_is_true()</CODE></A>
+ <DD> Check if the ADD is true.
+
+ <DT> <A HREF="ddAllDet.html#add_is_false" TARGET="MAIN"><CODE>add_is_false()</CODE></A>
+ <DD> Check if the ADD is false.
+
+ <DT> <A HREF="ddAllDet.html#add_one" TARGET="MAIN"><CODE>add_one()</CODE></A>
+ <DD> Reads the constant one ADD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#add_zero" TARGET="MAIN"><CODE>add_zero()</CODE></A>
+ <DD> Reads the constant zero ADD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#add_is_one" TARGET="MAIN"><CODE>add_is_one()</CODE></A>
+ <DD> Check if the ADD is one.
+
+ <DT> <A HREF="ddAllDet.html#add_is_zero" TARGET="MAIN"><CODE>add_is_zero()</CODE></A>
+ <DD> Check if the ADD is zero.
+
+ <DT> <A HREF="ddAllDet.html#add_ref" TARGET="MAIN"><CODE>add_ref()</CODE></A>
+ <DD> Reference an ADD node.
+
+ <DT> <A HREF="ddAllDet.html#add_deref" TARGET="MAIN"><CODE>add_deref()</CODE></A>
+ <DD> Dereference an ADD node.
+
+ <DT> <A HREF="ddAllDet.html#add_free" TARGET="MAIN"><CODE>add_free()</CODE></A>
+ <DD> Dereference an ADD node. If it dies, recursively decreases
+  the reference count of its children.
+
+ <DT> <A HREF="ddAllDet.html#add_dup" TARGET="MAIN"><CODE>add_dup()</CODE></A>
+ <DD> Creates a copy of an ADD node.
+
+ <DT> <A HREF="ddAllDet.html#add_leaf" TARGET="MAIN"><CODE>add_leaf()</CODE></A>
+ <DD> Creates an returns an ADD for constant leaf_node.
+
+ <DT> <A HREF="ddAllDet.html#add_isleaf" TARGET="MAIN"><CODE>add_isleaf()</CODE></A>
+ <DD> Returns 1 if the ADD node is a constant node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_isleaf" TARGET="MAIN"><CODE>bdd_isleaf()</CODE></A>
+ <DD> Returns 1 if the BDD node is a constant node.
+
+ <DT> <A HREF="ddAllDet.html#add_get_leaf" TARGET="MAIN"><CODE>add_get_leaf()</CODE></A>
+ <DD> Returns the value of a constant node.
+
+ <DT> <A HREF="ddAllDet.html#add_build" TARGET="MAIN"><CODE>add_build()</CODE></A>
+ <DD> Checks the unique table of the DdManager for the
+  existence of an internal node.
+
+ <DT> <A HREF="ddAllDet.html#add_new_var_with_index" TARGET="MAIN"><CODE>add_new_var_with_index()</CODE></A>
+ <DD> Returns the ADD variable with index <code>index</code>.
+
+ <DT> <A HREF="ddAllDet.html#add_new_var_at_level" TARGET="MAIN"><CODE>add_new_var_at_level()</CODE></A>
+ <DD> Returns a new ADD variable at a specified level.
+
+ <DT> <A HREF="ddAllDet.html#add_to_bdd" TARGET="MAIN"><CODE>add_to_bdd()</CODE></A>
+ <DD> Converts an ADD to a BDD.
+
+ <DT> <A HREF="ddAllDet.html#add_to_bdd_strict_threshold" TARGET="MAIN"><CODE>add_to_bdd_strict_threshold()</CODE></A>
+ <DD> Converts an ADD to a BDD according to a strict threshold
+
+ <DT> <A HREF="ddAllDet.html#bdd_to_add" TARGET="MAIN"><CODE>bdd_to_add()</CODE></A>
+ <DD> Converts a BDD to a FALSE-TRUE ADD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_to_01_add" TARGET="MAIN"><CODE>bdd_to_01_add()</CODE></A>
+ <DD> Converts a BDD to a 0-1 ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_and" TARGET="MAIN"><CODE>add_and()</CODE></A>
+ <DD> Applies AND to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_or" TARGET="MAIN"><CODE>add_or()</CODE></A>
+ <DD> Applies OR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_xor" TARGET="MAIN"><CODE>add_xor()</CODE></A>
+ <DD> Applies XOR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_xnor" TARGET="MAIN"><CODE>add_xnor()</CODE></A>
+ <DD> Applies XNOR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_not" TARGET="MAIN"><CODE>add_not()</CODE></A>
+ <DD> Applies NOT to the corresponding discriminant of f.
+
+ <DT> <A HREF="ddAllDet.html#add_implies" TARGET="MAIN"><CODE>add_implies()</CODE></A>
+ <DD> Applies IMPLY to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_iff" TARGET="MAIN"><CODE>add_iff()</CODE></A>
+ <DD> Applies IFF to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_and_accumulate" TARGET="MAIN"><CODE>add_and_accumulate()</CODE></A>
+ <DD> Applies AND to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_or_accumulate" TARGET="MAIN"><CODE>add_or_accumulate()</CODE></A>
+ <DD> Applies OR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_apply" TARGET="MAIN"><CODE>add_apply()</CODE></A>
+ <DD> Applies binary op to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#add_monadic_apply" TARGET="MAIN"><CODE>add_monadic_apply()</CODE></A>
+ <DD> Applies unary op to the corresponding discriminant of f
+
+ <DT> <A HREF="ddAllDet.html#add_exist_abstract" TARGET="MAIN"><CODE>add_exist_abstract()</CODE></A>
+ <DD> Abstracts away variables from an ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_ifthenelse" TARGET="MAIN"><CODE>add_ifthenelse()</CODE></A>
+ <DD> Implements ITE(f,g,h).
+
+ <DT> <A HREF="ddAllDet.html#add_cube_diff" TARGET="MAIN"><CODE>add_cube_diff()</CODE></A>
+ <DD> Computes the difference between two ADD cubes.
+
+ <DT> <A HREF="ddAllDet.html#add_permute" TARGET="MAIN"><CODE>add_permute()</CODE></A>
+ <DD> Permutes the variables of an ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_support" TARGET="MAIN"><CODE>add_support()</CODE></A>
+ <DD> Finds the variables on which an ADD depends on.
+
+ <DT> <A HREF="ddAllDet.html#add_simplify_assuming" TARGET="MAIN"><CODE>add_simplify_assuming()</CODE></A>
+ <DD> ADD restrict according to Coudert and Madre's algorithm (ICCAD90).
+
+ <DT> <A HREF="ddAllDet.html#add_size" TARGET="MAIN"><CODE>add_size()</CODE></A>
+ <DD> Counts the number of ADD nodes in an ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_count_minterm" TARGET="MAIN"><CODE>add_count_minterm()</CODE></A>
+ <DD> Counts the number of ADD minterms of an ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_value" TARGET="MAIN"><CODE>add_value()</CODE></A>
+ <DD> Given the result of add_if_then it returns the leaf corresponding.
+
+ <DT> <A HREF="ddAllDet.html#add_if_then" TARGET="MAIN"><CODE>add_if_then()</CODE></A>
+ <DD> Given a minterm, it returns an ADD indicating the rules
+  to traverse the ADD.
+
+ <DT> <A HREF="ddAllDet.html#add_walkleaves" TARGET="MAIN"><CODE>add_walkleaves()</CODE></A>
+ <DD> Applies a generic function to constant nodes.
+
+ <DT> <A HREF="ddAllDet.html#bdd_true" TARGET="MAIN"><CODE>bdd_true()</CODE></A>
+ <DD> Reads the constant TRUE BDD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#bdd_false" TARGET="MAIN"><CODE>bdd_false()</CODE></A>
+ <DD> Reads the constant FALSE BDD of the manager.
+
+ <DT> <A HREF="ddAllDet.html#bdd_is_true" TARGET="MAIN"><CODE>bdd_is_true()</CODE></A>
+ <DD> Check if the BDD is TRUE.
+
+ <DT> <A HREF="ddAllDet.html#bdd_isnot_true" TARGET="MAIN"><CODE>bdd_isnot_true()</CODE></A>
+ <DD> Check if the BDD is not true.
+
+ <DT> <A HREF="ddAllDet.html#bdd_is_false" TARGET="MAIN"><CODE>bdd_is_false()</CODE></A>
+ <DD> Check if the BDD is false.
+
+ <DT> <A HREF="ddAllDet.html#bdd_isnot_false" TARGET="MAIN"><CODE>bdd_isnot_false()</CODE></A>
+ <DD> Check if the BDD is not false.
+
+ <DT> <A HREF="ddAllDet.html#bdd_ref" TARGET="MAIN"><CODE>bdd_ref()</CODE></A>
+ <DD> Reference an BDD node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_deref" TARGET="MAIN"><CODE>bdd_deref()</CODE></A>
+ <DD> Dereference an BDD node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_free" TARGET="MAIN"><CODE>bdd_free()</CODE></A>
+ <DD> Dereference an BDD node. If it dies, recursively decreases
+  the reference count of its children.
+
+ <DT> <A HREF="ddAllDet.html#bdd_dup" TARGET="MAIN"><CODE>bdd_dup()</CODE></A>
+ <DD> Creates a copy of an BDD node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_not" TARGET="MAIN"><CODE>bdd_not()</CODE></A>
+ <DD> Applies NOT to the corresponding discriminant of f.
+
+ <DT> <A HREF="ddAllDet.html#bdd_and" TARGET="MAIN"><CODE>bdd_and()</CODE></A>
+ <DD> Applies AND to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_or" TARGET="MAIN"><CODE>bdd_or()</CODE></A>
+ <DD> Applies OR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_xor" TARGET="MAIN"><CODE>bdd_xor()</CODE></A>
+ <DD> Applies XOR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_iff" TARGET="MAIN"><CODE>bdd_iff()</CODE></A>
+ <DD> Applies IFF to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_imply" TARGET="MAIN"><CODE>bdd_imply()</CODE></A>
+ <DD> Applies IMPLY to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_and_accumulate" TARGET="MAIN"><CODE>bdd_and_accumulate()</CODE></A>
+ <DD> Applies AND to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_or_accumulate" TARGET="MAIN"><CODE>bdd_or_accumulate()</CODE></A>
+ <DD> Applies OR to the corresponding discriminants of f and g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_forsome" TARGET="MAIN"><CODE>bdd_forsome()</CODE></A>
+ <DD> Existentially abstracts all the variables in cube from fn.
+
+ <DT> <A HREF="ddAllDet.html#bdd_forall" TARGET="MAIN"><CODE>bdd_forall()</CODE></A>
+ <DD> Universally abstracts all the variables in cube from f.
+
+ <DT> <A HREF="ddAllDet.html#bdd_permute" TARGET="MAIN"><CODE>bdd_permute()</CODE></A>
+ <DD> Permutes the variables of a BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_and_abstract" TARGET="MAIN"><CODE>bdd_and_abstract()</CODE></A>
+ <DD> Takes the AND of two BDDs and simultaneously abstracts the
+  variables in cube.
+
+ <DT> <A HREF="ddAllDet.html#bdd_simplify_assuming" TARGET="MAIN"><CODE>bdd_simplify_assuming()</CODE></A>
+ <DD> BDD restrict according to Coudert and Madre's algorithm
+  (ICCAD90).
+
+ <DT> <A HREF="ddAllDet.html#bdd_minimize" TARGET="MAIN"><CODE>bdd_minimize()</CODE></A>
+ <DD> Restrict operator as described in Coudert et al. ICCAD90.
+
+ <DT> <A HREF="ddAllDet.html#bdd_cofactor" TARGET="MAIN"><CODE>bdd_cofactor()</CODE></A>
+ <DD> Computes f constrain c.
+
+ <DT> <A HREF="ddAllDet.html#bdd_between" TARGET="MAIN"><CODE>bdd_between()</CODE></A>
+ <DD> Return a minimum size BDD between bounds.
+
+ <DT> <A HREF="ddAllDet.html#bdd_entailed" TARGET="MAIN"><CODE>bdd_entailed()</CODE></A>
+ <DD> Determines whether f is less than or equal to g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_intersected" TARGET="MAIN"><CODE>bdd_intersected()</CODE></A>
+ <DD> Determines whether an intersection between
+  f and g is not empty
+
+ <DT> <A HREF="ddAllDet.html#bdd_then" TARGET="MAIN"><CODE>bdd_then()</CODE></A>
+ <DD> Returns the then child of a bdd node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_else" TARGET="MAIN"><CODE>bdd_else()</CODE></A>
+ <DD> Returns the else child of a bdd node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_iscomplement" TARGET="MAIN"><CODE>bdd_iscomplement()</CODE></A>
+ <DD> Returns 1 if the BDD pointer is complemented.
+
+ <DT> <A HREF="ddAllDet.html#bdd_readperm" TARGET="MAIN"><CODE>bdd_readperm()</CODE></A>
+ <DD> Finds the current position of variable index in the
+  order.
+
+ <DT> <A HREF="ddAllDet.html#bdd_index" TARGET="MAIN"><CODE>bdd_index()</CODE></A>
+ <DD> Returns the index of the node.
+
+ <DT> <A HREF="ddAllDet.html#bdd_ite" TARGET="MAIN"><CODE>bdd_ite()</CODE></A>
+ <DD> Implements ITE(i,t,e).
+
+ <DT> <A HREF="ddAllDet.html#bdd_size" TARGET="MAIN"><CODE>bdd_size()</CODE></A>
+ <DD> Counts the number of BDD nodes in an BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_count_minterm" TARGET="MAIN"><CODE>bdd_count_minterm()</CODE></A>
+ <DD> Counts the number of BDD minterms of an BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_support" TARGET="MAIN"><CODE>bdd_support()</CODE></A>
+ <DD> Finds the variables on which an BDD depends on.
+
+ <DT> <A HREF="ddAllDet.html#bdd_pick_one_minterm" TARGET="MAIN"><CODE>bdd_pick_one_minterm()</CODE></A>
+ <DD> Picks one on-set minterm deterministically from the given BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_pick_one_minterm_rand" TARGET="MAIN"><CODE>bdd_pick_one_minterm_rand()</CODE></A>
+ <DD> Picks one on-set minterm randomly from the given DD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_pick_all_terms" TARGET="MAIN"><CODE>bdd_pick_all_terms()</CODE></A>
+ <DD> Returns the array of All Possible Minterms
+
+ <DT> <A HREF="ddAllDet.html#bdd_new_var_with_index" TARGET="MAIN"><CODE>bdd_new_var_with_index()</CODE></A>
+ <DD> Returns the BDD variable with index <code>index</code>.
+
+ <DT> <A HREF="ddAllDet.html#bdd_cube_diff" TARGET="MAIN"><CODE>bdd_cube_diff()</CODE></A>
+ <DD> Computes the difference between two BDD cubes.
+
+ <DT> <A HREF="ddAllDet.html#bdd_cube_union" TARGET="MAIN"><CODE>bdd_cube_union()</CODE></A>
+ <DD> Computes the union between two BDD cubes.
+
+ <DT> <A HREF="ddAllDet.html#bdd_cube_intersection" TARGET="MAIN"><CODE>bdd_cube_intersection()</CODE></A>
+ <DD> Computes the intersection between two BDD cubes.
+
+ <DT> <A HREF="ddAllDet.html#bdd_get_lowest_index" TARGET="MAIN"><CODE>bdd_get_lowest_index()</CODE></A>
+ <DD> Returns the index of the lowest variable in the BDD a.
+
+ <DT> <A HREF="ddAllDet.html#bdd_get_one_sparse_sat" TARGET="MAIN"><CODE>bdd_get_one_sparse_sat()</CODE></A>
+ <DD> Finds a satisfying path in the BDD d.
+
+ <DT> <A HREF="ddAllDet.html#bdd_make_prime" TARGET="MAIN"><CODE>bdd_make_prime()</CODE></A>
+ <DD> Expands cube to a prime implicant of f.
+
+ <DT> <A HREF="ddAllDet.html#bdd_largest_cube" TARGET="MAIN"><CODE>bdd_largest_cube()</CODE></A>
+ <DD> Finds a largest cube in a BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_compute_prime_low" TARGET="MAIN"><CODE>bdd_compute_prime_low()</CODE></A>
+ <DD> Finds a prime implicant for a BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_compute_primes_low" TARGET="MAIN"><CODE>bdd_compute_primes_low()</CODE></A>
+ <DD> Finds a set of prime implicants for a BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_compute_primes" TARGET="MAIN"><CODE>bdd_compute_primes()</CODE></A>
+ <DD> Finds a set of prime implicants for a BDD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_compute_essentials" TARGET="MAIN"><CODE>bdd_compute_essentials()</CODE></A>
+ <DD> Finds the essential variables of a DD.
+
+ <DT> <A HREF="ddAllDet.html#bdd_leq" TARGET="MAIN"><CODE>bdd_leq()</CODE></A>
+ <DD> Determines whether f is less than or equal to g.
+
+ <DT> <A HREF="ddAllDet.html#bdd_swap_variables" TARGET="MAIN"><CODE>bdd_swap_variables()</CODE></A>
+ <DD> Swaps two sets of variables of the same size (x and y) in
+  the BDD f.
+
+ <DT> <A HREF="ddAllDet.html#bdd_DumpBlif" TARGET="MAIN"><CODE>bdd_DumpBlif()</CODE></A>
+ <DD> Writes a blif file representing the argument BDDs.
+
+ <DT> <A HREF="ddAllDet.html#bdd_DumpBlifBody" TARGET="MAIN"><CODE>bdd_DumpBlifBody()</CODE></A>
+ <DD> Writes a blif body representing the argument BDDs.
+
+ <DT> <A HREF="ddAllDet.html#bdd_compose" TARGET="MAIN"><CODE>bdd_compose()</CODE></A>
+ <DD> Substitutes g for x_v in the BDD for f.
+
+ <DT> <A HREF="ddAllDet.html#bdd_ref_count" TARGET="MAIN"><CODE>bdd_ref_count()</CODE></A>
+ <DD> Returns the reference count of a node.
+
+ <DT> <A HREF="ddAllDet.html#calculate_bdd_value" TARGET="MAIN"><CODE>calculate_bdd_value()</CODE></A>
+ <DD> Computes the value of a function with given variable values.
+
+ <DT> <A HREF="ddAllDet.html#InvalidType" TARGET="MAIN"><CODE>InvalidType()</CODE></A>
+ <DD> Function to print a warning that an illegal value was read.
+
+</DL>
+<HR>
+<A NAME="ddCmd.c"><H1>ddCmd.c</H1></A>
+The shell interface of the DD package <P>
+<B>By: Marco Roveri</B><P>
+Shell interface of the DD package. here are provided
+  the shell commands to modyfy all the modifiable DD options. <P>
+<DL>
+ <DT> <A HREF="ddAllDet.html#CommandDynamicVarOrdering" TARGET="MAIN"><CODE>CommandDynamicVarOrdering()</CODE></A>
+ <DD> Implements the dynamic_var_ordering command.
+
+ <DT> <A HREF="ddAllDet.html#CommandSetBddParameters" TARGET="MAIN"><CODE>CommandSetBddParameters()</CODE></A>
+ <DD> Implements the set_bdd_parameters command.
+
+ <DT> <A HREF="ddAllDet.html#CommandPrintBddStats" TARGET="MAIN"><CODE>CommandPrintBddStats()</CODE></A>
+ <DD> Implements the print_bdd_stats command.
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

@@ -1,0 +1,358 @@
+<html>
+<head><title>The opt package: all functions </title></head>
+<body>
+
+The internal header file of the opt package.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CommandSetVariable"></A>
+int <I></I>
+<B>CommandSetVariable</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Sets an environment variable
+<p>
+
+<dd> <b>See Also</b> <code><a href="#unset">unset</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="CommandUnsetVariable"></A>
+int <I></I>
+<B>CommandUnsetVariable</B>(
+  int  <b>argc</b>, <i></i>
+  char** <b>argv</b> <i></i>
+)
+</pre>
+<dd> Unsets an environment variable
+<p>
+
+<dd> <b>See Also</b> <code><a href="#set">set</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="init_options_cmd"></A>
+void <I></I>
+<B>init_options_cmd</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> This function declares the interactive shell
+   commands necessary to manipulate NuSMV options.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="init_options"></A>
+void <I></I>
+<B>init_options</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The NuSMV options are initialized. A pointer to
+   a structure containing the NuSMV options is allocated, its fields
+   are initialized and the pointer is returned.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_check_invar_bddbmc_heuristic_to_string"></A>
+const char* <I></I>
+<B>opt_check_invar_bddbmc_heuristic_to_string</B>(
+  Bdd2bmc_Heuristic  <b>h</b> <i></i>
+)
+</pre>
+<dd> Convert the Bdd2bmc_Heuristic to it's string representation
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_check_invar_fb_heuristic_to_string"></A>
+const char* <I></I>
+<B>opt_check_invar_fb_heuristic_to_string</B>(
+  FB_Heuristic  <b>h</b> <i></i>
+)
+</pre>
+<dd> Convert the FB_Heuristic to it's string representation
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_check_sat_solver"></A>
+boolean <I></I>
+<B>opt_check_sat_solver</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check function for the sat_solver option.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_check_shown_states"></A>
+boolean <I></I>
+<B>opt_check_shown_states</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check function for the number of shown states
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_check_word_format"></A>
+boolean <I></I>
+<B>opt_check_word_format</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Check function for the output word format
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_counter_examples_show_re_trigger"></A>
+boolean <I></I>
+<B>opt_counter_examples_show_re_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger function for the counter_examples_show_re
+   option: tries to compile regexp pattern and rejects it if
+   compilation fails.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_dynamic_reorder_trigger"></A>
+boolean <I></I>
+<B>opt_dynamic_reorder_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Dynamic reordering trigger: enables / disables dd_autodyn
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_get_integer"></A>
+void * <I></I>
+<B>opt_get_integer</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char * <b>value</b> <i></i>
+)
+</pre>
+<dd> Get the integer representation of the given string
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_get_sat_solver"></A>
+void* <I></I>
+<B>opt_get_sat_solver</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>val</b> <i></i>
+)
+</pre>
+<dd> get function for the sat_solver option.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_get_string"></A>
+void* <I></I>
+<B>opt_get_string</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>val</b> <i></i>
+)
+</pre>
+<dd> Get function for simple strings
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_input_file_trigger"></A>
+boolean <I></I>
+<B>opt_input_file_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>name</b>, <i></i>
+  const char* <b>val</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Input file check function
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_pp_list_trigger"></A>
+boolean <I></I>
+<B>opt_pp_list_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger function for the pp_list option. Checks that
+                the given list of preprocessors is valid or not
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_rbc_inlining_lazy_trigger"></A>
+boolean <I></I>
+<B>opt_rbc_inlining_lazy_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger function for the run_cpp option: Tells that the
+   option is deprecated. No side-effect on the option
+   value will be performed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_reorder_method_trigger"></A>
+boolean <I></I>
+<B>opt_reorder_method_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> reordering method trigger: enables / disables dd_autodyn
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_run_cpp_trigger"></A>
+boolean <I></I>
+<B>opt_run_cpp_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger function for the run_cpp option: Tells that the
+   option is deprecated. No side-effect on the option
+   value will be performed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_set_reachable_states_trigger"></A>
+boolean <I></I>
+<B>opt_set_reachable_states_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger that sets the use_reachable_states flag if needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_trace_plugin_trigger"></A>
+boolean <I></I>
+<B>opt_trace_plugin_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger for the default_trace_plugin option: Updates the 
+   default plugin in the trace pkg.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="opt_trans_order_file_trigger"></A>
+boolean <I></I>
+<B>opt_trans_order_file_trigger</B>(
+  OptsHandler_ptr  <b>opts</b>, <i></i>
+  const char* <b>opt</b>, <i></i>
+  const char* <b>value</b>, <i></i>
+  Trigger_Action  <b>action</b> <i></i>
+)
+</pre>
+<dd> Trigger function for the trans_order_file option:
+   Enables/disables AFFINITY_CLUSTERING if needed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME="remove_non_existant_pps"></A>
+static char* <I></I>
+<B>remove_non_existant_pps</B>(
+  const char* <b>pp_list</b> <i></i>
+)
+</pre>
+<dd> Returned string must be freed
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optCmd.c"TARGET="ABSTRACT"><CODE>optCmd.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Makes append_cluster option visible to the shell
+  interface. The default is that it is not visible. Notice that only
+  the printing hide it. The set unset function handle it.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="optAllFile.html#optInt.h"TARGET="ABSTRACT"><CODE>optInt.h</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

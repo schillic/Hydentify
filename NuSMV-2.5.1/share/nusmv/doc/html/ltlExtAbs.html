@@ -1,0 +1,108 @@
+<html>
+<head><title>ltl package abstract</title></head>
+<body>
+
+
+<!-- Function Abstracts -->
+
+<dl>
+<dt> <a href="ltlAllDet.html#Ltl_CheckLtlSpec" TARGET="MAIN"><code>Ltl_CheckLtlSpec()</code></a>
+<dd> The main routine to perform LTL model checking.
+
+<dt> <a href="ltlAllDet.html#Ltl_Init" TARGET="MAIN"><code>Ltl_Init()</code></a>
+<dd> Initializes the ltl package.
+
+<dt> <a href="ltlAllDet.html#Ltl_RewriteInput" TARGET="MAIN"><code>Ltl_RewriteInput()</code></a>
+<dd> Rewrites an LTL formula to get rid of input variables
+  in it present
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_build_counter_example" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_build_counter_example()</code></a>
+<dd> Perform the computation of a witness for a property
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_build" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_build()</code></a>
+<dd> Initialize the structure by computing the tableau for
+  the LTL property
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_check" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_check()</code></a>
+<dd> Perform the check to see wether the property holds or not
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_create" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_create()</code></a>
+<dd> Create an empty Ltl_StructCheckLtlSpec structure.
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_destroy" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_destroy()</code></a>
+<dd> Desrtroy an Ltl_StructCheckLtlSpec structure.
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_explain" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_explain()</code></a>
+<dd> Perform the computation of a witness for a property
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_clean_s0" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_get_clean_s0()</code></a>
+<dd> Get the s0 field purified by tableu variables
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_get_s0" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_get_s0()</code></a>
+<dd> Get the s0 field of an Ltl_StructCheckLtlSpec structure
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_print_result" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_print_result()</code></a>
+<dd> Prints the result of the Ltl_StructCheckLtlSpec_check fun
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_do_rewriting" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_set_do_rewriting()</code></a>
+<dd> Set the do_rewriting field of an Ltl_StructCheckLtlSpec
+  structure
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_ltl2smv" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_set_ltl2smv()</code></a>
+<dd> Set the ltl2smv field of an Ltl_StructCheckLtlSpec structure
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_negate_formula" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_set_negate_formula()</code></a>
+<dd> Set the negate_formula field of an Ltl_StructCheckLtlSpec structure
+
+<dt> <a href="ltlAllDet.html#Ltl_StructCheckLtlSpec_set_oreg2smv" TARGET="MAIN"><code>Ltl_StructCheckLtlSpec_set_oreg2smv()</code></a>
+<dd> Set the oreg2smv field of an Ltl_StructCheckLtlSpec structure
+
+<dt> <a href="ltlAllDet.html#Ltl_apply_input_vars_rewriting" TARGET="MAIN"><code>Ltl_apply_input_vars_rewriting()</code></a>
+<dd> Takes a LTL formula and applies rewriting to get rid of
+  input variables from the formula
+
+<dt> <a href="ltlAllDet.html#ltl_clean_bdd" TARGET="MAIN"><code>ltl_clean_bdd()</code></a>
+<dd> Quantify out tableau variables
+
+<dt> <a href="ltlAllDet.html#ltl_create_substitution" TARGET="MAIN"><code>ltl_create_substitution()</code></a>
+<dd> Creates a new state variable and add a pair <var id, expr>
+  to the list "new_var_exprs"
+
+<dt> <a href="ltlAllDet.html#ltl_rewrite_input" TARGET="MAIN"><code>ltl_rewrite_input()</code></a>
+<dd> Recursively walk over the expressions and returns 
+  the kind of the expression, i.e. if it is temporal or with input vars.
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_build_tableau_and_prop_fsm" TARGET="MAIN"><code>ltl_structcheckltlspec_build_tableau_and_prop_fsm()</code></a>
+<dd> Creates the tableau
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_check_compassion" TARGET="MAIN"><code>ltl_structcheckltlspec_check_compassion()</code></a>
+<dd> Perform the check to see wether the property holds or
+  not using an algorithm for strong fairness
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_check_el_bwd" TARGET="MAIN"><code>ltl_structcheckltlspec_check_el_bwd()</code></a>
+<dd> Perform the check to see wether the property holds or
+  not using the backward Emerson-Lei algorithm
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_check_el_fwd" TARGET="MAIN"><code>ltl_structcheckltlspec_check_el_fwd()</code></a>
+<dd> Perform the check to see wether the property holds or
+  not using the forward Emerson-Lei algorithm
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_deinit" TARGET="MAIN"><code>ltl_structcheckltlspec_deinit()</code></a>
+<dd> required
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_init" TARGET="MAIN"><code>ltl_structcheckltlspec_init()</code></a>
+<dd> required
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_prepare" TARGET="MAIN"><code>ltl_structcheckltlspec_prepare()</code></a>
+<dd> Support function for the init function
+
+<dt> <a href="ltlAllDet.html#ltl_structcheckltlspec_remove_layer" TARGET="MAIN"><code>ltl_structcheckltlspec_remove_layer()</code></a>
+<dd> Private service that removes the given layer from
+  the symbol table, and from both the boolean and bdd encodings.
+
+</dl>
+
+<hr>
+
+Last updated on 2010/10/01 19h:57
+</body></html>

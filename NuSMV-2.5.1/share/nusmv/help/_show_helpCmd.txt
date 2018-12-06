@@ -1,0 +1,18 @@
+  _show_help - Provides on-line information for all commands
+
+   --------------------------------------------------------------------------
+
+   _show_help [-f] [-h] [<command>]
+
+   If invoked with no arguments prints the short help for all commands known
+   to the command interpreter including hidden commands (those whose name
+   starts with _).
+
+   Command options:
+
+   -f
+           Prints for each command the long help.
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

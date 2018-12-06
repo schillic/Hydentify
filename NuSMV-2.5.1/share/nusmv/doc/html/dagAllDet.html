@@ -1,0 +1,469 @@
+<html>
+<head><title>The dag package: all functions </title></head>
+<body>
+
+Internal functions and data structures of the dag package.
+<HR>
+<DL>
+<dt><pre>
+<A NAME="CleanBack"></A>
+static void <I></I>
+<B>CleanBack</B>(
+  Dag_Vertex_t * <b>f</b>, <i></i>
+  char * <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs BackVisit for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="CleanFirst"></A>
+static void <I></I>
+<B>CleanFirst</B>(
+  Dag_Vertex_t * <b>f</b>, <i></i>
+  char * <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs FirstVisit for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="CleanLast"></A>
+static void <I></I>
+<B>CleanLast</B>(
+  Dag_Vertex_t * <b>f</b>, <i></i>
+  char * <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs LastVisit for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="CleanSet"></A>
+static int <I></I>
+<B>CleanSet</B>(
+  Dag_Vertex_t * <b>f</b>, <i></i>
+  char * <b>cleanData</b>, <i></i>
+  nusmv_ptrint  <b>sign</b> <i></i>
+)
+</pre>
+<dd> Dfs Set for cleaning.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="DFS"></A>
+static void <I></I>
+<B>DFS</B>(
+  Dag_Vertex_t * <b>v</b>, <i></i>
+  Dag_DfsFunctions_t * <b>dfsFun</b>, <i></i>
+  char * <b>dfsData</b>, <i></i>
+  nusmv_ptrint  <b>vBit</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+               <ul>
+               <li> v, the current dag vertex
+               <li> dfsFun, the functions to perform the DFS
+               <li> dfsData, a reference to generic data
+	       <li> vBit, the incoming link annotation (0 or not-0)
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="DagVertexComp"></A>
+int <I></I>
+<B>DagVertexComp</B>(
+  const char * <b>v1</b>, <i></i>
+  const char * <b>v2</b> <i></i>
+)
+</pre>
+<dd> Gets two vertex pointers v1, v2, (as char pointers) and
+               compares the symbol, the generic data reference and the
+               pointers to the sons. Returns -1 if v1 < v2, 0 if v1 =
+               v2 and 1 if v1 > v2, in lexicographic order of fields.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="DagVertexHash"></A>
+int <I></I>
+<B>DagVertexHash</B>(
+  char* <b>v</b>, <i></i>
+  int  <b>modulus</b> <i></i>
+)
+</pre>
+<dd> Calculate a preliminary index as follows:
+                  v -> symbol                            + 
+                  8 low order bits of (int) (v -> data)  +
+                 16 low order bits of each son up to MAXSON +
+                  1 for each son whose edge is annotated
+               Return the modulus of the index and the actual hash size.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="DagVertexInit"></A>
+void <I></I>
+<B>DagVertexInit</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  Dag_Vertex_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Performs several tasks:
+               <ul>
+               <li> connects the vertex to the sons by increasing the sons'
+                    marks
+               <li> removes sons from the free list if their mark
+                    is increased to one for the first time;
+               <li> clears the vertex mark and stores the vertex in the 
+                    free list;
+               <li> clears other internal fields.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_Dfs"></A>
+void <I></I>
+<B>Dag_Dfs</B>(
+  Dag_Vertex_t* <b>dfsRoot</b>, <i></i>
+  Dag_DfsFunctions_t* <b>dfsFun</b>, <i></i>
+  char* <b>dfsData</b> <i></i>
+)
+</pre>
+<dd> The parameters are:
+               <ul>
+               <li> dfsRoot, the dag vertex where to start the DFS
+               <li> dfsFun, the functions to perform the DFS steps
+               <li> dfsData, a reference to generic data
+               </ul>
+               The function increments the DFS code for the dag
+               manager owning dfsRoot and starts the DFS. Increment of
+               the code guarantees that each node is visited once and 
+	       only once. dfsFun -> Set() may change the default behaviour by 
+	       forcing to DFS to visit nodes more than once, or by preventing
+	       DFS to do a complete visit.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagDfs.c"TARGET="ABSTRACT"><CODE>dagDfs.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_ManagerAlloc"></A>
+Dag_Manager_t * <I></I>
+<B>Dag_ManagerAlloc</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates the unique table (vTable) and the free list (gcList).
+               Initializes the counters for various statistics (stats).
+               Returns the pointer to the dag manager.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerAllocWithParams">Dag_ManagerAllocWithParams</a>
+<a href="#Dag_ManagerFree">Dag_ManagerFree</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagManager.c"TARGET="ABSTRACT"><CODE>dagManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_ManagerFree"></A>
+void <I></I>
+<B>Dag_ManagerFree</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeData</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeGen</b> <i></i>
+)
+</pre>
+<dd> Forces a total garbage collection and then deallocates the
+               dag manager. `freeData' can be used to deallocate `data'
+               fields (user data pointers) in the nodes, while `freeGen' 
+               is applied to `gRef' fields (user generic pointers). 
+               `freeData' and `freeGen' are in the form `void f(char * r)'.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerGC">Dag_ManagerGC</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagManager.c"TARGET="ABSTRACT"><CODE>dagManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_ManagerGC"></A>
+void <I></I>
+<B>Dag_ManagerGC</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeData</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeGen</b> <i></i>
+)
+</pre>
+<dd> Sweeps out useless vertices, i.e., vertices that are not 
+               marked as permanent, that are not descendants
+               of permanent vertices, or whose brother (if any) is neither
+               permanent nor descendant of a permanent vertex.
+               The search starts from vertices that are in the garbage
+               bin and whose mark is 0. 
+               `freeData' can be used to deallocate `data'
+               fields (user data pointers) in the nodes, while `freeGen' 
+               is applied to `gRef' fields (user generic pointers). 
+               `freeData' and `freeGen' are in the form `void f(char * r)'.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Dag_ManagerFree">Dag_ManagerFree</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagManager.c"TARGET="ABSTRACT"><CODE>dagManager.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_PrintStats"></A>
+void <I></I>
+<B>Dag_PrintStats</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>clustSz</b>, <i></i>
+  FILE * <b>outFile</b> <i></i>
+)
+</pre>
+<dd> Prints the following:
+               <ul>
+               <li> the number of entries found in every chunk of
+                    `clustSz' bins (if `clustSz' is 1 then the number
+                    of entries per bin is given, if `clustSz' is 0 no
+		    such information is displayed);
+               <li> the number of shared vertices, i.e., the number
+                    of v's such that v -> mark > 1;
+	       <li> the average entries per bin and the variance;
+	       <li> min and max entries per bin.
+               </ul>
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagStat.c"TARGET="ABSTRACT"><CODE>dagStat.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_VertexInsert"></A>
+Dag_Vertex_t * <I></I>
+<B>Dag_VertexInsert</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>vSymb</b>, <i></i>
+  char * <b>vData</b>, <i></i>
+  Dag_Vertex_t ** <b>vSons</b>, <i></i>
+  unsigned  <b>numSons</b> <i></i>
+)
+</pre>
+<dd> Adds a vertex into the DAG and returns a
+               reference to it:
+               <ul>
+               <li> vSymb is an integer code (vertex label);
+               <li> vData is a generic annotation;
+               <li> vSons must be a list of vertices (the intended sons).
+               </ul>
+               Returns NIL(Dag_vertex_t) if there is no dagManager and
+               if vSymb is negative.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_VertexLookup"></A>
+Dag_Vertex_t * <I></I>
+<B>Dag_VertexLookup</B>(
+  Dag_Manager_t * <b>dagManager</b>, <i></i>
+  int  <b>vSymb</b>, <i></i>
+  char * <b>vData</b>, <i></i>
+  Dag_Vertex_t** <b>vSons</b>, <i></i>
+  unsigned  <b>numSons</b> <i></i>
+)
+</pre>
+<dd> Uniquely adds a new vertex into the DAG and returns a
+               reference to it:
+               <ul>
+               <li> vSymb is a NON-NEGATIVE  integer (vertex label);
+               <li> vData is a pointer to generic user data;
+               <li> vSons is a list of vertices (possibly NULL).
+               </ul>
+               Returns NIL(Dag_vertex_t) if there is no dagManager and 
+               if vSymb is negative.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_VertexMark"></A>
+void <I></I>
+<B>Dag_VertexMark</B>(
+  Dag_Vertex_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Increments the vertex mark by one, so it cannot be
+               deleted by garbage collection unless unmarked.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="Dag_VertexUnmark"></A>
+void <I></I>
+<B>Dag_VertexUnmark</B>(
+  Dag_Vertex_t * <b>v</b> <i></i>
+)
+</pre>
+<dd> Decrements the vertex mark by one, so it can be
+               deleted by garbage collection when fatherless.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagVertex.c"TARGET="ABSTRACT"><CODE>dagVertex.c</CODE></A>
+
+<dt><pre>
+<A NAME="GC"></A>
+static void <I></I>
+<B>GC</B>(
+  Dag_Vertex_t * <b>v</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeData</b>, <i></i>
+  Dag_ProcPtr_t  <b>freeGen</b> <i></i>
+)
+</pre>
+<dd> Gets a vertex to be freed. If the vertex has permanent or 
+               non-orphan brothers it is rescued. Otherwise the brother is
+               unconnected and the sons marks are updated. GC is then 
+               propagated to each fatherless son.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dagManager.c"TARGET="ABSTRACT"><CODE>dagManager.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The annotation bit is forced to 0 by a bitwise-and with
+               complement of DAG_ANNOTATION_BIT mask.
+<p>
+
+<dd> <b>Side Effects</b> The value of p changes to the purified value.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dag.h"TARGET="ABSTRACT"><CODE>dag.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The annotation bit is filtered to 0. The result is the pointer
+               purified from the bit annotation.
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dag.h"TARGET="ABSTRACT"><CODE>dag.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The annotation bit is forced to 1 by a bitwise-or with
+               DAG_ANNOTATION_BIT mask.
+<p>
+
+<dd> <b>Side Effects</b> The value of p changes to the purified value.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dag.h"TARGET="ABSTRACT"><CODE>dag.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Uses a bitwise-and with DAG_ANNOTATION_BIT to test the
+               annotation bit of p. The result is either 0(false) or
+               not 0(true)
+<p>
+
+<dd> <b>Side Effects</b> none
+<p>
+
+<DD> <B>Defined in </B> <A HREF="dagAllFile.html#dag.h"TARGET="ABSTRACT"><CODE>dag.h</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

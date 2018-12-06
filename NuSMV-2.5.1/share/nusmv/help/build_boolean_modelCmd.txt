@@ -1,0 +1,12 @@
+  build_boolean_model - Compiles the flattened hierarchy into boolean SEXP
+
+   --------------------------------------------------------------------------
+
+   build_boolean_model [-h] [-f]
+
+   Compiles the flattened hierarchy into boolean SEXP (initial states,
+   invariants, and transition relation).
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

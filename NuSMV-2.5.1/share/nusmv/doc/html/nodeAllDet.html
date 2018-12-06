@@ -1,0 +1,1025 @@
+<html>
+<head><title>The node package: all functions </title></head>
+<body>
+
+None
+<HR>
+<DL>
+<dt><pre>
+<A NAME="_node_realloc_nodelist"></A>
+static void <I></I>
+<B>_node_realloc_nodelist</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> If possible (i.e. upper limit not reached yet)
+  reallcoates the hash table of nodes. There are two strategies:
+  the first try allocating a new bunch of memory, the second (if
+  the former fails due to low memory) tries to enarge the existing
+  hash. The hash is reallocated when a given load threashold is
+  reached, when inserting nodes in the hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="append_ns"></A>
+node_ptr <I></I>
+<B>append_ns</B>(
+  node_ptr  <b>x</b>, <i></i>
+  node_ptr  <b>y</b> <i></i>
+)
+</pre>
+<dd> Constructs a new list by concatenating its arguments.
+<p>
+
+<dd> <b>Side Effects</b> The modified list is returned. No side effects on
+  the returned list were performed.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="append"></A>
+node_ptr <I></I>
+<B>append</B>(
+  node_ptr  <b>x</b>, <i></i>
+  node_ptr  <b>y</b> <i></i>
+)
+</pre>
+<dd> Constructs a new list by concatenating its arguments.
+<p>
+
+<dd> <b>Side Effects</b> The modified list is returned. Side effects on
+  the returned list were performed. It is equivalent to the lisp NCONC
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="car"></A>
+node_ptr <I></I>
+<B>car</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns the left branch of a node.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#cdr">cdr</a>
+<a href="#cons">cons</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="cdr"></A>
+node_ptr <I></I>
+<B>cdr</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns the right branch of a node.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cons">cons</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="cons"></A>
+node_ptr <I></I>
+<B>cons</B>(
+  node_ptr  <b>x</b>, <i></i>
+  node_ptr  <b>y</b> <i></i>
+)
+</pre>
+<dd> Conses two nodes.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cdr">cdr</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="copy_list"></A>
+node_ptr <I></I>
+<B>copy_list</B>(
+  node_ptr  <b>list</b> <i></i>
+)
+</pre>
+<dd> An invoker should free the returned list.
+<p>
+
+<dd> <b>Side Effects</b> free_list
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="even_elements"></A>
+node_ptr <I></I>
+<B>even_elements</B>(
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Extracts even elements of list L.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#odd_elements">odd_elements</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="find_atom"></A>
+node_ptr <I></I>
+<B>find_atom</B>(
+  node_ptr  <b>a</b> <i></i>
+)
+</pre>
+<dd> Search the <tt>node</tt> hash for a given
+  node. If the node is not <tt>Nil</tt>, and the node is not stored in
+  the hash, the new node is created, stored in the hash and then returned.
+<p>
+
+<dd> <b>Side Effects</b> The node <tt>hash</tt> may change.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#find_node">find_node</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="find_node"></A>
+node_ptr <I></I>
+<B>find_node</B>(
+  int  <b>type</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> A new <tt>node</tt> of type <tt>type</tt> and
+  left and right branch <tt>left<tt> and <tt>right</tt> respectively
+  is created. The returned node is stored in the <tt>node</tt> hash.
+<p>
+
+<dd> <b>Side Effects</b> The <tt>node</tt> hash is modified.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#new_node">new_node</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="free_list"></A>
+void <I></I>
+<B>free_list</B>(
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Frees all the elements of the list for further use.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="free_node"></A>
+void <I></I>
+<B>free_node</B>(
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Free a node of the <tt>node<tt> manager. The
+  node is available for next node allocation.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="in_list"></A>
+int <I></I>
+<B>in_list</B>(
+  node_ptr  <b>n</b>, <i></i>
+  node_ptr  <b>list</b> <i></i>
+)
+</pre>
+<dd> Checks list R to see if it contains the element N.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_subtract">node_subtract</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="is_list_empty"></A>
+int <I></I>
+<B>is_list_empty</B>(
+  node_ptr  <b>list</b> <i></i>
+)
+</pre>
+<dd> Returns 1 is the list is empty, 0 otherwise
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="last"></A>
+node_ptr <I></I>
+<B>last</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns the last cons in X.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="llength"></A>
+int <I></I>
+<B>llength</B>(
+  node_ptr  <b>r</b> <i></i>
+)
+</pre>
+<dd> Returns the length of list r.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="map2"></A>
+node_ptr <I></I>
+<B>map2</B>(
+  NPFNN  <b>fun</b>, <i></i>
+  node_ptr  <b>l1</b>, <i></i>
+  node_ptr  <b>l2</b> <i></i>
+)
+</pre>
+<dd> Applies FUN to successive cars of LISTs and
+  returns the results as a list. l1 and l2 must have the same length
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#map">map</a>
+<a href="#walk">walk</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="map"></A>
+node_ptr <I></I>
+<B>map</B>(
+  NPFN  <b>fun</b>, <i></i>
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Applies FUN to successive cars of LISTs and
+  returns the results as a list.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#map2">map2</a>
+<a href="#walk">walk</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="new_lined_node"></A>
+node_ptr <I></I>
+<B>new_lined_node</B>(
+  int  <b>type</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b>, <i></i>
+  int  <b>lineno</b> <i></i>
+)
+</pre>
+<dd> The same as new_node except the line number
+  is explicitly proved. A new <tt>node</tt> of type <tt>type</tt>, with
+  left and right branch <tt>left<tt> and <tt>right</tt> respectively
+  and on the line number <tt>lineno</tt> is created.
+  The returned node is not stored in the <tt>node</tt> hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#new_node">new_node</a>
+<a href="#find_node">find_node</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="new_list"></A>
+node_ptr <I></I>
+<B>new_list</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns a new empty list
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="new_node"></A>
+node_ptr <I></I>
+<B>new_node</B>(
+  int  <b>type</b>, <i></i>
+  node_ptr  <b>left</b>, <i></i>
+  node_ptr  <b>right</b> <i></i>
+)
+</pre>
+<dd> A new <tt>node</tt> of type <tt>type</tt> and
+  left and right branch <tt>left<tt> and <tt>right</tt> respectively
+  is created. The returned node is not stored in the <tt>node</tt> hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#find_node">find_node</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_alloc"></A>
+node_ptr <I></I>
+<B>node_alloc</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Allocates NODE_MEM_CHUNK records and stores them
+  in the free list of the <tt>node</tt> manager.
+<p>
+
+<dd> <b>Side Effects</b> The free list of the <tt>node</tt> manager is
+  updated by appending the new allocated nodes.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_cmp_fun"></A>
+int <I></I>
+<B>node_cmp_fun</B>(
+  node_ptr  <b>node1</b>, <i></i>
+  node_ptr  <b>node2</b> <i></i>
+)
+</pre>
+<dd> Comparison function for <tt>node</tt> sorted insertion.
+  Returns is < 0 if node1 < node2, 0 if node1 == node2, and > 0 if
+  node1 > node2
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_hash_fun">node_hash_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_eq_fun"></A>
+unsigned <I></I>
+<B>node_eq_fun</B>(
+  node_ptr  <b>node1</b>, <i></i>
+  node_ptr  <b>node2</b> <i></i>
+)
+</pre>
+<dd> Equality function for <tt>node</tt> hash.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_hash_fun">node_hash_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_hash_fun"></A>
+unsigned int <I></I>
+<B>node_hash_fun</B>(
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Hash function for <tt>node</tt>s.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_eq_fun">node_eq_fun</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_init"></A>
+void <I></I>
+<B>node_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The <tt>node</tt> manager is initialized.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_is_constant"></A>
+int <I></I>
+<B>node_is_constant</B>(
+  node_ptr  <b>node</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if the given node is not a numeric/boolean/failure
+   constant.  This is done a purely syntactic manner. To know if a
+   *symbol* is constant declared within a symbol tablea, use method
+   SymbTable_is_symbol_constant instead.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_is_failure"></A>
+int <I></I>
+<B>node_is_failure</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns 0 if given node is not a FAILURE node
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_normalize_list"></A>
+node_ptr <I></I>
+<B>node_normalize_list</B>(
+  node_ptr  <b>sexp</b> <i></i>
+)
+</pre>
+<dd> node_normalize is 100% recursive.
+  This function instead expects the input to be a list (right
+  directional and of AND or CONS) which will be processed in a loop
+  instead of recursively.  For some examples this allowed to avoid
+  stack overflow.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_normalize"></A>
+node_ptr <I></I>
+<B>node_normalize</B>(
+  node_ptr  <b>sexp</b> <i></i>
+)
+</pre>
+<dd> Traverses the tree, and returns a possibly new tree that
+  is a normalized copy of the first. Use for constant-time comparison
+  of two trees
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_normalizer"></A>
+MasterNormalizer_ptr <I></I>
+<B>node_pkg_get_global_master_normalizer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master normalizer
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_sexp_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_global_master_sexp_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master wff printer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_get_global_master_wff_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_global_master_wff_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the global master wff printer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_get_indenting_master_wff_printer"></A>
+MasterPrinter_ptr <I></I>
+<B>node_pkg_get_indenting_master_wff_printer</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Returns the indenting master wff printer.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_init"></A>
+void <I></I>
+<B>node_pkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Creates master and printers, and initializes the node 
+  structures
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_pkg_quit">node_pkg_quit</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_pkg_quit"></A>
+void <I></I>
+<B>node_pkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Deinitializes the packages, finalizing all internal
+  structures
+<p>
+
+<dd> <b>See Also</b> <code><a href="#node_pkg_init">node_pkg_init</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePkg.c"TARGET="ABSTRACT"><CODE>nodePkg.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_quit"></A>
+void <I></I>
+<B>node_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> The <tt>node</tt> manager is de-initialized.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_set_type"></A>
+void <I></I>
+<B>node_set_type</B>(
+  node_ptr  <b>x</b>, <i></i>
+  int  <b>type</b> <i></i>
+)
+</pre>
+<dd> Replaces the type of the node
+<p>
+
+<dd> <b>Side Effects</b> Replaces the type of the node
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cdr">cdr</a>
+<a href="#cons">cons</a>
+<a href="#setcar">setcar</a>
+<a href="#node_get_type">node_get_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_show_profile_stats"></A>
+void <I></I>
+<B>node_show_profile_stats</B>(
+  FILE* <b>out</b> <i></i>
+)
+</pre>
+<dd> Quits the <tt>node</tt> manager. All the
+  memory allocated it's freed.
+<p>
+
+<dd> <b>Side Effects</b> All the memory allocated by the <tt>node</tt>
+  manager are left to the operating system.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="node_subtract"></A>
+node_ptr <I></I>
+<B>node_subtract</B>(
+  node_ptr  <b>set1</b>, <i></i>
+  node_ptr  <b>set2</b> <i></i>
+)
+</pre>
+<dd> Deletes elements of list set1 from list set2
+  without doing side effect. The resulting list is returned.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="odd_elements"></A>
+node_ptr <I></I>
+<B>odd_elements</B>(
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Extracts odd elements of list L.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#even_elements">even_elements</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_array_type_rec"></A>
+static void <I></I>
+<B>print_array_type_rec</B>(
+  FILE* <b>out</b>, <i></i>
+  const node_ptr  <b>body</b> <i></i>
+)
+</pre>
+<dd> Private function of print_array_type
+<p>
+
+<dd> <b>See Also</b> <code><a href="#print_array_type">print_array_type</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePrint.c"TARGET="ABSTRACT"><CODE>nodePrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_array_type"></A>
+void <I></I>
+<B>print_array_type</B>(
+  FILE* <b>output_stream</b>, <i></i>
+  const node_ptr  <b>body</b> <i></i>
+)
+</pre>
+<dd> Print an ARRAY_TYPE structure in smv
+<p>
+
+<dd> <b>See Also</b> <code><a href="#print_sexp">print_sexp</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodePrint.c"TARGET="ABSTRACT"><CODE>nodePrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_node_indent_at"></A>
+int <I></I>
+<B>print_node_indent_at</B>(
+  FILE * <b>stream</b>, <i></i>
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>ofs</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula on a file (indenting), starting
+  at given offset.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_node_indent"></A>
+int <I></I>
+<B>print_node_indent</B>(
+  FILE * <b>stream</b>, <i></i>
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula on a file (indenting), starting
+  at column 0.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="print_node"></A>
+int <I></I>
+<B>print_node</B>(
+  FILE * <b>stream</b>, <i></i>
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula on a file
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="profile_info_cmp"></A>
+int <I></I>
+<B>profile_info_cmp</B>(
+  const void * <b>a</b>, <i></i>
+  const void * <b>b</b> <i></i>
+)
+</pre>
+<dd> Comparison function used for profiling
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="reverse_ns"></A>
+node_ptr <I></I>
+<B>reverse_ns</B>(
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Returns a reversed version of the given list.
+  The original list is NOT modified
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="reverse"></A>
+node_ptr <I></I>
+<B>reverse</B>(
+  node_ptr  <b>x</b> <i></i>
+)
+</pre>
+<dd> Returns a new sequence containing the same
+  elements as X but in reverse order.
+<p>
+
+<dd> <b>Side Effects</b> The orignial list is modified
+<p>
+
+<dd> <b>See Also</b> <code><a href="#last">last</a>
+<a href="#car">car</a>
+<a href="#cons">cons</a>
+<a href="#append">append</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="setcar"></A>
+void <I></I>
+<B>setcar</B>(
+  node_ptr  <b>x</b>, <i></i>
+  node_ptr  <b>y</b> <i></i>
+)
+</pre>
+<dd> Replaces the car of X with Y
+<p>
+
+<dd> <b>Side Effects</b> The car of X is replaced by Y.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cdr">cdr</a>
+<a href="#cons">cons</a>
+<a href="#setcdr">setcdr</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="setcdr"></A>
+void <I></I>
+<B>setcdr</B>(
+  node_ptr  <b>x</b>, <i></i>
+  node_ptr  <b>y</b> <i></i>
+)
+</pre>
+<dd> Replaces the cdr of X with Y
+<p>
+
+<dd> <b>Side Effects</b> The cdr of X is replaced by Y.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#car">car</a>
+<a href="#cdr">cdr</a>
+<a href="#cons">cons</a>
+<a href="#setcar">setcar</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="sprint_node_indent_at"></A>
+char* <I></I>
+<B>sprint_node_indent_at</B>(
+  node_ptr  <b>n</b>, <i></i>
+  int  <b>ofs</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula into a string (indenting),
+  starting at given offset. The returned string must be freed after
+  using it. Returns NULL in case of failure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="sprint_node_indent"></A>
+char* <I></I>
+<B>sprint_node_indent</B>(
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula into a string (indenting),
+  starting at column 0. The returned string must be freed after using
+  it. Returns NULL in case of failure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="sprint_node"></A>
+char* <I></I>
+<B>sprint_node</B>(
+  node_ptr  <b>n</b> <i></i>
+)
+</pre>
+<dd> Pretty print a formula into a string. The returned 
+  string must be freed after using it. Returns NULL in case of failure.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#nodeWffPrint.c"TARGET="ABSTRACT"><CODE>nodeWffPrint.c</CODE></A>
+
+<dt><pre>
+<A NAME="swap_nodes"></A>
+void <I></I>
+<B>swap_nodes</B>(
+  node_ptr * <b>n1</b>, <i></i>
+  node_ptr * <b>n2</b> <i></i>
+)
+</pre>
+<dd> Swaps two nodes.
+<p>
+
+<dd> <b>Side Effects</b> The two nodes are swapped.
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME="walk"></A>
+void <I></I>
+<B>walk</B>(
+  VPFN  <b>fun</b>, <i></i>
+  node_ptr  <b>l</b> <i></i>
+)
+</pre>
+<dd> Applies FUN to successive cars of LISTs.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#map">map</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Casts the given int to a node_ptr
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.h"TARGET="ABSTRACT"><CODE>node.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Casts the given node_ptr to an int
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.h"TARGET="ABSTRACT"><CODE>node.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Casts the given pointer to a node_ptr
+<p>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.h"TARGET="ABSTRACT"><CODE>node.h</CODE></A>
+
+<dt><pre>
+<A NAME=""></A>
+ <I></I>
+<B></B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Checks if node is in the cache, if it is the
+  case then the hashed value is returned, else a new one is created,
+  stored in the hash and returned.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#find_node">find_node</a>
+</code>
+
+<DD> <B>Defined in </B> <A HREF="nodeAllFile.html#node.c"TARGET="ABSTRACT"><CODE>node.c</CODE></A>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

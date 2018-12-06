@@ -1,0 +1,31 @@
+<html>
+<head><title>set_bdd_parameters</title></head>
+<body>
+
+<h3>set_bdd_parameters - Creates a table with the value of all currently active NuSMV flags and change accordingly the configurable parameters of the BDD package.</h3>
+<hr>
+<code>set_bdd_parameters [-h] [-s]</code><p>
+Applies the variables table of the NuSMV environnement
+  to the BDD package, so the user can set specific BDD parameters to the 
+  given value. This command works in conjunction with the 
+  <tt>print_bdd_stats</tt> and <tt>set</tt> commands.<p>
+
+  <tt>print_bdd_stats</tt> first prints a report of the parameters and
+  statistics of the current bdd_manager. By using the command <tt>set</tt>,
+  the user may modify the value of any of the parameters of the
+  underlying BDD package. The way to do it is by setting a value in
+  the variable <tt>BDD.parameter name</tt> where <tt>parameter
+  name</tt> is the name of the parameter exactly as printed by the
+  <tt>print_bdd_stats</tt> command.<p>
+
+  Command options:<p>
+
+  <dl>
+    <dt> -s
+       <dd> Prints the BDD parameter and statistics after the modification.
+
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>

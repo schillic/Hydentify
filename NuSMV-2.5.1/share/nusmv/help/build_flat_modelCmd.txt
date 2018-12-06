@@ -1,0 +1,12 @@
+  build_flat_model - Compiles the flattened hierarchy into SEXP
+
+   --------------------------------------------------------------------------
+
+   build_flat_model [-h]
+
+   Compiles the flattened hierarchy into SEXP (initial states, invariants,
+   and transition relation).
+
+   --------------------------------------------------------------------------
+
+   Last updated on 2010/10/01 19h:57

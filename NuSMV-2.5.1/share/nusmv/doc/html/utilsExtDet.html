@@ -1,0 +1,197 @@
+<HTML>
+<HEAD><TITLE>The utils package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="Utils_FreeListOfLists"></A>
+void <I></I>
+<B>Utils_FreeListOfLists</B>(
+  lsList  <b>list_of_lists</b> <i></i>
+)
+</pre>
+<dd> This function can be used to destroy lists of list. The
+  contained set of lists is removed from memory as the top level list.
+  More than two levels are not handled at the moment.
+<p>
+
+<dd> <b>Side Effects</b> Lists are deallocated
+<p>
+
+<dd> <b>See Also</b> <code><a href="#lsDestroy">lsDestroy</a>
+</code>
+
+<dt><pre>
+<A NAME="Utils_StripPathNoExtension"></A>
+void <I></I>
+<B>Utils_StripPathNoExtension</B>(
+  const char* <b>fpathname</b>, <i></i>
+  char* <b>filename</b> <i></i>
+)
+</pre>
+<dd> Example: given "~/.../test.smv", "test" will be returned.
+  filename must be a string whose length is large enought to contain the "pure"
+  filename
+<p>
+
+<dd> <b>Side Effects</b> the string pointed by 'filename' changes
+<p>
+
+<dt><pre>
+<A NAME="Utils_StripPathNoFilenameNoExtension"></A>
+void <I></I>
+<B>Utils_StripPathNoFilenameNoExtension</B>(
+  const char* <b>fpathname</b>, <i></i>
+  char* <b>dirname</b> <i></i>
+)
+</pre>
+<dd> dirname must be a string whose length is large enough to
+                      contain the directory part
+<p>
+
+<dd> <b>Side Effects</b> The string pointed to by 'dirname' changes
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Utils_StripPathNoExtension">Utils_StripPathNoExtension</a>
+<a href="#Utils_StripPath">Utils_StripPath</a>
+</code>
+
+<dt><pre>
+<A NAME="Utils_StripPath"></A>
+const char* <I></I>
+<B>Utils_StripPath</B>(
+  const char* <b>pathfname</b> <i></i>
+)
+</pre>
+<dd> Returns pathname without path prefix
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Utils_file_exists_in_directory"></A>
+boolean <I></I>
+<B>Utils_file_exists_in_directory</B>(
+  const char* <b>filename</b>, <i></i>
+  char* <b>directory</b> <i></i>
+)
+</pre>
+<dd> Checks for the existence of a file within a directory.
+<p>
+
+<dt><pre>
+<A NAME="Utils_file_exists_in_paths"></A>
+boolean <I></I>
+<B>Utils_file_exists_in_paths</B>(
+  const char* <b>filename</b>, <i></i>
+  const char* <b>paths</b>, <i></i>
+  const char* <b>delimiters</b> <i></i>
+)
+</pre>
+<dd> The list of directories (delimited by the charaters given)
+  are checked for the existence of the file.
+<p>
+
+<dt><pre>
+<A NAME="Utils_get_temp_filename_in_dir"></A>
+char* <I></I>
+<B>Utils_get_temp_filename_in_dir</B>(
+  const char* <b>dir</b>, <i></i>
+  const char* <b>templ</b> <i></i>
+)
+</pre>
+<dd> This functions gets a template parameter for the file
+  name, with 6 'X' that will be substituted by an unique id. See
+  mkstemp for further info. Ensures that the filename is not already
+  in use in the given directory. If NULL is passed as the directory,
+  then the standard temporary directory is used instead. Returned
+  string must be freed. Returtns NULL if the filename cannot be found
+  or if we do not have write priviledges in the specified directory.
+<p>
+
+<dt><pre>
+<A NAME="Utils_pkg_init"></A>
+void <I></I>
+<B>Utils_pkg_init</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> Initializes the utils package
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Utils_pkg_quit"></A>
+void <I></I>
+<B>Utils_pkg_quit</B>(
+   <b></b> <i></i>
+)
+</pre>
+<dd> De-initializes the utils package
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dt><pre>
+<A NAME="Utils_print_timer"></A>
+void <I></I>
+<B>Utils_print_timer</B>(
+  const char* <b>name</b>, <i></i>
+  const char* <b>msg</b> <i></i>
+)
+</pre>
+<dd> The timer must be already existing. msg can be NULL
+<p>
+
+<dt><pre>
+<A NAME="Utils_reset_timer"></A>
+void <I></I>
+<B>Utils_reset_timer</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> The timer must be already existing.
+<p>
+
+<dt><pre>
+<A NAME="Utils_start_timer"></A>
+void <I></I>
+<B>Utils_start_timer</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> If the timer does not exist, it will be created and
+  started. If already started an error occurs.
+<p>
+
+<dt><pre>
+<A NAME="Utils_stop_timer"></A>
+void <I></I>
+<B>Utils_stop_timer</B>(
+  const char* <b>name</b> <i></i>
+)
+</pre>
+<dd> The timer must be already existing and running.
+<p>
+
+<dt><pre>
+<A NAME="Utils_strcasecmp"></A>
+int <I></I>
+<B>Utils_strcasecmp</B>(
+  const char* <b>s1</b>, <i></i>
+  const char* <b>s2</b> <i></i>
+)
+</pre>
+<dd> Compares the two strings s1 and s2,
+  ignoring the case of the characters.
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

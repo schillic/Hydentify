@@ -1,0 +1,330 @@
+<HTML>
+<HEAD><TITLE>The dd package</TITLE></HEAD>
+<BODY>
+
+<DL>
+<dt><pre>
+<A NAME="dd_autodyn_disable"></A>
+void <I></I>
+<B>dd_autodyn_disable</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Disables automatic dynamic reordering of BDD and ADD.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_enable">dd_autodyn_enable</a>
+<a href="#dd_reordering_status">dd_reordering_status</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_autodyn_enable"></A>
+void <I></I>
+<B>dd_autodyn_enable</B>(
+  DdManager * <b>dd</b>, <i></i>
+  dd_reorderingtype  <b>method</b> <i></i>
+)
+</pre>
+<dd> Enables automatic dynamic reordering of BDDs and
+  ADDs. Parameter method is used to determine the method used for
+  reordering. If REORDER_SAME is passed, the method is
+  unchanged.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_disable">dd_autodyn_disable</a>
+<a href="#dd_reordering_status">dd_reordering_status</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_checkzeroref"></A>
+int <I></I>
+<B>dd_checkzeroref</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Checks the unique table for nodes with non-zero
+  reference counts. It is normally called before dd_quit to make sure
+  that there are no memory leaks due to missing add/bdd_free's.
+  Takes into account that reference counts may saturate and that the
+  basic constants and the projection functions are referenced by the
+  manager.  Returns the number of nodes with non-zero reference count.
+  (Except for the cases mentioned above.)
+<p>
+
+<dt><pre>
+<A NAME="dd_dump_davinci"></A>
+int <I></I>
+<B>dd_dump_davinci</B>(
+  DdManager * <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr * <b>f</b>, <i>array of output nodes to be dumped</i>
+  char ** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char ** <b>onames</b>, <i>array of output names (or NULL)</i>
+  FILE * <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a daVnci file representing the argument
+  DDs. For a better description see the "Cudd_DumpDaVinci" documentation
+  in the CUDD package.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_dump_davinci">dd_dump_davinci</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_dump_dot"></A>
+int <I></I>
+<B>dd_dump_dot</B>(
+  DdManager * <b>dd</b>, <i>manager</i>
+  int  <b>n</b>, <i>number of output nodes to be dumped</i>
+  bdd_ptr * <b>f</b>, <i>array of output nodes to be dumped</i>
+  char ** <b>inames</b>, <i>array of input names (or NULL)</i>
+  char ** <b>onames</b>, <i>array of output names (or NULL)</i>
+  FILE * <b>fp</b> <i>pointer to the dump file</i>
+)
+</pre>
+<dd> Writes a dot file representing the argument
+  DDs. For a better description see the "Cudd_DumpDot" documentation
+  in the CUDD package.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_dump_davinci">dd_dump_davinci</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_free_var_block"></A>
+int <I></I>
+<B>dd_free_var_block</B>(
+  DdManager* <b>dd</b>, <i></i>
+  dd_block* <b>group</b> <i></i>
+)
+</pre>
+<dd> Dissolves a group previously created by
+  dd_new_var_block.  Returns 0 if the group was actually removed, 1
+  otherwise (that may be not due to an error)
+<p>
+
+<dd> <b>Side Effects</b> Modifies the variable tree.
+<p>
+
+<dt><pre>
+<A NAME="dd_get_index_at_level"></A>
+int <I></I>
+<B>dd_get_index_at_level</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>level</b> <i></i>
+)
+</pre>
+<dd> Returns the index of the variable currently in the i-th
+  position of the order. If the index is MAX_VAR_INDEX, returns
+  MAX_VAR_INDEX; otherwise, if the index is out of bounds fails.
+<p>
+
+<dt><pre>
+<A NAME="dd_get_level_at_index"></A>
+int <I></I>
+<B>dd_get_level_at_index</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>index</b> <i></i>
+)
+</pre>
+<dd> Returns the current position of the i-th variable in the
+  order. If the index is CUDD_MAXINDEX, returns CUDD_MAXINDEX; otherwise,
+  if the index is out of bounds returns -1.
+<p>
+
+<dd> <b>Side Effects</b> None
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_ReadInvPerm">Cudd_ReadInvPerm</a>
+<a href="#Cudd_ReadPermZdd">Cudd_ReadPermZdd</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_get_ordering_method"></A>
+dd_reorderingtype <I></I>
+<B>dd_get_ordering_method</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the internal reordering method used.
+<p>
+
+<dt><pre>
+<A NAME="dd_get_reorderings"></A>
+int <I></I>
+<B>dd_get_reorderings</B>(
+  DdManager* <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the number of times reordering has occurred in
+  the manager. The number includes both the calls to Cudd_ReduceHeap
+  from the application program and those automatically performed by
+  the package. However, calls that do not even initiate reordering are
+  not counted. A call may not initiate reordering if there are fewer
+  than minsize live nodes in the manager, or if CUDD_REORDER_NONE is
+  specified as reordering method. The calls to Cudd_ShuffleHeap are
+  not counted.
+<p>
+
+<dt><pre>
+<A NAME="dd_get_size"></A>
+int <I></I>
+<B>dd_get_size</B>(
+  DdManager * <b>dd</b> <i></i>
+)
+</pre>
+<dd> Returns the number of BDD variables in existance.
+<p>
+
+<dt><pre>
+<A NAME="dd_new_var_block"></A>
+dd_block * <I></I>
+<B>dd_new_var_block</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>start_index</b>, <i></i>
+  int  <b>offset</b> <i></i>
+)
+</pre>
+<dd> Builds a group of variables that should stay adjacent
+  during reordering. The group is made up of n variables. The first
+  variable in the group is f. The other variables are the n-1
+  variables following f in the order at the time of invocation of this
+  function. Returns a handle to the variable group if successful else fail.
+<p>
+
+<dd> <b>Side Effects</b> Modifies the variable tree.
+<p>
+
+<dt><pre>
+<A NAME="dd_print_stats"></A>
+void <I></I>
+<B>dd_print_stats</B>(
+  DdManager * <b>mgr</b>, <i></i>
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> Prints out statistics and settings for a CUDD manager.
+<p>
+
+<dt><pre>
+<A NAME="dd_printminterm"></A>
+int <I></I>
+<B>dd_printminterm</B>(
+  DdManager * <b>manager</b>, <i></i>
+  DdNode * <b>node</b> <i></i>
+)
+</pre>
+<dd> Prints a disjoint sum of product cover for the function
+  rooted at node. Each product corresponds to a path from node a leaf
+  node different from the logical zero, and different from the
+  background value. Uses the standard output.  Returns 1 if successful;
+  0 otherwise.
+<p>
+
+<dt><pre>
+<A NAME="dd_reordering_status"></A>
+int <I></I>
+<B>dd_reordering_status</B>(
+  DdManager * <b>dd</b>, <i></i>
+  dd_reorderingtype * <b>method</b> <i></i>
+)
+</pre>
+<dd> Reports the status of automatic dynamic reordering of
+  BDDs and ADDs. Parameter method is set to the reordering method
+  currently selected. Returns 1 if automatic reordering is enabled; 0
+  otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Parameter method is set to the reordering method currently
+  selected.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#dd_autodyn_disable">dd_autodyn_disable</a>
+<a href="#dd_autodyn_enable">dd_autodyn_enable</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_reorder"></A>
+int <I></I>
+<B>dd_reorder</B>(
+  DdManager * <b>dd</b>, <i></i>
+  int  <b>method</b>, <i></i>
+  int  <b>minsize</b> <i></i>
+)
+</pre>
+<dd> Main dynamic reordering routine.
+  Calls one of the possible reordering procedures:
+  <ul>
+  <li>Swapping
+  <li>Sifting
+  <li>Symmetric Sifting
+  <li>Group Sifting
+  <li>Window Permutation
+  <li>Simulated Annealing
+  <li>Genetic Algorithm
+  <li>Dynamic Programming (exact)
+  </ul>
+
+  For sifting, symmetric sifting, group sifting, and window
+  permutation it is possible to request reordering to convergence.<p>
+
+  Returns 1 in case of success; 0 otherwise. In the case of symmetric
+  sifting (with and without convergence) returns 1 plus the number of
+  symmetric variables, in case of success.<p>
+
+  This functions takes as arguments:
+  <ul>
+  <li> <tt>dd</tt> the DD manager;
+  <li> <tt>heuristics</tt> method used for reordering;
+  <li> <tt>minsize</tt> bound below which no reordering occurs;
+  </ul>
+<p>
+
+<dd> <b>Side Effects</b> Changes the variable order for all diagrams and clears
+  the cache.
+<p>
+
+<dd> <b>See Also</b> <code><a href="#Cudd_ReduceHeap">Cudd_ReduceHeap</a>
+</code>
+
+<dt><pre>
+<A NAME="dd_set_order"></A>
+int <I></I>
+<B>dd_set_order</B>(
+  DdManager* <b>dd</b>, <i></i>
+  int* <b>permutation</b> <i></i>
+)
+</pre>
+<dd> Reorders variables according to given permutation.
+  The i-th entry of the permutation array contains the index of the variable
+  that should be brought to the i-th level.  The size of the array should be
+  equal or greater to the number of variables currently in use.
+  Returns 1 in case of success; 0 otherwise.
+<p>
+
+<dd> <b>Side Effects</b> Changes the variable order for all diagrams and clears
+  the cache.
+<p>
+
+<dt><pre>
+<A NAME="dd_set_parameters"></A>
+int <I></I>
+<B>dd_set_parameters</B>(
+  DdManager * <b>mgr</b>, <i></i>
+  avl_tree * <b>valueTable</b>, <i></i>
+  FILE * <b>file</b> <i></i>
+)
+</pre>
+<dd> The CUDD package has a set of parameters that can be assigned
+  different values. This function receives a table which maps strings to
+  values and sets the parameters represented by the strings to the pertinent
+  values. Some basic type checking is done. It returns 1 if everything is
+  correct and 0 otherwise.
+<p>
+
+
+</DL>
+<HR>
+Last updated on 2010/10/01 19h:57
+</BODY></HTML>

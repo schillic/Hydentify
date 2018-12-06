@@ -1,0 +1,30 @@
+<html>
+<head><title>bmc_inc_simulate</title></head>
+<body>
+
+<h3>bmc_inc_simulate - Incrementally generates a trace of the model performing a given number of steps.</h3>
+<hr>
+<code>bmc_inc_simulate [-h | [-v [-d]] -k <length>] | [-c "constraint"]</code><p>
+bmc_inc_simulate performs incremental simulation
+  of the model. If no length is specified with <i>-k</i> command
+  parameter, then the number of steps of simulation to perform is
+  taken from the value stored in the environment variable
+  <i>bmc_length</i>.<BR>
+
+  Command options:<p>
+  <dl>
+    <dt> <tt>-v </tt>
+      <dd>Prints out the generated trace.
+    <dt> <tt>-d</tt>
+      <dd>Disables defines printing.
+    <dt> <tt>-c <i>"constraint>"</i> </tt>
+    <dd> Restricts the simulation to transitions satisfying the
+    constraint. Constraint can be an expression over current, input
+    and next variables.
+    <dt> <tt>-k <i>length</i></tt>
+      <dd> <i>length</i> is the number of simulation steps.
+  </dl>
+
+<HR>
+Last updated on 2010/10/01 19h:57
+</body></html>
