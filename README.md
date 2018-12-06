@@ -7,7 +7,10 @@ The approach was presented in the paper [*Abstraction-Based Parameter Synthesis 
 
 You need to have Matlab, PPL, and GMP installed.
 
-## Install SpaceEx/MPT/Matlab BGL:
+## Install SpaceEx:
+Just extract the file `Hydentify/spaceex.zip.001` to the same folder.
+
+## Install MPT/Matlab BGL:
 Not necessary, we deploy the files in the archive.
 
 ## Install NuSMV:
