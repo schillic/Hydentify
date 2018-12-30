@@ -1,4 +1,4 @@
-Hydentify is a tool for parameter identification of systems with multiaffine dynamics.
+Hydentify is a tool for parameter identification in multiaffine dynamical systems.
 Hydentify extends the approach implemented in [RoVerGeNe](http://sites.bu.edu/hyness/rovergene/) by using a more precise abstraction (to a hybrid system instead of a discrete system).
 
 The approach was presented in the paper [*Abstraction-Based Parameter Synthesis for Multiaffine Systems*](https://doi.org/10.1007/978-3-319-26287-1_2) at Haifa Verification Conference (HVC) 2015.
